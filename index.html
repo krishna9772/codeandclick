@@ -1,85 +1,57 @@
 <!DOCTYPE html>
 <html lang="en-US" class="no-js">
   <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="MobileOptimized" content="320" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <!-- Primary Meta Tags -->
-    <title>
-      Code And Click – Home - Full-Service Digital Marketing & Web Development
-      Agency
-    </title>
-    <meta
-      name="description"
-      content="Code And Click delivers cutting-edge digital marketing, Code And Click Home page, custom web development, and high-impact production services to help businesses grow online."
-    />
-
+    <title>Code And Click – Home - Full-Service Digital Marketing & Web Development Agency</title>
+    <meta name="description" content="Code And Click delivers cutting-edge digital marketing, Code And Click Home page, custom web development, and high-impact production services to help businesses grow online.">
+    
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://codeandclick.com/" />
-    <meta
-      property="og:title"
-      content="Code And Click – Full-Service Digital Marketing & Web Development Agency"
-    />
-    <meta
-      property="og:description"
-      content="We build, optimize, and scale your brand's digital presence with coding, marketing, and production solutions."
-    />
-    <meta
-      property="og:image"
-      content="https://codeandclick.com/images/social-preview.jpg"
-    />
-
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://codeandclick.com/">
+    <meta property="og:title" content="Code And Click – Full-Service Digital Marketing & Web Development Agency">
+    <meta property="og:description" content="We build, optimize, and scale your brand's digital presence with coding, marketing, and production solutions.">
+    <meta property="og:image" content="https://codeandclick.com/images/social-preview.jpg">
+    
     <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://codeandclick.com/" />
-    <meta
-      name="twitter:title"
-      content="Code And Click – Full-Service Digital Marketing & Web Development Agency"
-    />
-    <meta
-      name="twitter:description"
-      content="Custom web development, digital marketing, and creative production services for modern businesses."
-    />
-    <meta
-      name="twitter:image"
-      content="https://codeandclick.com/images/social-preview.jpg"
-    />
-
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://codeandclick.com/">
+    <meta name="twitter:title" content="Code And Click – Full-Service Digital Marketing & Web Development Agency">
+    <meta name="twitter:description" content="Custom web development, digital marketing, and creative production services for modern businesses.">
+    <meta name="twitter:image" content="https://codeandclick.com/images/social-preview.jpg">
+    
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="assets/images/favicon.png" />
-
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    
     <!-- CSS -->
-    <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/home.css" />
-
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/home.css">
+    
     <!-- Preload Critical Resources -->
-    <link rel="preload" href="css/main.css" as="style" />
-
+    <link rel="preload" href="css/main.css" as="style">
+    
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://codeandclick.com/" />
+    <link rel="canonical" href="https://codeandclick.com/">
 
     <script>
-      document.addEventListener("DOMContentLoaded", () => {
         Promise.all([
-          fetch("/partials/_header.html").then((res) => res.text()),
-          fetch("/partials/_footer.html").then((res) => res.text()),
+            fetch('partials/_header.html').then(res => res.text()),
+            fetch('partials/_footer.html').then(res => res.text())
         ])
-          .then(([headerHtml, footerHtml]) => {
-            const nav = document.getElementById("navigation-container");
-            const foot = document.getElementById("footer-container");
-            if (nav) nav.innerHTML = headerHtml;
-            if (foot) foot.innerHTML = footerHtml;
-          })
-          .catch((error) => {
+        .then(([headerHtml, footerHtml]) => {
+            document.getElementById('navigation-container').innerHTML = headerHtml;
+            document.getElementById('footer-container').innerHTML = footerHtml;
+        })
+        .catch(error => {
             console.error("Error loading components:", error);
-          });
-      });
+        });
     </script>
-  </head>
+</head>
 
   <body
     class="home wp-singular page-template page-template-page-home page-template-page-home-php page page-id-5433 wp-theme-ignite no-smooth-scroll"
@@ -89,7 +61,10 @@
     <!-- Elements moved here for fixed positions, had to remove smooth scroll so was no longer working inside there containers -->
     <div class="home-video-container">
       <video id="home-video" loop autoplay muted playsinline webkit-playsinline>
-        <source src="assets/videos/home.mp4" type="video/mp4" />
+        <source
+          src="assets/videos/home.mp4"
+          type="video/mp4"
+        />
       </video>
     </div>
 
@@ -102,7 +77,10 @@
         src="https://ignitecreates.com/wp-content/themes/ignite/library/images/icons/close-white.svg"
       />
       <video id="showreel-video" loop playsinline webkit-playsinline>
-        <source src="assets/videos/home.mp4" type="video/mp4" />
+        <source
+          src="assets/videos/home.mp4"
+          type="video/mp4"
+        />
       </video>
     </div>
 
@@ -137,9 +115,7 @@
                       src="https://ignitecreates.com/wp-content/uploads/2020/08/IHA@2x.png"
                     /> -->
                     <img
-                      alt="hotel award"
-                      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII="
-                    />
+                      alt="hotel award" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII=" />
 
                     <p class="small">Lorem ipsum</p>
                   </div>
@@ -156,7 +132,11 @@
                       at its layout. The point of using Lorem Ipsum is that it
                       has a more-or-less.
                     </p>
-                    <a href="#" target="" class="c__button-circle light">
+                    <a
+                      href="#"
+                      target=""
+                      class="c__button-circle light"
+                    >
                       <span>Our Work</span>
                       <div class="c__button-circle--arrow">
                         <img
@@ -178,16 +158,17 @@
                 <div class="m__slider-panel clickable-block" id="one">
                   <div
                     class="m__slider-panel--bg-image"
-                    style="background-image: url(assets/images/default.png)"
+                    style="
+                      background-image: url(assets/images/default.png);
+                    "
                   ></div>
                   <div class="overlay"></div>
                   <div class="container">
                     <div class="m__slider-panel--content">
-                      <img
-                        alt="Big Image"
-                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII="
-                      />
+                     <img
+                      alt="Big Image" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII=" />
 
+                      
                       <h2>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                         sed do
@@ -205,6 +186,7 @@
                           alt="right arrow"
                           src="https://ignitecreates.com/wp-content/themes/ignite/library/images/icons/right-arrow.svg"
                         />
+                        
                       </div>
                     </a>
                   </div>
@@ -212,7 +194,9 @@
                 <div class="m__slider-panel clickable-block" id="two">
                   <div
                     class="m__slider-panel--bg-image"
-                    style="background-image: url(assets/images/default.png)"
+                    style="
+                      background-image: url(assets/images/default.png);
+                    "
                   ></div>
 
                   <div class="overlay"></div>
@@ -245,7 +229,9 @@
                 <div class="m__slider-panel clickable-block" id="three">
                   <div
                     class="m__slider-panel--bg-image"
-                    style="background-image: url(assets/images/default.png)"
+                    style="
+                      background-image: url(assets/images/default.png);
+                    "
                   ></div>
 
                   <div class="overlay"></div>
@@ -285,82 +271,52 @@
                     <div class="row">
                       <div class="col-xs-6 col-sm-3 tile">
                         <div class="m__work-with--tile">
-                          <img
-                            alt=""
-                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII="
-                          />
+                          <img alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII=" />
                         </div>
                       </div>
                       <div class="col-xs-6 col-sm-3 tile">
                         <div class="m__work-with--tile">
-                          <img
-                            alt=""
-                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII="
-                          />
+                          <img alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII=" />
                         </div>
                       </div>
                       <div class="col-xs-6 col-sm-3 tile">
                         <div class="m__work-with--tile">
-                          <img
-                            alt=""
-                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII="
-                          />
+                          <img alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII=" />
                         </div>
                       </div>
                       <div class="col-xs-6 col-sm-3 tile">
                         <div class="m__work-with--tile">
-                          <img
-                            alt=""
-                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII="
-                          />
+                          <img alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII=" />
                         </div>
                       </div>
                       <div class="col-xs-6 col-sm-3 tile">
                         <div class="m__work-with--tile">
-                          <img
-                            alt=""
-                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII="
-                          />
+                          <img alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII=" />
                         </div>
                       </div>
                       <div class="col-xs-6 col-sm-3 tile">
                         <div class="m__work-with--tile">
-                          <img
-                            alt=""
-                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII="
-                          />
+                          <img alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII=" />
                         </div>
                       </div>
                       <div class="col-xs-6 col-sm-3 tile">
                         <div class="m__work-with--tile">
-                          <img
-                            alt=""
-                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII="
-                          />
+                          <img alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII=" />
                         </div>
                       </div>
                       <div class="col-xs-6 col-sm-3 tile">
                         <div class="m__work-with--tile">
-                          <img
-                            alt=""
-                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII="
-                          />
+                          <img alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII=" />
                         </div>
                       </div>
                       <div class="col-xs-6 col-sm-3 tile">
                         <div class="m__work-with--tile">
-                          <img
-                            alt=""
-                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII="
-                          />
+                          <img alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII=" />
                         </div>
                       </div>
                       <div class="col-xs-6 col-sm-3 tile">
                         <div class="m__work-with--tile">
-                          <img
-                            alt=""
-                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII="
-                          />
+                          <img alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII=" />
                         </div>
                       </div>
                     </div>
@@ -420,13 +376,19 @@
                 <div class="m__testimonials--bg-image">
                   <div class="owl-carousel">
                     <div
-                      style="background-image: url('assets/images/default.png')"
+                      style="
+                        background-image: url('assets/images/default.png');
+                      "
                     ></div>
                     <div
-                      style="background-image: url('assets/images/default.png')"
+                      style="
+                        background-image: url('assets/images/default.png');
+                      "
                     ></div>
                     <div
-                      style="background-image: url('assets/images/default.png')"
+                      style="
+                        background-image: url('assets/images/default.png');
+                      "
                     ></div>
                   </div>
                 </div>
@@ -496,31 +458,55 @@
                   </div>
                   <div class="col-xs-12 col-md-9 col-lg-7 m__services--list">
                     <ul>
-                      <li data-bg="assets/images/default.png">
-                        <a href="#" class="xlarge">Project 1 </a>
+                      <li
+                        data-bg="assets/images/default.png"
+                      >
+                        <a href="#" class="xlarge"
+                          >Project 1
+                        </a>
                       </li>
-                      <li data-bg="assets/images/default.png">
+                      <li
+                        data-bg="assets/images/default.png"
+                      >
                         <a href="#" class="xlarge"> Project 2 </a>
                       </li>
-                      <li data-bg="assets/images/default.png">
+                      <li
+                        data-bg="assets/images/default.png"
+                      >
                         <a href="#" class="xlarge"> Project 3 </a>
                       </li>
-                      <li data-bg="assets/images/default.png">
+                      <li
+                        data-bg="assets/images/default.png"
+                      >
                         <a href="#" class="xlarge"> Project 4 </a>
                       </li>
-                      <li data-bg="assets/images/default.png">
+                      <li
+                        data-bg="assets/images/default.png"
+                      >
                         <a href="#" class="xlarge"> Project 5 </a>
                       </li>
-                      <li data-bg="assets/images/default.png">
-                        <a href="#" class="xlarge"> Project 6 </a>
+                      <li
+                        data-bg="assets/images/default.png"
+                      >
+                        <a href="#" class="xlarge"
+                          > Project 6
+                        </a>
                       </li>
-                      <li data-bg="assets/images/default.png">
+                      <li
+                        data-bg="assets/images/default.png"
+                      >
                         <a href="#" class="xlarge"> Project 7 </a>
                       </li>
-                      <li data-bg="assets/images/default.png">
-                        <a href="#" class="xlarge"> Project 8 </a>
+                      <li
+                        data-bg="assets/images/default.png"
+                      >
+                        <a href="#" class="xlarge"
+                          > Project 8
+                        </a>
                       </li>
-                      <li data-bg="assets/images/default.png">
+                      <li
+                        data-bg="assets/images/default.png"
+                      >
                         <a href="#" class="xlarge"> Project 9 </a>
                       </li>
                     </ul>
@@ -553,6 +539,7 @@
     <input type="hidden" id="data_location" value="" />
 
     <div id="footer-container"></div>
+
 
     <!-- <div class="popup-overlay">
       
@@ -602,7 +589,7 @@
       </div>
 
     </div> -->
-
+    
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.13/dayjs.min.js"
       integrity="sha512-FwNWaxyfy2XlEINoSnZh1JQ5TRRtGow0D6XcmAWmYCRgvqOUTnzCxPc9uF35u5ZEpirk1uhlPVA19tflhvnW1g=="
@@ -615,7 +602,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <!-- <script>
+    <script>
       document.addEventListener("DOMContentLoaded", function () {
         const popup = document.querySelector(".sp-popup");
         const closeBtn = document.querySelector(".sp-popup-content-close");
@@ -644,12 +631,8 @@
           return;
         }
       });
-    </script> -->
+    </script>
   </body>
 </html>
 
-<!-- <img
-  alt="Ignite 20th Anniversary Logo Animated"
-  src="https://ignitecreates.com/wp-content/themes/ignite/library/images/icons/ignite-20th-logo.gif"
-  style="width: 70px"
-/> -->
+<!-- <img alt="Ignite 20th Anniversary Logo Animated" src="https://ignitecreates.com/wp-content/themes/ignite/library/images/icons/ignite-20th-logo.gif" style="width: 70px;" /> -->
