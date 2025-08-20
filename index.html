@@ -37,7 +37,7 @@
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://codeandclick.com/">
-
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script>
         Promise.all([
             fetch('partials/_header.html').then(res => res.text()),
@@ -46,6 +46,8 @@
         .then(([headerHtml, footerHtml]) => {
             document.getElementById('navigation-container').innerHTML = headerHtml;
             document.getElementById('footer-container').innerHTML = footerHtml;
+            console.log("Hello");
+            console.log(headerHtml,footerHtml);
         })
         .catch(error => {
             console.error("Error loading components:", error);
