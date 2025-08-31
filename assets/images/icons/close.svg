@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56">
+  <g id="Nav_Icon" data-name="Nav Icon" transform="translate(1 1)">
+    <circle id="Oval" cx="27" cy="27" r="27" fill="none" stroke="#dfdde0" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2"/>
+    <g id="Group_607" data-name="Group 607" transform="translate(27 11.726) rotate(45)">
+      <path id="Line" d="M0,0H21.6" transform="translate(0 10.8)" fill="none" stroke="#0e0a15" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2"/>
+      <path id="Line-2" data-name="Line" d="M0,0H21.6" transform="translate(10.8) rotate(90)" fill="none" stroke="#0e0a15" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2"/>
+    </g>
+  </g>
+</svg>
