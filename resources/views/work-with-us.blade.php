@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en-US" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Code And Click – Work with us - Full-Service Digital Marketing & Web Development Agency</title>
+    <meta name="description" content="Code And Click delivers cutting-edge digital marketing, Code And Click Company Work With Us, custom web development, and high-impact production services to help businesses grow online.">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://codeandclick.com/">
+    <meta property="og:title" content="Code And Click – Full-Service Digital Marketing & Web Development Agency">
+    <meta property="og:description" content="We build, optimize, and scale your brand's digital presence with coding, marketing, and production solutions.">
+    <meta property="og:image" content="https://codeandclick.com/images/social-preview.jpg">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://codeandclick.com/">
+    <meta name="twitter:title" content="Code And Click – Full-Service Digital Marketing & Web Development Agency">
+    <meta name="twitter:description" content="Custom web development, digital marketing, and creative production services for modern businesses.">
+    <meta name="twitter:image" content="https://codeandclick.com/images/social-preview.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="{{ asset('css/main.css') }}" as="style">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://codeandclick.com/">
+
+</head>
+
+  <body
+    class="home wp-singular page-template page-template-page-home page-template-page-home-php page page-id-5433 wp-theme-ignite no-smooth-scroll"
+  >
+    <div style="display: none">bool(false) bool(false) NULL</div>
+
+    <!-- <div class="c__page-transition">
+      <div id="ignite-logo-animate"></div>
+    </div> -->
+
+    <div class="c__logo">
+      <a href="/">
+        <img
+          src="{{ asset('images/logo.png') }}"
+          style="width: 50px; height: 50px"
+          alt=""
+        />
+        <!-- <div id="ignite-header-logo-animate"></div> -->
+      </a>
+    </div>
+
+    <header>
+      <div class="c__header-buttons show">
+        <ul class="c__language-switcher lang-3">
+          <li>
+            <a lang="en-GB" hreflang="en-GB" href="/" class="no-barba">MM</a>
+          </li>
+          <li>
+            <a lang="en-US" hreflang="en-US" href="/" class="no-barba current"
+              >EN</a
+            >
+          </li>
+         
+        </ul>
+
+        <div class="c__menu-toggle">
+          <div class="c__menu-toggle--lines">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+      <div class="c__header-buttons--v2">
+        <div class="c__button-filled">
+          <!-- <a href="/contact">Get in Touch</a>
+            <div class="vertical-line"></div> -->
+          <div class="c__menu-toggle">
+            <div class="c__menu-toggle--lines">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="c__navigation">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 contact">
+            <h5 class="large">Contact</h5>
+
+            <div class="c__navigation--contact-switcher">
+              <h4 id="one" class="switch small active">Myanmar</h4>
+              <h4 id="two" class="switch small">Thailand</h4>
+              <div
+                class="c__navigation--contact-switcher--info switcher active"
+                id="contact-one"
+              >
+                <a href="tel:+44 (0)93 3939 3939" class="small"
+                  >+95 948394839</a
+                >
+                <a href="mailto:hello@codenclickmm.com" class="small"
+                  >myanmar@codenclickmm.com</a
+                >
+              </div>
+              <div
+                class="c__navigation--contact-switcher--info switcher"
+                id="contact-two"
+              >
+                <a href="tel:490394938" class="small">+66 4072128616</a>
+                <a href="mailto:hello@codenclickmm.com" class="small"
+                  >hello@codenclickmm.com</a
+                >
+              </div>
+              <div
+                class="c__navigation--contact-switcher--info switcher"
+                id="contact-three"
+              >
+                <a href="tel:+39 371 453 4518" class="small"
+                  >+39 371 453 4518</a
+                >
+                <a href="mailto:ciao@codenclickmm.com" class="small"
+                  >ciao@codenclickmm.com</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12 col-lg-9 nav">
+            <div class="menu-main-menu-container">
+              <ul id="menu-main-menu" class="menu">
+                <li
+                  id="menu-item-20"
+                  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20"
+                >
+                  <a href="our-works">Our Work</a>
+                </li>
+                <li
+                  id="menu-item-16"
+                  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-16"
+                >
+                  <a href="technology">Technology</a>
+                </li>
+                <li
+                  id="menu-item-19"
+                  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-19"
+                >
+                  <a href="services">What We Do</a>
+                </li>
+                <li
+                  id="menu-item-15"
+                  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15"
+                >
+                  <a href="blog">Blog</a>
+                </li>
+                <li
+                  id="menu-item-4256"
+                  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4256"
+                >
+                  <a href="work-with-us">Working with us</a>
+                </li>
+                <li
+                  id="menu-item-14"
+                  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14"
+                >
+                  <a href="contact">Contact</a>
+                </li>
+                <li
+                  id="menu-item-17"
+                  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-17"
+                >
+                  <a href="ventures">Ventures</a>
+                </li>
+                <li
+                  id="menu-item-5156"
+                  class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5156"
+                >
+                  <a href="careers">Careers</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-12">
+            <div class="c__navigation--social-links">
+              <a target="_blank" href="https://www.facebook.com/codenclickmm">
+                <img
+                  alt="facebook url"
+                  src="{{ asset('images/icons/facebook.svg') }}"
+                />
+              </a>
+              <a
+                target="_blank"
+                href="https://www.instagram.com/codenclickmm/"
+              >
+                <img
+                  alt="instagram url"
+                  src="{{ asset('images/icons/instragram.svg') }}"
+                />
+              </a>
+              <a target="_blank" href="https://twitter.com/codenclickmm">
+                <img
+                  alt="twitter url"
+                  src="{{ asset('images/icons/twiiter.svg') }}"
+                />
+              </a>
+              <a
+                target="_blank"
+                href="https://www.linkedin.com/company/codenclickmm"
+              >
+                <img
+                  alt="linkedin url"
+                  src="{{ asset('images/icons/linkedin.svg') }}"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Elements moved here for fixed positions, had to remove smooth scroll so was no longer working inside there containers -->
+    <div class="home-video-container">
+      <video id="home-video" loop autoplay muted playsinline webkit-playsinline>
+        <source
+          src="{{ asset('videos/home.mp4') }}"
+          type="video/mp4"
+        />
+      </video>
+    </div>
+
+    <!-- <div class="showreel-video-overlay"></div> -->
+
+    <div class="showreel-video-container">
+      <img alt="close video" class="close-video" src="assets/images/icons/close-white.svg" />
+      <video id="showreel-video" loop playsinline webkit-playsinline>
+        <source src="{{ asset('videos/home.mp4') }}" type="video/mp4">
+      </video>
+    </div>
+
+    <div class="case-study-video-container"></div>
+    <div class="working-with-us-scroll-image"></div>
+    <div class="individual-service-scroll-image"></div>
+    <!-- End of fixed elements -->
+
+    <div id="viewport">
+      <div id="scroll-container" class="scroll-container">
+        <div id="barba-wrapper">
+          <div class="barba-container">
+
+
+
+<section class="l__working-with-us">
+  <div class="container">
+    <h1 class="small"> Lorem Ipsum has been?</h1>
+    <div class="anchor-link-container">
+      <div class="anchor-link active" id="m__intro-experience">
+        <span>01</span>
+                  <p> when an unknown</p>
+              </div>
+      <div class="anchor-link" id="m__advantage-scroll--title">
+        <span>02</span>
+                  <p> Lorem Ipsum has </p>
+            
+      </div>
+      <div class="anchor-link" id="m__solution">
+        <span>03</span>
+                  <p> Lorem Ipsum has</p>
+         
+      </div>
+      <div class="anchor-link" id="m__global-reach">
+        <span>04</span>
+                  <p> Lorem Ipsum has </p>
+         
+      </div>
+      <div class="anchor-link" id="m__beliefs">
+        <span>05</span>
+                  <p> Lorem Ipsum has been</p>
+         
+      </div>
+      <div class="anchor-link" id="m__clients">
+        <span>06</span>
+                  <p> Lorem Ipsum has been </p>
+         
+      </div>
+    </div>
+  </div>
+  <div class="hero-image" style="background-image:url(assets/images/default.png)"></div>
+</section>
+
+<section class="m__intro-experience">
+  <div class="container">
+    <div class="section-number">
+      <span>01</span>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-md-6 m__intro-experience--title">
+        <h3> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer</h3>
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <div class="m__intro-experience--tile">
+          <h1>20</h1>
+                      <h3>Years <span>in the making</span></h3>
+                  </div>
+      </div>
+      <div class="col-xs-12 col-md-6 m__intro-experience--content-left">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vivamus porta congue mauris, at placerat lectus; facilisi phasellus nunc fermentum posuere consequat.</p>
+      </div>
+      <div class="col-xs-12 col-md-6 m__intro-experience--content-right">
+        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat, cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="m__advantage-scroll--title">
+  <div class="container">
+    <div class="title-container">
+      <div class="section-number">
+        <span>02</span>
+      </div>
+      <h2 class="small">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</h2>
+    </div>
+  </div>
+</section>
+
+<section class="m__advantage-scroll">
+  <div class="row">
+    <div class="col-md-6 left">
+      <div class="m__advantage-scroll--bg-image" style="background-image: url(assets/images/default.png)"></div>
+    </div> 
+    <div class="col-xs-12 col-md-6 m__advantage-scroll--content">
+        <div class="m__advantage-scroll--content--item">
+          <h4 class="large">A cohort of experts</h4>
+          <p>Curabitur non risus sed orci aliquet efficitur. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas; efficitur integer euismod sapien at malesuada sem pharetra.</p>
+        </div>
+                    <div class="m__advantage-scroll--content--item">
+          <h4 class="large">Rise above the ordinary</h4>
+          <p>Maecenas tempor ligula at sapien dignissim, elementum congue magna dictum. Proin non urna id purus posuere aliquet in varius arcu, donec posuere mi sed augue volutpat bibendum.</p>
+        </div>
+        <div class="m__advantage-scroll--content--item">
+          <h4 class="large">A decisive edge</h4>
+          <p>Phasellus iaculis augue a nibh congue, a tincidunt libero sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.</p>
+        </div>
+    </div>
+  </div>
+</section>
+
+<section class="m__solution">
+  <div class="container">
+    <div class="title-container">
+      <div class="section-number">
+        <span>03</span>
+      </div>
+      <h2 class="small">Lorem Ipsum has been the industry's standard dummy text.</h2>
+    </div>
+    <div class="m__solution--circle-diagram">
+      <div class="circle">
+                  <p>Data</p>
+              </div>
+      <div class="circle">
+                  <p>Insight</p>
+              </div>
+      <div class="circle">
+                  <p>Strategy</p>
+              </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-md-6 m__solution--content-left">
+        <h4 class="medium">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, at varius vel pharetra vel turpis nunc eget lorem dolor.</h4> 
+      </div>
+      <div class="col-xs-12 col-md-6 m__solution--content-right">
+        <p>Nulla facilisi; sed pretium lectus in magna sodales, non dapibus enim feugiat, posuere eros morbi non lacinia ligula aenean accumsan.<br />
+<br />
+Fusce aliquet, lorem a faucibus posuere, sapien purus laoreet nisl, vitae gravida arcu tortor non urna. Integer gravida pulvinar sem.</p>
+      </div>
+    </div>    
+  </div>
+</section>
+
+<section class="m__further-solution">
+  <div class="title-container">
+    <div class="container">
+      <h2>Unlock the power of your brand</h2>
+    </div>
+  </div>
+  <div class="row image-left-text-right">
+    <div class="col-xs-12 col-md-6 m__further-solution--bg-image left">
+      <div class="image" style="background-image: url(assets/images/default.png)"></div>
+    </div>
+    <div class="col-xs-11 col-md-6 m__further-solution--content right">
+      <h4>At lorem ipsum we specialise in finding your brand edge, identifying what makes you special, and translating that into a powerful narrative. </h4>
+      <p>Donec varius mi sed velit tristique, quis luctus odio viverra. In felis libero, pulvinar sed dictum sit amet, convallis in urna. <br />
+<br />
+Suspendisse potenti; nam dictum dui quis turpis porttitor, vitae dictum leo tincidunt. </p>
+     </div>
+  </div>
+    <div class="title-container">
+    <div class="container">
+      <h2>Harness the power of technology</h2>
+    </div>
+  </div>
+  <div class="row image-right-text-left">
+    <div class="col-xs-11 col-md-6 m__further-solution--content left">
+      <h4>We’re experts in making technology truly work for our clients. </h4>
+      <p>Morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis volutpat risus nec risus lacinia, vitae vulputate massa bibendum. <br />
+<br />
+Aliquam erat volutpat; sed consequat sapien vel justo mattis, non rhoncus ligula fringilla.</p>
+     </div>
+    <div class="col-xs-12 col-md-6 m__further-solution--bg-image right">
+       <div class="image" style="background-image: url(assets/images/default.png)"></div>
+    </div>
+  </div>
+</section>
+
+<section class="m__global-reach">
+  <div class="container">
+    <div class="title-container">
+      <div class="section-number">
+        <span>04</span>
+      </div>
+      <h2 class="small">Global Reach</h2>
+    </div>
+    <div class="m__global-reach--content">
+      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Quisque mollis, sem ac feugiat porta, justo risus tincidunt nisi.</p>
+                 <a href="/contact" target="" class="c__button-circle dark">
+    <span>Our Offices</span>
+    <div class="c__button-circle--arrow">
+      <img alt="right arrow" src="{{ asset('images/icons/right-arrow.svg') }}" />
+    </div>
+  </a>            </div>
+  </div>
+  <div class="m__global-reach--gallery">
+      <div class="owl-carousel">
+                        <div class="image" style="background-image: url(assets/images/default.png)"></div>
+                              <div class="image" style="background-image: url(assets/images/default.png)"></div>
+                              <div class="image" style="background-image: url(assets/images/default.png)"></div>
+                              <div class="image" style="background-image: url(assets/images/default.png)"></div>
+                              <div class="image" style="background-image: url(assets/images/default.png)"></div>
+                              <div class="image" style="background-image: url(assets/images/default.png)"></div>
+                    </div>
+    </div>
+</section>
+
+<section class="m__beliefs">
+  <div class="container">
+    <div class="title-container">
+      <div class="section-number">
+        <span>05</span>
+      </div>
+      <h2 class="small">Beliefs</h2>
+    </div>
+    <div class="m__beliefs--content">
+                    <div class="m__beliefs--content--tile">
+                <h4 class="large">Think long</br> term</h4>
+                <p class="small">Lorem Ipsum is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less </p>
+              </div>
+                          <div class="m__beliefs--content--tile">
+                <h4 class="large">Never stop</br> learning</h4>
+                <p class="small">Lorem Ipsum is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less </p>
+              </div>
+                          <div class="m__beliefs--content--tile">
+                <h4 class="large">Nothing works</br> in isolation</h4>
+                <p class="small">Lorem Ipsum is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less </p>
+              </div>
+                          <div class="m__beliefs--content--tile">
+                <h4 class="large">Leverage</br> technology</h4>
+                <p class="small">Lorem Ipsum is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less </p>
+              </div>
+                          <div class="m__beliefs--content--tile">
+                <h4 class="large">Don’t be a</br> dick</h4>
+                <p class="small">Lorem Ipsum is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less </p>
+              </div>
+                          <div class="m__beliefs--content--tile">
+                <h4 class="large">No</br> bullshit</h4>
+                <p class="small">Lorem Ipsum is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less </p>
+              </div>
+                          <div class="m__beliefs--content--tile">
+                <h4 class="large">Be</br> human</h4>
+                <p class="small">Lorem Ipsum is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less </p>
+              </div>
+                          <div class="m__beliefs--content--tile">
+                <h4 class="large">Be</br> emotive</h4>
+                <p class="small">Lorem Ipsum is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less </p>
+              </div>
+                          <div class="m__beliefs--content--tile">
+                <h4 class="large">The power of</br> data</h4>
+                <p class="small">Lorem Ipsum is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less  </p>
+              </div>
+                          <div class="m__beliefs--content--tile">
+                <h4 class="large">Build</br> brands</h4>
+                <p class="small">Lorem Ipsum is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less </p>
+              </div>
+                          <div class="m__beliefs--content--tile">
+                <h4 class="large">Solve</br> problems</h4>
+                <p class="small">Lorem Ipsum is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less </p>
+              </div>
+                          <div class="m__beliefs--content--tile">
+                <h4 class="large">Love what</br> you do</h4>
+                <p class="small">Lorem Ipsum is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less </p>
+              </div>
+                </div>
+  </div>
+</section>
+
+<section class="m__clients">
+  <div class="container">
+    <div class="title-container">
+      <div class="section-number">
+        <span>06</span>
+      </div>
+      <h2 class="small">Clients</h2>
+    </div>
+    <p class="small">Vestibulum id ligula porta felis euismod semper et fermentum.</p>
+    <div class="owl-carousel clients">
+                     <div class="row">
+                            <div class="col-xs-6 col-sm-3 tile">
+                <div class="m__clients--tile">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII=" />
+                </div>
+              </div>
+                                          <div class="col-xs-6 col-sm-3 tile">
+                <div class="m__clients--tile">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII=" />
+                </div>
+              </div>
+                                          <div class="col-xs-6 col-sm-3 tile">
+                <div class="m__clients--tile">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII=" />
+                </div>
+              </div>
+                                          <div class="col-xs-6 col-sm-3 tile">
+                <div class="m__clients--tile">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII=" />
+                </div>
+              </div>
+                                          <div class="col-xs-6 col-sm-3 tile">
+                <div class="m__clients--tile">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII=" />
+                </div>
+              </div>
+                                          <div class="col-xs-6 col-sm-3 tile">
+                <div class="m__clients--tile">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII=" />
+                </div>
+              </div>
+                                          <div class="col-xs-6 col-sm-3 tile">
+                <div class="m__clients--tile">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII=" />
+                </div>
+              </div>
+                                          <div class="col-xs-6 col-sm-3 tile">
+                <div class="m__clients--tile">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII=" />
+                </div>
+              </div>
+                                          <div class="col-xs-6 col-sm-3 tile">
+                <div class="m__clients--tile">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII=" />
+                </div>
+              </div>
+                                          <div class="col-xs-6 col-sm-3 tile">
+                <div class="m__clients--tile">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII=" />
+                </div>
+              </div>
+                                          <div class="col-xs-6 col-sm-3 tile">
+                <div class="m__clients--tile">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII=" />
+                </div>
+              </div>
+                                          <div class="col-xs-6 col-sm-3 tile">
+                <div class="m__clients--tile">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII=" />
+                </div>
+              </div>
+                                            </div>
+                              <div class="row">
+                            <div class="col-xs-6 col-sm-3 tile">
+                <div class="m__clients--tile">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII=" />
+                </div>
+              </div>
+                                          <div class="col-xs-6 col-sm-3 tile">
+                <div class="m__clients--tile">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII=" />
+                </div>
+              </div>
+                                          <div class="col-xs-6 col-sm-3 tile">
+                <div class="m__clients--tile">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII=" />
+                </div>
+              </div>
+                                          <div class="col-xs-6 col-sm-3 tile">
+                <div class="m__clients--tile">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII=" />
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </section>
+    <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
+
+            <!-- #moove_gdpr_cookie_modal -->
+            <!--/copyscapeskip-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <input type="hidden" id="data_location" value="" />
+
+   <footer>
+        <div class="container">
+        <div class="row top">
+            <div class="col-xs-12 col-md-6 footer_text_one">
+            <h5>All the Lorem Ipsum</h5>
+            <h4>All the Lorem Ip as necessary?</h4>
+            <!-- <a href="/contact/" class="c__button dark">Get in touch</a> -->
+            </div>
+            <div class="offices col-xs-5 col-md-3">
+            <h5>Sub Menus</h5>
+            <ul class="footer-office-links">
+                <li>
+                <a class="data-location" data-location="london" href="#"
+                    >predefined</a
+                >
+                </li>
+                <li>
+                <a class="data-location" data-location="fl" href="#"
+                    >predefined</a
+                >
+                </li>
+            </ul>
+            </div>
+            <div class="stay-in-touch col-xs-7 col-md-3">
+            <h5>Social Icons</h5>
+            <div class="social-links">
+                <a target="_blank" href="https://web.facebook.com/codenclick">
+                <img
+                    alt="facebook url"
+                    src="{{ asset('images/icons/facebook-logo-black.svg') }}"
+                />
+                </a>
+                <a
+                target="_blank"
+                href="#"
+                >
+                <img
+                    alt="instagram url"
+                    src="{{ asset('images/icons/instagram-logo-black.svg') }}"
+                />
+                </a>
+                <a
+                target="_blank"
+                href="#"
+                >
+                <img
+                    alt="youtube url"
+                    style="max-width: 37px"
+                    src="{{ asset('images/icons/youtube-logo-black.svg') }}"
+                />
+                </a>
+                <a target="_blank" href="#">
+                <img
+                    alt="twitter url"
+                    src="{{ asset('images/icons/twitter-logo-black.svg') }}"
+                />
+                </a>
+                <a
+                target="_blank"
+                href="#"
+                >
+                <img
+                    alt="linkedin url"
+                    src="{{ asset('images/icons/linkedin-black.svg') }}"
+                />
+                </a>
+            </div>
+            <div class="c__button-circle dark open-newsletter">
+                <span>Newsletter</span>
+                <div class="c__button-circle--arrow">
+                <img
+                    alt="newsletter signup"
+                    src="{{ asset('images/icons/right-arrow.svg') }}"
+                />
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="row bottom">
+            <a href="/">
+            <img
+                src="{{ asset('images/footer-logo.jpg') }}"
+                style="width: 50px; height: 50px"
+                alt=""
+            />
+            <!-- <img
+            src="/assets/images/logo.jpeg"
+            style="width: 50px; height: 50px"
+            alt=""
+        /> -->
+            </a>
+            <div class="general-links">
+            <div class="menu-footer-menu-container">
+                <ul id="menu-footer-menu" class="menu">
+                <li
+                    id="menu-item-4615"
+                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4615"
+                >
+                    <a href="#"
+                    >Privacy Policy</a
+                    >
+                </li>
+                <li
+                    id="menu-item-3538"
+                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3538"
+                >
+                    <a href="#">T&#038;C</a>
+                </li>
+                </ul>
+            </div>
+            </div>
+        </div>
+        </div>
+    </footer>
+    <div class="popup-overlay">
+
+        <div class="popup" id="signup-form">
+        <img
+            alt="close popup"
+            class="close-popup"
+            src="{{ asset('images/icons/close.svg') }}"
+        />
+        <h4 class="large">Newsletter Signup</h4>
+        <p>Your Information</p>
+        <div class="input-container">
+            <input
+            type="text"
+            id="signup-form-first_name"
+            name="first_name"
+            placeholder="First Name"
+            />
+            <input
+            type="text"
+            id="signup-form-last_name"
+            name="last_name"
+            placeholder="Last Name"
+            />
+            <input
+            class="full-width"
+            type="text"
+            id="signup-form-email_address"
+            name="email_address"
+            placeholder="Email Address"
+            />
+        </div>
+        <div class="submit">
+            <div class="checkbox-holder">
+            <input type="checkbox" id="gdpr" />
+            <p>
+                Tick here if you'd like to receive updates from Code & Click.
+                <span class="gdpr-error">Please tick to receive newsletters</span>
+            </p>
+            </div>
+            <div id="newsletter-submit" class="submit-form c__button dark">
+            Submit
+            </div>
+        </div>
+        </div>
+
+    </div>
+
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.13/dayjs.min.js"
+  integrity="sha512-FwNWaxyfy2XlEINoSnZh1JQ5TRRtGow0D6XcmAWmYCRgvqOUTnzCxPc9uF35u5ZEpirk1uhlPVA19tflhvnW1g=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+></script>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.13/plugin/timezone.min.js"
+  integrity="sha512-nrkE2nl0pcqWefIY627DY1exPOSuZXMdOrxMxX0y7Ly6RH8K0WDjO1lqakkxQcX5m8hxoUSt75seRRiyhqPvIw=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const popup = document.querySelector(".sp-popup");
+    const closeBtn = document.querySelector(".sp-popup-content-close");
+
+    dayjs.extend(window.dayjs_plugin_timezone);
+    dayjs.tz.setDefault("Europe/London");
+    const now = dayjs();
+    const isAfter = now.isAfter(dayjs("2025-07-01T10:00:00"));
+    console.log("isAfter launch", isAfter);
+
+    if (isAfter) {
+      //all good - let the popup display
+
+      // Check if session cookie exists
+      if (!sessionStorage.getItem("popupClosed")) {
+        popup.style.display = "block";
+        console.log("launch popup displayed");
+      }
+
+      closeBtn.addEventListener("click", function () {
+        popup.style.display = "none";
+        sessionStorage.setItem("popupClosed", "true");
+      });
+    } else {
+      //don't show the popup
+      return;
+    }
+  });
+</script>
+</body>
+</html>
