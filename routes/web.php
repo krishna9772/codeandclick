@@ -1,9 +1,10 @@
 <?php
 
+use App\Http\Controllers\BlogsController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/blogs', function () {
+Route::get('/blog', function () {
     return view('blog');
 });
 Route::get('/', function () {
@@ -31,9 +32,16 @@ Route::get('/work-with-us', function () {
     return view('work-with-us');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+    Route::resource('bloglist', BlogsController::class)->names('bloglist');
+    Route::patch('bloglist/{id}/change-status', [BlogsController::class, 'changeStatus'])->name('bloglist.change-status');
+    Route::post('bloglist/{id}/restore', [BlogsController::class, 'restore'])->name('bloglist.restore');
+});
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
