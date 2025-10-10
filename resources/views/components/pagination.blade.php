@@ -1,27 +1,32 @@
 @props([
-    'meta',
+'meta',
+'params' => []
 ])
 
- 
- <div class="flex justify-center mt-6">
-     <nav class="inline-flex -space-x-px rounded-md shadow-sm">
+@if ($meta['last_page'] > 1)
+
+<div class="flex justify-center mt-6">
+    <nav class="inline-flex -space-x-px rounded-md shadow-sm">
 
 
-         <button {{ $meta['current_page'] === 1 ? 'disabled' : '' }} class="px-3 py-2 ml-0 disabled:opacity-50 rounded-l-md border border-gray-300 bg-white text-gray-700 hover:bg-gray-50">
-             <x-heroicon-o-arrow-left class="w-5 h-5" />
-         </button>
-
-         @foreach ($meta['pages'] as $page)
-         <button class="px-3 py-2 border border-gray-300 {{ $meta['current_page'] === $page ? 'bg-blue-500 text-white' : 'bg-white text-gray-700 hover:bg-gray-50' }}">{{ $page }}</button>
-         @endforeach
-
-         <!-- Next Page -->
-
-         <button {{ $meta['current_page'] === $meta['last_page'] ? 'disabled' : '' }} class="px-3 py-2 disabled:opacity-50 rounded-r-md border border-gray-300 bg-white text-gray-700 hover:bg-gray-50">
-             <x-heroicon-o-arrow-right class="w-5 h-5" />
-         </button>
+        <button {{ $meta['current_page'] === 1 ? 'disabled' : '' }} class="px-3 py-2 ml-0 disabled:opacity-50 rounded-l-md border border-gray-300 bg-white text-gray-700 hover:bg-gray-50">
+            <a href="{{ route('ventures.index',[...$params, 'page' => $meta['current_page'] - 1] ) }}"><x-heroicon-o-arrow-left class="w-5 h-5" /></a>
+        </button>
 
 
+        @foreach ($meta['pages'] as $page)
+        <a href="{{ route('ventures.index', [...$params, 'page' => $page] ) }}" class="px-3 py-2 border border-gray-300 {{ $meta['current_page'] === $page ? 'bg-blue-500 text-white' : 'bg-white text-gray-700 hover:bg-gray-50' }}">{{ $page }}</a>
+        @endforeach
 
-     </nav>
- </div>
+        <!-- Next Page -->
+
+        <button {{ $meta['current_page'] === $meta['last_page'] ? 'disabled' : '' }} class="px-3 py-2 disabled:opacity-50 rounded-r-md border border-gray-300 bg-white text-gray-700 hover:bg-gray-50">
+            <a href="{{ route('ventures.index', [...$params, 'page' => $meta['current_page'] + 1] ) }}"><x-heroicon-o-arrow-right class="w-5 h-5" /></a>
+        </button>
+
+
+
+    </nav>
+</div>
+
+@endif
