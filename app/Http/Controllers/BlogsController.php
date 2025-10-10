@@ -40,7 +40,21 @@ class BlogsController extends Controller
 
         $blogs = $blogs->paginate(10);
 
-        return view('Dashboard.Blogs.bloglist', compact('tag','blogs','search'));
+        $startPage = max($blogs->currentPage() - 2, 1);
+        $endPage = $startPage + 4;
+
+        if ($endPage >= $blogs->lastPage()) {
+            $endPage = $blogs->lastPage();
+            $startPage = max($endPage - 4, 1);
+        }
+
+        $meta = [
+            'current_page' => $blogs->currentPage(),
+            'last_page' => $blogs->lastPage(),
+            'pages' => range($startPage, $endPage),
+        ];
+
+        return view('Dashboard.Blogs.bloglist', compact('tag','blogs','search','meta'));
     
     }
 

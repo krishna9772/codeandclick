@@ -83,6 +83,9 @@
                                             </button>
                                         </form>
                                         @endif
+                                        <a href="{{ route('bloglist.show', $blog->id) }}" class="text-gray-800 rounded-md p-2 bg-gray-300 hover:text-gray-700">
+                                            <x-bi-eye class="w-5 h-5" />
+                                        </a>
                                         <x-confirm-delete :action="route('bloglist.destroy', $blog->id)" />
 
                                     </div>
@@ -94,31 +97,7 @@
 
                         </tbody>
                     </table>
-                    <div class="flex justify-center mt-6">
-                        <nav class="inline-flex -space-x-px rounded-md shadow-sm">
-
-
-                            <a class="px-3 py-2 ml-0 rounded-l-md border border-gray-300 bg-white text-gray-700 hover:bg-gray-50">
-                                <x-heroicon-o-arrow-left class="w-5 h-5" />
-                            </a>
-
-
-                            <span class="px-3 py-2 border border-gray-300 bg-blue-500 text-white">1</span>
-                            <span class="px-3 py-2 border border-gray-300 bg-blue-500 text-white">2</span>
-                            <span class="px-3 py-2 border border-gray-300 bg-blue-500 text-white">3</span>
-
-
-
-                            <!-- Next Page -->
-
-                            <a class="px-3 py-2 rounded-r-md border border-gray-300 bg-white text-gray-700 hover:bg-gray-50">
-                                <x-heroicon-o-arrow-right class="w-5 h-5" />
-                            </a>
-
-
-
-                        </nav>
-                    </div>
+                   <x-pagination :meta="$meta" />
                 </div>
             </div>
         </div>

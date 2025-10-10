@@ -1,6 +1,6 @@
-@props(['type' => 'action', 'status', 'id'])
+@props(['action', 'status', 'id'])
 
-<form action="{{ route('bloglist.change-status', $id) }}" method="POST" id="status-form-{{ $id }}">
+<form action="{{ route($action, $id) }}" method="POST" id="status-form-{{ $id }}">
     @csrf
     @method('PATCH')
 
