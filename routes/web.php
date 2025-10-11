@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/blog', [HomeController::class, 'showBlog'])->name('blog');
 Route::get('/blog/{uuid}/{slug}', [HomeController::class, 'BlogDetails'])->name('blog-details');
+Route::post('/subscribe', [HomeController::class, 'Subscribe'])->name('user.subscribe');
 Route::get('/', function () {
     return view('home');
 })->name('home');
@@ -52,6 +53,8 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
 
     Route::get('enquiry', [EnquireController::class, 'index'])->name('enquiry.index');
     Route::get('enquiry/{id}', [EnquireController::class, 'show'])->name('enquiry.show');
+
+    Route::get('subscribers', [HomeController::class, 'getSubscribers'])->name('subscribers.index');
 });
 
 

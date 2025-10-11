@@ -17,7 +17,7 @@ class EnquireController extends Controller
         $enquiries = new Enquiry();
 
         if ($search) {
-            $enquiries = $enquiries->where('name', 'like', "%{$search}%")->orWhere('email', 'like', "%{$search}%")->orWhere('phone', 'like', "%{$search}%")->orWhere('company', 'like', "%{$search}%")->orWhere('business_type', 'like', "%{$search}%")->orWhere('location', 'like', "%{$search}%")->orWhere('about_project', 'like', "%{$search}%")->orWhere('service_looking_for', 'like', "%{$search}%")->orWhere('budget', 'like', "%{$search}%")->orWhere('hear_about_us', 'like', "%{$search}%")->orWhere('website', 'like', "%{$search}%")->orWhere('first_name', 'like', "%{$search}%")->orWhere('last_name', 'like', "%{$search}%");
+            $enquiries = $enquiries->where('first_name', 'like', "%{$search}%")->orWhere('last_name', 'like', "%{$search}%")->orWhere('email', 'like', "%{$search}%")->orWhere('phone', 'like', "%{$search}%")->orWhere('business_name', 'like', "%{$search}%")->orWhere('business_type', 'like', "%{$search}%")->orWhere('location', 'like', "%{$search}%")->orWhere('about_project', 'like', "%{$search}%")->orWhere('service_looking_for', 'like', "%{$search}%")->orWhere('budget', 'like', "%{$search}%")->orWhere('hear_about_us', 'like', "%{$search}%")->orWhere('website', 'like', "%{$search}%")->orWhere('first_name', 'like', "%{$search}%")->orWhere('last_name', 'like', "%{$search}%");
         }
 
         $enquiries = $enquiries->orderBy('created_at', 'desc');
