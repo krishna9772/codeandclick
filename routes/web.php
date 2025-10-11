@@ -3,6 +3,7 @@
 use App\Http\Controllers\BlogsController;
 use App\Http\Controllers\CareerController;
 use App\Http\Controllers\EnquireController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VentureController;
 use Illuminate\Support\Facades\Route;
@@ -28,9 +29,7 @@ Route::get('/services', function () {
 Route::get('/technology', function () {
     return view('technology');
 });
-Route::get('/ventures', function () {
-    return view('ventures');
-});
+Route::get('/ventures', [HomeController::class, 'showVentures']);
 Route::get('/work-with-us', function () {
     return view('work-with-us');
 });

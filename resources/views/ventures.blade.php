@@ -268,29 +268,29 @@
                   </p>
                 </div>
               </section>
-              <section class="l__current-holdings">
+              <section style="background-color: black;" class="l__current-holdings">
                 <div class="container">
                   <h3>Current Holdings</h3>
                   <p class="large subtext">
                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer t.
                   </p>
                   <div class="row">
+                    @foreach ($ventures as $venture)
                     <div class="col-md-6 m__current-holding-tile">
                       <div class="img-holder">
                         <img
                           class="img-object-fit main"
-                          src="{{ asset('images/default.png') }}"
+                          src="{{ asset($venture->getFirstMediaUrl('ventures')) }}"
                         />
                       </div>
                       <div class="m__current-holding-tile--content">
-                        <h4>Title</h4>
+                        <h4>{{ $venture->title }}</h4>
                         <p class="xsmall">
-                          Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer t <br />
-                          <br />
-                          Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer.
+                          {{ $venture->content }}
                         </p>
+                        @if ($venture->link)
                         <a
-                          href="#"
+                          href="{{ $venture->link }}"
                           target=""
                           class="c__button-circle light"
                         >
@@ -302,96 +302,11 @@
                             />
                           </div>
                         </a>
+                        @endif
                       </div>
                     </div>
-                    <div class="col-md-6 m__current-holding-tile">
-                      <div class="img-holder">
-                        <img
-                          class="img-object-fit main"
-                          src="{{ asset('images/default.png') }}"
-                        />
-                      </div>
-                      <div class="m__current-holding-tile--content">
-                        <h4>Title</h4>
-                        <p class="xsmall">
-                          Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer <br />
-                          <br />
-                          Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer 
-                        </p>
-                        <a
-                          href="#"
-                          target=""
-                          class="c__button-circle light"
-                        >
-                          <span>Visit site</span>
-                          <div class="c__button-circle--arrow">
-                            <img
-                              alt="right arrow"
-                              src="{{ asset('images/icons/right-arrow.svg') }}"
-                            />
-                          </div>
-                        </a>
-                      </div>
-                    </div>
-                    <div class="col-md-6 m__current-holding-tile">
-                      <div class="img-holder">
-                        <img
-                          class="img-object-fit main"
-                          src="{{ asset('images/default.png') }}"
-                        />
-                      </div>
-                      <div class="m__current-holding-tile--content">
-                        <h4>Title</h4>
-                        <p class="xsmall">
-                          Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer <br />
-                          <br />
-                          Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer t
-                        </p>
-                        <a
-                          href="#"
-                          target=""
-                          class="c__button-circle light"
-                        >
-                          <span>Visit site</span>
-                          <div class="c__button-circle--arrow">
-                            <img
-                              alt="right arrow"
-                              src="{{ asset('images/icons/right-arrow.svg') }}"
-                            />
-                          </div>
-                        </a>
-                      </div>
-                    </div>
-                    <div class="col-md-6 m__current-holding-tile">
-                      <div class="img-holder">
-                        <img
-                          class="img-object-fit main"
-                          src="{{ asset('images/default.png') }}"
-
-                        />
-                      </div>
-                      <div class="m__current-holding-tile--content">
-                        <h4>Title</h4>
-                        <p class="xsmall">
-                          Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer t<br />
-                          <br />
-                          Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer t
-                        </p>
-                        <a
-                          href="#"
-                          target=""
-                          class="c__button-circle light"
-                        >
-                          <span>Visit site</span>
-                          <div class="c__button-circle--arrow">
-                            <img
-                              alt="right arrow"
-                              src="{{ asset('images/icons/right-arrow.svg') }}"
-                            />
-                          </div>
-                        </a>
-                      </div>
-                    </div>
+                    @endforeach
+                   
                   </div>
                 </div>
               </section>
