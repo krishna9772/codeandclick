@@ -44,6 +44,7 @@
   <body
     class="home wp-singular page-template page-template-page-home page-template-page-home-php page page-id-5433 wp-theme-ignite no-smooth-scroll"
   >
+      
     <div style="display: none">bool(false) bool(false) NULL</div>
 
     <!-- <div class="c__page-transition">
@@ -544,287 +545,123 @@
         </div>
     </footer>
 
+   <form action="{{ route('enquiry.store') }}" method="POST">
+    @csrf
+
     <div class="popup-overlay">
-      <div class="popup" id="get-in-touch-form">
-        <img
-          alt="close popup"
-          class="close-popup"
-          src="{{ asset('images/icons/close.svg') }}"
-        />
-        <div class="get-in-touch-form-inner form">
-          <h4 class="large">Send an enquiry</h4>
-          <p>What services are you looking for?</p>
-          <p class="service error">Please select a service</p>
-          <div class="checkbox-container">
-            <div class="checkbox-holder">
-              <input
-                type="checkbox"
-                name="services"
-                id="strategy"
-                value="Strategy &amp; planning"
-              />
-              <label for="strategy">Strategy & planning</label>
-            </div>
-            <div class="checkbox-holder">
-              <input type="checkbox" name="services" id="websites" value="Website" />
-              <label for="websites">Website</label>
-            </div>
-            <div class="checkbox-holder">
-              <input type="checkbox" name="services" id="marketing" value="Marketing" />
-              <label for="marketing">Marketing</label>
-            </div>
-            <div class="checkbox-holder">
-              <input
-                type="checkbox"
-                name="services"
-                value="Technology solutions"
-                id="technology"
-              />
-              <label for="technology">Technology solutions</label>
-            </div>
-            <div class="checkbox-holder">
-              <input type="checkbox" name="services" id="branding" value="Branding" />
-              <label for="branding">Branding</label>
-            </div>
-            <div class="checkbox-holder">
-              <input type="checkbox" name="services" id="crm" value="CRM" />
-              <label for="crm">CRM</label>
-            </div>
-            <div class="checkbox-holder">
-              <input type="checkbox" name="services" id="services" value="Other" />
-              <label for="services">Services</label>
-            </div>
-          </div>
-          <p>
-            Tell us about your project and what you want from us, this will help
-            us prepare for our call.
-          </p>
-          <textarea
-            id="get-in-touch-form-message"
-            placeholder="Enter message here"
-          ></textarea>
-          <p>What’s your budget?</p>
-          <p class="budget error">Please select a budget</p>
-          <div class="radio-container">
-            <div class="radio-holder">
-              <input type="radio" name="budget" id="less_than_10k" value="Less than $ 10k" />
-              <label for="less_than_10k">Less than $ 10k</label>
-            </div>
-            <div class="radio-holder">
-              <input type="radio" name="budget" id="10_40_k" value="$ 10 - $ 40k" />
-              <label for="10_40_k">$ 10 - $ 40k</label>
-            </div>
-            <div class="radio-holder">
-              <input type="radio" name="budget" id="40_k" value="$ 40k +" />
-              <label for="40_k">$ 40k +</label>
-            </div>
-          </div>
-          <p>Your Information</p>
-          <div class="input-container">
-            <input
-              type="text"
-              id="get-in-touch-form-first_name"
-              name="first_name"
-              placeholder="First Name"
-            />
-            <input
-              type="text"
-              id="get-in-touch-form-last_name"
-              name="last_name"
-              placeholder="Last Name"
-            />
-            <input
-              type="text"
-              id="get-in-touch-form-business_name"
-              name="business_name"
-              placeholder="Business Name"
-            />
-            <input
-              type="text"
-              id="get-in-touch-form-email_address"
-              name="email_address"
-              placeholder="Email Address"
-            />
-            <input
-              type="text"
-              id="get-in-touch-form-website"
-              name="website"
-              placeholder="Website"
-            />
-            <input
-              type="text"
-              id="get-in-touch-form-phone_number"
-              name="phone_number"
-              placeholder="Phone Number"
-            />
-          </div>
-          <p>Business Type</p>
-          <div class="input-container">
-            <input
-              type="text"
-              id="get-in-touch-form-business_type"
-              name="business_type"
-              placeholder="Business Type"
-            />
-          </div>
-          <!-- <div class="radio-container">
-            <div class="radio-holder">
-              <input type="radio" name="business_type" value="Restaurant" />
-              <p>Restaurante</p>
-            </div>
-            <div class="radio-holder">
-              <input type="radio" name="business_type" value="Pub or Bar" />
-              <p>Pub o Bar</p>
-            </div>
-            <div class="radio-holder">
-              <input type="radio" name="business_type" value="Hotel" />
-              <p>Hotel</p>
-            </div>
-            <div class="radio-holder">
-              <input type="radio" name="business_type" value="Cafe or QSR" />
-              <p>Cafe o QSR</p>
-            </div>
-            <div class="radio-holder">
-              <input type="radio" name="business_type" value="Other" />
-              <p>Otro</p>
-            </div>
-          </div> -->
-          <p>Location</p>
-          <p class="location error">Please select your location</p>
-          <div class="radio-container">
-            <div class="radio-holder">
-              <input type="radio" id="Yangon" name="location" value="Yangon" />
-              <label for="Yangon">Yangon</label>
-            </div>
-            <div class="radio-holder">
-              <input type="radio" id="Bangkok" name="location" value="Bangkok" />
-              <label for="Bangkok">Bangkok</label>
-            </div>
-            
-            <div class="radio-holder">
-              <input type="radio" name="location" id="global" value="Global" />
-              <label for="global">Global</label>
-            </div>
-          </div>
-          <p>How did you hear about Us?</p>
-          <div class="radio-container find-us">
-            <div class="radio-holder">
-              <input
-                type="radio"
-                name="hear_about"
-                value="I've worked with you previously"
-              />
-              <p>I've worked with you previously</p>
-            </div>
-            <div class="radio-holder">
-              <input type="radio" name="hear_about" value="Found you online" />
-              <p>Found you online</p>
-            </div>
-            <div class="radio-holder">
-              <input
-                type="radio"
-                name="hear_about"
-                value="Recommended by client or collaborator"
-              />
-              <p>Recommended by client or collaborator</p>
-            </div>
-            <div class="radio-holder">
-              <input
-                type="radio"
-                name="hear_about"
-                value="Saw an advert or social"
-              />
-              <p>Saw an advert or social</p>
-            </div>
-            
-            <div class="radio-holder">
-              <input type="radio" name="hear_about" value="other" />
-              <p>Other</p>
-            </div>
-          </div>
-          <div id="hidden-input" class="input-container d-none">
-            <input
-              type="text"
-              id="get-in-touch-form--hear-about-other"
-              name="hear_about_other"
-              placeholder="Other"
-            />
-          </div>
-          <div class="submit">
-            <div class="submit-gdpr">
-              <div class="checkbox-holder gdpr-checkbox">
-                <input type="checkbox" id="gdpr-enquiry" />
-                <p>
-                  Tick the box to receive insight, opinion and inspiration from
-                  Code & Click
-                  <span class="gdpr-error"
-                    >Please tick to receive newsletters</span
-                  >
-                </p>
-              </div>
-              <p>
-                Please note that by submitting this form you agree to us storing
-                your contact details and contacting you in regard to your query.
-                Our privacy policy is available on our website with full details
-                on our commitment to protecting personal data.
-              </p>
-            </div>
-            <div id="contact-enquiry" class="submit-form c__button dark">
-              Submit
-            </div>
-          </div>
-        </div>
+        <div class="popup" id="get-in-touch-form">
+            <img alt="close popup" class="close-popup" src="{{ asset('images/icons/close.svg') }}" />
 
-        <div class="get-in-touch-form-inner thank-you inactive">
-          <h4 class="large">Enquiry sent</h4>
-          <p>We'll be in touch soon!</p>
-        </div>
-      </div>
+            <div class="get-in-touch-form-inner form">
+                <h4 class="large">Send an Enquiry</h4>
 
-      <div class="popup" id="signup-form">
-        <img
-          alt="close popup"
-          class="close-popup"
-          src="{{ asset('images/icons/close.svg') }}"
-        />
-        <h4 class="large">Newsletter Signup</h4>
-        <p>Your Information</p>
-        <div class="input-container">
-          <input
-            type="text"
-            id="signup-form-first_name"
-            name="first_name"
-            placeholder="First Name"
-          />
-          <input
-            type="text"
-            id="signup-form-last_name"
-            name="last_name"
-            placeholder="Last Name"
-          />
-          <input
-            class="full-width"
-            type="text"
-            id="signup-form-email_address"
-            name="email_address"
-            placeholder="Email Address"
-          />
+                {{-- SERVICES --}}
+                <p>What services are you looking for?</p>
+                <div class="checkbox-container">
+                    @foreach ([
+                        'Strategy & Planning',
+                        'Website',
+                        'Marketing',
+                        'Technology Solutions',
+                        'Branding',
+                        'CRM',
+                        'Other'
+                    ] as $service)
+                        <div class="checkbox-holder">
+                            <input type="checkbox" name="service_looking_for[]" value="{{ $service }}" id="{{ Str::slug($service) }}">
+                            <label for="{{ Str::slug($service) }}">{{ $service }}</label>
+                        </div>
+                    @endforeach
+                </div>
+
+                {{-- ABOUT PROJECT --}}
+                <p>Tell us about your project and what you want from us:</p>
+                <textarea name="about_project" placeholder="Enter message here"></textarea>
+
+                {{-- BUDGET --}}
+                <p>What’s your budget?</p>
+                <div class="radio-container">
+                    <div class="radio-holder">
+                        <input type="radio" name="budget" id="less_than_10k" value="Less than $10k">
+                        <label for="less_than_10k">Less than $10k</label>
+                    </div>
+                    <div class="radio-holder">
+                        <input type="radio" name="budget" id="10_40_k" value="$10k - $40k">
+                        <label for="10_40_k">$10k - $40k</label>
+                    </div>
+                    <div class="radio-holder">
+                        <input type="radio" name="budget" id="40_k_plus" value="$40k+">
+                        <label for="40_k_plus">$40k+</label>
+                    </div>
+                </div>
+
+                {{-- CONTACT INFO --}}
+                <p>Your Information</p>
+                <div class="input-container">
+                    <input type="text" name="first_name" placeholder="First Name" required>
+                    <input type="text" name="last_name" placeholder="Last Name">
+                    <input type="text" name="business_name" placeholder="Business Name">
+                    <input type="text" name="email" placeholder="Email Address" required>
+                   
+                    <input type="text" name="website" placeholder="Website">
+                    <input type="text" name="phone" placeholder="Phone Number" required>
+                    
+                </div>
+
+                {{-- BUSINESS TYPE --}}
+                <p>Business Type</p>
+                <div class="input-container">
+                  <input type="text" name="business_type" placeholder="Business Type">
+                </div>
+                <div class="radio-container">
+                    @foreach (['Yangon', 'Bangkok', 'Global'] as $location)
+                        <div class="radio-holder">
+                            <input type="radio" name="location" id="{{ $location }}" value="{{ $location }}">
+                            <label for="{{ $location }}">{{ $location }}</label>
+                        </div>
+                    @endforeach
+                </div>
+
+                {{-- HEAR ABOUT US --}}
+                <p>How did you hear about us?</p>
+                <div class="radio-container find-us">
+                    @foreach ([
+                        "I've worked with you previously",
+                        'Found you online',
+                        'Recommended by client or collaborator',
+                        'Saw an advert or social',
+                        
+                    ] as $hear)
+                        <div class="radio-holder">
+                            <input type="radio" name="hear_about_us" id="{{ Str::slug($hear) }}" value="{{ $hear }}">
+                            <label for="{{ Str::slug($hear) }}">{{ $hear }}</label>
+                        </div>
+                    @endforeach
+                    <div class="radio-holder">
+                        <input type="radio" name="hear_about_us" id="other1" value="Other">
+                        <label for="other1">Other</label>
+                    </div>
+                </div>
+
+                {{-- RECEIVE INSIGHT --}}
+                <div style="width: 100%;" class="submit-gdpr">
+                    <div style="width: 100%; margin-top: 20px;" class="checkbox-holder gdpr-checkbox">
+                        <input type="checkbox" name="receive_insight" id="receive_insight" value="1">
+                        <label style="font-size: 17px; width: 100%;" for="receive_insight">
+                            Tick the box to receive insight, opinion and inspiration from Code & Click.
+                        </label>
+                    </div>
+                    <p style="font-size: 13px; color: #666;">
+                        Please note that by submitting this form you agree to us storing your contact details and contacting you in regard to your query. Our privacy policy is available on our website with full details on our commitment to protecting personal data.
+                    </p>
+                </div>
+
+                <button type="submit" class="submit-form c__button dark mt-4">Submit</button>
+            </div>
         </div>
-        <div class="submit">
-          <div class="checkbox-holder">
-            <input type="checkbox" id="gdpr" />
-            <p>
-              Tick here if you'd like to receive insight, opinion and
-              inspiration from Code & Click
-              <span class="gdpr-error">Please tick to receive newsletters</span>
-            </p>
-          </div>
-          <div id="newsletter-submit" class="submit-form c__button dark">
-            Submit
-          </div>
-        </div>
-      </div>
     </div>
+</form>
+
     
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.13/dayjs.min.js"

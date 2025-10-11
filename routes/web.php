@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BlogsController;
 use App\Http\Controllers\CareerController;
+use App\Http\Controllers\EnquireController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VentureController;
 use Illuminate\Support\Facades\Route;
@@ -34,6 +35,8 @@ Route::get('/work-with-us', function () {
     return view('work-with-us');
 });
 
+Route::post('/enquiry', [EnquireController::class, 'store'])->name('enquiry.store');
+
 Route::middleware('auth')->prefix('dashboard')->group(function () {
     Route::get('', function () {
         return view('dashboard');
@@ -50,6 +53,8 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
     Route::patch('careers/{id}/change-status', [CareerController::class, 'changeStatus'])->name('careers.change-status');
     Route::post('careers/{id}/restore', [CareerController::class, 'restore'])->name('careers.restore');
 
+    Route::get('enquiry', [EnquireController::class, 'index'])->name('enquiry.index');
+    Route::get('enquiry/{id}', [EnquireController::class, 'show'])->name('enquiry.show');
 });
 
 
