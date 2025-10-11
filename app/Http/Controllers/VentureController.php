@@ -35,7 +35,7 @@ class VentureController extends Controller
             $ventures = $ventures->where('title', 'like', '%' . $search . '%')->orWhere('content', 'like', '%' . $search . '%');
         }
 
-        $ventures = $ventures->paginate(10);
+        $ventures = $ventures->orderBy('created_at', 'desc')->paginate(10);
 
         $startPage = max($ventures->currentPage() - 2, 1);
         $endPage = $startPage + 4;

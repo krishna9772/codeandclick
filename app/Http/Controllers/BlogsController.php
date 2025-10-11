@@ -38,7 +38,7 @@ class BlogsController extends Controller
             $blogs = $blogs->where('title', 'like', '%' . $search . '%')->orWhere('content', 'like', '%' . $search . '%');
         }
 
-        $blogs = $blogs->paginate(10);
+        $blogs = $blogs->orderBy('created_at', 'desc')->paginate(10);
 
         $startPage = max($blogs->currentPage() - 2, 1);
         $endPage = $startPage + 4;

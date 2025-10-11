@@ -13,6 +13,10 @@ return [
         'Christmas',
         'Crm',
     ],
+    'location' => [
+        'Yangon',
+        'Mandalay',
+    ],
 ];
 
 

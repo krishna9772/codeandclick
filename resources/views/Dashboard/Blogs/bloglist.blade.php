@@ -56,11 +56,11 @@
 
                                 </td>
                                 <td class="px-6 py-4 text-gray-800 font-medium">{{ $blog->title }}</td>
-                                <td class="px-6 py-4 text-gray-600">{{ $blog->type }}</td>
-                                <td class="px-6 py-4 text-gray-600">
+                                <td class="px-6 py-4 text-gray-800">{{ $blog->type }}</td>
+                                <td class="px-6 py-4 text-gray-800">
                                     <div class="line-clamp-3 max-w-[400px] text-justify">{{ $blog->content }}</div>
                                 </td>
-                                <td class="px-6 py-4 text-gray-500 text-sm">{{ $blog->created_at->format('Y-m-d') }}</td>
+                                <td class="px-6 py-4 text-gray-800 text-sm">{{ $blog->created_at->format('Y-m-d') }}</td>
                                 
                                 @if ($tag != 'trashed')
                                 <td class="px-6 py-4 text-center">

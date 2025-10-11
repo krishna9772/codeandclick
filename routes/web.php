@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BlogsController;
+use App\Http\Controllers\CareerController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VentureController;
 use Illuminate\Support\Facades\Route;
@@ -44,6 +45,11 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
     Route::resource('ventures', VentureController::class)->names('ventures');
     Route::patch('ventures/{id}/change-status', [VentureController::class, 'changeStatus'])->name('ventures.change-status');
     Route::post('ventures/{id}/restore', [VentureController::class, 'restore'])->name('ventures.restore');
+
+    Route::resource('careers', CareerController::class)->names('careers');
+    Route::patch('careers/{id}/change-status', [CareerController::class, 'changeStatus'])->name('careers.change-status');
+    Route::post('careers/{id}/restore', [CareerController::class, 'restore'])->name('careers.restore');
+
 });
 
 
