@@ -38,5 +38,9 @@ class Blogs extends Model implements HasMedia
         'content',
     ];
 
-    
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
 }

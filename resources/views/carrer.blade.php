@@ -284,7 +284,7 @@
                     </div>
                     <div class="col-xs-12 col-sm-5 col-md-4 | button-col">
                       <a
-                        href="route('show-career-details', ['id' => $career->id])"
+                        href="{{route('show-career-details', ['id' => $career->id])}}"
                         target=""
                         class="c__button-circle light">
                         <span>Read More</span>

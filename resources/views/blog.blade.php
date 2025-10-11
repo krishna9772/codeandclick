@@ -40,6 +40,7 @@
     <link rel="canonical" href="https://codeandclick.com/">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
    
+    @vite('resources/css/app.css')
   </head>
 
   <body
@@ -297,39 +298,36 @@
                   <div class="col-xs-12 col-md-5 m__latest-article--left">
                     <p class="small">Blog</p>
                     <a
-                      href="#"
+                      href="{{ route('blog-details', [$Headerblogs[0]->uuid, $Headerblogs[0]->slug]) }}"
                     >
                       <h3>
-                        ​​Lorem Ipsum Dolor Sit Amet Consectetur
-                        Adipiscing Elit Sed Do Eiusmod Tempor
+                        ​{{ $Headerblogs[0]->title }}
                       </h3>
                     </a>
                     <div class="m__latest-article--left--author">
                       <img
                         class="m__latest-article--left--author--image"
                         alt="author profile image"
-                        src="{{ asset('images/yangon.png') }}"
+                        src="{{ $Headerblogs[0]->user->image }}"
                       />
-                      <p>lorem-ipsum</p>
+                      <p>{{ $Headerblogs[0]->user->name }}</p>
                     </div>
                   </div>
                   <div class="col-xs-12 col-md-7 m__latest-article--right">
                     <div class="img-holder">
                       <img
                         class="m__latest-article--right--image img-object-fit"
-                        src="{{ asset('images/bangkok.jpg') }}"
+                        src="{{ asset($Headerblogs[0]->getFirstMediaUrl('blog_images')) }}"
                         alt="Default Image"
                       />
                     </div>
                     <div class="m__latest-article--right--content">
-                      <p class="xsmall">
-                        LOREM IPSUM: ​​Lorem Ipsum Dolor Sit Amet Consectetur
-                        Adipiscing Elit Sed Do Eiusmod Tempor Incididunt Ut Labore, a
-                        leading dolor sit amet agency, and&hellip;
+                      <p class="xsmall line-clamp-3">
+                        {{ $Headerblogs[0]->content }}
                       </p>
                       <a
                         href="#"
-                        >Sed do eiusmod</a
+                        >Read More</a
                       >
                     </div>
                   </div>
@@ -337,6 +335,7 @@
               </section>
 
               <div class="large-container">
+                @if ($Headerblogs->count() >= 5)
                 <section class="m__quad-group">
                   <div class="row">
                     <div class="col-md-5 col-lg-6 left">
@@ -346,104 +345,102 @@
                         <div class="m__quad-group--large-image">
                           <img
                             class="img-object-fit"
-                            src="{{ asset('images/mandalay.jpg') }}"
+                            src="{{ $blogs[1]->getFirstMediaUrl('blog_images') }}"
                             alt=""
                           />
                         </div>
                       </a>
                       <div class="m__quad-group--content">
                         <a
-                          href="#"
+                          href="{{ route('blog-details', [$Headerblogs[1]->uuid, $Headerblogs[1]->slug]) }}"
                         >
                           <h3>
-                            LOREM IPSUM: dolor sit amet consectetur adipiscing elit
-                            sed do eiusmod tempor
+                            {{ $Headerblogs[1]->title }}
                           </h3>
                         </a>
                         <p class="xsmall">
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                          eiusmod tempor incididunt ut labore et dolore magna aliqua
-                          &hellip;
+                          {{ $Headerblogs[1]->content }}
+                         
                         </p>
                         <div class="m__quad-group--author">
                           <img
                             class="m__quad-group--author--image"
                             alt="author profile image"
-                            src="{{ asset('images/mandalay.jpg') }}"
+                            src="{{ $Headerblogs[1]->user->image }}"
                           />
-                          <p>lorem-ipsum</p>
+                          <p>{{ $Headerblogs[1]->user->name }}</p>
                         </div>
                       </div>
                     </div>
                     <div class="col-md-7 col-lg-6 right">
                       <div class="m__quad-group--tile">
                         <a
-                          href="#"
+                          href="{{ route('blog-details', [$Headerblogs[2]->uuid, $Headerblogs[2]->slug]) }}"
                         >
                           <div class="m__quad-group--tile--image">
                             <img
                               class="img-object-fit"
-                              src="{{ asset('images/bangkok.jpg') }}"
+                              src="{{ $Headerblogs[2]->getFirstMediaUrl('blog_images') }}"
                               alt=""
                             />
                           </div>
                         </a>
                         <div class="m__quad-group--tile--content">
                           <a
-                            href="#"
+                            href="{{ route('blog-details', [$Headerblogs[2]->uuid, $Headerblogs[2]->slug]) }}"
                           >
-                            <h4 class="small">LOREM IPSUM DOLOR SIT</h4>
+                            <h4 class="small">{{ $Headerblogs[2]->title }}</h4>
                           </a>
                           <div class="m__quad-group--author">
                             <img
                               class="m__quad-group--author--image"
                               alt="author profile image"
-                              src="{{ asset('images/mandalay.jpg') }}"
+                              src="{{ $Headerblogs[2]->user->image }}"
                             />
-                            <p>lorem-ipsum</p>
+                            <p>{{ $Headerblogs[2]->user->name }}</p>
                           </div>
                         </div>
                       </div>
 
                       <div class="m__quad-group--tile">
                         <a
-                          href="#"
+                          href="{{ route('blog-details', [$Headerblogs[3]->uuid, $Headerblogs[3]->slug]) }}"
                         >
                           <div class="m__quad-group--tile--image">
                             <img
                               class="img-object-fit"
-                              src="{{ asset('images/yangon.png') }}"
+                              src="{{ $Headerblogs[3]->getFirstMediaUrl('blog_images') }}"
                               alt="20 years of Digital"
                             />
                           </div>
                         </a>
                         <div class="m__quad-group--tile--content">
                           <a
-                            href="#"
+                            href="{{ route('blog-details', [$Headerblogs[3]->uuid, $Headerblogs[3]->slug]) }}"
                           >
                             <h4 class="small">
-                              Lorem Ipsum Dolor Sit Amet Consectetur Adipiscing
+                              {{ $Headerblogs[3]->title }}
                             </h4>
                           </a>
                           <div class="m__quad-group--author">
                             <img
                               class="m__quad-group--author--image"
                               alt="author profile image"
-                              src="{{ asset('images/mandalay.jpg') }}"
+                              src="{{ $Headerblogs[3]->user->image }}"
                             />
-                            <p>lorem</p>
+                            <p>{{ $Headerblogs[3]->user->name }}</p>
                           </div>
                         </div>
                       </div>
 
                       <div class="m__quad-group--tile">
                         <a
-                          href="#"
+                          href="{{ route('blog-details', [$Headerblogs[4]->uuid, $Headerblogs[4]->slug]) }}"
                         >
                           <div class="m__quad-group--tile--image">
                             <img
                               class="img-object-fit"
-                              src="{{ asset('images/yangon.png') }}"
+                              src="{{ $Headerblogs[4]->getFirstMediaUrl('blog_images') }}"
                               alt=""
                             />
                           </div>
@@ -453,245 +450,62 @@
                             href="#"
                           >
                             <h4 class="small">
-                              Sed do eiusmod tempor incididunt
+                              {{ $Headerblogs[4]->title }}
                             </h4>
                           </a>
                           <div class="m__quad-group--author">
                             <img
                               class="m__quad-group--author--image"
                               alt="author profile image"
-                              src="{{ asset('images/mandalay.jpg') }}"
+                              src="{{ $Headerblogs[4]->user->image }}"
                             />
-                            <p>ipsum</p>
+                            <p>{{ $Headerblogs[4]->user->name }}</p>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </section>
+                @endif
                 <section class="l__blog-list">
                   <div class="row">
+                    @foreach ($blogs as $blog)
                     <div class="col-xs-12 col-md-6 col-lg-4">
                       <div class="m__list-tile">
                         <a
-                          href="#"
+                          href="{{ route('blog-details', [$blog->uuid, $blog->slug]) }}"
                         >
                           <div class="m__list-tile--image">
                             <img
                               class="img-object-fit"
-                              src="{{ asset('images/yangon.png') }}"
-                              alt="Vans Pride Campaign"
+                              src="{{ $blog->getFirstMediaUrl('blog_images') }}"
+                              alt="{{ $blog->title }}"
                             />
                           </div>
                         </a>
                         <div class="m__list-tile--content">
                           <a
-                            href="#"
+                            href="{{ route('blog-details', [$blog->uuid, $blog->slug]) }}"
                           >
-                            <h4 class="small">Lorem Ipsum Dolor Sit</h4>
+                            <h4 class="small">{{ $blog->title }}</h4>
                           </a>
-                          <p class="m__list-tile--content--excerpt xsmall">
-                            Consectetur adipiscing elit sed do eiusmod tempor
-                            incididunt ut labore et dolore magna aliqua ut enim
-                            ad minim veniam quis nostrud exercitation&hellip;
+                          <p class="text-base text-white line-clamp-4">
+                            {{ $blog->content }}
                           </p>
                           <div class="m__list-tile--content--author">
                             <img
                               class="m__list-tile--content--author--image"
                               alt="author profile image"
-                              src="{{ asset('images/bangkok.jpg') }}"
+                              src="{{ $blog->user->image }}"
                             />
-                            <p>lorem</p>
+                            <p>{{ $blog->user->name }}</p>
                           </div>
                         </div>
                       </div>
                     </div>
+                    @endforeach
 
-                    <div class="col-xs-12 col-md-6 col-lg-4">
-                      <div class="m__list-tile">
-                        <a
-                          href="#"
-                        >
-                          <div class="m__list-tile--image">
-                            <img
-                              class="img-object-fit"
-                              src="{{ asset('images/yangon.png') }}"
-                              alt=""
-                            />
-                          </div>
-                        </a>
-                        <div class="m__list-tile--content">
-                          <a
-                            href="#"
-                          >
-                            <h4 class="small">Consectetur Adipiscing</h4>
-                          </a>
-                          <p class="m__list-tile--content--excerpt xsmall">
-                            Elit sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua ut enim ad minim veniam quis
-                            nostrud exercitation ullamco laboris&hellip;
-                          </p>
-                          <div class="m__list-tile--content--author">
-                            <img
-                              class="m__list-tile--content--author--image"
-                              alt="author profile image"
-                              src="{{ asset('images/bangkok.jpg') }}"
-                            />
-                            <p>ipsum</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-xs-12 col-md-6 col-lg-4">
-                      <div class="m__list-tile">
-                        <a
-                          href="#"
-                        >
-                          <div class="m__list-tile--image">
-                            <img
-                              class="img-object-fit"
-                              src="{{ asset('images/mandalay.jpg') }}"
-                              alt=""
-                            />
-                          </div>
-                        </a>
-                        <div class="m__list-tile--content">
-                          <a
-                            href="#"
-                          >
-                            <h4 class="small">
-                              Sed Do Eiusmod Tempor Incididunt Ut Labore
-                            </h4>
-                          </a>
-                          <p class="m__list-tile--content--excerpt xsmall">
-                            Et dolore magna aliqua ut enim ad minim veniam
-                            quis nostrud exercitation ullamco laboris nisi ut
-                            impacted plans for the post-Covid ‘return to&hellip;
-                          </p>
-                          <div class="m__list-tile--content--author">
-                            <img
-                              class="m__list-tile--content--author--image"
-                              alt="author profile image"
-                              src="{{ asset('yangon.png') }}"
-                            />
-                            <p>paul</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-xs-12 col-md-6 col-lg-4">
-                      <div class="m__list-tile">
-                        <a
-                          href="#"
-                        >
-                          <div class="m__list-tile--image">
-                            <img
-                              class="img-object-fit"
-                              src="{{ asset('images/bangkok.jpg') }}"
-                              alt="why video wins on social media"
-                            />
-                          </div>
-                        </a>
-                        <div class="m__list-tile--content">
-                          <a
-                            href="#"
-                          >
-                            <h4 class="small">
-                              Ut Enim Ad Minim Veniam Quis
-                            </h4>
-                          </a>
-                          <p class="m__list-tile--content--excerpt xsmall">
-                            It’s no exaggeration to say that Social Media
-                            defines the way we communicate and how we consume
-                            content online. And&hellip;
-                          </p>
-                          <div class="m__list-tile--content--author">
-                            <img
-                              class="m__list-tile--content--author--image"
-                              alt="author profile image"
-                              src="{{ asset('bangkok.jpg') }}"
-                            />
-                            <p>paul</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-xs-12 col-md-6 col-lg-4">
-                      <div class="m__list-tile">
-                        <a
-                          href="#"
-                        >
-                          <div class="m__list-tile--image">
-                            <img
-                              class="img-object-fit"
-                              src="{{ asset('images/yangon.png') }}"
-                              alt=""
-                            />
-                          </div>
-                        </a>
-                        <div class="m__list-tile--content">
-                          <a
-                            href="#"
-                          >
-                            <h4 class="small">Velit Esse Cillum Dolore</h4>
-                          </a>
-                          <p class="m__list-tile--content--excerpt xsmall">
-                            We can hear the sound of eyeballs rolling as you
-                            open this. You’re probably sick of hearing about how
-                            traditional&hellip;
-                          </p>
-                          <div class="m__list-tile--content--author">
-                            <img
-                              class="m__list-tile--content--author--image"
-                              alt="author profile image"
-                              src="{{ asset('images/yangon.png') }}"
-                            />
-                            <p>paul</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-xs-12 col-md-6 col-lg-4">
-                      <div class="m__list-tile">
-                        <a
-                          href="#"
-                        >
-                          <div class="m__list-tile--image">
-                            <img
-                              class="img-object-fit"
-                              src="{{ asset('images/mandalay.jpg') }}"
-                              alt="outrunners charity event"
-                            />
-                          </div>
-                        </a>
-                        <div class="m__list-tile--content">
-                          <a
-                            href="#"
-                          >
-                            <h4 class="small">
-                              Eu Fugiat Nulla Pariatur Excepteur
-                            </h4>
-                          </a>
-                          <p class="m__list-tile--content--excerpt xsmall">
-                            We’re absolutely thrilled to announce our
-                            partnership with Outrunners. A local charity based
-                            in Hackney, which started as a running&hellip;
-                          </p>
-                          <div class="m__list-tile--content--author">
-                            <img
-                              class="m__list-tile--content--author--image"
-                              alt="author profile image"
-                              src="{{ asset('images/yangon.png') }}"
-                            />
-                            <p>sam</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                   
                   </div>
                   <div class="l__blog-list--more-articles">
                     <div

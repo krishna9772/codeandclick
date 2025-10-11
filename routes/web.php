@@ -8,30 +8,29 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VentureController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/blog', function () {
-    return view('blog');
-});
+Route::get('/blog', [HomeController::class, 'showBlog'])->name('blog');
+Route::get('/blog/{uuid}/{slug}', [HomeController::class, 'BlogDetails'])->name('blog-details');
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
 Route::get('/careers', [HomeController::class, 'showCareers'])->name('show-careers');
 Route::get('/careers/{id}', [HomeController::class, 'showCareerDetails'])->name('show-career-details');
 Route::get('/contact', function () {
     return view('contact');
-});
+})->name('contact');
 Route::get('/our-works', function () {
     return view('our-works');
-});
+})->name('our-work');
 Route::get('/services', function () {
     return view('services');
-});
+})->name('services');
 Route::get('/technology', function () {
     return view('technology');
-});
-Route::get('/ventures', [HomeController::class, 'showVentures']);
+})->name('technology');
+Route::get('/ventures', [HomeController::class, 'showVentures'])->name('ventures');
 Route::get('/work-with-us', function () {
     return view('work-with-us');
-});
+})->name('work-with-us');
 
 Route::post('/enquiry', [EnquireController::class, 'store'])->name('enquiry.store');
 

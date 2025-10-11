@@ -73,7 +73,7 @@
                                             </button>
                                         </form>
                                         @endif
-                                        <a href="{{ route('careers.show', $career->id) }}" class="text-gray-800 rounded-md p-2 bg-gray-300 hover:text-gray-700">
+                                        <a href="{{route('show-career-details', ['id' => $career->id])}}" class="text-gray-800 rounded-md p-2 bg-gray-300 hover:text-gray-700">
                                             <x-bi-eye class="w-5 h-5" />
                                         </a>
                                         <x-confirm-delete :action="route('careers.destroy', $career->id)" />

@@ -130,42 +130,42 @@
               <li
                 id="menu-item-20"
                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20">
-                <a href="our-works">Our Work</a>
+                <a href="{{ route('our-work') }}">Our Work</a>
               </li>
               <li
                 id="menu-item-16"
                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-16">
-                <a href="technology">Technology</a>
+                <a href="{{ route('technology') }}">Technology</a>
               </li>
               <li
                 id="menu-item-19"
                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-19">
-                <a href="services">What We Do</a>
+                <a href="{{ route('services') }}">What We Do</a>
               </li>
               <li
                 id="menu-item-15"
                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15">
-                <a href="blog">Blog</a>
+                <a href="{{ route('blog') }}">Blog</a>
               </li>
               <li
                 id="menu-item-4256"
                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4256">
-                <a href="work-with-us">Working with us</a>
+                <a href="{{ route('work-with-us') }}">Working with us</a>
               </li>
               <li
                 id="menu-item-14"
                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14">
-                <a href="contact">Contact</a>
+                <a href="{{ route('contact') }}">Contact</a>
               </li>
               <li
                 id="menu-item-17"
                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-17">
-                <a href="ventures">Ventures</a>
+                <a href="{{ route('ventures') }}">Ventures</a>
               </li>
               <li
                 id="menu-item-5156"
                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5156">
-                <a href="careers">Careers</a>
+                <a href="{{ route('show-careers') }}">Careers</a>
               </li>
             </ul>
           </div>
