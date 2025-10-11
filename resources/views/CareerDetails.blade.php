@@ -39,6 +39,7 @@
   <!-- Canonical URL -->
   <link rel="canonical" href="https://codeandclick.com/">
 
+  @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body
@@ -201,12 +202,7 @@
     </div>
   </section>
   <!-- Elements moved here for fixed positions, had to remove smooth scroll so was no longer working inside there containers -->
-  <div class="home-video-container">
-    <video id="home-video" loop autoplay muted playsinline webkit-playsinline>
-      <source src="{{ asset('videos/home.mp4') }}" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
-  </div>
+
 
 
 
@@ -235,72 +231,57 @@
     <div id="scroll-container" class="scroll-container">
       <div id="barba-wrapper">
         <div class="barba-container">
-          <div class="l__ventures">
-            <!-- <img
-                class="l__ventures--flame-background"
-                src="https://ignitecreates.com/wp-content/themes/ignite/library/images/graphics/black-faded-flame-background.png"
-              /> -->
 
-            <section class="l__ventures--titles">
-              <div class="medium-container">
-                <h1>Lorem Ipsum</h1>
-                <h4 class="small">
-                  Sit amet consectetur adipiscing elit sed do eiusmod tempor
-                  incididunt ut labore et dolore magna aliqua ut enim ad
-                  minim veniam quis nostrud exercitation ullamco laboris.
-                </h4>
+          <div class="h-[100vh] flex items-center justify-center bg-black">
+            <p class="text-white text-6xl max-w-3xl font-extrabold">{{ $career->title }}</p>
+          </div>
+          <div class="bg-black">
+            <div class="max-w-6xl mx-auto space-y-24 p-10 py-24 text-white">
+              <div>
+                <p class="text-white text-3xl font-black mb-6">About Ignite</p>
+                <p>{{ $career->ignite }}</p>
               </div>
-              <a href="#" class="c__button light" id="scroll-to">See below</a>
-            </section>
-
-            <section class="l__current-holdings">
-              <div class="container">
-                <h3>Open Positions</h3>
-                <div style="display: flex; gap: 10px;">
-                  {{-- "All" Button --}}
-                  <a href="{{ route('show-careers', ['location' => '']) }}"
-                    style="@if(empty($location)) background-color: #fff; color: #000; @endif"
-                    id="uk-butt" class="c__button">
-                    
-                    All
-                  </a>
-
-                  {{-- Location Buttons --}}
-                  @foreach (config('base.location') as $loc)
-                  <a href="{{ route('show-careers', ['location' => $loc]) }}"
-                    style="@if($location === $loc) background-color: #fff; color: #000; @endif"
-                    id="uk-butt" class="c__button">
-                    {{ $loc }}
-                  </a>
+              <div>
+                <p class="text-white text-3xl font-black mb-6">About The Role</p>
+                <p>{{ $career->role }}</p>
+              </div>
+              <div>
+                <p class="text-white text-3xl font-black mb-6">Key Responsibilities</p>
+                <div>
+                  @foreach (explode('/', $career->responsibilities) as $responsibility)
+                  <p class="flex items-center gap-3"><x-bi-dot class="w-8 h-8" /> {{ $responsibility }}</p>
                   @endforeach
                 </div>
-
-
-                <div class="vacancies">
-                  @foreach ($careers as $career)
-                  <div class="row uk-job">
-                    <div class="col-xs-12 col-sm-7 col-md-8">
-                      <h3>{{ $career->title }}</h3>
-                    </div>
-                    <div class="col-xs-12 col-sm-5 col-md-4 | button-col">
-                      <a
-                        href="route('show-career-details', ['id' => $career->id])"
-                        target=""
-                        class="c__button-circle light">
-                        <span>Read More</span>
-                        <div class="c__button-circle--arrow">
-                          <img
-                            alt="right arrow"
-                            src="{{ asset('images/icons/right-arrow.svg') }}" />
-                        </div>
-                      </a>
-                    </div>
-                  </div>
+              </div>
+              <div>
+                <p class="text-white text-3xl font-black mb-6">Requirements</p>
+                <div>
+                  @foreach (explode('/', $career->requirements) as $requirement)
+                  <p class="flex items-center gap-3"><x-bi-dot class="w-8 h-8" /> {{ $requirement }}</p>
                   @endforeach
-                  
                 </div>
               </div>
-            </section>
+              <div>
+                <p class="text-white text-3xl font-black mb-6">Benefits</p>
+                <div>
+                  @foreach (explode('/', $career->benefits) as $benefit)
+                  <p class="flex items-center gap-3"><x-bi-dot class="w-8 h-8" /> {{ $benefit }}</p>
+                  @endforeach
+                </div>
+              </div>
+              <div>
+                <p class="text-white text-3xl font-black mb-6">Other Information</p>
+                <p>{{ $career->salary }}Ks / Monthly
+                </p>
+                <p> {{ $career->location }}</p>
+              </div>
+              <div
+
+                id="uk-butt" class="c__button bg-white text-black">
+                Apply Now
+              </div>
+            </div>
+
           </div>
 
           <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>

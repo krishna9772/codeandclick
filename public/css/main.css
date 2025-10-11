@@ -2269,6 +2269,8 @@ footer .bottom .general-links ul li a:hover:after {
   font-family: Kyron;
   font-size: 16px;
   height: 77px;
+  border: 1px solid white;
+  color: white;
   justify-content: center;
   text-decoration: none;
   width: 230px;

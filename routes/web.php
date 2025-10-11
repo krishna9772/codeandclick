@@ -14,9 +14,8 @@ Route::get('/blog', function () {
 Route::get('/', function () {
     return view('home');
 });
-Route::get('/careers', function () {
-    return view('carrer');
-});
+Route::get('/careers', [HomeController::class, 'showCareers'])->name('show-careers');
+Route::get('/careers/{id}', [HomeController::class, 'showCareerDetails'])->name('show-career-details');
 Route::get('/contact', function () {
     return view('contact');
 });
