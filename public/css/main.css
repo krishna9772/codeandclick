@@ -2821,7 +2821,7 @@ footer .bottom .general-links ul li a:hover:after {
 .home-video-container {
     align-items: center;
     background-color: black;
-    display: none;
+    display: flex;
     height: auto;
     max-height: 100vh;
     justify-content: center;
@@ -2830,9 +2830,9 @@ footer .bottom .general-links ul li a:hover:after {
     width: 100vw;
     z-index: 5;
 }
-.home .home-video-container {
+/* .home .home-video-container {
     display: flex;
-}
+} */
 #home-video {
     height: 100%;
     min-height: 500px;
