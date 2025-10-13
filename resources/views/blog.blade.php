@@ -279,20 +279,23 @@
                   <!-- <h1>Lorem Ipsum</h1> -->
                   <ul>
                     <li data-value="all">
-                      <p class="active">Blog</p>
+                      <p class="{{ $tab === 'Blog' ? 'active' : '' }}">
+                        <a style="font-size: 16px;" href="{{ route('blog', ['tab' => 'Blog']) }}">Blog</a>
+                      </p>
                     </li>
-                    <li data-value="strategy"><p>Strategy</p></li>
-                    <li data-value="digital"><p>Digital</p></li>
-                    <li data-value="creative"><p>Creative</p></li>
-                    <li data-value="culture"><p>Culture</p></li>
-                    <li data-value="news"><p>News</p></li>
-                    <li data-value="branding"><p>Branding</p></li>
-                    <li data-value="social"><p>Social</p></li>
-                    <li data-value="christmas"><p>Christmas</p></li>
-                    <li data-value="crm"><p>Crm</p></li>
+                    <li data-value="strategy"><p class="{{ $tab === 'Strategy' ? 'active' : '' }}" ><a style="font-size: 16px;" href="{{ route('blog', ['tab' => 'Strategy']) }}">Strategy</a></p></li>
+                    <li data-value="digital"><p class="{{ $tab === 'Digital' ? 'active' : '' }}" ><a style="font-size: 16px;" href="{{ route('blog', ['tab' => 'Digital']) }}">Digital</a></p></li>
+                    <li data-value="creative"><p class="{{ $tab === 'Creative' ? 'active' : '' }}" ><a style="font-size: 16px;" href="{{ route('blog', ['tab' => 'Creative']) }}">Creative</a></p></li>
+                    <li data-value="culture"><p class="{{ $tab === 'Culture' ? 'active' : '' }}" ><a style="font-size: 16px;" href="{{ route('blog', ['tab' => 'Culture']) }}">Culture</a></p></li>
+                    <li data-value="news"><p class="{{ $tab === 'News' ? 'active' : '' }}" ><a style="font-size: 16px;" href="{{ route('blog', ['tab' => 'News']) }}">News</a></p></li>
+                    <li data-value="branding"><p class="{{ $tab === 'Branding' ? 'active' : '' }}" ><a style="font-size: 16px;" href="{{ route('blog', ['tab' => 'Branding']) }}">Branding</a></p></li>
+                    <li data-value="social"><p class="{{ $tab === 'Social' ? 'active' : '' }}" ><a style="font-size: 16px;" href="{{ route('blog', ['tab' => 'Social']) }}">Social</a></p></li>
+                    <li data-value="christmas"><p class="{{ $tab === 'Christmas' ? 'active' : '' }}" ><a style="font-size: 16px;" href="{{ route('blog', ['tab' => 'Christmas']) }}">Christmas</a></p></li>
+                    <li data-value="crm"><p class="{{ $tab === 'Crm' ? 'active' : '' }}" ><a style="font-size: 16px;" href="{{ route('blog', ['tab' => 'Crm']) }}">Crm</a></p></li>
                   </ul>
                 </div>
               </div>
+              @if ($tab === 'Blog' && $Headerblogs->count() >= 1)
               <section class="m__latest-article">
                 <div class="row">
                   <div class="col-xs-12 col-md-5 m__latest-article--left">
@@ -333,6 +336,7 @@
                   </div>
                 </div>
               </section>
+              @endif
 
               <div class="large-container">
                 @if ($Headerblogs->count() >= 5)

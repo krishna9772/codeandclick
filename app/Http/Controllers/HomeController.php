@@ -23,7 +23,7 @@ class HomeController extends Controller
     {
 
         $tab = request('tab', "Blog");
-
+       
         $Headerblogs = Blogs::with('user')->where('type', $tab)->where('status', 'published')->inRandomOrder()->paginate(6);
 
         $blogs = Blogs::with('user')->where('type', $tab)->where('status', 'published')->orderBy('created_at', 'desc')->paginate(6);
