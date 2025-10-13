@@ -2,7 +2,6 @@
 
 return [
     'blog_types' => [
-        'Blog',
         'Strategy',
         'Digital',
         'Creative',

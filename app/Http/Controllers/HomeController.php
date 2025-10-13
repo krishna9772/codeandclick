@@ -22,11 +22,20 @@ class HomeController extends Controller
     public function showBlog()
     {
 
-        $tab = request('tab', "Blog");
+        $tab = request('tab', "");
        
-        $Headerblogs = Blogs::with('user')->where('type', $tab)->where('status', 'published')->inRandomOrder()->paginate(6);
+        $Headerblogs = Blogs::with('user')->where('status', 'published')->inRandomOrder()->paginate(6);
 
-        $blogs = Blogs::with('user')->where('type', $tab)->where('status', 'published')->orderBy('created_at', 'desc')->paginate(6);
+        $blogs = Blogs::with('user');
+
+        if($tab){
+            $blogs = $blogs->where('type', $tab);
+        }
+        
+        $blogs = $blogs->where('status', 'published')->orderBy('created_at', 'desc')->paginate(6);
+
+        Log::info($blogs);
+
         return view('blog', compact('Headerblogs', 'blogs', 'tab'));
     }
 

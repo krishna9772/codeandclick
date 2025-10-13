@@ -279,8 +279,8 @@
                   <!-- <h1>Lorem Ipsum</h1> -->
                   <ul>
                     <li data-value="all">
-                      <p class="{{ $tab === 'Blog' ? 'active' : '' }}">
-                        <a style="font-size: 16px;" href="{{ route('blog', ['tab' => 'Blog']) }}">Blog</a>
+                      <p class="{{ $tab === '' ? 'active' : '' }}">
+                        <a style="font-size: 16px;" href="{{ route('blog', ['tab' => '']) }}">Blog</a>
                       </p>
                     </li>
                     <li data-value="strategy"><p class="{{ $tab === 'Strategy' ? 'active' : '' }}" ><a style="font-size: 16px;" href="{{ route('blog', ['tab' => 'Strategy']) }}">Strategy</a></p></li>
@@ -295,7 +295,7 @@
                   </ul>
                 </div>
               </div>
-              @if ($tab === 'Blog' && $Headerblogs->count() >= 1)
+              @if ($tab === '' && $Headerblogs->count() >= 1)
               <section class="m__latest-article">
                 <div class="row">
                   <div class="col-xs-12 col-md-5 m__latest-article--left">
@@ -534,7 +534,7 @@
     </div>
     <input type="hidden" id="data_location" value="" />
       <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
-
+     
    
     @include('components.footer')
   </body>
