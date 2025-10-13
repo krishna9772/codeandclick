@@ -6,39 +6,39 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- Primary Meta Tags -->
     <title>Code And Click – Services - Full-Service Digital Marketing & Web Development Agency</title>
     <meta name="description" content="Code And Click delivers cutting-edge digital marketing, Code And Click Services page, custom web development, and high-impact production services to help businesses grow online.">
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://codeandclick.com/">
     <meta property="og:title" content="Code And Click – Full-Service Digital Marketing & Web Development Agency">
     <meta property="og:description" content="We build, optimize, and scale your brand's digital presence with coding, marketing, and production solutions.">
     <meta property="og:image" content="https://codeandclick.com/images/social-preview.jpg">
-    
+
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://codeandclick.com/">
     <meta name="twitter:title" content="Code And Click – Full-Service Digital Marketing & Web Development Agency">
     <meta name="twitter:description" content="Custom web development, digital marketing, and creative production services for modern businesses.">
     <meta name="twitter:image" content="https://codeandclick.com/images/social-preview.jpg">
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
-    
+
     <!-- CSS -->
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
-    
+
     <!-- Preload Critical Resources -->
     <link rel="preload" href="{{ asset('css/main.css') }}" as="style">
-    
+
     <!-- Canonical URL -->
     <link rel="canonical" href="https://codeandclick.com/">
 
-    
+
 </head>
 
   <body
@@ -74,7 +74,7 @@
               >EN</a
             >
           </li>
-         
+
         </ul>
 
         <div class="c__menu-toggle">
@@ -280,7 +280,7 @@
               <div class="l__what-we-do--services">
                 <div class="container">
                   <h2 class="small">
-                    Lorem Ipsum has been the industry's standard 
+                    Lorem Ipsum has been the industry's standard
                   </h2>
                   <p class="large">
                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer t
@@ -502,7 +502,7 @@
                   <div class="owl-carousel testimonial">
                     <img
                       class="mobile-logo"
-                      src="{{ asset('images/default.png') }}"
+                       src="{{ asset('images/default.png') }}"
                     />
                     <img
                       class="mobile-logo"
@@ -541,17 +541,17 @@
                   <div class="owl-carousel">
                     <div
                       style="
-                        background-image: url('assets/images/default.png');
+                        background-image: url('/images/slider.jpg');
                       "
                     ></div>
                     <div
                       style="
-                        background-image: url('assets/images/default.png');
+                        background-image: url('/images/slider.jpg');
                       "
                     ></div>
                     <div
                       style="
-                        background-image: url('assets/images/default.png');
+                        background-image: url('/images/slider.jpg');
                       "
                     ></div>
                   </div>
@@ -599,7 +599,7 @@
                 </div>
               </section>
 
-              
+
             </section>
 
             <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>

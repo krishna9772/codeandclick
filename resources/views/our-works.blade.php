@@ -6,35 +6,35 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- Primary Meta Tags -->
     <title>Code And Click – Collaborators - Full-Service Digital Marketing & Web Development Agency</title>
     <meta name="description" content="Code And Click delivers cutting-edge digital marketing, Code And Click Company Work With Us, custom web development, and high-impact production services to help businesses grow online.">
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://codeandclick.com/">
     <meta property="og:title" content="Code And Click – Full-Service Digital Marketing & Web Development Agency">
     <meta property="og:description" content="We build, optimize, and scale your brand's digital presence with coding, marketing, and production solutions.">
     <meta property="og:image" content="https://codeandclick.com/images/social-preview.jpg">
-    
+
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://codeandclick.com/">
     <meta name="twitter:title" content="Code And Click – Full-Service Digital Marketing & Web Development Agency">
     <meta name="twitter:description" content="Custom web development, digital marketing, and creative production services for modern businesses.">
     <meta name="twitter:image" content="https://codeandclick.com/images/social-preview.jpg">
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
-    
+
     <!-- CSS -->
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
-    
+
     <!-- Preload Critical Resources -->
     <link rel="preload" href="{{ asset('css/main.css') }}" as="style">
-    
+
     <!-- Canonical URL -->
     <link rel="canonical" href="https://codeandclick.com/">
 
@@ -73,7 +73,7 @@
               >EN</a
             >
           </li>
-         
+
         </ul>
 
         <div class="c__menu-toggle">
@@ -231,7 +231,7 @@
           </div>
         </div>
       </div>
-    </section>   
+    </section>
 
     <div class="case-study-video-container"></div>
     <div class="working-with-us-scroll-image"></div>
@@ -293,7 +293,7 @@
                         <p>Project11</p>
                       </li>
                     </ul>
-                    
+
                   </div>
                 </div>
               </div>
@@ -304,7 +304,7 @@
                     <div
                       class="m__our-work--block large clickable-block bg-cover"
                       style="
-                        background-image: url(assets/images/default.png);
+                        background-image: url(images/default.png);
                       "
                     >
                       <div class="m__our-work--block--overlay"></div>
@@ -330,7 +330,7 @@
                     <div
                       class="m__our-work--block small clickable-block bg-cover"
                       style="
-                        background-image: url(assets/images/default.png);
+                        background-image: url(images/default.png);
                       "
                     >
                       <div class="m__our-work--block--overlay"></div>
@@ -354,7 +354,7 @@
                     <div
                       class="m__our-work--block small clickable-block bg-cover"
                       style="
-                        background-image: url(assets/images/default.png);
+                        background-image: url(images/default.png);
                       "
                     >
                       <div class="m__our-work--block--overlay"></div>
@@ -380,7 +380,7 @@
                     <div
                       class="m__our-work--block full-width clickable-block bg-cover"
                       style="
-                        background-image: url(assets/images/default.png);
+                        background-image: url(images/default.png);
                       "
                     >
                       <div class="m__our-work--block--overlay"></div>
@@ -404,7 +404,7 @@
                     <div
                       class="m__our-work--block large clickable-block bg-cover"
                       style="
-                        background-image: url(assets/images/default.png);
+                        background-image: url(images/default.png);
                       "
                     >
                       <div class="m__our-work--block--overlay"></div>
@@ -430,7 +430,7 @@
                     <div
                       class="m__our-work--block small clickable-block bg-cover"
                       style="
-                        background-image: url(assets/images/default.png);
+                        background-image: url(images/default.png);
                       "
                     >
                       <div class="m__our-work--block--overlay"></div>
@@ -454,7 +454,7 @@
                     <div
                       class="m__our-work--block small clickable-block bg-cover"
                       style="
-                        background-image: url(assets/images/default.png);
+                        background-image: url(images/default.png);
                       "
                     >
                       <div class="m__our-work--block--overlay"></div>
@@ -480,7 +480,7 @@
                     <div
                       class="m__our-work--block full-width clickable-block bg-cover"
                       style="
-                        background-image: url(assets/images/default.png);
+                        background-image: url(images/default.png);
                       "
                     >
                       <div class="m__our-work--block--overlay"></div>
@@ -506,7 +506,7 @@
                     <div
                       class="m__our-work--block large clickable-block bg-cover"
                       style="
-                        background-image: url(assets/images/default.png);
+                        background-image: url(images/default.png);
                       "
                     >
                       <div class="m__our-work--block--overlay"></div>
@@ -530,7 +530,7 @@
                     <div
                       class="m__our-work--block small clickable-block bg-cover"
                       style="
-                        background-image: url(assets/images/default.png);
+                        background-image: url(images/default.png);
                       "
                     >
                       <div class="m__our-work--block--overlay"></div>
@@ -554,13 +554,13 @@
                     <div
                       class="m__our-work--block small clickable-block bg-cover"
                       style="
-                        background-image: url(assets/images/default.png);
+                        background-image: url(images/default.png);
                       "
                     >
                       <div class="m__our-work--block--overlay"></div>
                       <div class="m__our-work--block--content">
                         <p class="small">
-                          Title 
+                          Title
                         </p>
                         <h5 class="xlarge">Description</h5>
                       </div>
@@ -580,7 +580,7 @@
                     <div
                       class="m__our-work--block full-width clickable-block bg-cover"
                       style="
-                        background-image: url(assets/images/default.png);
+                        background-image: url(images/default.png);
                       "
                     >
                       <div class="m__our-work--block--overlay"></div>
@@ -604,7 +604,7 @@
                     <div
                       class="m__our-work--block large clickable-block bg-cover"
                       style="
-                        background-image: url(assets/images/default.png);
+                        background-image: url(images/default.png);
                       "
                     >
                       <div class="m__our-work--block--overlay"></div>
@@ -628,7 +628,7 @@
                     <div
                       class="m__our-work--block small clickable-block bg-cover"
                       style="
-                        background-image: url(assets/images/default.png);
+                        background-image: url(images/default.png);
                       "
                     >
                       <div class="m__our-work--block--overlay"></div>
@@ -652,7 +652,7 @@
                     <div
                       class="m__our-work--block small clickable-block bg-cover"
                       style="
-                        background-image: url(assets/images/default.png);
+                        background-image: url(images/default.png);
                       "
                     >
                       <div class="m__our-work--block--overlay"></div>
@@ -674,12 +674,12 @@
                     </div>
                   </div>
 
-                  
+
                 </div>
               </div>
             </section>
 
-            
+
             <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
 
           </div>

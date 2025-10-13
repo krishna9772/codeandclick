@@ -8,39 +8,39 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- Primary Meta Tags -->
     <title>Code And Click – Home - Full-Service Digital Marketing & Web Development Agency</title>
     <meta name="description" content="Code And Click delivers cutting-edge digital marketing, Code And Click Technology page, custom web development, and high-impact production services to help businesses grow online.">
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://codeandclick.com/">
     <meta property="og:title" content="Code And Click – Full-Service Digital Marketing & Web Development Agency">
     <meta property="og:description" content="We build, optimize, and scale your brand's digital presence with coding, marketing, and production solutions.">
     <meta property="og:image" content="https://codeandclick.com/images/social-preview.jpg">
-    
+
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://codeandclick.com/">
     <meta name="twitter:title" content="Code And Click – Full-Service Digital Marketing & Web Development Agency">
     <meta name="twitter:description" content="Custom web development, digital marketing, and creative production services for modern businesses.">
     <meta name="twitter:image" content="https://codeandclick.com/images/social-preview.jpg">
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
-    
+
     <!-- CSS -->
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
-    
+
     <!-- Preload Critical Resources -->
     <link rel="preload" href="{{ asset('css/main.css') }}" as="style">
-    
+
     <!-- Canonical URL -->
     <link rel="canonical" href="https://codeandclick.com/">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-   
+
   </head>
 
   <body
@@ -74,7 +74,7 @@
               >EN</a
             >
           </li>
-         
+
         </ul>
 
         <div class="c__menu-toggle">
@@ -251,7 +251,7 @@
     <div class="medium-container">
       <h1>Technology</h1>
       <div class="l__technology--titles--content">
-        <h4 class="medium">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita, harum tempore? Aliquam porro cupiditate, fugiat dolorum modi quas, debitis maxime reiciendis soluta sunt tempore, ducimus vero. Deserunt quos fuga sunt.</h4> 
+        <h4 class="medium">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita, harum tempore? Aliquam porro cupiditate, fugiat dolorum modi quas, debitis maxime reiciendis soluta sunt tempore, ducimus vero. Deserunt quos fuga sunt.</h4>
         <a href="contact.html" class="c__button dark">Get in touch</a>
       </div>
     </div>
@@ -276,7 +276,7 @@
           <div class="container">
             <div class="logo-container">
               <!-- <img class="logo" src="assets/images/bangkok.jpg" /> -->
-              <h4 class="large">E-Commerce</h4>
+              <h3 >E-Commerce</h3>
             </div>
             <h3>The all-in-one e-commerce solution for hospitality. </h3>
           </div>
@@ -343,8 +343,8 @@ Control your brand experience, expand your product range and reach new customers
               <div class="m__product">
           <div class="container">
             <div class="logo-container">
-              <img class="logo" src="{{ asset('images/yangon.png') }}" />
-              <h4 class="large">Websites</h4>
+              {{-- <img class="logo" src="{{ asset('images/yangon.png') }}" /> --}}
+              <h3>Websites</h3>
             </div>
             <h3>A pre-built website platform for restaurants, pubs &amp; bars optimised for booking conversions.</h3>
           </div>
@@ -414,7 +414,7 @@ Control your brand experience, expand your product range and reach new customers
           <div class="container">
             <div class="logo-container">
               <!-- <img class="logo" src="assets/images/yangon.png" /> -->
-              <h4 class="large">Lorem Ipsum</h4>
+              <h3>Lorem Ipsum</h3>
             </div>
             <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum culpa doloribus inventore saepe voluptates ipsum labore quam architecto dolorem. Totam, laudantium praesentium. Rerum quidem ab illum optio veritatis. Et, sit..</h3>
           </div>
@@ -461,7 +461,7 @@ These plug-and-play games are perfect for distributing promotional content and t
         </section>
 </div>
 
-     
+
             <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
           </div>
         </div>

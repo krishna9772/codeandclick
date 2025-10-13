@@ -6,35 +6,35 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- Primary Meta Tags -->
     <title>Code And Click – Work with us - Full-Service Digital Marketing & Web Development Agency</title>
     <meta name="description" content="Code And Click delivers cutting-edge digital marketing, Code And Click Company Work With Us, custom web development, and high-impact production services to help businesses grow online.">
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://codeandclick.com/">
     <meta property="og:title" content="Code And Click – Full-Service Digital Marketing & Web Development Agency">
     <meta property="og:description" content="We build, optimize, and scale your brand's digital presence with coding, marketing, and production solutions.">
     <meta property="og:image" content="https://codeandclick.com/images/social-preview.jpg">
-    
+
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://codeandclick.com/">
     <meta name="twitter:title" content="Code And Click – Full-Service Digital Marketing & Web Development Agency">
     <meta name="twitter:description" content="Custom web development, digital marketing, and creative production services for modern businesses.">
     <meta name="twitter:image" content="https://codeandclick.com/images/social-preview.jpg">
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
-    
+
     <!-- CSS -->
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
-    
+
     <!-- Preload Critical Resources -->
     <link rel="preload" href="{{ asset('css/main.css') }}" as="style">
-    
+
     <!-- Canonical URL -->
     <link rel="canonical" href="https://codeandclick.com/">
 
@@ -71,7 +71,7 @@
               >EN</a
             >
           </li>
-         
+
         </ul>
 
         <div class="c__menu-toggle">
@@ -272,31 +272,31 @@
       <div class="anchor-link" id="m__advantage-scroll--title">
         <span>02</span>
                   <p> Lorem Ipsum has </p>
-            
+
       </div>
       <div class="anchor-link" id="m__solution">
         <span>03</span>
                   <p> Lorem Ipsum has</p>
-         
+
       </div>
       <div class="anchor-link" id="m__global-reach">
         <span>04</span>
                   <p> Lorem Ipsum has </p>
-         
+
       </div>
       <div class="anchor-link" id="m__beliefs">
         <span>05</span>
                   <p> Lorem Ipsum has been</p>
-         
+
       </div>
       <div class="anchor-link" id="m__clients">
         <span>06</span>
                   <p> Lorem Ipsum has been </p>
-         
+
       </div>
     </div>
   </div>
-  <div class="hero-image" style="background-image:url(assets/images/default.png)"></div>
+  {{-- <div class="hero-image" style="background-image:url(/images/default.png)"></div> --}}
 </section>
 
 <section class="m__intro-experience">
@@ -338,8 +338,8 @@
 <section class="m__advantage-scroll">
   <div class="row">
     <div class="col-md-6 left">
-      <div class="m__advantage-scroll--bg-image" style="background-image: url(assets/images/default.png)"></div>
-    </div> 
+      <div class="m__advantage-scroll--bg-image" style="background-image: url(/images/default.png)"></div>
+    </div>
     <div class="col-xs-12 col-md-6 m__advantage-scroll--content">
         <div class="m__advantage-scroll--content--item">
           <h4 class="large">A cohort of experts</h4>
@@ -378,14 +378,14 @@
     </div>
     <div class="row">
       <div class="col-xs-12 col-md-6 m__solution--content-left">
-        <h4 class="medium">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, at varius vel pharetra vel turpis nunc eget lorem dolor.</h4> 
+        <h4 class="medium">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, at varius vel pharetra vel turpis nunc eget lorem dolor.</h4>
       </div>
       <div class="col-xs-12 col-md-6 m__solution--content-right">
         <p>Nulla facilisi; sed pretium lectus in magna sodales, non dapibus enim feugiat, posuere eros morbi non lacinia ligula aenean accumsan.<br />
 <br />
 Fusce aliquet, lorem a faucibus posuere, sapien purus laoreet nisl, vitae gravida arcu tortor non urna. Integer gravida pulvinar sem.</p>
       </div>
-    </div>    
+    </div>
   </div>
 </section>
 
@@ -397,7 +397,7 @@ Fusce aliquet, lorem a faucibus posuere, sapien purus laoreet nisl, vitae gravid
   </div>
   <div class="row image-left-text-right">
     <div class="col-xs-12 col-md-6 m__further-solution--bg-image left">
-      <div class="image" style="background-image: url(assets/images/default.png)"></div>
+      <div class="image" style="background-image: url(/images/default.png)"></div>
     </div>
     <div class="col-xs-11 col-md-6 m__further-solution--content right">
       <h4>At lorem ipsum we specialise in finding your brand edge, identifying what makes you special, and translating that into a powerful narrative. </h4>
@@ -419,7 +419,7 @@ Suspendisse potenti; nam dictum dui quis turpis porttitor, vitae dictum leo tinc
 Aliquam erat volutpat; sed consequat sapien vel justo mattis, non rhoncus ligula fringilla.</p>
      </div>
     <div class="col-xs-12 col-md-6 m__further-solution--bg-image right">
-       <div class="image" style="background-image: url(assets/images/default.png)"></div>
+       <div class="image" style="background-image: url(/images/default.png)"></div>
     </div>
   </div>
 </section>
@@ -443,12 +443,12 @@ Aliquam erat volutpat; sed consequat sapien vel justo mattis, non rhoncus ligula
   </div>
   <div class="m__global-reach--gallery">
       <div class="owl-carousel">
-                        <div class="image" style="background-image: url(assets/images/default.png)"></div>
-                              <div class="image" style="background-image: url(assets/images/default.png)"></div>
-                              <div class="image" style="background-image: url(assets/images/default.png)"></div>
-                              <div class="image" style="background-image: url(assets/images/default.png)"></div>
-                              <div class="image" style="background-image: url(assets/images/default.png)"></div>
-                              <div class="image" style="background-image: url(assets/images/default.png)"></div>
+                        <div class="image" style="background-image: url(/images/default.png)"></div>
+                              <div class="image" style="background-image: url(/images/default.png)"></div>
+                              <div class="image" style="background-image: url(/images/default.png)"></div>
+                              <div class="image" style="background-image: url(/images/default.png)"></div>
+                              <div class="image" style="background-image: url(/images/default.png)"></div>
+                              <div class="image" style="background-image: url(/images/default.png)"></div>
                     </div>
     </div>
 </section>
