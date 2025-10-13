@@ -6,39 +6,39 @@
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- Primary Meta Tags -->
     <title>Code And Click – Contact Us - Full-Service Digital Marketing & Web Development Agency</title>
     <meta name="description" content="Code And Click delivers cutting-edge digital marketing, Code And Click Contact Us page, custom web development, and high-impact production services to help businesses grow online.">
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://codeandclick.com/">
     <meta property="og:title" content="Code And Click – Full-Service Digital Marketing & Web Development Agency">
     <meta property="og:description" content="We build, optimize, and scale your brand's digital presence with coding, marketing, and production solutions.">
     <meta property="og:image" content="https://codeandclick.com/images/social-preview.jpg">
-    
+
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://codeandclick.com/">
     <meta name="twitter:title" content="Code And Click – Full-Service Digital Marketing & Web Development Agency">
     <meta name="twitter:description" content="Custom web development, digital marketing, and creative production services for modern businesses.">
     <meta name="twitter:image" content="https://codeandclick.com/images/social-preview.jpg">
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ asset('images/favicon.png') }}">
-    
+
     <!-- CSS -->
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
-    
+
     <!-- Preload Critical Resources -->
     <link rel="preload" href="{{ asset('css/main.css') }}" as="style">
-    
+
     <!-- Canonical URL -->
     <link rel="canonical" href="https://codeandclick.com/">
 
-    
+
   </head>
 
   <body
@@ -72,7 +72,7 @@
               >EN</a
             >
           </li>
-         
+
         </ul>
 
         <div class="c__menu-toggle">
@@ -266,7 +266,7 @@
                     <div class="l__contact--switcher">
                     <h4 id="one" class="switch small active">Myanmar</h4>
                     <h4 id="two" class="switch small">Thailand</h4>
-                 
+
                       <div
                         class="l__contact--switcher--info switcher active"
                         id="contact-one"
@@ -351,7 +351,7 @@
                   class="m__office-tile"
                   id="london"
                   style="
-                    background-image: url(assets/images/yangon.png);
+                    background-image: url(/images/yangon.png);
                   "
                 >
                   <h1>Yangon</h1>
@@ -382,12 +382,12 @@
                     </div>
                   </div>
                 </div>
-                
+
                 <div
                   class="m__office-tile"
                   id="fl"
                   style="
-                    background-image: url(assets/images/bangkok.jpg);
+                    background-image: url(/images/bangkok.jpg);
                   "
                 >
                   <h1>Bangkok</h1>
@@ -700,7 +700,7 @@
               <input type="radio" id="Bangkok" name="location" value="Bangkok" />
               <label for="Bangkok">Bangkok</label>
             </div>
-            
+
             <div class="radio-holder">
               <input type="radio" name="location" id="global" value="Global" />
               <label for="global">Global</label>
@@ -736,7 +736,7 @@
               />
               <p>Saw an advert or social</p>
             </div>
-            
+
             <div class="radio-holder">
               <input type="radio" name="hear_about" value="other" />
               <p>Other</p>
@@ -825,7 +825,7 @@
         </div>
       </div>
     </div>
-    
+
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.13/dayjs.min.js"
       integrity="sha512-FwNWaxyfy2XlEINoSnZh1JQ5TRRtGow0D6XcmAWmYCRgvqOUTnzCxPc9uF35u5ZEpirk1uhlPVA19tflhvnW1g=="
