@@ -49,14 +49,14 @@
                     <p style="line-height: 1.2" class="year_of_experience">
                       8+ Years Experience
                     </p>
-                    <p class="highlyRecommended">Highly Recommended</p>
+                    {{-- <p class="highlyRecommended">Highly Recommended</p> --}}
                   </div>
                   <div class="m__home-intro--content">
                     <h1>Driven by</h1>
                     <div class="owl-carousel title-carousel" id="home-owl" >
-                      <h1>essentially</h1>
-                      <h1>unchanged</h1>
-                      <h1>popularised</h1>
+                      <h1>Technology</h1>
+                      <h1>Strategy</h1>
+                      <h1>Creativity</h1>
                     </div>
                     <p>
                       We fuse data-driven strategy with creative execution to
@@ -212,13 +212,165 @@
                 </div>
               </section>
 
+             <section class="m__work-with">
+                <div class="container">
+                  <h3>Client</h3>
+                  <div class="owl-carousel clients">
+                    <div class="row">
+                      <div class="col-xs-6 col-sm-3 tile">
+                        <div class="m__work-with--tile">
+                          <img
+                            alt=""
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII="
+                          />
+                        </div>
+                      </div>
+                      <div class="col-xs-6 col-sm-3 tile">
+                        <div class="m__work-with--tile">
+                          <img
+                            alt=""
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII="
+                          />
+                        </div>
+                      </div>
+                      <div class="col-xs-6 col-sm-3 tile">
+                        <div class="m__work-with--tile">
+                          <img
+                            alt=""
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII="
+                          />
+                        </div>
+                      </div>
+                      <div class="col-xs-6 col-sm-3 tile">
+                        <div class="m__work-with--tile">
+                          <img
+                            alt=""
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII="
+                          />
+                        </div>
+                      </div>
+                      <div class="col-xs-6 col-sm-3 tile">
+                        <div class="m__work-with--tile">
+                          <img
+                            alt=""
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII="
+                          />
+                        </div>
+                      </div>
+                      <div class="col-xs-6 col-sm-3 tile">
+                        <div class="m__work-with--tile">
+                          <img
+                            alt=""
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII="
+                          />
+                        </div>
+                      </div>
+                      <div class="col-xs-6 col-sm-3 tile">
+                        <div class="m__work-with--tile">
+                          <img
+                            alt=""
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII="
+                          />
+                        </div>
+                      </div>
+                      <div class="col-xs-6 col-sm-3 tile">
+                        <div class="m__work-with--tile">
+                          <img
+                            alt=""
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII="
+                          />
+                        </div>
+                      </div>
+                      <div class="col-xs-6 col-sm-3 tile">
+                        <div class="m__work-with--tile">
+                          <img
+                            alt=""
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII="
+                          />
+                        </div>
+                      </div>
+                      <div class="col-xs-6 col-sm-3 tile">
+                        <div class="m__work-with--tile">
+                          <img
+                            alt=""
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII="
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <section class="m__testimonials">
+                <div class="m__testimonials--mobile">
+                  <div class="owl-carousel testimonial">
+                    <img
+                      alt=""
+                      class="mobile-logo"
+                      src="/images/mobile-slide.webp"
+                    />
+                    <img
+                      alt=""
+                      class="mobile-logo"
+                      src="/images/mobile-slide.webp"
+                    />
+                    <img
+                      alt=""
+                      class="mobile-logo"
+                      src="/images/mobile-slide.webp"
+                    />
+                  </div>
+                </div>
+                <div class="container">
+                  <div class="m__testimonials--content">
+                    <div class="owl-carousel testimonial">
+                      <div>
+                        <h4>
+                          “Ambled it to make a type specimen book. It has
+                          survived not only five centuries, but also the leap
+                          into electronic”
+                        </h4>
+                        <p>remaining essentially unchanged</p>
+                        <p>Smith &amp; Wollensky</p>
+                      </div>
+                      <div>
+                        <h4>“Ambled it to make a type specimen book. Itd ”</h4>
+                        <p>Ambled ining essentially unchange</p>
+                        <p>Pacific Catch</p>
+                      </div>
+                      <div>
+                        <h4>
+                          “Ambled it to make a type specimen book. It has
+                          survived not only five centuries, but also the leap
+                          into electronic typesetting, remaining essentially
+                          unchanged”
+                        </h4>
+                        <p>Ambled it to make a type specimen book.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="m__testimonials--bg-image">
+                  <div class="owl-carousel">
+                    <div
+                      style="background-image: url('/images/slide.jpg')"
+                    ></div>
+                    <div
+                      style="background-image: url('/images/slide.jpg')"
+                    ></div>
+                    <div
+                      style="background-image: url('/images/slide.jpg')"
+                    ></div>
+                  </div>
+                </div>
+              </section>
+
               <section class="m__services">
                 <div class="container">
-                  <h3>Ambled it to make</h3>
+                  <h3>Services</h3>
                   <p class="medium">
-                    Ambled it to make a type specimen book. It has survived not
-                    only five centuries, but also the leap into electronic
-                    typesetting,
+                    Combining strategy, creativity and technology, our work has purpose and is always results driven.
                   </p>
                 </div>
                 <div class="row">

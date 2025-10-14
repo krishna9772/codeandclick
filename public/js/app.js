@@ -35476,124 +35476,124 @@ function oti_submit() {
         });
     });
 }
-function enquiry_submit() {
-    $("#get-in-touch-form .submit-form").click(function () {
-        var t = !1,
-            e = $("#get-in-touch-form-first_name").val();
-        "" == e &&
-            ($("#get-in-touch-form-first_name").addClass("input-error"),
-            $("#get-in-touch-form-first_name").attr(
-                "placeholder",
-                "Enter your first name"
-            ),
-            (t = !0));
-        var i = $("#get-in-touch-form-last_name").val();
-        "" == i &&
-            ($("#get-in-touch-form-last_name").addClass("input-error"),
-            $("#get-in-touch-form-last_name").attr(
-                "placeholder",
-                "Enter your last name"
-            ),
-            (t = !0));
-        var r = $("#get-in-touch-form-phone_number").val();
-        "" == r &&
-            ($("#get-in-touch-form-phone_number").addClass("input-error"),
-            $("#get-in-touch-form-phone_number").attr(
-                "placeholder",
-                "Enter your phone number"
-            ),
-            (t = !0));
-        var s = $("#get-in-touch-form-email_address").val();
-        "" == s
-            ? ($("#get-in-touch-form-email_address").addClass("input-error"),
-              $("#get-in-touch-form-email_address").attr(
-                  "placeholder",
-                  "Enter your email address"
-              ),
-              (t = !0))
-            : /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/.test(s) ||
-              ($("#get-in-touch-form-email_address").addClass("input-error"),
-              $("#get-in-touch-form-email_address").attr(
-                  "placeholder",
-                  "Enter your email address"
-              ),
-              (t = !0));
-        var n = $("#get-in-touch-form-business_name").val();
-        "" == n &&
-            ($("#get-in-touch-form-business_name").addClass("input-error"),
-            $("#get-in-touch-form-business_name").attr(
-                "placeholder",
-                "Enter your business name"
-            ),
-            (t = !0));
-        var a = $("#get-in-touch-form-message").val();
-        "" == a &&
-            ($("#get-in-touch-form-message").addClass("input-error"),
-            $("#get-in-touch-form-message").attr(
-                "placeholder",
-                "Enter your message"
-            ),
-            (t = !0));
-        var o = $("#get-in-touch-form-business_type").val();
-        "" == o &&
-            ($("#get-in-touch-form-business_type").addClass("input-error"),
-            $("#get-in-touch-form-business_type").attr(
-                "placeholder",
-                "Enter your business type"
-            ),
-            (t = !0)),
-            console.log(o);
-        var l = $('#get-in-touch-form input[name="location"]:checked').val();
-        (null != l && "" != l) ||
-            ($("#get-in-touch-form .location.error").addClass("active"),
-            (t = !0));
-        var h = [],
-            c = $('#get-in-touch-form input[name="services"]:checked').val();
-        null == c || "" == c
-            ? ($("#get-in-touch-form .service.error").addClass("active"),
-              (t = !0))
-            : $.each($("input[name='services']:checked"), function () {
-                  h.push($(this).val());
-              });
-        var p = $('#get-in-touch-form input[name="budget"]:checked').val();
-        (null != p && "" != p) ||
-            ($("#get-in-touch-form .budget.error").addClass("active"),
-            (t = !0));
-        var u = "no";
-        u = document.getElementById("gdpr-enquiry").checked ? "yes" : "no";
-        var f =
-            "other" == $('input[name="hear_about"]:checked').val()
-                ? $('input[name="hear_about_other"]').val()
-                : $('input[name="hear_about"]:checked').val();
-        if (1 == t) return !1;
-        jQuery.ajax({
-            type: "post",
-            url: "/wp-admin/admin-ajax.php",
-            data: {
-                action: "enquiry_submit",
-                first_name: e,
-                last_name: i,
-                email_address: s,
-                phone_number: r,
-                business_name: n,
-                business_type: o,
-                location: l,
-                service_list: h,
-                message: a,
-                budget: p,
-                hear_about: f,
-                mailchimp: u,
-            },
-            success: function (t) {
-                console.log(t),
-                    $(".get-in-touch-form-inner.form").addClass("inactive"),
-                    $(".get-in-touch-form-inner.thank-you").removeClass(
-                        "inactive"
-                    );
-            },
-        });
-    });
-}
+// function enquiry_submit() {
+//     $("#get-in-touch-form .submit-form").click(function () {
+//         var t = !1,
+//             e = $("#get-in-touch-form-first_name").val();
+//         "" == e &&
+//             ($("#get-in-touch-form-first_name").addClass("input-error"),
+//             $("#get-in-touch-form-first_name").attr(
+//                 "placeholder",
+//                 "Enter your first name"
+//             ),
+//             (t = !0));
+//         var i = $("#get-in-touch-form-last_name").val();
+//         "" == i &&
+//             ($("#get-in-touch-form-last_name").addClass("input-error"),
+//             $("#get-in-touch-form-last_name").attr(
+//                 "placeholder",
+//                 "Enter your last name"
+//             ),
+//             (t = !0));
+//         var r = $("#get-in-touch-form-phone_number").val();
+//         "" == r &&
+//             ($("#get-in-touch-form-phone_number").addClass("input-error"),
+//             $("#get-in-touch-form-phone_number").attr(
+//                 "placeholder",
+//                 "Enter your phone number"
+//             ),
+//             (t = !0));
+//         var s = $("#get-in-touch-form-email_address").val();
+//         "" == s
+//             ? ($("#get-in-touch-form-email_address").addClass("input-error"),
+//               $("#get-in-touch-form-email_address").attr(
+//                   "placeholder",
+//                   "Enter your email address"
+//               ),
+//               (t = !0))
+//             : /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/.test(s) ||
+//               ($("#get-in-touch-form-email_address").addClass("input-error"),
+//               $("#get-in-touch-form-email_address").attr(
+//                   "placeholder",
+//                   "Enter your email address"
+//               ),
+//               (t = !0));
+//         var n = $("#get-in-touch-form-business_name").val();
+//         "" == n &&
+//             ($("#get-in-touch-form-business_name").addClass("input-error"),
+//             $("#get-in-touch-form-business_name").attr(
+//                 "placeholder",
+//                 "Enter your business name"
+//             ),
+//             (t = !0));
+//         var a = $("#get-in-touch-form-message").val();
+//         "" == a &&
+//             ($("#get-in-touch-form-message").addClass("input-error"),
+//             $("#get-in-touch-form-message").attr(
+//                 "placeholder",
+//                 "Enter your message"
+//             ),
+//             (t = !0));
+//         var o = $("#get-in-touch-form-business_type").val();
+//         "" == o &&
+//             ($("#get-in-touch-form-business_type").addClass("input-error"),
+//             $("#get-in-touch-form-business_type").attr(
+//                 "placeholder",
+//                 "Enter your business type"
+//             ),
+//             (t = !0)),
+//             console.log(o);
+//         var l = $('#get-in-touch-form input[name="location"]:checked').val();
+//         (null != l && "" != l) ||
+//             ($("#get-in-touch-form .location.error").addClass("active"),
+//             (t = !0));
+//         var h = [],
+//             c = $('#get-in-touch-form input[name="services"]:checked').val();
+//         null == c || "" == c
+//             ? ($("#get-in-touch-form .service.error").addClass("active"),
+//               (t = !0))
+//             : $.each($("input[name='services']:checked"), function () {
+//                   h.push($(this).val());
+//               });
+//         var p = $('#get-in-touch-form input[name="budget"]:checked').val();
+//         (null != p && "" != p) ||
+//             ($("#get-in-touch-form .budget.error").addClass("active"),
+//             (t = !0));
+//         var u = "no";
+//         u = document.getElementById("gdpr-enquiry").checked ? "yes" : "no";
+//         var f =
+//             "other" == $('input[name="hear_about"]:checked').val()
+//                 ? $('input[name="hear_about_other"]').val()
+//                 : $('input[name="hear_about"]:checked').val();
+//         if (1 == t) return !1;
+//         jQuery.ajax({
+//             type: "post",
+//             url: "/wp-admin/admin-ajax.php",
+//             data: {
+//                 action: "enquiry_submit",
+//                 first_name: e,
+//                 last_name: i,
+//                 email_address: s,
+//                 phone_number: r,
+//                 business_name: n,
+//                 business_type: o,
+//                 location: l,
+//                 service_list: h,
+//                 message: a,
+//                 budget: p,
+//                 hear_about: f,
+//                 mailchimp: u,
+//             },
+//             success: function (t) {
+//                 console.log(t),
+//                     $(".get-in-touch-form-inner.form").addClass("inactive"),
+//                     $(".get-in-touch-form-inner.thank-you").removeClass(
+//                         "inactive"
+//                     );
+//             },
+//         });
+//     });
+// }
 function offices_carousel() {
     $(".m__global-reach--gallery .owl-carousel").owlCarousel({
         items: 1,
@@ -35830,7 +35830,7 @@ function init() {
         contact_query(),
         contact_input_field(),
         contact_switcher(),
-        enquiry_submit(),
+        // enquiry_submit(),
         headline_loop(),
         header_colours(),
         match_height(),

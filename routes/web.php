@@ -30,7 +30,7 @@ Route::get('/technology', function () {
 })->name('technology');
 Route::get('/ventures', [HomeController::class, 'showVentures'])->name('ventures');
 Route::get('/work-with-us', function () {
-    return view('work-uswith-us');
+    return view('work-with-us');
 })->name('work-with-');
 
 Route::post('/enquiry', [EnquiryController::class, 'store'])->name('enquiry.store');
