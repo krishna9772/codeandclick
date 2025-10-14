@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreEnquireRequest extends FormRequest
+class StoreEnquiryRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -31,7 +31,6 @@ class StoreEnquireRequest extends FormRequest
             'website' => 'nullable|string|max:255',
             'location' => 'required|string',
             'hear_about_us' => 'required|string',
-            'receive_insight' => 'boolean',
             'budget' => 'required|string',
             'about_project' => 'required|string',
             'service_looking_for' => 'required|array',

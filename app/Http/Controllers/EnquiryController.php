@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreEnquireRequest;
+use App\Http\Requests\StoreEnquiryRequest;
 use App\Models\Enquiry;
 use Illuminate\Support\Facades\Log;
 
-class EnquireController extends Controller
+class EnquiryController extends Controller
 {
 
     public function index()
@@ -41,14 +41,16 @@ class EnquireController extends Controller
         return view('Dashboard.Enquiry.index', compact('enquiries','search','meta'));
     }
 
-    public function store(StoreEnquireRequest $request)
+    public function store(StoreEnquiryRequest $request)
     {
 
+       
         $validated = $request->validated();
 
         $validated['service_looking_for'] = implode('/', $validated['service_looking_for']);
         $validated['receive_insight'] = $request->has('receive_insight');
 
+        
         $enquiry = Enquiry::create($validated);
 
         return redirect()->back()->with('success', 'Enquiry submitted successfully');

@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\BlogsController;
 use App\Http\Controllers\CareerController;
-use App\Http\Controllers\EnquireController;
+use App\Http\Controllers\EnquiryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VentureController;
@@ -30,10 +30,10 @@ Route::get('/technology', function () {
 })->name('technology');
 Route::get('/ventures', [HomeController::class, 'showVentures'])->name('ventures');
 Route::get('/work-with-us', function () {
-    return view('work-with-us');
-})->name('work-with-us');
+    return view('work-uswith-us');
+})->name('work-with-');
 
-Route::post('/enquiry', [EnquireController::class, 'store'])->name('enquiry.store');
+Route::post('/enquiry', [EnquiryController::class, 'store'])->name('enquiry.store');
 
 Route::middleware('auth')->prefix('dashboard')->group(function () {
     Route::get('', function () {
@@ -51,8 +51,8 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
     Route::patch('careers/{id}/change-status', [CareerController::class, 'changeStatus'])->name('careers.change-status');
     Route::post('careers/{id}/restore', [CareerController::class, 'restore'])->name('careers.restore');
 
-    Route::get('enquiry', [EnquireController::class, 'index'])->name('enquiry.index');
-    Route::get('enquiry/{id}', [EnquireController::class, 'show'])->name('enquiry.show');
+    Route::get('enquiry', [EnquiryController::class, 'index'])->name('enquiry.index');
+    Route::get('enquiry/{id}', [EnquiryController::class, 'show'])->name('enquiry.show');
 
     Route::get('subscribers', [HomeController::class, 'getSubscribers'])->name('subscribers.index');
 });

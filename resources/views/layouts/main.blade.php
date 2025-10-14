@@ -349,6 +349,8 @@
         {{-- popup  --}}
         <div class="popup-overlay">
             <div class="popup" id="get-in-touch-form">
+              <form action="{{ route('enquiry.store') }}" method="POST">
+                @csrf
                 <img
                 alt="close popup"
                 class="close-popup"
@@ -362,7 +364,7 @@
                     <div class="checkbox-holder">
                     <input
                         type="checkbox"
-                        name="services"
+                        name="service_looking_for[]"
                         id="strategy"
                         value="Strategy &amp; planning"
                     />
@@ -371,7 +373,7 @@
                     <div class="checkbox-holder">
                     <input
                         type="checkbox"
-                        name="services"
+                        name="service_looking_for[]"
                         id="websites"
                         value="Website"
                     />
@@ -380,7 +382,7 @@
                     <div class="checkbox-holder">
                     <input
                         type="checkbox"
-                        name="services"
+                        name="service_looking_for[]"
                         id="marketing"
                         value="Marketing"
                     />
@@ -389,7 +391,7 @@
                     <div class="checkbox-holder">
                     <input
                         type="checkbox"
-                        name="services"
+                        name="service_looking_for[]"
                         value="Technology solutions"
                         id="technology"
                     />
@@ -398,20 +400,20 @@
                     <div class="checkbox-holder">
                     <input
                         type="checkbox"
-                        name="services"
+                        name="service_looking_for[]"
                         id="branding"
                         value="Branding"
                     />
                     <label for="branding">Branding</label>
                     </div>
                     <div class="checkbox-holder">
-                    <input type="checkbox" name="services" id="crm" value="CRM" />
+                    <input type="checkbox" name="service_looking_for[]" id="crm" value="CRM" />
                     <label for="crm">CRM</label>
                     </div>
                     <div class="checkbox-holder">
                     <input
                         type="checkbox"
-                        name="services"
+                        name="service_looking_for[]"
                         id="services"
                         value="Other"
                     />
@@ -424,6 +426,7 @@
                 </p>
                 <textarea
                     id="get-in-touch-form-message"
+                    name="about_project"
                     placeholder="Enter message here"
                 ></textarea>
                 <p>What’s your budget?</p>
@@ -475,7 +478,7 @@
                     <input
                     type="text"
                     id="get-in-touch-form-email_address"
-                    name="email_address"
+                    name="email"
                     placeholder="Email Address"
                     />
                     <input
@@ -487,7 +490,7 @@
                     <input
                     type="text"
                     id="get-in-touch-form-phone_number"
-                    name="phone_number"
+                    name="phone"
                     placeholder="Phone Number"
                     />
                 </div>
@@ -530,54 +533,50 @@
                         type="radio"
                         name="hear_about"
                         value="I've worked with you previously"
+                        id="I've worked with you previously"
                     />
-                    <p>I've worked with you previously</p>
+                    <label for="I've worked with you previously">I've worked with you previously</label>
                     </div>
                     <div class="radio-holder">
-                    <input type="radio" name="hear_about" value="Found you online" />
-                    <p>Found you online</p>
+                    <input type="radio" name="hear_about" value="Found you online" id="Found you online" />
+                    <label for="Found you online">Found you online</label>
                     </div>
                     <div class="radio-holder">
                     <input
                         type="radio"
-                        name="hear_about"
+                        name="hear_about_us"
                         value="Recommended by client or collaborator"
+                        id="Recommended by client or collaborator"
                     />
-                    <p>Recommended by client or collaborator</p>
+                    <label for="Recommended by client or collaborator">Recommended by client or collaborator</label>
                     </div>
                     <div class="radio-holder">
                     <input
                         type="radio"
-                        name="hear_about"
+                        name="hear_about_us"
                         value="Saw an advert or social"
+                        id="Saw an advert or social"
                     />
-                    <p>Saw an advert or social</p>
+                    <label for="Saw an advert or social">Saw an advert or social</label>
                     </div>
 
                     <div class="radio-holder">
-                    <input type="radio" name="hear_about" value="other" />
-                    <p>Other</p>
+                    <input type="radio" name="hear_about_us" value="other" id="other" />
+                    <label for="other">Other</label>
                     </div>
                 </div>
-                <div id="hidden-input" class="input-container d-none">
-                    <input
-                    type="text"
-                    id="get-in-touch-form--hear-about-other"
-                    name="hear_about_other"
-                    placeholder="Other"
-                    />
-                </div>
+               
                 <div class="submit">
                     <div class="submit-gdpr">
                     <div class="checkbox-holder gdpr-checkbox">
-                        <input type="checkbox" id="gdpr-enquiry" />
-                        <p>
+                        <input type="checkbox" name="receive_insight" id="receive_insight" />
+                        <label for="receive_insight">
                         Tick the box to receive insight, opinion and inspiration from
                         Code & Click
                         <span class="gdpr-error"
                             >Please tick to receive newsletters</span
                         >
-                        </p>
+                        </label>
                     </div>
                     <p>
                         Please note that by submitting this form you agree to us storing
@@ -586,19 +585,26 @@
                         on our commitment to protecting personal data.
                     </p>
                     </div>
-                    <div id="contact-enquiry" class="submit-form c__button dark">
-                    Submit
-                    </div>
+                    <button type="submit" id="contact-enquiry" class="submit-form c__button dark">
+                      Submit
+                    </button>
                 </div>
                 </div>
 
                 <div class="get-in-touch-form-inner thank-you inactive">
-                <h4 class="large">Enquiry sent</h4>
-                <p>We'll be in touch soon!</p>
+                  <h4 class="large">Enquiry sent</h4>
+                  <p>We'll be in touch soon!</p>
                 </div>
+                   
+              </form>
+             
             </div>
 
+            
+
             <div class="popup" id="signup-form">
+              <form action="{{ route('user.subscribe') }}" method="post">
+                @csrf
                 <img
                 alt="close popup"
                 class="close-popup"
@@ -623,23 +629,25 @@
                     class="full-width"
                     type="text"
                     id="signup-form-email_address"
-                    name="email_address"
+                    name="email"
                     placeholder="Email Address"
                 />
                 </div>
                 <div class="submit">
                 <div class="checkbox-holder">
-                    <input type="checkbox" id="gdpr" />
+                    <input type="checkbox" name="receive_newsletter" value="1" id="gdpr" />
                     <p>
                     Tick here if you'd like to receive updates from Code & Click.
                     <span class="gdpr-error">Please tick to receive newsletters</span>
                     </p>
                 </div>
-                <div id="newsletter-submit" class="submit-form c__button dark">
+                <button type="submit" id="newsletter-submit" class="submit-form c__button dark">
                     Submit
+                </button>
                 </div>
-                </div>
+              </form>
             </div>
+           
         </div>
         <script>
             $(document).ready(function(){
