@@ -39,93 +39,47 @@
               <section class="l__current-holdings">
                 <div class="container">
                   <h3>Open Positions</h3>
-                  <a href="#" class="c__button carbutt light" id="uk-butt"
-                    >Location 1</a
-                  >
+                  <div style="display: flex; gap: 10px;">
+                    <a href="{{ route('show-careers') }}" class="c__button carbutt {{ $location == '' ? 'light' : '' }}" id="uk-butt"
+                      >All</a
+                    >
+                    @foreach (config('base.location') as $available_location)
+                    <a href="{{ route('show-careers', ['location' => $available_location]) }}" class="c__button carbutt {{ $location == $available_location ? 'light' : '' }}" id="uk-butt"
+                      >{{ $available_location }}</a
+                    >
+                    @endforeach
+                  </div>
+                  
+                  
+                
 
                   <div class="vacancies">
-                    <div class="row uk-job">
-                      <div class="col-xs-12 col-sm-7 col-md-8">
-                        <h3>Graphic Designer</h3>
-                      </div>
-                      <div class="col-xs-12 col-sm-5 col-md-4 | button-col">
-                        <a
-                          href="#"
-                          target=""
-                          class="c__button-circle light"
-                        >
-                          <span>Read More</span>
-                          <div class="c__button-circle--arrow">
-                            <img
-                              alt="right arrow"
-                              src="{{ asset('images/icons/right-arrow.svg') }}"
-                            />
+                      @foreach ($careers as $career)
+
+                        <div class="row uk-job">
+                          <div class="col-xs-12 col-sm-7 col-md-8">
+                            <h3>{{ $career->title }}</h3>
                           </div>
-                        </a>
-                      </div>
-                    </div>
-                    <div class="row uk-job">
-                      <div class="col-xs-12 col-sm-7 col-md-8">
-                        <h3>Web Developer</h3>
-                      </div>
-                      <div class="col-xs-12 col-sm-5 col-md-4 | button-col">
-                        <a
-                          href="#"
-                          target=""
-                          class="c__button-circle light"
-                        >
-                          <span>Read More</span>
-                          <div class="c__button-circle--arrow">
-                            <img
-                              alt="right arrow"
-                              src="{{ asset('images/icons/right-arrow.svg') }}"
-                            />
+                          <div class="col-xs-12 col-sm-5 col-md-4 | button-col">
+                            <a
+                              href="{{ route('show-career-details', [$career->id]) }}"
+                              target=""
+                              class="c__button-circle light"
+                          >
+                              <span>Read More</span>
+                              <div class="c__button-circle--arrow">
+                                <img
+                                  alt="right arrow"
+                                  src="{{ asset('images/icons/right-arrow.svg') }}"
+                                />
+                              </div>
+                            </a>
                           </div>
-                        </a>
-                      </div>
-                    </div>
-                    <div class="row uk-job">
-                      <div class="col-xs-12 col-sm-7 col-md-8">
-                        <h3>Project Manager</h3>
-                      </div>
-                      <div class="col-xs-12 col-sm-5 col-md-4 | button-col">
-                        <a
-                          href="#"
-                          target=""
-                          class="c__button-circle light"
-                        >
-                          <span>Read More</span>
-                          <div class="c__button-circle--arrow">
-                            <img
-                              alt="right arrow"
-                              src="{{ asset('images/icons/right-arrow.svg') }}"
-                            />
-                          </div>
-                        </a>
-                      </div>
-                    </div>
-                    <div class="row uk-job">
-                      <div class="col-xs-12 col-sm-7 col-md-8">
-                        <h3>Marketing Manager</h3>
-                      </div>
-                      <div class="col-xs-12 col-sm-5 col-md-4 | button-col">
-                        <a
-                          href="#"
-                          target=""
-                          class="c__button-circle light"
-                        >
-                          <span>Read More</span>
-                          <div class="c__button-circle--arrow">
-                            <img
-                              alt="right arrow"
-                              src="{{ asset('images/icons/right-arrow.svg') }}"
-                            />
-                          </div>
-                        </a>
-                      </div>
-                    </div>
+                        </div>
+                     @endforeach
+                    
                   </div>
-                  @endforeach
+                 
 
                 </div>
               </div>
