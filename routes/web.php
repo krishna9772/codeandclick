@@ -2,9 +2,11 @@
 
 use App\Http\Controllers\BlogsController;
 use App\Http\Controllers\CareerController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\EnquiryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\VentureController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,16 +24,14 @@ Route::get('/contact', function () {
 Route::get('/our-works', function () {
     return view('our-works');
 })->name('our-work');
-Route::get('/services', function () {
-    return view('services');
-})->name('services');
+Route::get('/services', [HomeController::class, 'showServices'])->name('services');
 Route::get('/technology', function () {
     return view('technology');
 })->name('technology');
 Route::get('/ventures', [HomeController::class, 'showVentures'])->name('ventures');
 Route::get('/work-with-us', function () {
     return view('work-with-us');
-})->name('work-with-');
+})->name('work-with-us');
 
 Route::post('/enquiry', [EnquiryController::class, 'store'])->name('enquiry.store');
 
@@ -46,6 +46,12 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
     Route::resource('ventures', VentureController::class)->names('ventures');
     Route::patch('ventures/{id}/change-status', [VentureController::class, 'changeStatus'])->name('ventures.change-status');
     Route::post('ventures/{id}/restore', [VentureController::class, 'restore'])->name('ventures.restore');
+
+    Route::resource('clients', ClientController::class)->names('clients');
+
+    Route::resource('services', ServiceController::class)->names('services');
+    Route::patch('services/{id}/change-status', [ServiceController::class, 'changeStatus'])->name('services.change-status');
+    Route::post('services/{id}/restore', [ServiceController::class, 'restore'])->name('services.restore');
 
     Route::resource('careers', CareerController::class)->names('careers');
     Route::patch('careers/{id}/change-status', [CareerController::class, 'changeStatus'])->name('careers.change-status');

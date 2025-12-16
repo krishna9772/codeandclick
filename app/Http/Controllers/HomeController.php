@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Blogs;
 use App\Models\Career;
+use App\Models\Client;
+use App\Models\Service;
 use App\Models\Subscribe;
 use App\Models\Venture;
 use Illuminate\Http\Request;
@@ -17,6 +19,15 @@ class HomeController extends Controller
         $ventures = Venture::query()->where('status', 'published')->get();
 
         return view('ventures', compact('ventures'));
+    }
+
+    public function showServices()
+    {
+
+        $clients = Client::all();
+        $services = Service::where('status', 'published')->get();
+
+        return view('services', compact('clients', 'services'));
     }
 
     public function showBlog()
