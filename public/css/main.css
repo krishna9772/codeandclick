@@ -3283,8 +3283,7 @@ footer .bottom .general-links ul li a:hover:after {
 }
 .m__work-with--tile {
     align-items: center;
-    background-color: #004b4f;
-    display: flex;
+     display: flex;
     height: 130px;
     justify-content: center;
 }
@@ -3294,8 +3293,8 @@ footer .bottom .general-links ul li a:hover:after {
     }
 }
 .m__work-with--tile img {
-    max-height: 50%;
-    max-width: 50%;
+    max-height: 100%;
+    max-width: 100%;
 }
 .m__services {
     background-color: #000;
@@ -3501,15 +3500,13 @@ footer .bottom .general-links ul li a:hover:after {
     background-color: #004b4f;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    height: 190px;
-    justify-content: center;
+     justify-content: center;
     width: 100%;
+    padding: 20px;
 }
 .m__awards--tile img {
     height: auto;
     margin-bottom: 25px;
-    max-height: 50px;
     max-width: 80%;
 }
 .m__awards--tile p {
@@ -8048,7 +8045,6 @@ footer .bottom .general-links ul li a:hover:after {
 }
 .m__clients--tile {
     align-items: center;
-    background-color: #f5f5f5;
     display: flex;
     height: 130px;
     justify-content: center;
@@ -8059,8 +8055,8 @@ footer .bottom .general-links ul li a:hover:after {
     }
 }
 .m__clients--tile img {
-    max-height: 50%;
-    max-width: 50%;
+    max-height: 100%;
+    max-width: 100%;
 }
 .l__what-we-do {
     background-color: #000;
