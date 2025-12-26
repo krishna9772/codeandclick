@@ -47,18 +47,18 @@
                   <ul>
                     <li data-value="all">
                       <p class="{{ $tab === '' ? 'active' : '' }}">
-                        <a style="font-size: 16px;" href="{{ route('blog', ['tab' => '']) }}">Blog</a>
+                        <a style="font-size: 16px; color:white; text-decoration: none;" href="{{ route('blog', ['tab' => '']) }}">Blog</a>
                       </p>
                     </li>
-                    <li data-value="strategy"><p class="{{ $tab === 'Strategy' ? 'active' : '' }}" ><a style="font-size: 16px;" href="{{ route('blog', ['tab' => 'Strategy']) }}">Strategy</a></p></li>
-                    <li data-value="digital"><p class="{{ $tab === 'Digital' ? 'active' : '' }}" ><a style="font-size: 16px;" href="{{ route('blog', ['tab' => 'Digital']) }}">Digital</a></p></li>
-                    <li data-value="creative"><p class="{{ $tab === 'Creative' ? 'active' : '' }}" ><a style="font-size: 16px;" href="{{ route('blog', ['tab' => 'Creative']) }}">Creative</a></p></li>
-                    <li data-value="culture"><p class="{{ $tab === 'Culture' ? 'active' : '' }}" ><a style="font-size: 16px;" href="{{ route('blog', ['tab' => 'Culture']) }}">Culture</a></p></li>
-                    <li data-value="news"><p class="{{ $tab === 'News' ? 'active' : '' }}" ><a style="font-size: 16px;" href="{{ route('blog', ['tab' => 'News']) }}">News</a></p></li>
-                    <li data-value="branding"><p class="{{ $tab === 'Branding' ? 'active' : '' }}" ><a style="font-size: 16px;" href="{{ route('blog', ['tab' => 'Branding']) }}">Branding</a></p></li>
-                    <li data-value="social"><p class="{{ $tab === 'Social' ? 'active' : '' }}" ><a style="font-size: 16px;" href="{{ route('blog', ['tab' => 'Social']) }}">Social</a></p></li>
-                    <li data-value="christmas"><p class="{{ $tab === 'Christmas' ? 'active' : '' }}" ><a style="font-size: 16px;" href="{{ route('blog', ['tab' => 'Christmas']) }}">Christmas</a></p></li>
-                    <li data-value="crm"><p class="{{ $tab === 'Crm' ? 'active' : '' }}" ><a style="font-size: 16px;" href="{{ route('blog', ['tab' => 'Crm']) }}">Crm</a></p></li>
+                    <li data-value="strategy"><p class="{{ $tab === 'Strategy' ? 'active' : '' }}" ><a style="font-size: 16px; color:white; text-decoration: none;" href="{{ route('blog', ['tab' => 'Strategy']) }}">Strategy</a></p></li>
+                    <li data-value="digital"><p class="{{ $tab === 'Digital' ? 'active' : '' }}" ><a style="font-size: 16px; color:white; text-decoration: none;" href="{{ route('blog', ['tab' => 'Digital']) }}">Digital</a></p></li>
+                    <li data-value="creative"><p class="{{ $tab === 'Creative' ? 'active' : '' }}" ><a style="font-size: 16px; color:white; text-decoration: none;" href="{{ route('blog', ['tab' => 'Creative']) }}">Creative</a></p></li>
+                    <li data-value="culture"><p class="{{ $tab === 'Culture' ? 'active' : '' }}" ><a style="font-size: 16px; color:white; text-decoration: none;" href="{{ route('blog', ['tab' => 'Culture']) }}">Culture</a></p></li>
+                    <li data-value="news"><p class="{{ $tab === 'News' ? 'active' : '' }}" ><a style="font-size: 16px; color:white; text-decoration: none;" href="{{ route('blog', ['tab' => 'News']) }}">News</a></p></li>
+                    <li data-value="branding"><p class="{{ $tab === 'Branding' ? 'active' : '' }}" ><a style="font-size: 16px; color:white; text-decoration: none;" href="{{ route('blog', ['tab' => 'Branding']) }}">Branding</a></p></li>
+                    <li data-value="social"><p class="{{ $tab === 'Social' ? 'active' : '' }}" ><a style="font-size: 16px; color:white; text-decoration: none;" href="{{ route('blog', ['tab' => 'Social']) }}">Social</a></p></li>
+                    <li data-value="christmas"><p class="{{ $tab === 'Christmas' ? 'active' : '' }}" ><a style="font-size: 16px; color:white; text-decoration: none;" href="{{ route('blog', ['tab' => 'Christmas']) }}">Christmas</a></p></li>
+                    <li data-value="crm"><p class="{{ $tab === 'Crm' ? 'active' : '' }}" ><a style="font-size: 16px; color:white; text-decoration: none;" href="{{ route('blog', ['tab' => 'Crm']) }}">Crm</a></p></li>
                   </ul>
                 </div>
               </div>
@@ -284,7 +284,7 @@
                       data-offset="11"
                       data-total="56"
                     >
-                      <span>Lorem ipsum dolor sit</span>
+                      <span style="color: white;">Show more articles</span>
                       <div class="c__button-circle--arrow">
                         <img
                           src="{{ asset('images/icons/right-arrow.svg') }}"

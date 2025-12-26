@@ -3809,7 +3809,7 @@ footer .bottom .general-links ul li a:hover:after {
     }
 }
 .l__blog .m__filters ul {
-    border-bottom: 1px solid hsla(0, 0%, 44%, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.729);
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

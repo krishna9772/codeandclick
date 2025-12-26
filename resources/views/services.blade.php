@@ -100,11 +100,11 @@
                       “ A Professional Digital Marketing Agency in Myanmar”
                     </h4>
                     <p>Branding and Marketing solutions for effective communication with your audience.</p>
-                    </div>
+                  </div>
                   <div>
                     <h4>“ Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer t”</h4>
                     <p>Will Beckett, Co-Founder</p>
-                   </div>
+                  </div>
                   <div>
                     <h4>“ Lorem Ipsum has been the industry's standard dummy text ”</h4>
                     <p>Libby Andrews, Marketing Director</p>
@@ -134,16 +134,18 @@
             <div class="container">
               <h3> Our Valuable Clients</h3>
               <div class="row">
-                
+
+                @foreach ($clients as $client)
                 <div class="col-xs-6 col-sm-3 tile">
-                 @foreach ($clients as $client)
-                 <div class="m__awards--tile">
+
+                  <div class="m__awards--tile">
                     <img
                       src="{{ $client->getFirstMediaUrl('clients') }}" />
                     <p> {{ $client->name }}</p>
                   </div>
-                 @endforeach
+
                 </div>
+                @endforeach
               </div>
               <div class="horizontal-line"></div>
             </div>
