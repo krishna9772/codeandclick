@@ -85,15 +85,16 @@
                 <div class="m__slider-panel clickable-block" id="one">
                   <div
                     class="m__slider-panel--bg-image"
-                    style="background-image: url(/images/default.png)"
+                    style="background-image: url(/images/sitawgyibg.png)"
                   ></div>
                   <div class="overlay"></div>
                   <div class="container">
-                    <div class="m__slider-panel--content">
+                    <div  class="m__slider-panel--content">
                       <img
+                        style="scale: 3.5;"
                         alt="Big Image"
-                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII="
-                      />
+                        src="{{ asset('images/4.png') }}"
+                        />
 
                       <h2>Trusted by Myanmar's Leading Brands</h2>
                       <p>
@@ -115,7 +116,7 @@
                 <div class="m__slider-panel clickable-block" id="two">
                   <div
                     class="m__slider-panel--bg-image"
-                    style="background-image: url(/images/default.png)"
+                    style="background-image: url(/images/Web.png)"
                   ></div>
 
                   <div class="overlay"></div>
@@ -148,7 +149,7 @@
                 <div class="m__slider-panel clickable-block" id="three">
                   <div
                     class="m__slider-panel--bg-image"
-                    style="background-image: url(/images/default.png)"
+                    style="background-image: url(/images/Mekong.png)"
                   ></div>
 
                   <div class="overlay"></div>
@@ -182,7 +183,7 @@
                 <div class="m__slider-panel clickable-block" id="three">
                   <div
                     class="m__slider-panel--bg-image"
-                    style="background-image: url(/images/default.png)"
+                    style="background-image: url(/images/AU.png)"
                   ></div>
 
                   <div class="overlay"></div>
@@ -217,86 +218,25 @@
                   <h3>Client</h3>
                   <div class="owl-carousel clients">
                     <div class="row">
+                      @foreach ($clients as $client)
+
                       <div class="col-xs-6 col-sm-3 tile">
                         <div class="m__work-with--tile">
                           <img
                             alt=""
-                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII="
-                          />
+                            src="{{$client->getFirstMediaUrl('clients')}}" />
                         </div>
                       </div>
-                      <div class="col-xs-6 col-sm-3 tile">
-                        <div class="m__work-with--tile">
-                          <img
-                            alt=""
-                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII="
-                          />
-                        </div>
-                      </div>
-                      <div class="col-xs-6 col-sm-3 tile">
-                        <div class="m__work-with--tile">
-                          <img
-                            alt=""
-                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII="
-                          />
-                        </div>
-                      </div>
-                      <div class="col-xs-6 col-sm-3 tile">
-                        <div class="m__work-with--tile">
-                          <img
-                            alt=""
-                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII="
-                          />
-                        </div>
-                      </div>
-                      <div class="col-xs-6 col-sm-3 tile">
-                        <div class="m__work-with--tile">
-                          <img
-                            alt=""
-                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII="
-                          />
-                        </div>
-                      </div>
-                      <div class="col-xs-6 col-sm-3 tile">
-                        <div class="m__work-with--tile">
-                          <img
-                            alt=""
-                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII="
-                          />
-                        </div>
-                      </div>
-                      <div class="col-xs-6 col-sm-3 tile">
-                        <div class="m__work-with--tile">
-                          <img
-                            alt=""
-                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII="
-                          />
-                        </div>
-                      </div>
-                      <div class="col-xs-6 col-sm-3 tile">
-                        <div class="m__work-with--tile">
-                          <img
-                            alt=""
-                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII="
-                          />
-                        </div>
-                      </div>
-                      <div class="col-xs-6 col-sm-3 tile">
-                        <div class="m__work-with--tile">
-                          <img
-                            alt=""
-                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII="
-                          />
-                        </div>
-                      </div>
-                      <div class="col-xs-6 col-sm-3 tile">
-                        <div class="m__work-with--tile">
-                          <img
-                            alt=""
-                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAMAAAAOusbgAAAAaVBMVEX///+FtuWb3sH4mYST3Lzi9eyXwOjK3vN/s+To8Pn4loD4kXqW3b74k3z3j3f4nIeu5Mz0+/j6vbH7wrf7y8H/+fj5ppT+7er5rJz81s/L7d676NTa8ufu+fSl4cb6t6r94t30+Pyqyuyvd3WJAAACLUlEQVRoge2X2XqCMBBGbQJWgbAJIpvQvv9DFqqiZGHpN4MXnXMZLs43yfyTsNsRBEEQBEEQhIksj5umOeXpptY0OfvC6XH9S76dNxeCDzhu0G6jTc8uH+PHm3gDh8uIy3u8m5gvOi/nboLszeXzHcwZrlhfb9/cDao3FyYx91FLPhsr5g5mplLf6OX8jDg9W1Nr9QjEvU7MR4x7yLH5iLtAtXjiZlKMeE2d3lXx2864nYpTgBindGKrHdQLaqK7BOoTaGKvHdxnn+E67goGvZDrUl7JTCUHkN5daNXyUqIf17BZsi0WKouNLsvAU+vKmGUrq7G62z6st/BYh7qei3GHiQB2ZkW9lnmF+iWNxeB2XA79wCx/C2Ys0nxLkwv3O9ygAf9ts+9eT4nU3Z1lbZYhTI3wLmaeEilUqoeXeWqkMBm8XaSqDb3Fi5hdt/NG1otXG6mvzwWsF5evBXdmNVLHwzz71V57VLC2v46Hj1nWi0Mm4SkjG0VcWbJY7S8McaRou5LlSGGIC09nxhfXOq8SKQRxqBUz6RUEL7b1Xia9guDFBq38CgIXazvrxihS4GI1wvr+ghaX5oLZ6BUELK4nCh6/goDFypCWzM9IwYo1Q3rMs79gxdcZ78vIBhVPRGkAQ6y7lZSSH5GCFE9H6WGOwMXGIT0Wl+Di2c66cb+l4MSFtZArsNheShUBb/U6SExiEpMYU/yHH/Ml4v083xhigiAIgiAIgiCIf8APa50rDa4yqE0AAAAASUVORK5CYII="
-                          />
-                        </div>
-                      </div>
+                      @endforeach
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
                     </div>
                   </div>
                 </div>
@@ -383,33 +323,11 @@
                   </div>
                   <div class="col-xs-12 col-md-9 col-lg-7 m__services--list">
                     <ul>
+                      @foreach ($services as $service)
                       <li data-bg="{{ asset('images/default.png') }}">
-                        <a href="#" class="xlarge">Project 1 </a>
+                        <a href="{{ $service->link }}" class="xlarge">{{ $service->name }}</a>
                       </li>
-                      <li data-bg="{{ asset('images/default.png') }}">
-                        <a href="#" class="xlarge"> Project 2 </a>
-                      </li>
-                      <li data-bg="{{ asset('images/default.png') }}">
-                        <a href="#" class="xlarge"> Project 3 </a>
-                      </li>
-                      <li data-bg="{{ asset('images/default.png') }}">
-                        <a href="#" class="xlarge"> Project 4 </a>
-                      </li>
-                      <li data-bg="{{ asset('images/default.png') }}">
-                        <a href="#" class="xlarge"> Project 5 </a>
-                      </li>
-                      <li data-bg="{{ asset('images/default.png') }}">
-                        <a href="#" class="xlarge"> Project 6 </a>
-                      </li>
-                      <li data-bg="{{ asset('images/default.png') }}">
-                        <a href="#" class="xlarge"> Project 7 </a>
-                      </li>
-                      <li data-bg="{{ asset('images/default.png') }}">
-                        <a href="#" class="xlarge"> Project 8 </a>
-                      </li>
-                      <li data-bg="{{ asset('images/default.png') }}">
-                        <a href="#" class="xlarge"> Project 9 </a>
-                      </li>
+                      @endforeach
                     </ul>
                   </div>
                 </div>

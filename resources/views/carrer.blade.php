@@ -26,14 +26,12 @@
 
             <section class="l__ventures--titles">
               <div class="medium-container">
-                <h1>Lorem Ipsum</h1>
+                <h1>Careers</h1>
                 <h4 class="small">
-                  Sit amet consectetur adipiscing elit sed do eiusmod tempor
-                  incididunt ut labore et dolore magna aliqua ut enim ad
-                  minim veniam quis nostrud exercitation ullamco laboris.
+                 At CODE & CLICK, we’re building a team of passionate creatives, strategists, and technologists who believe in the power of digital marketing to drive real business growth. If you’re excited about creating impactful websites, smart marketing strategies, and meaningful digital experiences, send your CV to myanmar@codenclickmm.com.
                 </h4>
               </div>
-              <a href="#" class="c__button light" id="scroll-to">See below</a>
+              <a href="#" class="c__button light" id="scroll-to">Current Opportunities</a>
             </section>
 
               <section class="l__current-holdings">

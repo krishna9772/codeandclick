@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/blog', [HomeController::class, 'showBlog'])->name('blog');
 Route::get('/blog/{uuid}/{slug}', [HomeController::class, 'BlogDetails'])->name('blog-details');
 Route::post('/subscribe', [HomeController::class, 'Subscribe'])->name('user.subscribe');
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('/careers', [HomeController::class, 'showCareers'])->name('show-careers');
 Route::get('/careers/{id}', [HomeController::class, 'showCareerDetails'])->name('show-career-details');
 Route::get('/contact', function () {
@@ -29,9 +27,7 @@ Route::get('/technology', function () {
     return view('technology');
 })->name('technology');
 Route::get('/ventures', [HomeController::class, 'showVentures'])->name('ventures');
-Route::get('/work-with-us', function () {
-    return view('work-with-us');
-})->name('work-with-us');
+Route::get('/work-with-us', [HomeController::class, 'showWorkWithUs'])->name('work-with-us');
 
 Route::post('/enquiry', [EnquiryController::class, 'store'])->name('enquiry.store');
 

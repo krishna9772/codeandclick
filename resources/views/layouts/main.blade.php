@@ -56,6 +56,8 @@
     <link rel="stylesheet" href="{{ asset('css/main.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/home.css') }}" />
 
+
+
     <!-- Preload Critical Resources -->
     <link rel="preload" href="{{ asset('css/main.css') }}" as="style" />
 
@@ -66,6 +68,7 @@
       integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
       crossorigin="anonymous"
     ></script>
+
   </head>
 
   <body

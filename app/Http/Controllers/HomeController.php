@@ -13,6 +13,23 @@ use Illuminate\Support\Facades\Log;
 
 class HomeController extends Controller
 {
+
+    public function home()
+    {
+
+        $clients = Client::all();
+        $services = Service::where('status', 'published')->get();
+
+        return view('home', compact('clients', 'services'));
+    }
+    
+    public function showWorkWithUs()
+    {
+         $clients = Client::all();
+
+        return view('work-with-us', compact('clients'));
+    }
+    
     public function showVentures()
     {
 

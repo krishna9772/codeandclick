@@ -15,7 +15,7 @@
                 src="https://ignitecreates.com/wp-content/themes/ignite/library/images/graphics/grey-flame-background.png"
               /> -->
               <div class="container fade-transition">
-                <h1>Lorem Ipsum Dolor Sit</h1>
+                <h1>Our Services</h1>
                 <div class="m__our-work--filters">
                   <div class="m__our-work--filters--selector">
                     <h4 id="one" class="selector active">Project Type</h4>
@@ -24,40 +24,62 @@
                   <div class="m__our-work--filters--tabs">
                     <ul id="tab-one" class="tab active">
                       <li class="active" data-name="work_type" data-value="all">
-                        <p>Project1</p>
+                        <p>Branding Solution</p>
                       </li>
                       <li data-name="work_type" data-value="copywriting">
-                        <p>Project2</p>
+                        <p>Brand Strategy</p>
                       </li>
                       <li data-name="work_type" data-value="brand-strategy">
-                        <p>Project3</p>
+                        <p>Consultancy Integration and Culture</p>
                       </li>
                       <li
                         data-name="work_type"
                         data-value="advertising_campaign"
                       >
-                        <p>Project4</p>
+                        <p>Brand Identity(Logo Design and Brand Book)</p>
                       </li>
                       <li data-name="work_type" data-value="digital_marketing">
-                        <p>Project5</p>
+                        <p>Marketing Services</p>
                       </li>
                       <li data-name="work_type" data-value="websites">
-                        <p>Project6</p>
+                        <p>Marketing Strategy and Consultancy
+Digital Marketing</p>
                       </li>
                       <li data-name="work_type" data-value="branding_strategy">
-                        <p>Project7</p>
+                        <p>Social Media</p>
                       </li>
                       <li data-name="work_type" data-value="games_tech">
-                        <p>Project8</p>
+                        <p>Search Engine Optimization(SEO) </p>
                       </li>
                       <li data-name="work_type" data-value="photography_video">
-                        <p>Project9</p>
+                        <p>Digital Optimization</p>
                       </li>
                       <li data-name="work_type" data-value="design_animation">
-                        <p>Project10</p>
+                        <p>Media and Press</p>
                       </li>
                       <li data-name="work_type" data-value="social_influencers">
-                        <p>Project11</p>
+                        <p>Events Coverage and Live Streaming </p>
+                      </li>
+                       <li data-name="work_type" data-value="social_influencers">
+                        <p>Creative Design </p>
+                      </li>
+                       <li data-name="work_type" data-value="social_influencers">
+                        <p>Website and Social Media Content </p>
+                      </li>
+                       <li data-name="work_type" data-value="social_influencers">
+                        <p>Video Production </p>
+                      </li>
+                       <li data-name="work_type" data-value="social_influencers">
+                        <p>Motions</p>
+                      </li>
+                       <li data-name="work_type" data-value="social_influencers">
+                        <p>Photo Shooting</p>
+                      </li>
+                       <li data-name="work_type" data-value="social_influencers">
+                        <p>Mobile App Development</p>
+                      </li>
+                      <li data-name="work_type" data-value="social_influencers">
+                        <p>Web Design</p>
                       </li>
                     </ul>
 

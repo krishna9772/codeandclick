@@ -2120,8 +2120,9 @@ footer .bottom .general-links ul li a:hover:after {
     transition: opacity 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 .c__navigation--social-links img {
-    margin-right: 30px;
+    width: 90px;
     transition: 0.2s;
+    scale: 2;
 }
 .c__navigation--social-links img:hover {
     opacity: 0.5;
@@ -7047,14 +7048,14 @@ footer .bottom .general-links ul li a:hover:after {
     margin-bottom: 30px;
 }
 .l__working-with-us .anchor-link-container .anchor-link p {
-    color: #d4de21;
+    color: #ffffff;
     font-size: 18px;
     line-height: 24px;
     transition: 0.3s;
 }
 
 .l__working-with-us .anchor-link-container .anchor-link span {
-    color: #d4de21;
+    color: #ffffff;
 }
 
 @media screen and (min-width: 1080px) {
@@ -7065,7 +7066,7 @@ footer .bottom .general-links ul li a:hover:after {
 }
 .l__working-with-us .anchor-link-container .anchor-link.active p,
 .l__working-with-us .anchor-link-container .anchor-link:hover p {
-    color: #d4de21;
+    color: #ffffff;
 }
 .l__working-with-us .hero-image {
     background-position: 50%;
@@ -7236,7 +7237,7 @@ footer .bottom .general-links ul li a:hover:after {
     }
 }
 .m__intro-experience--content-left p {
-    color: #d4de21;
+    color: #ffffff;
     opacity: 0.7;
 }
 .m__intro-experience--content-right {
@@ -7253,7 +7254,7 @@ footer .bottom .general-links ul li a:hover:after {
     }
 }
 .m__intro-experience--content-right p {
-    color: #d4de21;
+    color: #ffffff;
     opacity: 0.7;
 }
 .m__advantage-scroll {
@@ -7439,7 +7440,7 @@ footer .bottom .general-links ul li a:hover:after {
     }
 }
 .m__solution .title-container .section-number span {
-    color: #d4de21;
+    color: #ffffff;
     font-family: Roobert-Regular;
     font-size: 40px;
     line-height: 44px;
@@ -7760,7 +7761,7 @@ footer .bottom .general-links ul li a:hover:after {
     }
 }
 .m__global-reach .title-container .section-number span {
-    color: #d4de21;
+    color: #ffffff;
     font-family: Roobert-Regular;
     font-size: 40px;
     line-height: 44px;
@@ -7773,7 +7774,7 @@ footer .bottom .general-links ul li a:hover:after {
     }
 }
 .m__global-reach .title-container h2 {
-    color: #d4de21;
+    color: #ffffff;
 }
 .m__global-reach--content {
     display: flex;
@@ -7787,7 +7788,7 @@ footer .bottom .general-links ul li a:hover:after {
     }
 }
 .m__global-reach--content p {
-    color: #d4de21;
+    color: #ffffff;
     font-size: 20px;
     margin-bottom: 50px;
     max-width: 100%;
@@ -8030,10 +8031,10 @@ footer .bottom .general-links ul li a:hover:after {
     }
 }
 .m__clients .title-container h2 {
-    color: #d4de21;
+    color: #ffffff;
 }
 .m__clients p {
-    color: #d4de21;
+    color: #ffffff;
     margin-bottom: 50px;
     opacity: 0.7;
 }
@@ -9331,7 +9332,7 @@ footer .bottom .general-links ul li a:hover:after {
     display: flex;
 }
 .l__contact--office-heading {
-    color: #d4de21;
+    color: #ffffff;
     display: flex;
     margin: 80px 0 60px;
     cursor: pointer;
@@ -9490,7 +9491,7 @@ footer .bottom .general-links ul li a:hover:after {
     position: relative;
 }
 .l__technology--titles--content h4 {
-    color: #d4de21;
+    color: #ffffff;
     margin-bottom: 40px;
     max-width: 400px;
 }
