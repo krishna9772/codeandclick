@@ -36,7 +36,7 @@
 
               <section class="l__current-holdings">
                 <div class="container">
-                  <h3>Open Positions</h3>
+                  <h3>Current Opportunities</h3>
                   <div style="display: flex; gap: 10px;">
                     <a href="{{ route('show-careers') }}" class="c__button carbutt {{ $location == '' ? 'light' : '' }}" id="uk-butt"
                       >All</a

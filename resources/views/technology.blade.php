@@ -14,9 +14,9 @@
             <div class="l__technology">
                 <div class="l__technology--titles">
                     <div class="medium-container">
-                    <h1>Technology</h1>
+                    <h1>Technology at CODE & CLICK</h1>
                     <div class="l__technology--titles--content">
-                        <h4 class="medium">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita, harum tempore? Aliquam porro cupiditate, fugiat dolorum modi quas, debitis maxime reiciendis soluta sunt tempore, ducimus vero. Deserunt quos fuga sunt.</h4>
+                        <h4 class="medium">Technology should make work easier, not more complicated. At CODE & CLICK, we combine smart digital marketing, intuitive website design, robust website development, and data-driven SEO to help brands stand out online.</h4>
                         <a href="contact.html" class="c__button dark">Get in touch</a>
                     </div>
                     </div>
@@ -26,14 +26,14 @@
                     <img class="img-object-fit" src="{{ asset('images/bangkok.jpg') }}" />
                     </div>
                     <div class="m__technology-intro--content">
-                    <h4 class="medium">Lorem Ipsum</h4>
-                    <p class="small">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt modi veritatis ipsam iure corporis quia facilis porro quo, autem, earum beatae est quos accusamus perspiciatis enim provident, facere ex! Est?</p>
+                    <h4 class="medium">Why Our Technology Matters</h4>
+                    <p class="small">At CODE & CLICK, technology isn’t just about tools — it’s about impact. We combine technology with creativity and strategic thinking so your brand is prepared for today’s challenges — and tomorrow’s opportunities.</p>
                     </div>
                 </section>
                 <section class="l__products">
                     <div class="l__products--intro">
                     <div class="container">
-                        <h3>Our Products</h3>
+                        <h3>Our Technology Stack</h3>
                         <p class="large">Each product is specifically tailored to achieve desired results with low investment requirements.</p>
                     </div>
                     </div>

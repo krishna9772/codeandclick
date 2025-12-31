@@ -133,19 +133,19 @@
           <section class="m__awards">
             <div class="container">
               <h3> Our Valuable Clients</h3>
-              <div class="row">
+              <div class="owl-carousel clients">
+                <div class="row">
 
-                @foreach ($clients as $client)
-                <div class="col-xs-6 col-sm-3 tile">
-
-                  <div class="m__awards--tile">
-                    <img
-                      src="{{ $client->getFirstMediaUrl('clients') }}" />
-                    <p> {{ $client->name }}</p>
+                  @foreach ($clients as $client)
+                  <div class="col-xs-6 col-sm-3 tile">
+                    <div class="m__clients--tile">
+                      <img
+                        alt=""
+                        src="{{$client->getFirstMediaUrl('clients')}}" />
+                    </div>
                   </div>
-
+                  @endforeach
                 </div>
-                @endforeach
               </div>
               <div class="horizontal-line"></div>
             </div>
