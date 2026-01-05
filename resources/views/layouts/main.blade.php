@@ -30,7 +30,7 @@
 
   
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="{{ asset('images/favicon.png') }}" />
+  <link rel="icon" type="image/png" href="{{ asset('images/new-favicon.png') }}" />
 
   <!-- CSS -->
   <link rel="stylesheet" href="{{ asset('css/main.css') }}" />
