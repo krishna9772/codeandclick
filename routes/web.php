@@ -23,6 +23,7 @@ Route::get('/our-works', function () {
     return view('our-works');
 })->name('our-work');
 Route::get('/services', [HomeController::class, 'showServices'])->name('services');
+Route::get('/services/{id}', [HomeController::class, 'showServiceDetails'])->name('service-details');
 Route::get('/technology', function () {
     return view('technology');
 })->name('technology');

@@ -13,8 +13,12 @@ return new class extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
             $table->string('name');
-            $table->string('link');
+            $table->longText('main_content');
+            $table->longText("tags");
+            $table->longText('sub_content');
+            $table->string('slug');
             $table->enum('status', ['draft', 'published'])->default('published');
             $table->softDeletes();
             $table->timestamps();

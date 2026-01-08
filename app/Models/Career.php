@@ -20,6 +20,7 @@ class Career extends Model
         'responsibilities',
         'salary',
         'location',
+        'status',
     ];
 
 }

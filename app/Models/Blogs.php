@@ -16,8 +16,6 @@ class Blogs extends Model implements HasMedia
 
     protected $table = 'blogs';
 
-
-
     public static function boot()
     {
         parent::boot();
@@ -36,6 +34,7 @@ class Blogs extends Model implements HasMedia
         'type',
         'status',
         'content',
+        'preview',
     ];
 
     public function user()

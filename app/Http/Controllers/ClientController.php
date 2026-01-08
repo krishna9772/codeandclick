@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Service\ClientService;
+use App\Http\Requests\StoreClientRequest;
+use App\Http\Requests\UpdateClientRequest;
 use App\Models\Client;
 use Illuminate\Http\Request;
 
@@ -43,13 +45,8 @@ class ClientController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreClientRequest $request)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:5120',
-        ]);
-
         $this->clientService->store($request);
 
         return redirect()->route('clients.index')->with('success', 'Client created successfully.');
@@ -74,9 +71,11 @@ class ClientController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateClientRequest $request, string $id)
     {
-        //
+        $this->clientService->update($request, $id);
+
+        return redirect()->route('clients.index')->with('success', 'Client updated successfully.');
     }
 
     /**

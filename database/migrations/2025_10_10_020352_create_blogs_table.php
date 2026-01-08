@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('type');
             $table->enum('status', ['draft', 'published'])->default('published');
+            $table->string('preview');
             $table->longText('content');
             $table->softDeletes();
             $table->timestamps();

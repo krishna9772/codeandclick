@@ -47,16 +47,13 @@
                     >
                     @endforeach
                   </div>
-                  
-                  
                 
-
-                  <div class="vacancies">
+                  <div style="margin-top: 50px;" class="vacancies">
                       @foreach ($careers as $career)
 
                         <div class="row uk-job">
                           <div class="col-xs-12 col-sm-7 col-md-8">
-                            <h3>{{ $career->title }}</h3>
+                            <h3 style="font-size: 44px;">{{ $career->title }}</h3>
                           </div>
                           <div class="col-xs-12 col-sm-5 col-md-4 | button-col">
                             <a

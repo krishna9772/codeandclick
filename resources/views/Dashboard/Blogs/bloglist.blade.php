@@ -7,6 +7,7 @@
             Create New Blog
         </a>
     </x-slot>
+    
 
     <div class="py-12">
         <div class="max-w-7xl space-y-6 mx-auto sm:px-6 lg:px-8">
@@ -40,7 +41,7 @@
                                 <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Image</th>
                                 <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Title</th>
                                 <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Type</th>
-                                <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Content</th>
+                                <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Preview</th>
                                 <th class="px-6 py-3 text-left text-sm font-semibold text-gray-700">Date</th>
                                 @if ($tag != 'trashed')
                                 <th class="px-6 py-3 text-center text-sm font-semibold text-gray-700">Status</th>
@@ -58,7 +59,7 @@
                                 <td class="px-6 py-4 text-gray-800 font-medium">{{ $blog->title }}</td>
                                 <td class="px-6 py-4 text-gray-800">{{ $blog->type }}</td>
                                 <td class="px-6 py-4 text-gray-800">
-                                    <div class="line-clamp-3 max-w-[400px] text-justify">{{ $blog->content }}</div>
+                                    <div class="line-clamp-3 max-w-[400px] text-justify">{{ $blog->preview }}</div>
                                 </td>
                                 <td class="px-6 py-4 text-gray-800 text-sm">{{ $blog->created_at->format('Y-m-d') }}</td>
                                 

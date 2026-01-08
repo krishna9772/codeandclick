@@ -22,14 +22,14 @@ class HomeController extends Controller
 
         return view('home', compact('clients', 'services'));
     }
-    
+
     public function showWorkWithUs()
     {
-         $clients = Client::all();
+        $clients = Client::all();
 
         return view('work-with-us', compact('clients'));
     }
-    
+
     public function showVentures()
     {
 
@@ -42,24 +42,35 @@ class HomeController extends Controller
     {
 
         $clients = Client::all();
-        $services = Service::where('status', 'published')->get();
+        $services = Service::where('status', 'published','id')->get();
+
 
         return view('services', compact('clients', 'services'));
+    }
+
+    public function showServiceDetails($slug)
+    {
+
+        $service = Service::where('slug', $slug)->first();
+
+        Log::info($service);
+
+        return view('service-details', compact('service'));
     }
 
     public function showBlog()
     {
 
         $tab = request('tab', "");
-       
+
         $Headerblogs = Blogs::with('user')->where('status', 'published')->inRandomOrder()->paginate(6);
 
         $blogs = Blogs::with('user');
 
-        if($tab){
+        if ($tab) {
             $blogs = $blogs->where('type', $tab);
         }
-        
+
         $blogs = $blogs->where('status', 'published')->orderBy('created_at', 'desc')->paginate(6);
 
         Log::info($blogs);
@@ -89,7 +100,7 @@ class HomeController extends Controller
 
     public function getSubscribers()
     {
-         $search = request('search', '');
+        $search = request('search', '');
 
         $subscribers = new Subscribe();
 
@@ -115,8 +126,7 @@ class HomeController extends Controller
             'pages' => range($startPage, $endPage),
         ];
 
-        return view('Dashboard.Subscribers.index', compact('subscribers','search','meta'));
-
+        return view('Dashboard.Subscribers.index', compact('subscribers', 'search', 'meta'));
     }
 
     public function BlogDetails($uuid, $slug)

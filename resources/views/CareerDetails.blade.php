@@ -238,12 +238,12 @@
           <div class="bg-black">
             <div class="max-w-6xl mx-auto space-y-24 p-10 py-24 text-white">
               <div>
-                <p class="text-white text-3xl font-black mb-6">About Ignite</p>
-                <p>{{ $career->ignite }}</p>
+                <p class="text-white text-3xl font-black mb-6">Description</p>
+                <div>{!! $career->ignite !!}</div>
               </div>
               <div>
                 <p class="text-white text-3xl font-black mb-6">About The Role</p>
-                <p>{{ $career->role }}</p>
+                <div>{!! $career->role !!}</div>
               </div>
               <div>
                 <p class="text-white text-3xl font-black mb-6">Key Responsibilities</p>

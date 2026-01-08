@@ -122,6 +122,7 @@ class CareerController extends Controller
 
     public function changeStatus($id)
     {
+
         $this->careerService->changeStatus($id);
 
         return redirect()->back()->with('success', 'Career status changed successfully');

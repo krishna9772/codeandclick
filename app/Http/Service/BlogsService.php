@@ -3,6 +3,7 @@
 namespace App\Http\Service;
 
 use App\Models\Blogs;
+use Illuminate\Container\Attributes\Log;
 
 class BlogsService
 {
@@ -12,6 +13,8 @@ class BlogsService
         $request->merge([
             'user_id' => auth()->user()->id,
         ]);
+
+        
 
         $blog = Blogs::create($request->except('image'));
 

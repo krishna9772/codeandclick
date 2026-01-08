@@ -25,7 +25,48 @@ class StoreBlogsRequest extends FormRequest
             'title' => 'required|string|max:255',
             'content' => 'required|string',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'preview' => 'required|string|max:255',
             'type' => 'required|in:' . implode(',', config('base.blog_types')),
         ];
+    }
+
+    /**
+     * Get the custom error messages for validation rules.
+     *
+     * @return array
+     */
+    public function messages(): array
+    {
+        return [
+            'title.required' => 'The title field is required.',
+            'title.max' => 'The title may not be greater than 255 characters.',
+            'content.required' => 'The content field is required.',
+            'image.required' => 'The image field is required.',
+            'image.image' => 'The file must be an image.',
+            'image.mimes' => 'The image must be a file of type: jpeg, png, jpg, gif.',
+            'image.max' => 'The image may not be greater than 2048 kilobytes.',
+            'preview.required' => 'The preview field is required.',
+            'preview.max' => 'The preview may not be greater than 255 characters.',
+            'type.required' => 'The type field is required.',
+            'type.in' => 'The selected type is invalid.',
+        ];
+    }
+
+    /**
+     * Handle a failed validation attempt.
+     *
+     * @param  \Illuminate\Contracts\Validation\Validator  $validator
+     * @return void
+     *
+     * @throws \Illuminate\Validation\ValidationException
+     */
+    protected function failedValidation(\Illuminate\Contracts\Validation\Validator $validator)
+    {
+        throw new \Illuminate\Validation\ValidationException(
+            $validator,
+            redirect()->back()
+                ->withErrors($validator)
+                ->withInput()
+        );
     }
 }

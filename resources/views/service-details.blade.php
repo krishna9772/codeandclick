@@ -232,23 +232,92 @@
             <div id="barba-wrapper">
                 <div class="barba-container">
 
-                    <div style="background-image: url('{{ $blog->getFirstMediaUrl('blog_images') }}');"
-                        class="h-[100vh] relative bg-contain bg-center bg-no-repeat flex items-center justify-center bg-black">
-                        <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-black to-[#000000] opacity-50">
+                    <div
+                        class="relative h-screen bg-cover bg-center flex items-center"
+                        style="background-image: url('{{ $service->getFirstMediaUrl('services') }}');">
+                        <!-- Gradient overlay -->
+                        <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black"></div>
 
+                        <div class="relative z-10 max-w-6xl mx-auto px-10">
+                            <a href="{{ route('services') }}" class="flex items-center gap-6 mb-16 group cursor-pointer">
+                                <div
+                                    class="border border-white/40 rounded-full w-14 h-14 flex items-center justify-center
+               transition group-hover:bg-white/10">
+                                    <img
+                                        class="rotate-180 w-5"
+                                        src="{{ asset('images/icons/right-arrow.svg') }}"
+                                        alt="" />
+                                </div>
+                                <p class="text-white/80 text-lg tracking-wide">What we do</p>
+                            </a>
+
+                            <h1 class="text-white text-6xl lg:text-7xl font-extrabold leading-tight max-w-4xl">
+                                {{ $service->name }}
+                            </h1>
                         </div>
-                        <p class="text-white text-6xl max-w-3xl font-extrabold z-10">{{ $blog->title }}</p>
                     </div>
                     <div class="bg-black">
                         <div class="max-w-6xl mx-auto space-y-24 p-10 py-24 text-white">
-                            <div class="flex items-center gap-5">
-                                <img src="{{ $blog->user->image }}" class="w-16 h-16 rounded-full  object-cover" alt="">
-                                <p>{{ $blog->user->name }}</p>
+                            <div class="flex items-center gap-5 text-5xl font-semibold">
+                                {{ $service->title }}
                             </div>
+                            <div class="text-xl">
+                                {{ $service->main_content }}
+                            </div>
+                            <a href="{{ route('contact') }}" class="bg-white px-8 py-5 w-fit text-black text-xl rounded-full flex items-center gap-5">
+                                Get in Touch
+                            </a>
+                        </div>
+                    </div>
+                    <div class="bg-[#f4f4f4]">
+                        <div class="max-w-6xl mx-auto px-10 py-32 grid grid-cols-1 md:grid-cols-2 gap-16">
+                            @foreach (explode('/', $service->tags) as $tag)
+                            <div class="flex items-start gap-6">
+                                <div class="min-w-3 mt-3 min-h-3 rounded-full bg-black"></div>
+                                <p class="text-3xl font-medium leading-snug">
+                                    {{ $tag }}
+                                </p>
+                            </div>
+                            @endforeach
+
+                        </div>
+                    </div>
+                    <div class="bg-white min-h-screen">
+                        <div class="max-w-6xl mx-auto space-y-24 p-10 py-24  text-black">
                             <div>
-                               {!! $blog->sub_content !!}
+                                {!! $service->sub_content !!}
+                            </div>
+                            <p class="text-4xl font-medium">Our Case Studies</p>
+                            <div class="grid grid-cols-2 gap-6">
+                                <div
+                                    class="relative min-h-[500px]  overflow-hidden bg-cover bg-center"
+                                    style="background-image: url('https://images.unsplash.com/photo-1762115960405-be316e817080?q=80&w=764&auto=format&fit=crop');">
+                                    <!-- Dark overlay -->
+                                    <div class="absolute inset-0 bg-black/30"></div>
+
+                                    <!-- Glass content -->
+                                    <div class="relative h-full flex items-end">
+                                        <div
+                                            class="m-6 max-w-md border border-white/30 bg-white/20 backdrop-blur-xl p-8 shadow-lg transition hover:bg-white/30">
+                                            <h3 class="text-2xl font-semibold text-white">
+                                                Case Study Title
+                                            </h3>
+                                            <p class="mt-2 text-white/90 text-sm leading-relaxed">
+                                                Case Study Description goes here. Briefly explain the project,
+                                                problem, and outcome in a concise way.
+                                            </p>
+
+                                            <button
+                                                class="mt-4 inline-flex items-center gap-2 bg-white/80 px-4 py-2 text-sm font-medium text-gray-900 transition hover:bg-white">
+                                                View Case Study →
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
+
                     </div>
 
 
