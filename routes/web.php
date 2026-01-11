@@ -11,26 +11,44 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\VentureController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/blog', [HomeController::class, 'showBlog'])->name('blog');
-Route::get('/blog/{uuid}/{slug}', [HomeController::class, 'BlogDetails'])->name('blog-details');
-Route::post('/subscribe', [HomeController::class, 'Subscribe'])->name('user.subscribe');
-Route::get('/', [HomeController::class, 'home'])->name('home');
-Route::get('/careers', [HomeController::class, 'showCareers'])->name('show-careers');
-Route::get('/careers/{id}', [HomeController::class, 'showCareerDetails'])->name('show-career-details');
+
+Route::controller(HomeController::class)->group(function () {
+
+    // Home
+    Route::get('/', 'home')->name('home');
+
+    // Blog
+    Route::get('/blog', 'showBlog')->name('blog');
+    Route::get('/blog/{uuid}/{slug}', 'BlogDetails')->name('blog-details');
+
+    // Careers
+    Route::get('/careers', 'showCareers')->name('show-careers');
+    Route::get('/careers/{id}', 'showCareerDetails')->name('show-career-details');
+
+    // Our Works
+    Route::get('/our-works', 'showOurWork')->name('our-work');
+    Route::get('/our-works/{id}', 'showOurWorkDetails')->name('our-work-details');
+
+    // Services
+    Route::get('/services', 'showServices')->name('services');
+    Route::get('/services/{id}', 'showServiceDetails')->name('service-details');
+
+    // Ventures
+    Route::get('/ventures', 'showVentures')->name('ventures');
+
+    // Work With Us
+    Route::get('/work-with-us', 'showWorkWithUs')->name('work-with-us');
+
+    // Subscribe
+    Route::post('/subscribe', 'Subscribe')->name('user.subscribe');
+});
+
 Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
-Route::get('/our-works', [HomeController::class,'showOurWork']
-)->name('our-work');
-Route::get('/our-works/{id}', [HomeController::class,'showOurWorkDetails']
-)->name('our-work-details');
-Route::get('/services', [HomeController::class, 'showServices'])->name('services');
-Route::get('/services/{id}', [HomeController::class, 'showServiceDetails'])->name('service-details');
 Route::get('/technology', function () {
     return view('technology');
 })->name('technology');
-Route::get('/ventures', [HomeController::class, 'showVentures'])->name('ventures');
-Route::get('/work-with-us', [HomeController::class, 'showWorkWithUs'])->name('work-with-us');
 
 Route::post('/enquiry', [EnquiryController::class, 'store'])->name('enquiry.store');
 

@@ -307,14 +307,14 @@
                     <img
                       alt="background image"
                       class="img-object-fit"
-                      src="{{ asset('images/default.png') }}"
+                      src="{{ asset($services[0]->getFirstMediaUrl('services')) }}"
                     />
                   </div>
                   <div class="col-xs-12 col-md-9 col-lg-7 m__services--list">
                     <ul>
                       @foreach ($services as $service)
-                      <li data-bg="{{ asset('images/default.png') }}">
-                        <a href="{{ $service->link }}" class="xlarge">{{ $service->name }}</a>
+                      <li data-bg="{{ $service->getFirstMediaUrl('services') }}">
+                        <a href="{{route('service-details',$service->slug)}}" class="xlarge">{{ $service->name }}</a>
                       </li>
                       @endforeach
                     </ul>
