@@ -8,7 +8,7 @@
       </video>
       <section  class="m__home-hero">
               <div class="layout">
-                <p class="m__home-hero--tag">
+                <p class="m__home-hero--tag ">
                   Strategy – Creativity – Technology
                 </p>
                 <div class="open-fullscreen c__button">
@@ -212,7 +212,7 @@
 
              <section class="m__work-with">
                 <div class="container">
-                  <h3>Client</h3>
+                  <h3 class="text-6xl">Client</h3>
                   <div class="owl-carousel clients">
                     <div class="row">
                       @foreach ($clients as $client)
@@ -297,7 +297,7 @@
 
               <section class="m__services">
                 <div class="container">
-                  <h3>Services</h3>
+                  <h3 class="text-6xl">Services</h3>
                   <p class="medium">
                     Combining strategy, creativity and technology, our work has purpose and is always results driven.
                   </p>

@@ -32,14 +32,7 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="{{ asset('images/new-favicon.png') }}" />
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="{{ asset('css/main.css') }}" />
-  <link rel="stylesheet" href="{{ asset('css/home.css') }}" />
-
-
-
-  <!-- Preload Critical Resources -->
-  <link rel="preload" href="{{ asset('css/main.css') }}" as="style" />
+  @vite(['resources/css/app.css', 'resources/js/app.js'])
 
   <!-- Canonical URL -->
   <link rel="canonical" href="https://codeandclick.com/" />
@@ -199,8 +192,9 @@
     </div>
   </section>
 
-  @yield('content')
-  <footer>
+   @yield('content')
+
+   <footer>
     <div class="container">
       <div class="row top">
         <div class="col-xs-12 col-md-6 footer_text_one">

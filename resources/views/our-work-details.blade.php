@@ -225,23 +225,49 @@
             <div id="barba-wrapper">
                 <div class="barba-container">
 
-                    <div style="background-image: url('{{ $blog->getFirstMediaUrl('blog_images') }}');"
-                        class="h-[100vh] relative bg-contain bg-center bg-no-repeat flex items-center justify-center bg-black">
-                        <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-black to-[#000000] opacity-50">
+                    <div
+                        class="relative h-screen bg-cover bg-center flex items-center"
+                        style="background-image: url('{{ $ourWork->getFirstMediaUrl('ourwork-header') }}');">
+                        <!-- Gradient overlay -->
+                        <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black"></div>
 
+                        <div class="relative z-10 max-w-6xl mx-auto px-10">
+                            <a href="{{ route('our-work') }}" class="flex items-center gap-6 mb-16 group cursor-pointer">
+                                <div
+                                    class="border border-white/40 rounded-full w-14 h-14 flex items-center justify-center
+               transition group-hover:bg-white/10">
+                                    <img
+                                        class="rotate-180 w-5"
+                                        src="{{ asset('images/icons/right-arrow.svg') }}"
+                                        alt="" />
+                                </div>
+                                <p class="text-white/80 text-lg tracking-wide">Our Works</p>
+                            </a>
+
+                            <h1 class="text-white text-6xl lg:text-7xl font-extrabold leading-tight max-w-4xl">
+                                {{ $ourWork->title }}
+                            </h1>
                         </div>
-                        <p class="text-white text-6xl max-w-3xl font-extrabold z-10">{{ $blog->title }}</p>
                     </div>
-                    <div class="bg-black">
-                        <div class="max-w-6xl mx-auto space-y-24 p-10 py-24 text-white">
-                            <div class="flex items-center gap-5">
-                                <img src="{{ $blog->user->image }}" class="w-16 h-16 rounded-full  object-cover" alt="">
-                                <p>{{ $blog->user->name }}</p>
-                            </div>
+                   
+                    <div class="bg-white min-h-screen">
+                        <div class="max-w-6xl mx-auto space-y-24 p-10 py-24  text-black">
                             <div>
-                               {!! $blog->sub_content !!}
+                                {!! $ourWork->content !!}
+                            </div>
+                            <div class="grid grid-cols-2 lg:grid-cols-3 gap-6">
+                                @if ($ourWork->hasMedia('ourwork-images'))
+                            @foreach ($ourWork->getMedia('ourwork-images') as $media)
+                            <img
+                                src="{{ $media->getUrl() }}"
+                                alt="Our Work Image"
+                                class="w-full h-auto object-cover rounded">
+                            @endforeach
+                            @endif
+
                             </div>
                         </div>
+
                     </div>
 
 

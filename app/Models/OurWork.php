@@ -8,18 +8,18 @@ use Illuminate\Support\Str;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\HasMedia;
 
-class Service extends Model implements HasMedia
+class OurWork extends Model implements HasMedia
 {
+
     use InteractsWithMedia;
     use SoftDeletes;
+
     protected $fillable = [
         'title',
-        'name',
-        'slug',
+        'content',
+        'serviceID',
         'status',
-        'main_content',
-        'tags',
-        'sub_content'
+        'slug'
     ];
 
     public static function boot()
@@ -27,11 +27,15 @@ class Service extends Model implements HasMedia
         parent::boot();
 
         static::creating(function ($model) {
-            $model->slug = Str::slug($model->name);
+            $model->slug = Str::slug($model->title);
         });
     }
 
-    public function works() {
-        return $this->hasMany(OurWork::class,"serviceID");
-    }
+    // In OurWork.php model
+public function service()
+{
+    return $this->belongsTo(Service::class, 'serviceID');
+}
+
+
 }

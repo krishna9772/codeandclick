@@ -29,13 +29,6 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="{{ asset('images/favicon.png') }}">
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="{{ asset('css/main.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/home.css') }}">
-
-  <!-- Preload Critical Resources -->
-  <link rel="preload" href="{{ asset('css/main.css') }}" as="style">
-
   <!-- Canonical URL -->
   <link rel="canonical" href="https://codeandclick.com/">
 

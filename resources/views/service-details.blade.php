@@ -29,13 +29,6 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ asset('images/favicon.png') }}">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
-
-    <!-- Preload Critical Resources -->
-    <link rel="preload" href="{{ asset('css/main.css') }}" as="style">
-
     <!-- Canonical URL -->
     <link rel="canonical" href="https://codeandclick.com/">
 
@@ -289,49 +282,45 @@
                             </div>
                             <p class="text-4xl font-medium">Our Case Studies</p>
                             <div class="grid grid-cols-2 gap-6">
+                                @foreach($service->works as $work)
                                 <div
-                                    class="relative min-h-[500px]  overflow-hidden bg-cover bg-center"
-                                    style="background-image: url('https://images.unsplash.com/photo-1762115960405-be316e817080?q=80&w=764&auto=format&fit=crop');">
+                                    class="relative min-h-[600px] overflow-hidden bg-cover bg-center"
+                                    style="background-image: url('{{ asset($work->getFirstMediaUrl('ourwork-header')) }}')">
                                     <!-- Dark overlay -->
-                                    <div class="absolute inset-0 bg-black/30"></div>
+                                    <div class="absolute inset-0 bg-black/40"></div>
 
-                                    <!-- Glass content -->
-                                    <div class="relative h-full flex items-end">
-                                        <div
-                                            class="m-6 max-w-md border border-white/30 bg-white/20 backdrop-blur-xl p-8 shadow-lg transition hover:bg-white/30">
-                                            <h3 class="text-2xl font-semibold text-white">
-                                                Case Study Title
-                                            </h3>
-                                            <p class="mt-2 text-white/90 text-sm leading-relaxed">
-                                                Case Study Description goes here. Briefly explain the project,
-                                                problem, and outcome in a concise way.
-                                            </p>
+                                    <!-- Content wrapper -->
+                                    <div class="relative h-full flex items-end w-full">
+                                        <a
+                                            href="{{ route('our-work-details', $work->id) }}">
+                                            <div class="m-6 cursor-pointer group max-w-md border border-white/30 w-full bg-black/20 backdrop-blur-xl p-8 shadow-lg transition hover:bg-black/30">
+                                                <h3 class="text-2xl font-semibold text-white"> {{ $work->title }} </h3>
+                                                <div class="mt-4 text-white inline-flex items-center gap-2  py-2 text-sm font-medium transition "> View Case Study <img
+                                                        class=" w-5 size-3"
+                                                        src="{{ asset('images/icons/right-arrow.svg') }}"
+                                                        alt="" /> </div>
+                                            </div>
+                                        </a>
 
-                                            <button
-                                                class="mt-4 inline-flex items-center gap-2 bg-white/80 px-4 py-2 text-sm font-medium text-gray-900 transition hover:bg-white">
-                                                View Case Study →
-                                            </button>
-                                        </div>
                                     </div>
                                 </div>
-
+                                @endforeach
                             </div>
+
                         </div>
 
+
+                        <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
+
+                        <!-- #moove_gdpr_cookie_modal -->
+                        <!--/copyscapeskip-->
                     </div>
-
-
-                    <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
-
-                    <!-- #moove_gdpr_cookie_modal -->
-                    <!--/copyscapeskip-->
                 </div>
             </div>
         </div>
-    </div>
-    <input type="hidden" id="data_location" value="" />
+        <input type="hidden" id="data_location" value="" />
 
-    @include('components.footer')
+        @include('components.footer')
 </body>
 
 </html>

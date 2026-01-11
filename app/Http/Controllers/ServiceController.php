@@ -108,20 +108,20 @@ class ServiceController extends Controller
     {
         $this->serviceService->delete($id);
 
-        return redirect()->route('services.index')->with('success', 'Service deleted successfully');
+        return redirect()->back()->with('success', 'Service deleted successfully');
     }
 
     public function changeStatus($id)
     {
         $this->serviceService->changeStatus($id);
 
-        return redirect()->route('services.index')->with('success', 'Service status changed successfully');
+        return redirect()->back()->with('success', 'Service status changed successfully');
     }
 
     public function restore($id)
     {
         $this->serviceService->restore($id);
 
-        return redirect()->route('services.index')->with('success', 'Service restored successfully');
+        return redirect()->back()->with('success', 'Service restored successfully');
     }
 }

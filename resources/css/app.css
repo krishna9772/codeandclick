@@ -1,3 +1,85 @@
+/* Import custom CSS files */
+@import "./home.css";
+@import "./main.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.container {
+    height: 100%;
+    margin: 0 auto;
+    max-width: 1150px;
+    padding: 0 30px;
+    position: relative;
+    width: 100%;
+}
+
+/* Helvetica Font Definitions */
+@font-face {
+    font-family: "Helvetica";
+    src: url("./fonts/Helvetica.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Helvetica";
+    src: url("./fonts/Helvetica-Bold.woff") format("woff");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Helvetica";
+    src: url("./fonts/Helvetica-BoldOblique.woff") format("woff");
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Helvetica";
+    src: url("./fonts/Helvetica-Oblique.woff") format("woff");
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Helvetica";
+    src: url("./fonts/helvetica-light-587ebe5a59211.woff") format("woff");
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Helvetica";
+    src: url("./fonts/helvetica-rounded-bold-5871d05ead8de.woff") format("woff");
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* Apply Helvetica font to body and headings */
+body {
+    font-family: "Helvetica", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Helvetica", sans-serif;
+    font-weight: 300;
+}
+
+.font-light {
+    font-family: "Helvetica", sans-serif;
+    font-weight: 300;
+}
+
+.font-italic {
+    font-family: "Helvetica", sans-serif;
+    font-style: italic;
+}

@@ -5,6 +5,7 @@ use App\Http\Controllers\CareerController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\EnquiryController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OurWOrkController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\VentureController;
@@ -19,9 +20,10 @@ Route::get('/careers/{id}', [HomeController::class, 'showCareerDetails'])->name(
 Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
-Route::get('/our-works', function () {
-    return view('our-works');
-})->name('our-work');
+Route::get('/our-works', [HomeController::class,'showOurWork']
+)->name('our-work');
+Route::get('/our-works/{id}', [HomeController::class,'showOurWorkDetails']
+)->name('our-work-details');
 Route::get('/services', [HomeController::class, 'showServices'])->name('services');
 Route::get('/services/{id}', [HomeController::class, 'showServiceDetails'])->name('service-details');
 Route::get('/technology', function () {
@@ -49,6 +51,11 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
     Route::resource('services', ServiceController::class)->names('services');
     Route::patch('services/{id}/change-status', [ServiceController::class, 'changeStatus'])->name('services.change-status');
     Route::post('services/{id}/restore', [ServiceController::class, 'restore'])->name('services.restore');
+
+    Route::resource('our-work',OurWOrkController::class)->names('our-work');
+    Route::patch('our-work/{id}/change-status', [OurWOrkController::class, 'changeStatus'])->name('our-work.change-status');
+    Route::post('our-work/{id}/restore', [OurWOrkController::class, 'restore'])->name('our-work.restore');
+
 
     Route::resource('careers', CareerController::class)->names('careers');
     Route::patch('careers/{id}/change-status', [CareerController::class, 'changeStatus'])->name('careers.change-status');

@@ -1,10 +1,10 @@
 <x-app-layout>
     <x-slot name="header">
-        <a href="{{ route('services.index') }}" class="border border-blue-800 text-blue-800 font-bold py-2 px-4 rounded">
+        <a href="{{ route('our-work.index') }}" class="border border-blue-800 text-blue-800 font-bold py-2 px-4 rounded">
             Back to Services List
         </a>
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Create New Service
+            Create New Work
         </h2>
     </x-slot>
 
@@ -36,7 +36,7 @@
                 </div>
                 @endif
 
-                <form action="{{ route('services.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('our-work.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <!-- Image Upload with Preview -->
                     <div class="mb-6">
@@ -59,13 +59,7 @@
                         </div>
                         <p class="mt-1 text-sm text-gray-500">JPG, PNG, or WebP (Max: 5MB)</p>
                     </div>
-                    <div class="mb-4">
-                        <label for="name" class="block text-gray-700 font-bold mb-2">Name</label>
-                        @error('name')
-                        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                        @enderror
-                        <input type="text" name="name" id="name" class="border rounded w-full p-2 {{ $errors->has('name') ? 'border-red-500' : 'border-gray-300' }}" value="{{ old('name') }}" required>
-                    </div>
+                   
 
                     <div class="mb-4">
                         <label for="title" class="block text-gray-700 font-bold mb-2">Title</label>
@@ -73,37 +67,49 @@
                         <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                         @enderror
                         <input type="text" name="title" id="title" class="border rounded w-full p-2 {{ $errors->has('title') ? 'border-red-500' : 'border-gray-300' }}" value="{{ old('title') }}" required>
-                    </div>
-
+                    </div> 
+                    
                     <div class="mb-4">
-                        <label for="main_content" class="block text-gray-700 font-bold mb-2">Main Content</label>
-                        @error('main_content')
+                        <label for="title" class="block text-gray-700 font-bold mb-2">Type of Service</label>
+                        @error('serviceID')
                         <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                         @enderror
-                        <textarea rows="10" name="main_content" id="main_content" class="border rounded w-full p-2 {{ $errors->has('main_content') ? 'border-red-500' : 'border-gray-300' }}" required>{{ old('main_content') }}</textarea>
-                    </div>
+                        <select name="serviceID" required class="border rounded w-full p-2 {{ $errors->has('serviceID') ? 'border-red-500' : 'border-gray-300' }}">
+                            @foreach($services as $service)
+                                <option  value="{{$service->id}}">{{$service->name}}</option>
+                            @endforeach
+                        </select>
+                        
+                    </div> 
 
+                
                     <div class="mb-4">
-                        <label for="tagInput" class="block text-gray-700 font-bold mb-2">Tags</label>
-                        @error('tags')
+                        <label for="preview" class="block text-gray-700 font-bold mb-2">Conent</label>
+                        @error('content')
                         <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                         @enderror
-                        <div class="flex gap-2">
-                            <input type="text" id="tagInput" class="border border-gray-300 rounded w-full p-2">
-                            <button id="addTag" type="button" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">Add</button>
+                        <textarea name="content" id="content" class="border h-[200px] rounded w-full p-2 {{ $errors->has('content') ? 'border-red-500' : 'border-gray-300' }}" required>{{ old('content') }}</textarea>
+                    </div>
+
+                    <div class="mb-6">
+                        <label for="workImages" class="block text-gray-700 font-bold mb-2">Work Images</label>
+                        @error('workImages')
+                        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                        @enderror
+
+                        <!-- Multiple Image Preview Container -->
+                        <div id="workImagesPreviewContainer" class="mb-4 grid grid-cols-3 gap-4">
+                            <!-- Previews will be added here dynamically -->
                         </div>
-                        <input type="hidden" name="tags" id="tags" required>
-                        <div id="tagList" class="py-2 space-y-1">
 
+                        <div class="mt-1">
+                            <label for="workImages" class="cursor-pointer bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 inline-block">
+                                <span>Choose Work Images</span>
+                                <input id="workImages" name="workImages[]" type="file" class="sr-only" accept="image/*" multiple onchange="previewWorkImages(this)" required>
+                            </label>
+                            <span id="workImagesCount" class="ml-4 text-sm text-gray-600">No files chosen</span>
                         </div>
-                    </div>
-
-                    <div class="mb-4">
-                        <label for="preview" class="block text-gray-700 font-bold mb-2">Sub Conent</label>
-                        @error('sub_content')
-                        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                        @enderror
-                        <textarea name="sub_content" id="sub_content" class="border h-[200px] rounded w-full p-2 {{ $errors->has('sub_content') ? 'border-red-500' : 'border-gray-300' }}" required>{{ old('sub_content') }}</textarea>
+                        <p class="mt-1 text-sm text-gray-500">JPG, PNG, or WebP (Max: 5MB per image, multiple files allowed)</p>
                     </div>
 
 
@@ -112,7 +118,7 @@
                             Cancel
                         </a>
                         <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                            Create Service
+                            Create Work
                         </button>
                     </div>
                 </form>
@@ -124,7 +130,7 @@
     <script src="https://cdn.jsdelivr.net/npm/jodit@latest/es2021/jodit.fat.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const editor = Jodit.make('#sub_content', {
+            const editor = Jodit.make('#content', {
                 // optional config
                 height: 400,
                 buttons: ['bold', 'italic', 'underline', '|', 'ul', 'ol', '|', 'link', 'image', 'source']
@@ -152,91 +158,45 @@
             }
         }
 
-        document.addEventListener('DOMContentLoaded', function() {
-            // Function to handle adding items to a list
-            function setupList(containerId, inputId, addButtonId, hiddenInputId) {
-                const container = document.getElementById(containerId);
-                const input = document.getElementById(inputId);
-                const addButton = document.getElementById(addButtonId);
-                const hiddenInput = document.getElementById(hiddenInputId);
-
-                // Initialize empty array if hidden input is empty
-                let items = hiddenInput.value ? hiddenInput.value.split('/').filter(Boolean) : [];
-
-                // Function to update the hidden input value
-                function updateHiddenInput() {
-                    hiddenInput.value = items.join('/');
-                    hiddenInput.dispatchEvent(new Event('input')); // Trigger validation
-                }
-
-                // Function to render the list
-                function renderList() {
-                    container.innerHTML = '';
-                    items.forEach((item, index) => {
-                        if (item.trim() === '') return;
-
-
-                        const itemElement = document.createElement('div');
-                        itemElement.className = 'px-3 py-1 gap-3 flex items-center text-white text-sm border w-fit bg-blue-800 border-gray-300 rounded">Hello World Kaung Pyae Aung <button type="button" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded';
-                        itemElement.innerHTML = `
-                            ${item}
-                           <button type="button" 
-                                    class="bg-blue-500 hover:bg-red-600 text-white py-1 px-2 rounded-full ml-2 remove-item" 
-                                    data-index="${index}">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+        function previewWorkImages(input) {
+            const previewContainer = document.getElementById('workImagesPreviewContainer');
+            const countSpan = document.getElementById('workImagesCount');
+            
+            // Clear existing previews
+            previewContainer.innerHTML = '';
+            
+            if (input.files && input.files.length > 0) {
+                countSpan.textContent = `${input.files.length} file(s) chosen`;
+                
+                Array.from(input.files).forEach((file, index) => {
+                    const reader = new FileReader();
+                    
+                    reader.onload = function(e) {
+                        const previewDiv = document.createElement('div');
+                        previewDiv.className = 'relative group';
+                        previewDiv.innerHTML = `
+                            <img src="${e.target.result}" alt="Work Image ${index + 1}" class="w-full h-32 object-cover rounded-lg border border-gray-200">
+                            <button type="button" onclick="removeWorkImagePreview(this)" class="absolute top-2 right-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                                 </svg>
                             </button>
                         `;
-                        container.appendChild(itemElement);
-                    });
-
-                    updateHiddenInput();
-                }
-
-                // Add item to the list
-                function addItem() {
-                    const value = input.value.trim();
-
-                    console.log(value);
-                    console.log(container)
-
-                    if (value) {
-                        items.push(value);
-                        input.value = '';
-                        renderList();
-                    }
-                }
-
-                // Add button click handler
-                addButton.addEventListener('click', addItem);
-
-                // Allow pressing Enter to add item
-                input.addEventListener('keypress', function(e) {
-                    if (e.key === 'Enter') {
-                        e.preventDefault();
-                        addItem();
-                    }
+                        previewContainer.appendChild(previewDiv);
+                    };
+                    
+                    reader.readAsDataURL(file);
                 });
-
-                // Remove item from the list
-                container.addEventListener('click', function(e) {
-                    const removeButton = e.target.closest('.remove-item');
-                    if (removeButton) {
-                        const index = removeButton.dataset.index;
-                        items.splice(index, 1);
-                        renderList();
-                    }
-                });
-
-                // Initial render
-                renderList();
+            } else {
+                countSpan.textContent = 'No files chosen';
             }
+        }
 
-            // Set up each list
-            setupList('tagList', 'tagInput', 'addTag', 'tags');
-           
-           
-        });
+        function removeWorkImagePreview(button) {
+            const previewDiv = button.parentElement;
+            previewDiv.remove();
+        }
+
+        
     </script>
 </x-app-layout>

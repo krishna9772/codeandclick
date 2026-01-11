@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Blogs;
 use App\Models\Career;
 use App\Models\Client;
+use App\Models\OurWork;
 use App\Models\Service;
 use App\Models\Subscribe;
 use App\Models\Venture;
@@ -13,6 +14,20 @@ use Illuminate\Support\Facades\Log;
 
 class HomeController extends Controller
 {
+
+    public function showOurWork()
+    {
+        $ourWorks = OurWork::query()->where('status', 'published')->get();
+
+        return view('our-works', compact('ourWorks'));
+    }
+
+    public function showOurWorkDetails($id)
+    {
+        $ourWork = OurWork::find($id);
+
+        return view('our-work-details', compact('ourWork'));
+    }
 
     public function home()
     {
@@ -42,7 +57,12 @@ class HomeController extends Controller
     {
 
         $clients = Client::all();
-        $services = Service::where('status', 'published','id')->get();
+        $services = Service::with(['works' => function ($q) {
+            $q->where('status', 'published');
+        }])->whereHas('works', function ($q) {
+            return $q->where('status', 'published');
+        })->where('status', 'published')->get();
+
 
 
         return view('services', compact('clients', 'services'));
