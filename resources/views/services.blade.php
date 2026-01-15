@@ -35,7 +35,7 @@
               <!-- <img class="img-object-fit" src="https://ignitecreates.com/wp-content/uploads/2020/03/marriott-background.jpg"  /> -->
             </div>
             <div class="m__what-we-do--intro--content">
-              <h4>CODE & CLICK is a full-service digital marketing agency in Myanmar </h4>
+              <h4 class="text-3xl">CODE & CLICK is a full-service digital marketing agency in Myanmar </h4>
               <p>
                 We help businesses grow their online presence, generate qualified leads, and increase sales.
                 We combine marketing strategy, creative content, and technology for data-driven digital growth to deliver measurable results for brands across industries.
@@ -64,7 +64,7 @@
                   <a
                     href="{{ route('service-details', $service->slug) }}""
                     target=""
-                    class="c__button-circle light">
+                    class="c__button-circle light text-sm">
                     <span> {{ $service->name }} </span>
                     <div class="c__button-circle--arrow">
                       <img

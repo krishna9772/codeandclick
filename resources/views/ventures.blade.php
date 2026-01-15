@@ -13,8 +13,8 @@
             <div class="l__ventures">
               <div class="l__ventures--titles">
                 <div class="medium-container">
-                  <h1> Lorem Ipsum</h1>
-                  <h3>dummy text ever since the 1500s, when an unknown printer </h3>
+                  <h1 class="text-6xl"> Lorem Ipsum</h1>
+                  <h3 class="text-3xl">dummy text ever since the 1500s, when an unknown printer </h3>
                 </div>
                 <a href="/contact" class="c__button light">Get in touch</a>
               </div>
@@ -34,7 +34,7 @@
               </section>
               <section style="background-color: black;" class="l__current-holdings">
                 <div class="container">
-                  <h3>Current Holdings</h3>
+                  <h3 class="text-4xl">Current Holdings</h3>
                   <p class="large subtext">
                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer t.
                   </p>

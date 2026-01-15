@@ -14,7 +14,7 @@
                 <div class="l__technology">
                     <div class="l__technology--titles">
                         <div class="medium-container">
-                            <h1>Technology at CODE & CLICK</h1>
+                            <h1 class="text-6xl">Technology at CODE & CLICK</h1>
                             <div class="l__technology--titles--content">
                                 <h4 class="medium">Technology should make work easier, not more complicated. At CODE & CLICK, we combine smart digital marketing, intuitive website design, robust website development, and data-driven SEO to help brands stand out online.</h4>
                                 <a href="contact.html" class="c__button dark">Get in touch</a>
@@ -73,7 +73,7 @@
                                         <a href="contact.html" class="c__button dark">Contact us to learn more</a>
                                     </div>
                                     <div class="col-xs-12 col-md-6">
-                                        <div class="m__product--additional-info--block">
+                                        <div class="m__product--additional-info--block text-white">
                                             <ul>
                                                 <li>
                                                     <img src="{{ asset('images/icons/tick.svg') }}" />
@@ -113,9 +113,9 @@
                             <div class="container">
                                 <div class="logo-container">
 
-                                    <h3>Websites</h3>
+                                    <h3 class="text-3xl">Websites</h3>
                                 </div>
-                                <h3>A pre-built website platform for restaurants, pubs &amp; bars optimised for booking conversions.</h3>
+                                <h3 class="text-lg">A pre-built website platform for restaurants, pubs &amp; bars optimised for booking conversions.</h3>
                             </div>
                             <div class="row">
                                 <div class="m__product--content col-xs-12 col-md-6">
@@ -135,7 +135,7 @@
                                         <a href="contact.html" class="c__button dark">Contact us to learn more</a>
                                     </div>
                                     <div class="col-xs-12 col-md-6">
-                                        <div class="m__product--additional-info--block">
+                                        <div class="m__product--additional-info--block text-white">
                                             <ul>
                                                 <li>
                                                     <img src="{{ asset('images/icons/tick.svg') }}" />
