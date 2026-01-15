@@ -32,6 +32,13 @@
 }
 
 @font-face {
+    font-family: "Kyron";
+    src: url("./fonts/Kyron.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
     font-family: "Helvetica";
     src: url("./fonts/Helvetica-BoldOblique.woff") format("woff");
     font-weight: 700;
@@ -72,6 +79,11 @@ h5,
 h6 {
     font-family: "Helvetica", sans-serif;
     font-weight: 300;
+}
+
+p {
+    font-family: "Kyron", sans-serif;
+    font-weight: 400;
 }
 
 .font-light {

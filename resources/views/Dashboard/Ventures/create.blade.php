@@ -100,19 +100,32 @@
             const previewContainer = document.getElementById('imagePreviewContainer');
             const preview = document.getElementById('imagePreview');
             const fileName = document.getElementById('fileName');
-            
+
+            const MAX_SIZE = 5 * 1024 * 1024; // 5MB
+
             if (input.files && input.files[0]) {
+                const file = input.files[0];
+
+                // Check file size
+                if (file.size > MAX_SIZE) {
+                    previewContainer.classList.add('hidden');
+                    preview.src = '';
+                    fileName.textContent = 'File is larger than 5MB';
+                    return;
+                }
+
                 const reader = new FileReader();
-                
+
                 reader.onload = function(e) {
                     preview.src = e.target.result;
                     previewContainer.classList.remove('hidden');
-                    fileName.textContent = input.files[0].name;
-                }
-                
-                reader.readAsDataURL(input.files[0]);
+                    fileName.textContent = file.name;
+                };
+
+                reader.readAsDataURL(file);
             } else {
                 previewContainer.classList.add('hidden');
+                preview.src = '';
                 fileName.textContent = 'No file chosen';
             }
         }

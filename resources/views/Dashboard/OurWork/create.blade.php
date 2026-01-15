@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <a href="{{ route('our-work.index') }}" class="border border-blue-800 text-blue-800 font-bold py-2 px-4 rounded">
-            Back to Services List
+            Back to Our Work List
         </a>
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             Create New Work
@@ -59,7 +59,7 @@
                         </div>
                         <p class="mt-1 text-sm text-gray-500">JPG, PNG, or WebP (Max: 5MB)</p>
                     </div>
-                   
+
 
                     <div class="mb-4">
                         <label for="title" class="block text-gray-700 font-bold mb-2">Title</label>
@@ -67,8 +67,8 @@
                         <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                         @enderror
                         <input type="text" name="title" id="title" class="border rounded w-full p-2 {{ $errors->has('title') ? 'border-red-500' : 'border-gray-300' }}" value="{{ old('title') }}" required>
-                    </div> 
-                    
+                    </div>
+
                     <div class="mb-4">
                         <label for="title" class="block text-gray-700 font-bold mb-2">Type of Service</label>
                         @error('serviceID')
@@ -76,13 +76,13 @@
                         @enderror
                         <select name="serviceID" required class="border rounded w-full p-2 {{ $errors->has('serviceID') ? 'border-red-500' : 'border-gray-300' }}">
                             @foreach($services as $service)
-                                <option  value="{{$service->id}}">{{$service->name}}</option>
+                            <option value="{{$service->id}}">{{$service->name}}</option>
                             @endforeach
                         </select>
-                        
-                    </div> 
 
-                
+                    </div>
+
+
                     <div class="mb-4">
                         <label for="preview" class="block text-gray-700 font-bold mb-2">Conent</label>
                         @error('content')
@@ -127,13 +127,11 @@
     </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/jodit@latest/es2021/jodit.fat.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const editor = Jodit.make('#content', {
-                // optional config
                 height: 400,
-                buttons: ['bold', 'italic', 'underline', '|', 'ul', 'ol', '|', 'link', 'image', 'source']
+               buttons: ["bold","italic","underline","fontsize","link"]
             });
         });
 
@@ -142,18 +140,31 @@
             const preview = document.getElementById('imagePreview');
             const fileName = document.getElementById('fileName');
 
+            const MAX_SIZE = 5 * 1024 * 1024; // 5MB
+
             if (input.files && input.files[0]) {
+                const file = input.files[0];
+
+                // Check file size
+                if (file.size > MAX_SIZE) {
+                    previewContainer.classList.add('hidden');
+                    preview.src = '';
+                    fileName.textContent = 'File is larger than 5MB';
+                    return;
+                }
+
                 const reader = new FileReader();
 
                 reader.onload = function(e) {
                     preview.src = e.target.result;
                     previewContainer.classList.remove('hidden');
-                    fileName.textContent = input.files[0].name;
-                }
+                    fileName.textContent = file.name;
+                };
 
-                reader.readAsDataURL(input.files[0]);
+                reader.readAsDataURL(file);
             } else {
                 previewContainer.classList.add('hidden');
+                preview.src = '';
                 fileName.textContent = 'No file chosen';
             }
         }
@@ -161,32 +172,46 @@
         function previewWorkImages(input) {
             const previewContainer = document.getElementById('workImagesPreviewContainer');
             const countSpan = document.getElementById('workImagesCount');
-            
+
+            const MAX_SIZE = 5 * 1024 * 1024; // 5MB
+
             // Clear existing previews
             previewContainer.innerHTML = '';
-            
+
             if (input.files && input.files.length > 0) {
-                countSpan.textContent = `${input.files.length} file(s) chosen`;
-                
+                let validFilesCount = 0;
+
                 Array.from(input.files).forEach((file, index) => {
+                    // Skip files over 5MB
+                    if (file.size > MAX_SIZE) {
+                        return;
+                    }
+
+                    validFilesCount++;
+
                     const reader = new FileReader();
-                    
+
                     reader.onload = function(e) {
                         const previewDiv = document.createElement('div');
                         previewDiv.className = 'relative group';
                         previewDiv.innerHTML = `
-                            <img src="${e.target.result}" alt="Work Image ${index + 1}" class="w-full h-32 object-cover rounded-lg border border-gray-200">
-                            <button type="button" onclick="removeWorkImagePreview(this)" class="absolute top-2 right-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                                </svg>
-                            </button>
-                        `;
+                    <img src="${e.target.result}" alt="Work Image ${index + 1}" class="w-full h-32 object-cover rounded-lg border border-gray-200">
+                    <button type="button" onclick="removeWorkImagePreview(this)" class="absolute top-2 right-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                `;
                         previewContainer.appendChild(previewDiv);
                     };
-                    
+
                     reader.readAsDataURL(file);
                 });
+
+                countSpan.textContent =
+                    validFilesCount > 0 ?
+                    `${validFilesCount} file(s) chosen` :
+                    'No valid files (max 5MB each)';
             } else {
                 countSpan.textContent = 'No files chosen';
             }
@@ -196,7 +221,5 @@
             const previewDiv = button.parentElement;
             previewDiv.remove();
         }
-
-        
     </script>
 </x-app-layout>

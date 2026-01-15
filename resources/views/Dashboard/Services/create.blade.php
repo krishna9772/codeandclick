@@ -124,10 +124,9 @@
     <script src="https://cdn.jsdelivr.net/npm/jodit@latest/es2021/jodit.fat.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const editor = Jodit.make('#sub_content', {
-                // optional config
+            const editor = Jodit.make('#content', {
                 height: 400,
-                buttons: ['bold', 'italic', 'underline', '|', 'ul', 'ol', '|', 'link', 'image', 'source']
+               buttons: ["bold","italic","underline","fontsize","link"]
             });
         });
 
@@ -136,18 +135,31 @@
             const preview = document.getElementById('imagePreview');
             const fileName = document.getElementById('fileName');
 
+            const MAX_SIZE = 5 * 1024 * 1024; // 5MB
+
             if (input.files && input.files[0]) {
+                const file = input.files[0];
+
+                // Check file size
+                if (file.size > MAX_SIZE) {
+                    previewContainer.classList.add('hidden');
+                    preview.src = '';
+                    fileName.textContent = 'File is larger than 5MB';
+                    return;
+                }
+
                 const reader = new FileReader();
 
                 reader.onload = function(e) {
                     preview.src = e.target.result;
                     previewContainer.classList.remove('hidden');
-                    fileName.textContent = input.files[0].name;
-                }
+                    fileName.textContent = file.name;
+                };
 
-                reader.readAsDataURL(input.files[0]);
+                reader.readAsDataURL(file);
             } else {
                 previewContainer.classList.add('hidden');
+                preview.src = '';
                 fileName.textContent = 'No file chosen';
             }
         }

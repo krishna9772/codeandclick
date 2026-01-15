@@ -13,27 +13,27 @@
             <div style="width: 800px;" class="bg-white mx-auto p-4 overflow-hidden shadow-sm sm:rounded-lg">
                 <!-- Display validation errors -->
                 @if ($errors->any())
-                    <div class="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
-                        <div class="flex">
-                            <div class="flex-shrink-0">
-                                <svg class="h-5 w-5 text-red-400" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
-                                </svg>
-                            </div>
-                            <div class="ml-3">
-                                <h3 class="text-sm font-medium text-red-800">
-                                    There were {{ count($errors) }} error(s) with your submission:
-                                </h3>
-                                <div class="mt-2 text-sm text-red-700">
-                                    <ul class="list-disc list-inside space-y-1">
-                                        @foreach ($errors->all() as $error)
-                                            <li>{{ $error }}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
+                <div class="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
+                    <div class="flex">
+                        <div class="flex-shrink-0">
+                            <svg class="h-5 w-5 text-red-400" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <div class="ml-3">
+                            <h3 class="text-sm font-medium text-red-800">
+                                There were {{ count($errors) }} error(s) with your submission:
+                            </h3>
+                            <div class="mt-2 text-sm text-red-700">
+                                <ul class="list-disc list-inside space-y-1">
+                                    @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
                             </div>
                         </div>
                     </div>
+                </div>
                 @endif
 
                 <form action="{{ route('bloglist.update', $blog->id) }}" method="POST" enctype="multipart/form-data">
@@ -43,7 +43,7 @@
                     <div class="mb-6">
                         <label for="image" class="block text-gray-700 font-bold mb-2">Image</label>
                         @error('image')
-                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                         @enderror
 
                         <!-- Image Preview Container -->
@@ -63,14 +63,14 @@
                     <div class="mb-4">
                         <label for="title" class="block text-gray-700 font-bold mb-2">Title</label>
                         @error('title')
-                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                         @enderror
                         <input type="text" value="{{ old('title', $blog->title) }}" name="title" id="title" class="border rounded w-full p-2 {{ $errors->has('title') ? 'border-red-500' : 'border-gray-300' }}" required>
                     </div>
                     <div class="mb-4">
                         <label for="type" class="block text-gray-700 font-bold mb-2">Type</label>
                         @error('type')
-                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                         @enderror
                         <select name="type" id="type" class="border rounded w-full p-2 {{ $errors->has('type') ? 'border-red-500' : 'border-gray-300' }}" required>
                             @foreach (config('base.blog_types') as $type)
@@ -81,14 +81,14 @@
                     <div class="mb-4">
                         <label for="preview" class="block text-gray-700 font-bold mb-2">Preview</label>
                         @error('preview')
-                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                         @enderror
                         <textarea name="preview" id="preview" class="border h-[200px] rounded w-full p-2 {{ $errors->has('preview') ? 'border-red-500' : 'border-gray-300' }}" required>{{ old('preview', $blog->preview) }}</textarea>
                     </div>
                     <div class="mb-4">
                         <label for="content" class="block text-gray-700 font-bold mb-2">Content</label>
                         @error('content')
-                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                         @enderror
                         <textarea rows="10" name="content" id="content" class="border rounded w-full p-2 {{ $errors->has('content') ? 'border-red-500' : 'border-gray-300' }}" required>{{ old('content', $blog->content) }}</textarea>
                     </div>
@@ -111,9 +111,8 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const editor = Jodit.make('#content', {
-                // optional config
                 height: 400,
-                buttons: ['bold', 'italic', 'underline', '|', 'ul', 'ol', '|', 'link', 'image', 'source']
+               buttons: ["bold","italic","underline","fontsize","link"]
             });
         });
 
@@ -122,18 +121,31 @@
             const preview = document.getElementById('imagePreview');
             const fileName = document.getElementById('fileName');
 
+            const MAX_SIZE = 5 * 1024 * 1024; // 5MB
+
             if (input.files && input.files[0]) {
+                const file = input.files[0];
+
+                // Check file size
+                if (file.size > MAX_SIZE) {
+                    previewContainer.classList.add('hidden');
+                    preview.src = '';
+                    fileName.textContent = 'File is larger than 5MB';
+                    return;
+                }
+
                 const reader = new FileReader();
 
                 reader.onload = function(e) {
                     preview.src = e.target.result;
                     previewContainer.classList.remove('hidden');
-                    fileName.textContent = input.files[0].name;
-                }
+                    fileName.textContent = file.name;
+                };
 
-                reader.readAsDataURL(input.files[0]);
+                reader.readAsDataURL(file);
             } else {
                 previewContainer.classList.add('hidden');
+                preview.src = '';
                 fileName.textContent = 'No file chosen';
             }
         }

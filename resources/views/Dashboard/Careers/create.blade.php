@@ -140,17 +140,15 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const editor = Jodit.make('#ignite', {
-                // optional config
                 height: 400,
-                buttons: ['bold', 'italic', 'underline', '|', 'ul', 'ol', '|', 'link', 'image', 'source']
+               buttons: ["bold","italic","underline","fontsize","link"]
             });
         });
 
         document.addEventListener('DOMContentLoaded', function() {
             const editor = Jodit.make('#role', {
-                // optional config
                 height: 400,
-                buttons: ['bold', 'italic', 'underline', '|', 'ul', 'ol', '|', 'link', 'image', 'source']
+               buttons: ["bold","italic","underline","fontsize","link"]
             });
         });
 
