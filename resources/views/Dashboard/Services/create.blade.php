@@ -121,10 +121,15 @@
     </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/jodit@latest/es2021/jodit.fat.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const editor = Jodit.make('#content', {
+            const editor = Jodit.make('#sub_content', {
+                height: 400,
+               buttons: ["bold","italic","underline","fontsize","link"]
+            });
+        });
+          document.addEventListener('DOMContentLoaded', function() {
+            const editor = Jodit.make('#main_content', {
                 height: 400,
                buttons: ["bold","italic","underline","fontsize","link"]
             });
