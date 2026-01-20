@@ -119,7 +119,7 @@
                     background-image: url(/images/yangon.png);
                   "
                 >
-                  <h1>Yangon</h1>
+                  <h1 class="text-6xl">Yangon</h1>
                   <div class="m__office-tile--card">
                     <div class="row">
                       <h4>Code & click Yangon</h4>
@@ -155,7 +155,7 @@
                     background-image: url(/images/bangkok.jpg);
                   "
                 >
-                  <h1>Bangkok</h1>
+                  <h1 class="text-6xl">Bangkok</h1>
                   <div class="m__office-tile--card">
                     <div class="row">
                       <h4>Code & Click Bangkok</h4>

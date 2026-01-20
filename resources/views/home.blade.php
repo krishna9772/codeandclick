@@ -255,21 +255,23 @@
                   <div class="m__testimonials--content">
                     <div class="owl-carousel testimonial">
                       <div>
-                        <h4>
+                        <h4 class="text-2xl">
                           “Ambled it to make a type specimen book. It has
                           survived not only five centuries, but also the leap
                           into electronic”
                         </h4>
-                        <p>remaining essentially unchanged</p>
+                        <h4 class="text-2xl">“Ambled it to make a type specimen book. Itd ”</h4>
+                        <p >remaining essentially unchanged</p>
                         <p>Smith &amp; Wollensky</p>
                       </div>
                       <div>
-                        <h4>“Ambled it to make a type specimen book. Itd ”</h4>
+                        <h4 class="text-2xl">“Ambled it to make a type specimen book. Itd ”</h4>
                         <p>Ambled ining essentially unchange</p>
                         <p>Pacific Catch</p>
                       </div>
                       <div>
-                        <h4>
+                        <h4 class="text-2xl">“Ambled it to make a type specimen book. Itd ”</h4>
+                        <h4 class="text-2xl"> 
                           “Ambled it to make a type specimen book. It has
                           survived not only five centuries, but also the leap
                           into electronic typesetting, remaining essentially
@@ -314,7 +316,7 @@
                     <ul>
                       @foreach ($services as $service)
                       <li data-bg="{{ $service->getFirstMediaUrl('services') }}">
-                        <a href="{{route('service-details',$service->slug)}}" class="xlarge">{{ $service->name }}</a>
+                        <a class="text-sm" href="{{route('service-details',$service->slug)}}" class="xlarge">{{ $service->name }}</a>
                       </li>
                       @endforeach
                     </ul>

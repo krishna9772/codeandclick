@@ -2352,8 +2352,7 @@ footer .bottom .general-links ul li a:hover:after {
     margin-right: 20px;
 }
 .c__button-circle span {
-    font-family: Roobert-Regular;
-    font-size: 20px;
+     font-size: 20px;
     margin-right: 20px;
     text-decoration: none;
 }
@@ -6424,8 +6423,7 @@ footer .bottom .general-links ul li a:hover:after {
 .l__our-work .m__our-work--filters a,
 .l__our-work .m__our-work--filters p {
     color: white;
-    font-family: Roobert-Regular;
-    font-size: 14px;
+     font-size: 14px;
     line-height: 20px;
     margin-bottom: 10px;
 }
@@ -9733,7 +9731,8 @@ footer .bottom .general-links ul li a:hover:after {
     margin-bottom: 40px;
 }
 .l__technology .l__products .m__product--additional-info--content .c__button {
-    width: 260px;
+    width: fit-content;
+    padding: 10px 20px;
 }
 .l__technology .l__products .m__product--additional-info--block {
     background-color: #004b4f;
