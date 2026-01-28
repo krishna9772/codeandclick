@@ -254,43 +254,25 @@
                 <div class="container">
                   <div class="m__testimonials--content">
                     <div class="owl-carousel testimonial">
+                      @foreach ($testimornials as $testimornial)
                       <div>
                         <h4>
-                          “Ambled it to make a type specimen book. It has
-                          survived not only five centuries, but also the leap
-                          into electronic”
+                          {{$testimornial->description}}
                         </h4>
-                        <p>remaining essentially unchanged</p>
-                        <p>Smith &amp; Wollensky</p>
+                        <p>{{$testimornial->name}}</p>
                       </div>
-                      <div>
-                        <h4>“Ambled it to make a type specimen book. Itd ”</h4>
-                        <p>Ambled ining essentially unchange</p>
-                        <p>Pacific Catch</p>
-                      </div>
-                      <div>
-                        <h4>
-                          “Ambled it to make a type specimen book. It has
-                          survived not only five centuries, but also the leap
-                          into electronic typesetting, remaining essentially
-                          unchanged”
-                        </h4>
-                        <p>Ambled it to make a type specimen book.</p>
-                      </div>
+                      @endforeach
+                      
                     </div>
                   </div>
                 </div>
                 <div class="m__testimonials--bg-image">
                   <div class="owl-carousel">
+                    @foreach ($testimornials as $testimornial)
                     <div
-                      style="background-image: url('/images/slide.jpg')"
+                      style="background-image: url({{$testimornial->getFirstMediaUrl('testimornials')}})"
                     ></div>
-                    <div
-                      style="background-image: url('/images/slide.jpg')"
-                    ></div>
-                    <div
-                      style="background-image: url('/images/slide.jpg')"
-                    ></div>
+                    @endforeach
                   </div>
                 </div>
               </section>

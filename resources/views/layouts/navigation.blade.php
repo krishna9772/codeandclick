@@ -36,6 +36,9 @@
                     <x-nav-link :href="route('enquiry.index')" :active="request()->routeIs('enquiry.*')">
                         {{ __('Enquiry') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('testimornials.index')" :active="request()->routeIs('testimornials.*')">
+                        {{ __('Testimornial') }}
+                    </x-nav-link>
                     <x-nav-link :href="route('subscribers.index')" :active="request()->routeIs('subscribers.*')">
                         {{ __('Subscribers') }}
                     </x-nav-link>

@@ -1,10 +1,10 @@
 <x-app-layout>
     <x-slot name="header">
-        <a href="{{ route('ventures.index') }}" class="border border-blue-800 text-blue-800 font-bold py-2 px-4 rounded">
-            Back to Ventures List
+        <a href="{{ route('testimornials.index') }}" class="border border-blue-800 text-blue-800 font-bold py-2 px-4 rounded">
+            Back to Testimornial List
         </a>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Create New Venture
+                Create New Testimornial
             </h2>
     </x-slot>
 
@@ -36,7 +36,7 @@
                     </div>
                 @endif
 
-              <form action="{{ route('ventures.store') }}" method="POST" enctype="multipart/form-data">
+              <form action="{{ route('testimornials.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <!-- Image Upload with Preview -->
                         <div class="mb-6">
@@ -60,33 +60,27 @@
                             <p class="mt-1 text-sm text-gray-500">JPG, PNG, or WebP (Max: 5MB)</p>
                         </div>
                     <div class="mb-4">
-                        <label for="title" class="block text-gray-700 font-bold mb-2">Title</label>
-                        @error('title')
+                        <label for="name" class="block text-gray-700 font-bold mb-2">Name</label>
+                        @error('name')
                             <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                         @enderror
-                        <input type="text" name="title" id="title" class="border rounded w-full p-2 {{ $errors->has('title') ? 'border-red-500' : 'border-gray-300' }}" value="{{ old('title') }}" required>
+                        <input type="text" name="name" id="name" class="border rounded w-full p-2 {{ $errors->has('name') ? 'border-red-500' : 'border-gray-300' }}" value="{{ old('name') }}" required>
                     </div>
-                     <div class="mb-4">
-                        <label for="link" class="block text-gray-700 font-bold mb-2">Link</label>
-                        @error('link')
-                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                        @enderror
-                        <input type="text" name="link" id="link" class="border rounded w-full p-2 {{ $errors->has('link') ? 'border-red-500' : 'border-gray-300' }}" value="{{ old('link') }}">
-                    </div>
+                    
                      
                     <div class="mb-4">
-                        <label for="content" class="block text-gray-700 font-bold mb-2">Content</label>
-                        @error('content')
+                        <label for="description" class="block text-gray-700 font-bold mb-2">Description</label>
+                        @error('description')
                             <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                         @enderror
-                        <textarea rows="10" name="content" id="content" class="border rounded w-full p-2 {{ $errors->has('content') ? 'border-red-500' : 'border-gray-300' }}" required>{{ old('content') }}</textarea>
+                        <textarea rows="10" name="description" id="description" class="border rounded w-full p-2 {{ $errors->has('description') ? 'border-red-500' : 'border-gray-300' }}" required>{{ old('description') }}</textarea>
                     </div>
                         <div class="flex justify-end gap-3 pt-6 border-t border-gray-100">
                             <a href="{{ url()->previous() }}" class="px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                                 Cancel
                             </a>
                             <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                                Create Venture
+                                Create Testimornial
                             </button>
                         </div>
                     </form>
@@ -100,19 +94,32 @@
             const previewContainer = document.getElementById('imagePreviewContainer');
             const preview = document.getElementById('imagePreview');
             const fileName = document.getElementById('fileName');
-            
+
+            const MAX_SIZE = 5 * 1024 * 1024; // 5MB
+
             if (input.files && input.files[0]) {
+                const file = input.files[0];
+
+                // Check file size
+                if (file.size > MAX_SIZE) {
+                    previewContainer.classList.add('hidden');
+                    preview.src = '';
+                    fileName.textContent = 'File is larger than 5MB';
+                    return;
+                }
+
                 const reader = new FileReader();
-                
+
                 reader.onload = function(e) {
                     preview.src = e.target.result;
                     previewContainer.classList.remove('hidden');
-                    fileName.textContent = input.files[0].name;
-                }
-                
-                reader.readAsDataURL(input.files[0]);
+                    fileName.textContent = file.name;
+                };
+
+                reader.readAsDataURL(file);
             } else {
                 previewContainer.classList.add('hidden');
+                preview.src = '';
                 fileName.textContent = 'No file chosen';
             }
         }

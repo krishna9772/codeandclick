@@ -60,8 +60,6 @@ class VentureController extends Controller
     public function create()
     {
 
-
-
         return view('Dashboard.Ventures.create');
     }
 

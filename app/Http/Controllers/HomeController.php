@@ -8,6 +8,7 @@ use App\Models\Client;
 use App\Models\OurWork;
 use App\Models\Service;
 use App\Models\Subscribe;
+use App\Models\Testimornial;
 use App\Models\Venture;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -34,8 +35,9 @@ class HomeController extends Controller
 
         $clients = Client::all();
         $services = Service::where('status', 'published')->get();
+        $testimornials = Testimornial::all();
 
-        return view('home', compact('clients', 'services'));
+        return view('home', compact('clients', 'services', 'testimornials'));
     }
 
     public function showWorkWithUs()
@@ -62,10 +64,10 @@ class HomeController extends Controller
         }])->whereHas('works', function ($q) {
             return $q->where('status', 'published');
         })->where('status', 'published')->get();
+        $testimornials = Testimornial::all();
 
 
-
-        return view('services', compact('clients', 'services'));
+        return view('services', compact('clients', 'services', 'testimornials'));
     }
 
     public function showServiceDetails($slug)
