@@ -8,6 +8,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OurWOrkController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\TestimornialController;
 use App\Http\Controllers\VentureController;
 use Illuminate\Support\Facades\Route;
 
@@ -66,6 +67,8 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
 
     Route::resource('clients', ClientController::class)->names('clients');
 
+    Route::resource('testimornials', TestimornialController::class)->names('testimornials');
+    
     Route::resource('services', ServiceController::class)->names('services');
     Route::patch('services/{id}/change-status', [ServiceController::class, 'changeStatus'])->name('services.change-status');
     Route::post('services/{id}/restore', [ServiceController::class, 'restore'])->name('services.restore');

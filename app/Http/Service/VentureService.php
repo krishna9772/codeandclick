@@ -23,10 +23,10 @@ class VentureService
 
     public function restore($id)
     {
-        $blog = Venture::withTrashed()->find($id);
+        $venture = Venture::withTrashed()->find($id);
 
-        if ($blog->trashed()) {
-            $blog->restore();
+        if ($venture->trashed()) {
+            $venture->restore();
         }
 
         return true;
@@ -34,15 +34,15 @@ class VentureService
 
     public function update($request, $id)
     {
-        $blog = Venture::find($id);
+        $venture = Venture::find($id);
 
-        $blog->update($request->except('image'));
+        $venture->update($request->except('image'));
 
         if ($request->hasFile('image')) {
-            if ($blog->hasMedia('ventures')) {
-                $blog->getFirstMedia('ventures')->delete();
+            if ($venture->hasMedia('ventures')) {
+                $venture->getFirstMedia('ventures')->delete();
             }
-            $blog->addMediaFromRequest('image')->toMediaCollection('ventures');
+            $venture->addMediaFromRequest('image')->toMediaCollection('ventures');
         }
 
         return true;
@@ -51,10 +51,10 @@ class VentureService
 
     public function changeStatus($id)
     {
-        $blog = Venture::find($id);
+        $venture = Venture::find($id);
 
-        $blog->update([
-            'status' => $blog->status == 'published' ? 'draft' : 'published',
+        $venture->update([
+            'status' => $venture->status == 'published' ? 'draft' : 'published',
         ]);
 
         return true;
@@ -62,12 +62,13 @@ class VentureService
 
     public function delete($id)
     {
-        $blog = Venture::withTrashed()->find($id);
+        $venture = Venture::withTrashed()->find($id);
 
-        if ($blog->trashed()) {
-            $blog->forceDelete();
+        if ($venture->trashed()) {
+            $venture->getFirstMedia('ventures')->delete();
+            $venture->forceDelete();
         } else {
-            $blog->delete();
+            $venture->delete();
         }
 
         return true;

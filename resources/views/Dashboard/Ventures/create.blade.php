@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <a href="{{ route('bloglist.index') }}" class="border border-blue-800 text-blue-800 font-bold py-2 px-4 rounded">
+        <a href="{{ route('ventures.index') }}" class="border border-blue-800 text-blue-800 font-bold py-2 px-4 rounded">
             Back to Ventures List
         </a>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
