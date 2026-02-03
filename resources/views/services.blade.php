@@ -96,37 +96,26 @@
             <div class="container">
               <div class="m__testimonials--content">
                 <div class="owl-carousel testimonial">
-                  <div>
-                    <h4>
-                      “ A Professional Digital Marketing Agency in Myanmar”
-                    </h4>
-                    <p>Branding and Marketing solutions for effective communication with your audience.</p>
-                  </div>
-                  <div>
-                    <h4>“ Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer t”</h4>
-                    <p>Will Beckett, Co-Founder</p>
-                  </div>
-                  <div>
-                    <h4>“ Lorem Ipsum has been the industry's standard dummy text ”</h4>
-                    <p>Libby Andrews, Marketing Director</p>
-                  </div>
+                     @foreach ($testimornials as $testimornial)
+                      <div>
+                        <h4>
+                          {{$testimornial->description}}
+                        </h4>
+                        <p>{{$testimornial->name}}</p>
+                      </div>
+                      @endforeach
+               
                 </div>
               </div>
             </div>
             <div class="m__testimonials--bg-image">
               <div class="owl-carousel">
-                <div
-                  style="
-                        background-image: url('/images/slider.jpg');
-                      "></div>
-                <div
-                  style="
-                        background-image: url('/images/slider.jpg');
-                      "></div>
-                <div
-                  style="
-                        background-image: url('/images/slider.jpg');
-                      "></div>
+                  @foreach ($testimornials as $testimornial)
+                    <div
+                      style="background-image: url({{$testimornial->getFirstMediaUrl('testimornials')}})"
+                    ></div>
+                    @endforeach
+                
               </div>
             </div>
           </section>

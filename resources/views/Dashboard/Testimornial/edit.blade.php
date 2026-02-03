@@ -1,10 +1,10 @@
 <x-app-layout>
     <x-slot name="header">
-        <a href="{{ route('ventures.index') }}" class="border border-blue-800 text-blue-800 font-bold py-2 px-4 rounded">
-            Back to Ventures List
+        <a href="{{ route('testimornials.index') }}" class="border border-blue-800 text-blue-800 font-bold py-2 px-4 rounded">
+            Back to Testimornial List
         </a>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Edit Venture
+                Edit Testimornial
             </h2>
     </x-slot>
 
@@ -33,19 +33,19 @@
                             </div>
                         </div>
                     </div>
-                @endif
-            <form action="{{ route('ventures.update',$venture->id) }}" method="POST" enctype="multipart/form-data">
+                @endif  
+            <form action="{{ route('testimornials.update',$testimornial->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method("PUT")
                         <!-- Image Upload with Preview -->
                         <div class="mb-6">
                              <label for="image" class="block text-gray-700 font-bold mb-2">Image</label>
-                       @error('image')
+                      @error('image')
                                 <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                             @enderror
                             <!-- Image Preview Container -->
                             <div id="imagePreviewContainer" class="mb-4">
-                                <img id="imagePreview" src="{{ asset($venture->getFirstMediaUrl('ventures')) }}" alt="Image Preview" class=" w-full object-cover rounded-lg border border-gray-200">
+                                <img id="imagePreview" src="{{ asset($testimornial->getFirstMediaUrl('testimornials')) }}" alt="Image Preview" class=" w-full object-cover rounded-lg border border-gray-200">
                             </div>
                             
                             <div class="mt-1 flex items-center">
@@ -58,33 +58,25 @@
                             <p class="mt-1 text-sm text-gray-500">JPG, PNG, or WebP (Max: 5MB)</p>
                         </div>
                     <div class="mb-4">
-                        <label for="title" class="block text-gray-700 font-bold mb-2">Title</label>
-                         @error('title')
+                        <label for="name" class="block text-gray-700 font-bold mb-2">Name</label>
+                        @error('name')
                                 <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                             @enderror
-                        <input type="text" name="title" id="title" class="border border-gray-300 rounded w-full p-2" required value="{{ old('title', $venture->title) }}">
-                    </div>
-                     <div class="mb-4">
-                        <label for="link" class="block text-gray-700 font-bold mb-2">Link</label>
-                        @error('link')
-                                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                            @enderror
-                        <input type="text" name="link" id="link" class="border border-gray-300 rounded w-full p-2" value="{{ old('link', $venture->link) }}">
-                    </div>
-                     
+                        <input type="text" name="name" id="name" class="border border-gray-300 rounded w-full p-2" required value="{{ $testimornial->name }}">
+                    </div> 
                     <div class="mb-4">
-                        <label for="content" class="block text-gray-700 font-bold mb-2">Content</label>
-                        @error('content')
+                        <label for="description" class="block text-gray-700 font-bold mb-2">Description</label>
+                        @error('description')
                                 <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                             @enderror
-                        <textarea rows="10" name="content" id="content" class="border border-gray-300 rounded w-full p-2" required>{{ old('content', $venture->content) }}</textarea>
+                        <textarea rows="10" name="description" id="description" class="border border-gray-300 rounded w-full p-2" required>{{ $testimornial->description }}</textarea>
                     </div>
                         <div class="flex justify-end gap-3 pt-6 border-t border-gray-100">
                             <a href="{{ url()->previous() }}" class="px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                                 Cancel
                             </a>
                             <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                                Edit Venture
+                                Edit Testimornial
                             </button>
                         </div>
                     </form>
@@ -98,32 +90,19 @@
             const previewContainer = document.getElementById('imagePreviewContainer');
             const preview = document.getElementById('imagePreview');
             const fileName = document.getElementById('fileName');
-
-            const MAX_SIZE = 5 * 1024 * 1024; // 5MB
-
+            
             if (input.files && input.files[0]) {
-                const file = input.files[0];
-
-                // Check file size
-                if (file.size > MAX_SIZE) {
-                    previewContainer.classList.add('hidden');
-                    preview.src = '';
-                    fileName.textContent = 'File is larger than 5MB';
-                    return;
-                }
-
                 const reader = new FileReader();
-
+                
                 reader.onload = function(e) {
                     preview.src = e.target.result;
                     previewContainer.classList.remove('hidden');
-                    fileName.textContent = file.name;
-                };
-
-                reader.readAsDataURL(file);
+                    fileName.textContent = input.files[0].name;
+                }
+                
+                reader.readAsDataURL(input.files[0]);
             } else {
                 previewContainer.classList.add('hidden');
-                preview.src = '';
                 fileName.textContent = 'No file chosen';
             }
         }
