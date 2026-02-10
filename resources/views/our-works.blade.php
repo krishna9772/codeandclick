@@ -24,7 +24,7 @@
               </div>
               <div class="m__our-work--filters--tabs">
                 <ul id="tab-one" class="tab active">
-                  <li class="active" data-name="work_type" data-value="all">
+                  <li class="active " data-name="work_type" data-value="all">
                     <p>Branding Solution</p>
                   </li>
                   <li data-name="work_type" data-value="copywriting">

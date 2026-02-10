@@ -298,7 +298,7 @@
                     <ul>
                       @foreach ($services as $service)
                       <li data-bg="{{ $service->getFirstMediaUrl('services') }}">
-                        <a href="{{route('service-details',$service->slug)}}" class="xlarge">{{ $service->name }}</a>
+                        <a class="text-sm" href="{{route('service-details',$service->slug)}}" class="xlarge">{{ $service->name }}</a>
                       </li>
                       @endforeach
                     </ul>
