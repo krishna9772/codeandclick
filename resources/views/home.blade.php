@@ -58,7 +58,7 @@
                       <h1>Strategy</h1>
                       <h1>Creativity</h1>
                     </div>
-                    <p>
+                    <p style="text-align: justify !important;">
                       We fuse data-driven strategy with creative execution to
                       build digital solutions that deliver real business
                       results.
@@ -256,7 +256,7 @@
                     <div class="owl-carousel testimonial">
                       @foreach ($testimornials as $testimornial)
                       <div>
-                        <h4>
+                        <h4 class="text-2xl">
                           {{$testimornial->description}}
                         </h4>
                         <p>{{$testimornial->name}}</p>
@@ -285,6 +285,7 @@
                   </p>
                 </div>
                 <div class="row">
+                  @if (isset($services[0])) 
                   <div class="col-md-3 col-lg-5 m__services--bg-image">
                     <img
                       alt="background image"
@@ -292,6 +293,7 @@
                       src="{{ asset($services[0]->getFirstMediaUrl('services')) }}"
                     />
                   </div>
+                  @endif
                   <div class="col-xs-12 col-md-9 col-lg-7 m__services--list">
                     <ul>
                       @foreach ($services as $service)

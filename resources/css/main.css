@@ -3095,6 +3095,7 @@ footer .bottom .general-links ul li a:hover:after {
     .m__home-intro--content p {
         font-size: 30px;
         line-height: 48px;
+        text-align: justify;
     }
 }
 .m__home-intro--content #scroll-to {
