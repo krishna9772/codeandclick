@@ -28,7 +28,7 @@
   <meta property="twitter:description" content="We provide full service with digital marketing, SEO, website design, website development, branding & social media marketing that drives strategic results." />
   <meta property="twitter:image" content="{{ asset('images/favicon.png') }}" />
 
-  
+
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="{{ asset('images/new-favicon.png') }}" />
 
@@ -88,7 +88,39 @@
       </div>
     </div>
   </header>
+  <div class="transition-curtain flex flex-col justify-center items-center">
+    <img class="w-24" src="{{ asset('images/logo.png') }}" alt="">
+    <p class="text-white text-2xl mt-10">Code and Click</p>
+  </div>
+  <script>
+    window.onload = () => {
+      const curtain = document.querySelector('.transition-curtain');
+      const anchors = document.querySelectorAll('a'); // Select all links
 
+       setTimeout(() => {
+        curtain.classList.add('slide-out');
+      }, 300); 
+      anchors.forEach(anchor => {
+        anchor.addEventListener('click', e => {
+          e.preventDefault(); 
+          let target = anchor.href; 
+
+          if (anchor.hostname === window.location.hostname) {
+
+            curtain.classList.remove('slide-out');
+            curtain.classList.add('slide-in');
+
+            setTimeout(() => {
+              window.location.href = target;
+            }, 1000);
+
+          } else {
+            window.location.href = target;
+          }
+        });
+      });
+    };
+  </script>
   <section class="c__navigation">
     <div class="container">
       <div class="row">
@@ -192,9 +224,9 @@
     </div>
   </section>
 
-   @yield('content')
+  @yield('content')
 
-   <footer>
+  <footer>
     <div class="container">
       <div class="row top">
         <div class="col-xs-12 col-md-6 footer_text_one">

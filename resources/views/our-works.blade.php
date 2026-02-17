@@ -6,6 +6,8 @@
 <div class="working-with-us-scroll-image"></div>
 <div class="individual-service-scroll-image"></div>
 
+
+
 <div id="viewport">
   <div id="scroll-container" class="scroll-container">
     <div id="barba-wrapper">
@@ -129,5 +131,6 @@
 </div>
 <input type="hidden" id="data_location" value="" />
 <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
+
 
 @endsection

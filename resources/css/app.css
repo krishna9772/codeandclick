@@ -112,3 +112,25 @@ p {
 }
 
 
+/* The fixed curtain that covers the screen */
+.transition-curtain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #111; 
+  z-index: 9999;
+  pointer-events: none; 
+  transform: translateY(0); 
+  transition: transform 1s ease-in-out;
+}
+
+
+.transition-curtain.slide-out {
+  transform: translateY(-100%);
+}
+
+.transition-curtain.slide-in {
+  transform: translateY(0);
+}

@@ -18,6 +18,7 @@
 </head>
 
 <body class="font-sans antialiased">
+   
     @include('components.toaster')
     <div class="min-h-screen bg-gray-100">
         @include('layouts.navigation')
@@ -36,6 +37,8 @@
             {{ $slot }}
         </main>
     </div>
+
+    
 
 </body>
 
