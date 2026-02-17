@@ -20,7 +20,13 @@ class HomeController extends Controller
     {
         $ourWorks = OurWork::query()->where('status', 'published')->get();
 
-        return view('our-works', compact('ourWorks'));
+        $type = request('type', "");
+
+        if ($type) {
+            $ourWorks = $ourWorks->where('type', $type);
+        }
+
+        return view('our-works', compact('ourWorks', 'type'));
     }
 
     public function showOurWorkDetails($id)

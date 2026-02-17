@@ -1,41 +1,8 @@
-<!DOCTYPE html>
-<html lang="en-US" class="no-js">
+@extends('layouts.main')
+@section('content')
+@vite(['resources/css/app.css', 'resources/js/app.js'])
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="MobileOptimized" content="320">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Primary Meta Tags -->
-    <title>Code And Click – Careers - Full-Service Digital Marketing & Web Development Agency</title>
-    <meta name="description" content="Code And Click delivers cutting-edge digital marketing, Code And Click Careers page, custom web development, and high-impact production services to help businesses grow online.">
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://codeandclick.com/">
-    <meta property="og:title" content="Code And Click – Full-Service Digital Marketing & Web Development Agency">
-    <meta property="og:description" content="We build, optimize, and scale your brand's digital presence with coding, marketing, and production solutions.">
-    <meta property="og:image" content="https://codeandclick.com/images/social-preview.jpg">
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://codeandclick.com/">
-    <meta name="twitter:title" content="Code And Click – Full-Service Digital Marketing & Web Development Agency">
-    <meta name="twitter:description" content="Custom web development, digital marketing, and creative production services for modern businesses.">
-    <meta name="twitter:image" content="https://codeandclick.com/images/social-preview.jpg">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="{{ asset('images/favicon.png') }}">
-
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://codeandclick.com/">
-
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-</head>
-
-<body
+<div
     class="home wp-singular page-template page-template-page-home page-template-page-home-php page page-id-5433 wp-theme-ignite no-smooth-scroll">
     <div style="display: none">bool(false) bool(false) NULL</div>
 
@@ -249,7 +216,7 @@
                             </h1>
                         </div>
                     </div>
-                   
+
                     <div class="bg-white min-h-screen">
                         <div class="max-w-6xl mx-auto space-y-24 p-10 py-24  text-black">
                             <div>
@@ -257,13 +224,13 @@
                             </div>
                             <div class="grid grid-cols-2 lg:grid-cols-3 gap-6">
                                 @if ($ourWork->hasMedia('ourwork-images'))
-                            @foreach ($ourWork->getMedia('ourwork-images') as $media)
-                            <img
-                                src="{{ $media->getUrl() }}"
-                                alt="Our Work Image"
-                                class="w-full h-auto object-cover rounded">
-                            @endforeach
-                            @endif
+                                @foreach ($ourWork->getMedia('ourwork-images') as $media)
+                                <img
+                                    src="{{ $media->getUrl() }}"
+                                    alt="Our Work Image"
+                                    class="w-full h-auto object-cover rounded">
+                                @endforeach
+                                @endif
 
                             </div>
                         </div>
@@ -279,9 +246,10 @@
             </div>
         </div>
     </div>
-    <input type="hidden" id="data_location" value="" />
+</div>
 
-    @include('components.footer')
-</body>
 
-</html>
+</div>
+<input type="hidden" id="data_location" value="" />
+
+@endsection

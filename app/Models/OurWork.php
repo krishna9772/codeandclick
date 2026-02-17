@@ -19,7 +19,8 @@ class OurWork extends Model implements HasMedia
         'content',
         'serviceID',
         'status',
-        'slug'
+        'slug',
+        'type'
     ];
 
     public static function boot()

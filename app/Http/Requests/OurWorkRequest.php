@@ -30,6 +30,7 @@ class OurWorkRequest extends FormRequest
 
             'content' => 'required|string',
             'serviceID' => 'required|exists:services,id',
+            'type' => 'required|string',
 
             // multiple images
             'workImages' => $this->routeIs('our-work.store') ? 'required|array' : 'nullable|array',

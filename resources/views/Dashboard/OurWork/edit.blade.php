@@ -78,10 +78,38 @@
                         @enderror
                         <select name="serviceID" required class="border rounded w-full p-2 {{ $errors->has('serviceID') ? 'border-red-500' : 'border-gray-300' }}">
                             @foreach($services as $service)
-                            <option selected="{{$service->id == $ourwork->serviceID}}" value="{{$service->id}}">{{$service->name}}</option>
+                            <option {{ old('serviceID', $ourwork->serviceID) === $service->id ? 'selected' : '' }} value="{{$service->id}}">{{$service->name}}</option>
                             @endforeach
                         </select>
 
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="type" class="block text-gray-700 font-bold mb-2">Type of Our Work</label>
+                        @error('type')
+                        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                        @enderror
+                        <select name="type" required class="border rounded w-full p-2 {{ $errors->has('type') ? 'border-red-500' : 'border-gray-300' }}">
+
+                            <option {{ old('type', $ourwork->type) === 'branding-solution' ? 'selected' : '' }} value="branding-solution">Branding Solution</option>
+                            <option {{ old('type', $ourwork->type) === 'brand-strategy' ? 'selected' : '' }} value="brand-strategy">Brand Strategy</option>
+                            <option {{ old('type', $ourwork->type) === 'consultancy-integration-and-culture' ? 'selected' : '' }} value="consultancy-integration-and-culture">Consultancy Integration and Culture</option>
+                            <option {{ old('type', $ourwork->type) === 'brand-identity' ? 'selected' : '' }} value="brand-identity">Brand Identity(Logo Design and Brand Book)</option>
+                            <option {{ old('type', $ourwork->type) === 'marketing-services' ? 'selected' : '' }} value="marketing-services">Marketing Services</option>
+                            <option {{ old('type', $ourwork->type) === 'marketing-strategy' ? 'selected' : '' }} value="marketing-strategy">Marketing Strategy and Consultancy Digital Marketing</option>
+                            <option {{ old('type', $ourwork->type) === 'social-media' ? 'selected' : '' }} value="social-media">Social Media</option>
+                            <option {{ old('type', $ourwork->type) === 'search-engine-optimization' ? 'selected' : '' }} value="search-engine-optimization">Search Engine Optimization(SEO)</option>
+                            <option {{ old('type', $ourwork->type) === 'digital-optimization' ? 'selected' : '' }} value="digital-optimization">Digital Optimization</option>
+                            <option {{ old('type', $ourwork->type) === 'media-and-press' ? 'selected' : '' }} value="media-and-press">Media and Press</option>
+                            <option {{ old('type', $ourwork->type) === 'events-coverage-and-live-streaming' ? 'selected' : '' }} value="events-coverage-and-live-streaming">Events Coverage and Live Streaming</option>
+                            <option {{ old('type', $ourwork->type) === 'creative-design' ? 'selected' : '' }} value="creative-design">Creative Design</option>
+                            <option {{ old('type', $ourwork->type) === 'website-and-social-media-content' ? 'selected' : '' }} value="website-and-social-media-content">Website and Social Media Content</option>
+                            <option {{ old('type', $ourwork->type) === 'video-production' ? 'selected' : '' }} value="video-production">Video Production</option>
+                            <option {{ old('type', $ourwork->type) === 'motions' ? 'selected' : '' }} value="motions">Motions</option>
+                            <option {{ old('type', $ourwork->type) === 'photo-shooting' ? 'selected' : '' }} value="photo-shooting">Photo Shooting</option>
+                            <option {{ old('type', $ourwork->type) === 'mobile-app-development' ? 'selected' : '' }} value="mobile-app-development">Mobile App Development</option>
+                            <option {{ old('type', $ourwork->type) === 'web-design' ? 'selected' : '' }} value="web-design">Web Design</option>
+                        </select>
                     </div>
 
 
@@ -128,7 +156,7 @@
                             Cancel
                         </a>
                         <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                            Create Work
+                            Edit Work
                         </button>
                     </div>
                 </form>

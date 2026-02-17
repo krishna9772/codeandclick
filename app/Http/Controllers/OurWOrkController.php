@@ -7,6 +7,7 @@ use App\Http\Service\OurWorkServices;
 use App\Models\OurWork;
 use App\Models\Service;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class OurWOrkController extends Controller
 {
@@ -90,6 +91,7 @@ class OurWOrkController extends Controller
     public function edit(string $id)
     {
         $ourwork = OurWork::find($id);
+        Log::info($ourwork);
         $services = Service::query()->where('status', 'published')->get();
 
    return view('Dashboard.OurWork.edit', compact('services','ourwork'));
@@ -103,7 +105,7 @@ class OurWOrkController extends Controller
     {
           $this->ourWorkService->update($request, $id);
 
-        return redirect()->route('services.index')->with('success', 'Service updated successfully');
+        return redirect()->route('our-work.index')->with('success', 'Service updated successfully');
 
     }
 

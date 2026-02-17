@@ -82,6 +82,33 @@
 
                     </div>
 
+                    <div class="mb-4">
+                        <label for="type" class="block text-gray-700 font-bold mb-2">Type of Our Work</label>
+                        @error('type')
+                        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                        @enderror
+                        <select name="type" required class="border rounded w-full p-2 {{ $errors->has('type') ? 'border-red-500' : 'border-gray-300' }}">
+
+                            <option value="branding-solution">Branding Solution</option>
+                            <option value="brand-strategy">Brand Strategy</option>
+                            <option value="consultancy-integration-and-culture">Consultancy Integration and Culture</option>
+                            <option value="brand-identity">Brand Identity(Logo Design and Brand Book)</option>
+                            <option value="marketing-services">Marketing Services</option>
+                            <option value="marketing-strategy">Marketing Strategy and Consultancy Digital Marketing</option>
+                            <option value="social-media">Social Media</option>
+                            <option value="search-engine-optimization">Search Engine Optimization(SEO)</option>
+                            <option value="digital-optimization">Digital Optimization</option>
+                            <option value="media-and-press">Media and Press</option>
+                            <option value="events-coverage-and-live-streaming">Events Coverage and Live Streaming</option>
+                            <option value="creative-design">Creative Design</option>
+                            <option value="website-and-social-media-content">Website and Social Media Content</option>
+                            <option value="video-production">Video Production</option>
+                            <option value="motions">Motions</option>
+                            <option value="photo-shooting">Photo Shooting</option>
+                            <option value="mobile-app-development">Mobile App Development</option>
+                            <option value="web-design">Web Design</option>
+                        </select>
+                    </div>
 
                     <div class="mb-4">
                         <label for="preview" class="block text-gray-700 font-bold mb-2">Conent</label>
@@ -131,7 +158,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             const editor = Jodit.make('#content', {
                 height: 400,
-               buttons: ["bold","italic","underline","fontsize","link"]
+                buttons: ["bold", "italic", "underline", "fontsize", "link"]
             });
         });
 
