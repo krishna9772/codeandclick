@@ -26,60 +26,60 @@
               <div class="m__our-work--filters--tabs">
                 <ul class="grid grid-cols-3 gap-x-6">
                   <li>
-                    <a href="{{ route('our-work') }}" class="{{ $type == ""  ? "text-white" : "text-gray-600" }} hover:text-white">All</a>
+                    <a href="{{ route('our-work') }}" class="{{ $type == ""  ? "text-white" : "text-gray-600" }} hover:text-white no-barba">All</a>
                   </li>
                   <li>
-                    <a href="{{ route('our-work', ['type' => 'branding-solution']) }}" class="{{ $type == "branding-solution"  ? "text-white" : "text-gray-600" }} hover:text-white">Branding Solution</a>
+                    <a href="{{ route('our-work', ['type' => 'branding-solution']) }}" class="{{ $type == "branding-solution"  ? "text-white" : "text-gray-600" }} hover:text-white no-barba">Branding Solution</a>
                   </li>
 
                   <li>
-                    <a href="{{ route('our-work', ['type' => 'consultancy-integration-and-culture']) }}" class="{{ $type == "consultancy-integration-and-culture"  ? "text-white" : "text-gray-600" }} hover:text-white">Consultancy Integration and Culture</a>
+                    <a href="{{ route('our-work', ['type' => 'consultancy-integration-and-culture']) }}" class="{{ $type == "consultancy-integration-and-culture"  ? "text-white" : "text-gray-600" }} hover:text-white no-barba">Consultancy Integration and Culture</a>
                   </li>
                   <li>
-                    <a href="{{ route('our-work', ['type' => 'brand-identity']) }}" class="{{ $type == "brand-identity"  ? "text-white" : "text-gray-600" }} hover:text-white">Brand Identity(Logo Design and Brand Book)</a>
+                    <a href="{{ route('our-work', ['type' => 'brand-identity']) }}" class="{{ $type == "brand-identity"  ? "text-white" : "text-gray-600" }} hover:text-white no-barba">Brand Identity(Logo Design and Brand Book)</a>
                   </li>
                   <li>
                     <a href="{{ route('our-work', ['type' => 'marketing-services']) }}" class="{{ $type == "marketing-services"  ? "text-white" : "text-gray-600" }} hover:text-white">Marketing Services</a>
                   </li>
                   <li>
-                    <a href="{{ route('our-work', ['type' => 'marketing-strategy']) }}" class="{{ $type == "marketing-strategy"  ? "text-white" : "text-gray-600" }} hover:text-white">Marketing Strategy and Consultancy
+                    <a href="{{ route('our-work', ['type' => 'marketing-strategy']) }}" class="{{ $type == "marketing-strategy"  ? "text-white" : "text-gray-600" }} hover:text-white no-barba">Marketing Strategy and Consultancy
                       Digital Marketing</a>
                   </li>
                   <li>
-                    <a href="{{ route('our-work', ['type' => 'social-media']) }}" class="{{ $type == "social-media"  ? "text-white" : "text-gray-600" }} hover:text-white">Social Media</a>
+                    <a href="{{ route('our-work', ['type' => 'social-media']) }}" class="{{ $type == "social-media"  ? "text-white" : "text-gray-600" }} hover:text-white no-barba">Social Media</a>
                   </li>
                   <li>
-                    <a href="{{ route('our-work', ['type' => 'search-engine-optimization']) }}" class="{{ $type == "search-engine-optimization"  ? "text-white" : "text-gray-600" }} hover:text-white">Search Engine Optimization(SEO) </a>
+                    <a href="{{ route('our-work', ['type' => 'search-engine-optimization']) }}" class="{{ $type == "search-engine-optimization"  ? "text-white" : "text-gray-600" }} hover:text-white no-barba">Search Engine Optimization(SEO) </a>
                   </li>
                   <li>
-                    <a href="{{ route('our-work', ['type' => 'digital-optimization']) }}" class="{{ $type == "digital-optimization"  ? "text-white" : "text-gray-600" }} hover:text-white">Digital Optimization</a>
+                    <a href="{{ route('our-work', ['type' => 'digital-optimization']) }}" class="{{ $type == "digital-optimization"  ? "text-white" : "text-gray-600" }} hover:text-white no-barba">Digital Optimization</a>
                   </li>
                   <li>
-                    <a href="{{ route('our-work', ['type' => 'media-and-press']) }}" class="{{ $type == "media-and-press"  ? "text-white" : "text-gray-600" }} hover:text-white">Media and Press</a>
+                    <a href="{{ route('our-work', ['type' => 'media-and-press']) }}" class="{{ $type == "media-and-press"  ? "text-white" : "text-gray-600" }} hover:text-white no-barba">Media and Press</a>
                   </li>
                   <li>
-                    <a href="{{ route('our-work', ['type' => 'events-coverage-and-live-streaming']) }}" class="{{ $type == "events-coverage-and-live-streaming"  ? "text-white" : "text-gray-600" }} hover:text-white">Events Coverage and Live Streaming </a>
+                    <a href="{{ route('our-work', ['type' => 'events-coverage-and-live-streaming']) }}" class="{{ $type == "events-coverage-and-live-streaming"  ? "text-white" : "text-gray-600" }} hover:text-white no-barba">Events Coverage and Live Streaming </a>
                   </li>
                   <li>
-                    <a href="{{ route('our-work', ['type' => 'creative-design']) }}" class="{{ $type == "creative-design"  ? "text-white" : "text-gray-600" }} hover:text-white">Creative Design </a>
+                    <a href="{{ route('our-work', ['type' => 'creative-design']) }}" class="{{ $type == "creative-design"  ? "text-white" : "text-gray-600" }} hover:text-white no-barba">Creative Design </a>
                   </li>
                   <li>
-                    <a href="{{ route('our-work', ['type' => 'website-and-social-media-content']) }}" class="{{ $type == "website-and-social-media-content"  ? "text-white" : "text-gray-600" }} hover:text-white">Website and Social Media Content </a>
+                    <a href="{{ route('our-work', ['type' => 'website-and-social-media-content']) }}" class="{{ $type == "website-and-social-media-content"  ? "text-white" : "text-gray-600" }} hover:text-white no-barba">Website and Social Media Content </a>
                   </li>
                   <li>
-                    <a href="{{ route('our-work', ['type' => 'video-production']) }}" class="{{ $type == "video-production"  ? "text-white" : "text-gray-600" }} hover:text-white">Video Production </a>
+                    <a href="{{ route('our-work', ['type' => 'video-production']) }}" class="{{ $type == "video-production"  ? "text-white" : "text-gray-600" }} hover:text-white no-barba">Video Production </a>
                   </li>
                   <li>
-                    <a href="{{ route('our-work', ['type' => 'motions']) }}" class="{{ $type == "motions"  ? "text-white" : "text-gray-600" }} hover:text-white">Motions</a>
+                    <a href="{{ route('our-work', ['type' => 'motions']) }}" class="{{ $type == "motions"  ? "text-white" : "text-gray-600" }} hover:text-white no-barba">Motions</a>
                   </li>
                   <li>
-                    <a href="{{ route('our-work', ['type' => 'photo-shooting']) }}" class="{{ $type == "photo-shooting"  ? "text-white" : "text-gray-600" }} hover:text-white">Photo Shooting</a>
+                    <a href="{{ route('our-work', ['type' => 'photo-shooting']) }}" class="{{ $type == "photo-shooting"  ? "text-white" : "text-gray-600" }} hover:text-white no-barba">Photo Shooting</a>
                   </li>
                   <li>
-                    <a href="{{ route('our-work', ['type' => 'mobile-app-development']) }}" class="{{ $type == "mobile-app-development"  ? "text-white" : "text-gray-600" }} hover:text-white">Mobile App Development</a>
+                    <a href="{{ route('our-work', ['type' => 'mobile-app-development']) }}" class="{{ $type == "mobile-app-development"  ? "text-white" : "text-gray-600" }} hover:text-white no-barba">Mobile App Development</a>
                   </li>
                   <li>
-                    <a href="{{ route('our-work', ['type' => 'web-design']) }}" class="{{ $type == "web-design"  ? "text-white" : "text-gray-600" }} hover:text-white">Web Design</a>
+                    <a href="{{ route('our-work', ['type' => 'web-design']) }}" class="{{ $type == "web-design"  ? "text-white" : "text-gray-600" }} hover:text-white no-barba">Web Design</a>
                   </li>
 
                 </ul>
@@ -98,7 +98,7 @@
                 <!-- Content wrapper -->
                 <div class="relative h-full flex items-end w-full">
                   <a
-                    href="{{ route('our-work-details', $work->id) }}">
+                    href="{{ route('our-work-details', $work->id) }}" class="no-barba">
                     <div class="m-6 cursor-pointer group max-w-md border border-white/30 w-full bg-black/20 backdrop-blur-xl p-8 shadow-lg transition hover:bg-black/30">
                       <h3 class="text-2xl font-semibold text-white"> {{ $work->title }} </h3>
                       <div class="mt-4 text-white inline-flex items-center gap-2  py-2 text-sm font-medium transition "> View Case Study <img

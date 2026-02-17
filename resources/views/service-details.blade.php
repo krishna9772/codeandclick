@@ -12,7 +12,7 @@
     </div> -->
 
     <div class="c__logo">
-        <a href="/">
+        <a href="/" class="no-barba">
             <img
                 src="{{ asset('images/logo.png') }}"
                 style="width: 50px; height: 50px"
@@ -91,42 +91,42 @@
                             <li
                                 id="menu-item-20"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20">
-                                <a href="{{ route('our-work') }}">Our Work</a>
+                                <a href="{{ route('our-work') }}" class="no-barba">Our Work</a>
                             </li>
                             <li
                                 id="menu-item-16"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-16">
-                                <a href="{{ route('technology') }}">Technology</a>
+                                <a href="{{ route('technology') }}" class="no-barba">Technology</a>
                             </li>
                             <li
                                 id="menu-item-19"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-19">
-                                <a href="{{ route('services') }}">What We Do</a>
+                                <a href="{{ route('services') }}" class="no-barba">What We Do</a>
                             </li>
                             <li
                                 id="menu-item-15"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15">
-                                <a href="{{ route('blog') }}">Blog</a>
+                                <a href="{{ route('blog') }}" class="no-barba">Blog</a>
                             </li>
                             <li
                                 id="menu-item-4256"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4256">
-                                <a href="{{ route('work-with-us') }}">Working with us</a>
+                                <a href="{{ route('work-with-us') }}" class="no-barba">Working with us</a>
                             </li>
                             <li
                                 id="menu-item-14"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14">
-                                <a href="{{ route('contact') }}">Contact</a>
+                                <a href="{{ route('contact') }}" class="no-barba">Contact</a>
                             </li>
                             <li
                                 id="menu-item-17"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-17">
-                                <a href="{{ route('ventures') }}">Ventures</a>
+                                <a href="{{ route('ventures') }}" class="no-barba">Ventures</a>
                             </li>
                             <li
                                 id="menu-item-5156"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5156">
-                                <a href="{{ route('show-careers') }}">Careers</a>
+                                <a href="{{ route('show-careers') }}" class="no-barba">Careers</a>
                             </li>
                         </ul>
                     </div>
@@ -200,7 +200,7 @@
                         <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black"></div>
 
                         <div class="relative z-10 max-w-6xl mx-auto px-10">
-                            <a href="{{ route('services') }}" class="flex items-center gap-6 mb-16 group cursor-pointer">
+                            <a href="{{ route('services') }}" class="no-barba flex items-center gap-6 mb-16 group cursor-pointer">
                                 <div
                                     class="border border-white/40 rounded-full w-14 h-14 flex items-center justify-center
                transition group-hover:bg-white/10">
@@ -225,7 +225,7 @@
                             <div class="text-xl">
                                 {{ $service->main_content }}
                             </div>
-                            <a href="{{ route('contact') }}" class="bg-white px-8 py-5 w-fit text-black text-xl rounded-full flex items-center gap-5">
+                            <a href="{{ route('contact') }}" class="no-barba bg-white px-8 py-5 w-fit text-black text-xl rounded-full flex items-center gap-5">
                                 Get in Touch
                             </a>
                         </div>
@@ -260,7 +260,7 @@
                                     <!-- Content wrapper -->
                                     <div class="relative h-full flex items-end w-full">
                                         <a
-                                            href="{{ route('our-work-details', $work->id) }}">
+                                            href="{{ route('our-work-details', $work->id) }}" class="no-barba">
                                             <div class="m-6 cursor-pointer group max-w-md border border-white/30 w-full bg-black/20 backdrop-blur-xl p-8 shadow-lg transition hover:bg-black/30">
                                                 <h3 class="text-2xl font-semibold text-white"> {{ $work->title }} </h3>
                                                 <div class="mt-4 text-white inline-flex items-center gap-2  py-2 text-sm font-medium transition "> View Case Study <img
