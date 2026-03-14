@@ -36,10 +36,11 @@
 
   <!-- Canonical URL -->
   <link rel="canonical" href="https://codeandclick.com/" />
-  <script
+  {{-- <script
     src="https://code.jquery.com/jquery-3.7.1.min.js"
     integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-    crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script> --}}
+  <script src="{{asset('js/jquery.js')}}"></script>
 
 </head>
 
@@ -609,16 +610,18 @@
         });
     })
   </script>
-  <script
+  {{-- <script
     src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.13/dayjs.min.js"
     integrity="sha512-FwNWaxyfy2XlEINoSnZh1JQ5TRRtGow0D6XcmAWmYCRgvqOUTnzCxPc9uF35u5ZEpirk1uhlPVA19tflhvnW1g=="
     crossorigin="anonymous"
-    referrerpolicy="no-referrer"></script>
-  <script
+    referrerpolicy="no-referrer"></script> --}}
+  <script src="{{asset('js/day.js')}}"></script>
+  {{-- <script
     src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.13/plugin/timezone.min.js"
     integrity="sha512-nrkE2nl0pcqWefIY627DY1exPOSuZXMdOrxMxX0y7Ly6RH8K0WDjO1lqakkxQcX5m8hxoUSt75seRRiyhqPvIw=="
     crossorigin="anonymous"
-    referrerpolicy="no-referrer"></script>
+    referrerpolicy="no-referrer"></script> --}}
+    <script src="{{asset('js/timezone.js')}}"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       const popup = document.querySelector(".sp-popup");

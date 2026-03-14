@@ -1,20 +1,20 @@
 @extends('layouts.main')
 @section('content')
 <div class="home-video-container">
-  <video id="home-video" loop autoplay muted playsinline webkit-playsinline>
+  {{-- <video id="home-video" loop autoplay muted playsinline webkit-playsinline>
     <source
       src="{{ asset('videos/home.mp4') }}"
       type="video/mp4" />
-  </video>
+  </video> --}}
 </div>
 
 <div class="showreel-video-overlay"></div>
 
 <div class="showreel-video-container">
   <img alt="close video" class="close-video" src="assets/images/icons/close-white.svg" />
-  <video id="showreel-video" loop playsinline webkit-playsinline>
+  {{-- <video id="showreel-video" loop playsinline webkit-playsinline>
     <source src="{{ asset('videos/home.mp4') }}" type="video/mp4">
-  </video>
+  </video> --}}
 </div>
 
 <div class="case-study-video-container"></div>
@@ -70,16 +70,19 @@
 
         <section class="m__intro-experience">
           <div class="container">
-            <div class="section-number">
-              <span>01</span>
+            <div class="title-container">
+              <div style="padding: 30px;" class="section-number">
+                <span>01</span>
+              </div>
+              <h2 class="small" style="color: #fff;">Experienced digital marketing professionals</h2>
             </div>
+          
             <div class="row">
-              <div class="col-xs-12 col-md-6 m__intro-experience--title">
-                <h3> With experienced digital marketing professionals, we deliver effective digital marketing strategies from social media and SEO to content and analytics.</h3>
+              <div class="col-xs-12 col-md-6 m__intro-experience--content-left">
+                <p>With experienced digital marketing professionals, we deliver effective digital marketing strategies from social media and SEO to content and analytics.</p>
               </div>
               <div class="col-xs-12 col-md-6">
                 <div style="padding: 30px;" class="m__intro-experience--tile">
-
                   <h3>Over 8 Years <span>of industry experience per team member</span></h3>
                 </div>
               </div>
@@ -111,11 +114,11 @@
             </div>
             <div class="col-xs-12 col-md-6 m__advantage-scroll--content">
               <div class="m__advantage-scroll--content--item">
-                <h4 class="large">A team of specialists</h4>
+                <h4 class="medium">A team of specialists</h4>
                 <p>We don’t believe in one-size-fits-all marketing. Every brand is different, which is why our team creates customized marketing strategies aligned with your goals, audience, and market.</p>
               </div>
               <div class="m__advantage-scroll--content--item">
-                <h4 class="large">SEO, Social Media Marketing</h4>
+                <h4 class="medium">SEO, Social Media Marketing</h4>
                 <p>Our data-driven approach ensures every decision — from SEO to social media marketing — is backed by insights, not assumptions.</p>
               </div>
               <!-- <div class="m__advantage-scroll--content--item">
@@ -150,7 +153,7 @@
                 <h4 class="medium">Everything you need, all in one place.</h4>
               </div>
               <div class="col-xs-12 col-md-6 m__solution--content-right">
-                <p>Working with CODE & CLICK means having access to one integrated digital team from those three different fields. Our experienced web developers, designers, marketers, and content creators work together to deliver seamless solutions for your business.
+                <p style="text-align: justify;">Working with CODE & CLICK means having access to one integwrated digital team from those three different fields. Our experienced web developers, designers, marketers, and content creators work together to deliver seamless solutions for your business.
                   <br />
                   <br />
                 </p>
@@ -167,21 +170,18 @@
         </section>
 
         <section class="m__further-solution">
-          <div class="title-container">
-            <div class="container">
-              <h2>Websites Built to Perform, Not Just Look Good</h2>
-            </div>
-          </div>
+          
           <div class="row image-left-text-right">
             <div class="col-xs-12 col-md-6 m__further-solution--bg-image left">
               <div class="image" style="background-image: url(/images/default.png)"></div>
             </div>
             <div class="col-xs-11 col-md-6 m__further-solution--content right">
-              <h4>Your website is more than a digital brochure — it’s a business tool. We design and develop websites that are fast, user-friendly, and conversion-focused.</h4>
-              <p>Whether it’s a corporate website or a full ecommerce website, our website development process prioritizes performance, user experience, and SEO from day one.
-                <br />
-                <br />
-                (Clients’ Website photos)
+              <p style="text-align: justify;">Your website is more than a digital brochure — it’s a business tool. We design and develop websites that are fast, user-friendly, and conversion-focused.
+              
+              
+                
+              Whether it’s a corporate website or a full ecommerce website, our website development process prioritizes performance, user experience, and SEO from day one.
+              </p>
             </div>
           </div>
           <div class="title-container">
@@ -191,8 +191,10 @@
           </div>
           <div class="row image-right-text-left">
             <div class="col-xs-11 col-md-6 m__further-solution--content left">
-              <h4>Great design and strong content make brands unforgettable.</h4>
-              <p>Our creative team produces meaningful visuals, compelling copy, and engaging social media content that speaks directly to your audience.<br />
+              <div class="col-xs-12 col-md-6 m__solution--content-left">
+                <h6 class="medium">Everything you need, all in one place.</h6>
+              </div>
+                <p>Our creative team produces meaningful visuals, compelling copy, and engaging social media content that speaks directly to your audience.<br />
                 <br />
                 From branding assets to social media campaigns, we make sure your message is clear, consistent, and impactful.
               </p>
@@ -212,7 +214,9 @@
               <h2 class="small">Transparent Collaboration & Clear Communication</h2>
             </div>
             <div class="m__global-reach--content">
-              <p>CODE & CLICK value long-term partnerships built on trust. You’ll always know what we’re doing, why we’re doing it, and how it’s performing.
+              <p style="text-align: justify;">CODE & CLICK value long-term partnerships built on trust. You’ll always know what we’re doing, why we’re doing it, and how it’s performing.
+
+
                 We work closely with our clients at every stage — from strategy and design to launch and optimization — ensuring clarity, collaboration, and measurable outcomes.</p>
               <a href="/contact" target="" class="c__button-circle dark">
                 <span style="color: #fff;">Our Offices</span>
