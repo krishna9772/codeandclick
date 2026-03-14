@@ -27,9 +27,12 @@
             <section class="l__ventures--titles">
               <div class="medium-container">
                 <h1 class="text-6xl">Careers</h1>
-                <h4 class="small">
-                 At CODE & CLICK, we’re building a team of passionate creatives, strategists, and technologists who believe in the power of digital marketing to drive real business growth. If you’re excited about creating impactful websites, smart marketing strategies, and meaningful digital experiences, send your CV to myanmar@codenclickmm.com.
-                </h4>
+                <h4 class="small" style="text-align: justify;">
+                 At CODE & CLICK, we’re building a team of passionate creatives, strategists, and technologists who believe in the power of digital marketing to drive real business growth.
+                <br>
+                <br>
+                  If you’re excited about creating impactful websites, smart marketing strategies, and meaningful digital experiences, send your CV to myanmar@codenclickmm.com.
+              </h4>
               </div>
               <a href="#" class="c__button light px-4" id="scroll-to">Current Opportunities</a>
             </section>
