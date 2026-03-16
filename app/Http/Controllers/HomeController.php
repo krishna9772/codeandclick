@@ -37,7 +37,7 @@ class HomeController extends Controller
         SEOTools::twitter()->setDescription($seo->description);
         SEOTools::twitter()->setImage(asset('images/favicon.png'));
         SEOTools::jsonLd()->addImage(asset('images/favicon.png'));
-        SEOTools::metatags()->setKeywords(explode(",", $seo->keyword));
+        SEOTools::metatags()->setKeywords(explode("/", $seo->keyword));
 
 
     }

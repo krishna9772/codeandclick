@@ -223,7 +223,7 @@
                                 {{ $service->title }}
                             </div>
                             <div class="text-xl">
-                                {{ $service->main_content }}
+                                {!! $service->main_content !!}
                             </div>
                             <a href="{{ route('contact') }}" class="no-barba bg-white px-8 py-5 w-fit text-black text-xl rounded-full flex items-center gap-5">
                                 Get in Touch

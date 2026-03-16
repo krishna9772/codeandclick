@@ -9,6 +9,7 @@ use App\Http\Controllers\OurWOrkController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TestimornialController;
+use App\Http\Controllers\SeoController;
 use App\Http\Controllers\VentureController;
 use Illuminate\Support\Facades\Route;
 
@@ -46,6 +47,8 @@ Route::controller(HomeController::class)->group(function () {
 
     // Subscribe
     Route::post('/subscribe', 'Subscribe')->name('user.subscribe');
+
+
 });
 
 
@@ -85,6 +88,10 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
     Route::get('enquiry/{id}', [EnquiryController::class, 'show'])->name('enquiry.show');
 
     Route::get('subscribers', [HomeController::class, 'getSubscribers'])->name('subscribers.index');
+
+
+    Route::get('seo', [SeoController::class, 'index'])->name('seo.index');
+    Route::put('seo', [SeoController::class, 'update'])->name('seo.update');
 });
 
 

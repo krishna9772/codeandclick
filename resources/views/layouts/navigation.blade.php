@@ -42,6 +42,9 @@
                     <x-nav-link :href="route('subscribers.index')" :active="request()->routeIs('subscribers.*')">
                         {{ __('Subscribers') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('seo.index')" :active="request()->routeIs('seo.*')">
+                        {{ __('SEO') }}
+                    </x-nav-link>
                 </div>
             </div>
 
