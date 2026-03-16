@@ -8,25 +8,7 @@
   <meta name="MobileOptimized" content="320" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-
-  <!-- Primary Meta Tags -->
-  <title>CODE & CLICK: Myanmar All in One Digital Marketing Agency</title>
-  <meta name="title" content="CODE & CLICK: Myanmar All in One Digital Marketing Agency" />
-  <meta name="description" content="We provide full service with digital marketing, SEO, website design, website development, branding & social media marketing that drives strategic results." />
-
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://codeandclick.com/" />
-  <meta property="og:title" content="CODE & CLICK: Myanmar All in One Digital Marketing Agency" />
-  <meta property="og:description" content="We provide full service with digital marketing, SEO, website design, website development, branding & social media marketing that drives strategic results." />
-  <meta property="og:image" content="{{ asset('images/favicon.png') }}" />
-
-  <!-- X (Twitter) -->
-  <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:url" content="https://codeandclick.com/" />
-  <meta property="twitter:title" content="CODE & CLICK: Myanmar All in One Digital Marketing Agency" />
-  <meta property="twitter:description" content="We provide full service with digital marketing, SEO, website design, website development, branding & social media marketing that drives strategic results." />
-  <meta property="twitter:image" content="{{ asset('images/favicon.png') }}" />
+  {!! SEO::generate() !!}
 
 
   <!-- Favicon -->

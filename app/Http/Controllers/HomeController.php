@@ -6,15 +6,41 @@ use App\Models\Blogs;
 use App\Models\Career;
 use App\Models\Client;
 use App\Models\OurWork;
+use App\Models\Seo;
 use App\Models\Service;
 use App\Models\Subscribe;
 use App\Models\Testimornial;
 use App\Models\Venture;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Artesaos\SEOTools\Facades\SEOTools;
 
 class HomeController extends Controller
 {
+
+    public function generateSeo($seo,$title,$link){
+
+
+        if ($title){
+            SEOTools::setTitle($title);
+        }
+        
+        SEOTools::setDescription($seo->description);
+        SEOTools::setCanonical(config('app.url'));
+
+        SEOTools::opengraph()->setUrl(config('app.url').$link);
+        SEOTools::opengraph()->setTitle($seo->title);
+        SEOTools::opengraph()->setDescription($seo->description);
+        SEOTools::opengraph()->addImage(asset(asset('images/favicon.png')));
+        SEOTools::twitter()->setSite(config('app.url').$link);
+        SEOTools::twitter()->setTitle($seo->title);
+        SEOTools::twitter()->setDescription($seo->description);
+        SEOTools::twitter()->setImage(asset('images/favicon.png'));
+        SEOTools::jsonLd()->addImage(asset('images/favicon.png'));
+        SEOTools::metatags()->setKeywords(explode(",", $seo->keyword));
+
+
+    }
 
     public function showOurWork()
     {
@@ -26,12 +52,21 @@ class HomeController extends Controller
             $ourWorks = $ourWorks->where('type', $type);
         }
 
+        $seo = Seo::where('seoable_type', 'App\Models\Home')->first();
+
+        $this->generateSeo($seo,"Our Works","/our-works");        
+
+
         return view('our-works', compact('ourWorks', 'type'));
     }
 
     public function showOurWorkDetails($id)
     {
         $ourWork = OurWork::find($id);
+
+        $seo = $ourWork->seos;
+
+        $this->generateSeo($seo,$ourWork->title,"/our-work-details/".$ourWork->id);
 
         return view('our-work-details', compact('ourWork'));
     }
@@ -43,12 +78,20 @@ class HomeController extends Controller
         $services = Service::where('status', 'published')->get();
         $testimornials = Testimornial::all();
 
+        $seo = Seo::where('seoable_type', 'App\Models\Home')->first();
+
+        $this->generateSeo($seo,"","/");       
         return view('home', compact('clients', 'services', 'testimornials'));
     }
 
     public function showWorkWithUs()
     {
         $clients = Client::all();
+
+        $seo = Seo::where('seoable_type', 'App\Models\Home')->first();
+
+        $this->generateSeo($seo,"Work With Us","/work-with-us");        
+
 
         return view('work-with-us', compact('clients'));
     }
@@ -70,8 +113,15 @@ class HomeController extends Controller
         }])->whereHas('works', function ($q) {
             return $q->where('status', 'published');
         })->where('status', 'published')->get();
+
         $testimornials = Testimornial::all();
 
+
+        Log::info($services);
+
+        $seo = Seo::where('seoable_type', 'App\Models\Home')->first();
+
+        $this->generateSeo($seo,"Services","/services");        
 
         return view('services', compact('clients', 'services', 'testimornials'));
     }
@@ -81,8 +131,10 @@ class HomeController extends Controller
 
         $service = Service::where('slug', $slug)->first();
 
-        Log::info($service);
-
+        $seo = $service->seos;
+        
+        $this->generateSeo($seo,$service->title,"/service-details/".$service->slug);
+        
         return view('service-details', compact('service'));
     }
 
@@ -101,7 +153,10 @@ class HomeController extends Controller
 
         $blogs = $blogs->where('status', 'published')->orderBy('created_at', 'desc')->paginate(6);
 
-        Log::info($blogs);
+        $seo = Seo::where('seoable_type', 'App\Models\Home')->first();
+
+        $this->generateSeo($seo,"Blog","/blog");        
+
 
         return view('blog', compact('Headerblogs', 'blogs', 'tab'));
     }
@@ -161,6 +216,11 @@ class HomeController extends Controller
     {
         $blog = Blogs::with('user')->where('uuid', $uuid)->where('slug', $slug)->first();
 
+
+        $seo = $blog->seos;
+
+        $this->generateSeo($seo,$blog->title,"/blog/".$blog->uuid."/".$blog->slug);
+
         return view('blog-details', compact('blog'));
     }
 
@@ -177,6 +237,10 @@ class HomeController extends Controller
 
         $careers = $careers->get();
 
+        $seo = Seo::where('seoable_type', 'App\Models\Home')->first();
+
+        $this->generateSeo($seo,"Careers","/careers");        
+
         return view('carrer', compact('location', 'careers'));
     }
 
@@ -185,5 +249,25 @@ class HomeController extends Controller
         $career = Career::findOrFail($id);
 
         return view('CareerDetails', compact('career'));
+    }
+
+    public function contact()
+    {
+
+        $seo = Seo::where('seoable_type', 'App\Models\Home')->first();
+
+        $this->generateSeo($seo,"Contact","/contact");        
+
+        return view('contact');
+    }
+
+    public function technology()
+    {
+
+        $seo = Seo::where('seoable_type', 'App\Models\Home')->first();
+
+        $this->generateSeo($seo,"Technology","/technology");        
+
+        return view('technology');
     }
 }

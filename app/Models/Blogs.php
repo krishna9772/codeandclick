@@ -24,6 +24,32 @@ class Blogs extends Model implements HasMedia
             $model->uuid = Str::uuid()->toString();
             $model->slug = Str::slug($model->title);
         });
+
+        static::created(function ($model) {
+            $model->seos()->create([
+                'title' => $model->title,
+                'description' => Str::limit($model->preview, 300),
+                'keyword' => $model->title,
+            ]);
+        });
+
+        static::updating(function ($model) {
+            $model->slug = Str::slug($model->title);
+        });
+
+        static::updated(function ($model) {
+            $model->seos()->update([
+                'title' => $model->title,
+                'description' => Str::limit($model->preview, 300),
+                'keyword' => $model->title,
+            ]);
+        });
+
+        static::deleting(function ($model) {
+            $model->seos()->delete();
+        });
+
+
     }
 
     protected $fillable = [
@@ -42,4 +68,7 @@ class Blogs extends Model implements HasMedia
         return $this->belongsTo(User::class);
     }
 
+    public function seos() {
+        return $this->morphOne(Seo::class, 'seoable');
+    }
 }

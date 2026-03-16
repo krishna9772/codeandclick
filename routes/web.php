@@ -40,16 +40,15 @@ Route::controller(HomeController::class)->group(function () {
     // Work With Us
     Route::get('/work-with-us', 'showWorkWithUs')->name('work-with-us');
 
+
+    Route::get('/contact', 'contact')->name('contact');
+    Route::get('/technology', 'technology')->name('technology');
+
     // Subscribe
     Route::post('/subscribe', 'Subscribe')->name('user.subscribe');
 });
 
-Route::get('/contact', function () {
-    return view('contact');
-})->name('contact');
-Route::get('/technology', function () {
-    return view('technology');
-})->name('technology');
+
 
 Route::post('/enquiry', [EnquiryController::class, 'store'])->name('enquiry.store');
 
