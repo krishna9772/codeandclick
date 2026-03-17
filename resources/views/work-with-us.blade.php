@@ -176,10 +176,9 @@
               <div class="image" style="background-image: url(/images/default.png)"></div>
             </div>
             <div class="col-xs-11 col-md-6 m__further-solution--content right">
-              <p style="text-align: justify;">Your website is more than a digital brochure — it’s a business tool. We design and develop websites that are fast, user-friendly, and conversion-focused.
+              <p style="text-align: justify;">
+              Your website is more than a digital brochure — it’s a business tool. We design and develop websites that are fast, user-friendly, and conversion-focused.
               
-              
-                
               Whether it’s a corporate website or a full ecommerce website, our website development process prioritizes performance, user experience, and SEO from day one.
               </p>
             </div>

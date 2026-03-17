@@ -36,7 +36,7 @@
             </div>
             <div class="m__what-we-do--intro--content">
               <h4 class="text-3xl">CODE & CLICK is a full-service digital marketing agency in Myanmar </h4>
-              <p style="text-align: justify;">
+              <p>
                 We help businesses grow their online presence, generate qualified leads, and increase sales.
                 We combine marketing strategy, creative content, and technology for data-driven digital growth to deliver measurable results for brands across industries.
 
