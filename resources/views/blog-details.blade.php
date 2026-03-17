@@ -8,29 +8,9 @@
     <meta name="MobileOptimized" content="320">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Primary Meta Tags -->
-    <title>Code And Click – Careers - Full-Service Digital Marketing & Web Development Agency</title>
-    <meta name="description" content="Code And Click delivers cutting-edge digital marketing, Code And Click Careers page, custom web development, and high-impact production services to help businesses grow online.">
+    {!! SEO::generate() !!}
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://codeandclick.com/">
-    <meta property="og:title" content="Code And Click – Full-Service Digital Marketing & Web Development Agency">
-    <meta property="og:description" content="We build, optimize, and scale your brand's digital presence with coding, marketing, and production solutions.">
-    <meta property="og:image" content="https://codeandclick.com/images/social-preview.jpg">
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://codeandclick.com/">
-    <meta name="twitter:title" content="Code And Click – Full-Service Digital Marketing & Web Development Agency">
-    <meta name="twitter:description" content="Custom web development, digital marketing, and creative production services for modern businesses.">
-    <meta name="twitter:image" content="https://codeandclick.com/images/social-preview.jpg">
-
-    <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ asset('images/favicon.png') }}">
-
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://codeandclick.com/">
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -239,7 +219,7 @@
                                 <p>{{ $blog->user->name }}</p>
                             </div>
                             <div>
-                               {!! $blog->sub_content !!}
+                               {!! $blog->content !!}
                             </div>
                         </div>
                     </div>

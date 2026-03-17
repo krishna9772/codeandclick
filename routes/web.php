@@ -9,7 +9,9 @@ use App\Http\Controllers\OurWOrkController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TestimornialController;
+use App\Http\Controllers\SeoController;
 use App\Http\Controllers\VentureController;
+use App\Jobs\SiteMapGenerate;
 use Illuminate\Support\Facades\Route;
 
 
@@ -40,16 +42,18 @@ Route::controller(HomeController::class)->group(function () {
     // Work With Us
     Route::get('/work-with-us', 'showWorkWithUs')->name('work-with-us');
 
+
+    Route::get('/contact', 'contact')->name('contact');
+    Route::get('/technology', 'technology')->name('technology');
+
     // Subscribe
     Route::post('/subscribe', 'Subscribe')->name('user.subscribe');
+
+
+
 });
 
-Route::get('/contact', function () {
-    return view('contact');
-})->name('contact');
-Route::get('/technology', function () {
-    return view('technology');
-})->name('technology');
+
 
 Route::post('/enquiry', [EnquiryController::class, 'store'])->name('enquiry.store');
 
@@ -86,6 +90,16 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
     Route::get('enquiry/{id}', [EnquiryController::class, 'show'])->name('enquiry.show');
 
     Route::get('subscribers', [HomeController::class, 'getSubscribers'])->name('subscribers.index');
+
+
+    Route::get('seo', [SeoController::class, 'index'])->name('seo.index');
+    Route::put('seo', [SeoController::class, 'update'])->name('seo.update');
+
+    Route::get('sitemap', function () {
+        SiteMapGenerate::dispatch();
+        return redirect()->route('dashboard')->with('success', 'Sitemap generated successfully');
+    })->name('sitemap');
+
 });
 
 
