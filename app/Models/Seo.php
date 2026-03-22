@@ -10,6 +10,8 @@ class Seo extends Model
         'title',
         'description',
         'keyword',
+        'seoable_id',
+        'seoable_type',
     ];
 
     public function seoable() {

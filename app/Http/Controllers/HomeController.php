@@ -53,7 +53,7 @@ class HomeController extends Controller
             $ourWorks = $ourWorks->where('type', $type);
         }
 
-        $seo = Seo::where('seoable_type', 'App\Models\Home')->first();
+        $seo = Seo::where('seoable_type', 'App\Models\OurWork')->first();
 
         $this->generateSeo($seo,"Our Works","/our-works");        
 
@@ -79,7 +79,7 @@ class HomeController extends Controller
         $services = Service::where('status', 'published')->get();
         $testimornials = Testimornial::all();
 
-        $seo = Seo::where('seoable_type', 'App\Models\Home')->first();
+        $seo = Seo::where('seoable_type', 'App\Models\Blogs')->first();
 
         $this->generateSeo($seo,"","/");       
         return view('home', compact('clients', 'services', 'testimornials'));
@@ -89,7 +89,7 @@ class HomeController extends Controller
     {
         $clients = Client::all();
 
-        $seo = Seo::where('seoable_type', 'App\Models\Home')->first();
+        $seo = Seo::where('seoable_type', 'App\Models\Blogs')->first();
 
         $this->generateSeo($seo,"Work With Us","/work-with-us");        
 
@@ -120,7 +120,7 @@ class HomeController extends Controller
 
         Log::info($services);
 
-        $seo = Seo::where('seoable_type', 'App\Models\Home')->first();
+        $seo = Seo::where('seoable_type', 'App\Models\Service')->first();
 
         $this->generateSeo($seo,"Services","/services");        
 
@@ -154,7 +154,7 @@ class HomeController extends Controller
 
         $blogs = $blogs->where('status', 'published')->orderBy('created_at', 'desc')->paginate(6);
 
-        $seo = Seo::where('seoable_type', 'App\Models\Home')->first();
+        $seo = Seo::where('seoable_type', 'App\Models\Blogs')->first();
 
         $this->generateSeo($seo,"Blog","/blog");        
 
@@ -239,7 +239,7 @@ class HomeController extends Controller
 
         $careers = $careers->get();
 
-        $seo = Seo::where('seoable_type', 'App\Models\Home')->first();
+        $seo = Seo::where('seoable_type', 'App\Models\Career')->first();
 
         $this->generateSeo($seo,"Careers","/careers");        
 
@@ -256,7 +256,7 @@ class HomeController extends Controller
     public function contact()
     {
 
-        $seo = Seo::where('seoable_type', 'App\Models\Home')->first();
+        $seo = Seo::where('seoable_type', 'App\Models\Blogs')->first();
 
         $this->generateSeo($seo,"Contact","/contact");        
 
@@ -266,7 +266,7 @@ class HomeController extends Controller
     public function technology()
     {
 
-        $seo = Seo::where('seoable_type', 'App\Models\Home')->first();
+        $seo = Seo::where('seoable_type', 'App\Models\Blogs')->first();
 
         $this->generateSeo($seo,"Technology","/technology");        
 
