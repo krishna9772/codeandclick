@@ -36,7 +36,7 @@
                 </div>
                 @endif
 
-                <form action="{{ route('our-work.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('our-work.store') }}" method="POST" enctype="multipart/form-data" id="ourWorkForm" novalidate>
                     @csrf
                     <!-- Image Upload with Preview -->
                     <div class="mb-6">
@@ -53,11 +53,12 @@
                         <div class="mt-1 flex items-center">
                             <label for="image" class="cursor-pointer bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                                 <span>Choose an image</span>
-                                <input id="image" name="image" type="file" class="sr-only" accept="image/*" onchange="previewImage(this)" required>
+                                <input id="image" name="image" type="file" class="sr-only" accept=".jpeg,.jpg,.png,.gif,image/jpeg,image/png,image/gif" onchange="previewImage(this)" required>
                             </label>
                             <span id="fileName" class="ml-4 text-sm text-gray-600">No file chosen</span>
                         </div>
-                        <p class="mt-1 text-sm text-gray-500">JPG, PNG, or WebP (Max: 5MB)</p>
+                        <p class="mt-1 text-sm text-gray-500">JPG, JPEG, PNG, or GIF (Max: 5MB)</p>
+                        <p id="image_error" class="hidden text-red-500 text-sm mt-1"></p>
                     </div>
 
 
@@ -66,7 +67,7 @@
                         @error('title')
                         <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                         @enderror
-                        <input type="text" name="title" id="title" class="border rounded w-full p-2 {{ $errors->has('title') ? 'border-red-500' : 'border-gray-300' }}" value="{{ old('title') }}" required>
+                        <input type="text" name="title" id="title" maxlength="255" class="border rounded w-full p-2 {{ $errors->has('title') ? 'border-red-500' : 'border-gray-300' }}" value="{{ old('title') }}" required>
                     </div>
 
                     <div class="mb-4">
@@ -75,8 +76,9 @@
                         <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                         @enderror
                         <select name="serviceID" required class="border rounded w-full p-2 {{ $errors->has('serviceID') ? 'border-red-500' : 'border-gray-300' }}">
+                            <option value="" disabled {{ old('serviceID') ? '' : 'selected' }}>Select a service</option>
                             @foreach($services as $service)
-                            <option value="{{$service->id}}">{{$service->name}}</option>
+                            <option value="{{$service->id}}" {{ (string) old('serviceID') === (string) $service->id ? 'selected' : '' }}>{{$service->name}}</option>
                             @endforeach
                         </select>
 
@@ -88,34 +90,36 @@
                         <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                         @enderror
                         <select name="type" required class="border rounded w-full p-2 {{ $errors->has('type') ? 'border-red-500' : 'border-gray-300' }}">
+                            <option value="" disabled {{ old('type') ? '' : 'selected' }}>Select a work type</option>
 
-                            <option value="branding-solution">Branding Solution</option>
-                            <option value="brand-strategy">Brand Strategy</option>
-                            <option value="consultancy-integration-and-culture">Consultancy Integration and Culture</option>
-                            <option value="brand-identity">Brand Identity(Logo Design and Brand Book)</option>
-                            <option value="marketing-services">Marketing Services</option>
-                            <option value="marketing-strategy">Marketing Strategy and Consultancy Digital Marketing</option>
-                            <option value="social-media">Social Media</option>
-                            <option value="search-engine-optimization">Search Engine Optimization(SEO)</option>
-                            <option value="digital-optimization">Digital Optimization</option>
-                            <option value="media-and-press">Media and Press</option>
-                            <option value="events-coverage-and-live-streaming">Events Coverage and Live Streaming</option>
-                            <option value="creative-design">Creative Design</option>
-                            <option value="website-and-social-media-content">Website and Social Media Content</option>
-                            <option value="video-production">Video Production</option>
-                            <option value="motions">Motions</option>
-                            <option value="photo-shooting">Photo Shooting</option>
-                            <option value="mobile-app-development">Mobile App Development</option>
-                            <option value="web-design">Web Design</option>
+                            <option value="branding-solution" {{ old('type') === 'branding-solution' ? 'selected' : '' }}>Branding Solution</option>
+                            <option value="brand-strategy" {{ old('type') === 'brand-strategy' ? 'selected' : '' }}>Brand Strategy</option>
+                            <option value="consultancy-integration-and-culture" {{ old('type') === 'consultancy-integration-and-culture' ? 'selected' : '' }}>Consultancy Integration and Culture</option>
+                            <option value="brand-identity" {{ old('type') === 'brand-identity' ? 'selected' : '' }}>Brand Identity(Logo Design and Brand Book)</option>
+                            <option value="marketing-services" {{ old('type') === 'marketing-services' ? 'selected' : '' }}>Marketing Services</option>
+                            <option value="marketing-strategy" {{ old('type') === 'marketing-strategy' ? 'selected' : '' }}>Marketing Strategy and Consultancy Digital Marketing</option>
+                            <option value="social-media" {{ old('type') === 'social-media' ? 'selected' : '' }}>Social Media</option>
+                            <option value="search-engine-optimization" {{ old('type') === 'search-engine-optimization' ? 'selected' : '' }}>Search Engine Optimization(SEO)</option>
+                            <option value="digital-optimization" {{ old('type') === 'digital-optimization' ? 'selected' : '' }}>Digital Optimization</option>
+                            <option value="media-and-press" {{ old('type') === 'media-and-press' ? 'selected' : '' }}>Media and Press</option>
+                            <option value="events-coverage-and-live-streaming" {{ old('type') === 'events-coverage-and-live-streaming' ? 'selected' : '' }}>Events Coverage and Live Streaming</option>
+                            <option value="creative-design" {{ old('type') === 'creative-design' ? 'selected' : '' }}>Creative Design</option>
+                            <option value="website-and-social-media-content" {{ old('type') === 'website-and-social-media-content' ? 'selected' : '' }}>Website and Social Media Content</option>
+                            <option value="video-production" {{ old('type') === 'video-production' ? 'selected' : '' }}>Video Production</option>
+                            <option value="motions" {{ old('type') === 'motions' ? 'selected' : '' }}>Motions</option>
+                            <option value="photo-shooting" {{ old('type') === 'photo-shooting' ? 'selected' : '' }}>Photo Shooting</option>
+                            <option value="mobile-app-development" {{ old('type') === 'mobile-app-development' ? 'selected' : '' }}>Mobile App Development</option>
+                            <option value="web-design" {{ old('type') === 'web-design' ? 'selected' : '' }}>Web Design</option>
                         </select>
                     </div>
 
                     <div class="mb-4">
-                        <label for="preview" class="block text-gray-700 font-bold mb-2">Conent</label>
+                        <label for="content" class="block text-gray-700 font-bold mb-2">Content</label>
                         @error('content')
                         <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                         @enderror
-                        <textarea name="content" id="content" class="border h-[200px] rounded w-full p-2 {{ $errors->has('content') ? 'border-red-500' : 'border-gray-300' }}" required>{{ old('content') }}</textarea>
+                        <textarea name="content" id="content" class="border h-[200px] rounded w-full p-2 {{ $errors->has('content') ? 'border-red-500' : 'border-gray-300' }}" required data-required-message="The content field is required.">{{ old('content') }}</textarea>
+                        <p id="content_error" class="hidden text-red-500 text-sm mt-1"></p>
                     </div>
 
                     <div class="mb-6">
@@ -132,11 +136,12 @@
                         <div class="mt-1">
                             <label for="workImages" class="cursor-pointer bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 inline-block">
                                 <span>Choose Work Images</span>
-                                <input id="workImages" name="workImages[]" type="file" class="sr-only" accept="image/*" multiple onchange="previewWorkImages(this)" required>
+                                <input id="workImages" name="workImages[]" type="file" class="sr-only" accept=".jpeg,.jpg,.png,.gif,image/jpeg,image/png,image/gif" multiple onchange="previewWorkImages(this)" required>
                             </label>
                             <span id="workImagesCount" class="ml-4 text-sm text-gray-600">No files chosen</span>
                         </div>
-                        <p class="mt-1 text-sm text-gray-500">JPG, PNG, or WebP (Max: 5MB per image, multiple files allowed)</p>
+                        <p class="mt-1 text-sm text-gray-500">JPG, JPEG, PNG, or GIF (Max: 5MB per image, multiple files allowed)</p>
+                        <p id="workImages_error" class="hidden text-red-500 text-sm mt-1"></p>
                     </div>
 
 
@@ -152,13 +157,151 @@
             </div>
         </div>
     </div>
-    </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/jodit@latest/es2021/jodit.fat.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const editor = Jodit.make('#content', {
                 height: 400,
-                buttons: ["bold", "italic", "underline", "fontsize", "link"]
+                buttons: ['bold', 'italic', 'underline', 'fontsize', 'link']
+            });
+
+            const form = document.getElementById('ourWorkForm');
+            const imageInput = document.getElementById('image');
+            const contentField = document.getElementById('content');
+            const workImagesInput = document.getElementById('workImages');
+            const workImagesPreviewContainer = document.getElementById('workImagesPreviewContainer');
+            const allowedImageTypes = ['image/jpeg', 'image/png', 'image/gif'];
+            const maxImageSize = 5 * 1024 * 1024;
+            let selectedWorkImages = [];
+
+            function getPlainTextFromHtml(value) {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(value, 'text/html');
+                return (doc.body.textContent || '').replace(/\u00A0/g, ' ').trim();
+            }
+
+            function getEditorContainer(field) {
+                return field.closest('.mb-4')?.querySelector('.jodit-container');
+            }
+
+            function setInlineError(fieldId, message) {
+                const errorElement = document.getElementById(`${fieldId}_error`);
+
+                if (!errorElement) {
+                    return;
+                }
+
+                errorElement.textContent = message || '';
+                errorElement.classList.toggle('hidden', !message);
+            }
+
+            function validateContentField() {
+                contentField.value = editor.value;
+                const editorContainer = getEditorContainer(contentField);
+
+                if (!getPlainTextFromHtml(contentField.value)) {
+                    const message = contentField.dataset.requiredMessage || 'The content field is required.';
+                    contentField.value = '';
+                    contentField.setCustomValidity(message);
+                    setInlineError('content', message);
+                    if (editorContainer) {
+                        editorContainer.classList.add('border-red-500');
+                    }
+                    return false;
+                }
+
+                contentField.setCustomValidity('');
+                setInlineError('content', '');
+                if (editorContainer) {
+                    editorContainer.classList.remove('border-red-500');
+                }
+                return true;
+            }
+
+            function setFileError(input, fieldId, message) {
+                input.setCustomValidity(message || '');
+                setInlineError(fieldId, message || '');
+            }
+
+            function validateSingleImage() {
+                if (!imageInput.files.length) {
+                    setFileError(imageInput, 'image', 'Please choose an image.');
+                    return false;
+                }
+
+                const file = imageInput.files[0];
+
+                if (!allowedImageTypes.includes(file.type)) {
+                    setFileError(imageInput, 'image', 'The main image must be a file of type: jpeg, png, jpg, gif.');
+                    return false;
+                }
+
+                if (file.size > maxImageSize) {
+                    setFileError(imageInput, 'image', 'The main image may not be greater than 5120 kilobytes.');
+                    return false;
+                }
+
+                setFileError(imageInput, 'image', '');
+                return true;
+            }
+
+            function validateWorkImages() {
+                if (!selectedWorkImages.length) {
+                    setFileError(workImagesInput, 'workImages', 'Please upload at least one work image.');
+                    return false;
+                }
+
+                for (const file of selectedWorkImages) {
+                    if (!allowedImageTypes.includes(file.type)) {
+                        setFileError(workImagesInput, 'workImages', 'Each work image must be a file of type: jpeg, png, jpg, gif.');
+                        return false;
+                    }
+
+                    if (file.size > maxImageSize) {
+                        setFileError(workImagesInput, 'workImages', 'Each work image may not be greater than 5120 kilobytes.');
+                        return false;
+                    }
+                }
+
+                setFileError(workImagesInput, 'workImages', '');
+                return true;
+            }
+
+            function syncWorkImagesInput() {
+                const dataTransfer = new DataTransfer();
+                selectedWorkImages.forEach((file) => dataTransfer.items.add(file));
+                workImagesInput.files = dataTransfer.files;
+            }
+
+            editor.events.on('change', validateContentField);
+            imageInput.addEventListener('change', validateSingleImage);
+            workImagesInput.addEventListener('change', function() {
+                selectedWorkImages = Array.from(workImagesInput.files);
+                validateWorkImages();
+            });
+
+            workImagesPreviewContainer.addEventListener('click', function(event) {
+                const removeButton = event.target.closest('.remove-work-image-preview');
+
+                if (!removeButton) {
+                    return;
+                }
+
+                selectedWorkImages.splice(Number(removeButton.dataset.index), 1);
+                syncWorkImagesInput();
+                previewWorkImages(workImagesInput);
+                validateWorkImages();
+            });
+
+            form.addEventListener('submit', function(event) {
+                const isContentValid = validateContentField();
+                const isImageValid = validateSingleImage();
+                const areWorkImagesValid = validateWorkImages();
+
+                if (!isContentValid || !isImageValid || !areWorkImagesValid || !form.checkValidity()) {
+                    event.preventDefault();
+                    form.reportValidity();
+                }
             });
         });
 
@@ -166,17 +309,38 @@
             const previewContainer = document.getElementById('imagePreviewContainer');
             const preview = document.getElementById('imagePreview');
             const fileName = document.getElementById('fileName');
+            const errorElement = document.getElementById('image_error');
+            const allowedImageTypes = ['image/jpeg', 'image/png', 'image/gif'];
+            const maxImageSize = 5 * 1024 * 1024;
 
-            const MAX_SIZE = 5 * 1024 * 1024; // 5MB
+            input.setCustomValidity('');
+            errorElement.classList.add('hidden');
+            errorElement.textContent = '';
 
             if (input.files && input.files[0]) {
                 const file = input.files[0];
 
-                // Check file size
-                if (file.size > MAX_SIZE) {
+                if (!allowedImageTypes.includes(file.type)) {
                     previewContainer.classList.add('hidden');
-                    preview.src = '';
+                    preview.src = '#';
+                    fileName.textContent = 'Only JPG, JPEG, PNG, and GIF files are allowed';
+                    input.value = '';
+                    input.setCustomValidity('The main image must be a file of type: jpeg, png, jpg, gif.');
+                    errorElement.textContent = 'The main image must be a file of type: jpeg, png, jpg, gif.';
+                    errorElement.classList.remove('hidden');
+                    input.reportValidity();
+                    return;
+                }
+
+                if (file.size > maxImageSize) {
+                    previewContainer.classList.add('hidden');
+                    preview.src = '#';
                     fileName.textContent = 'File is larger than 5MB';
+                    input.value = '';
+                    input.setCustomValidity('The main image may not be greater than 5120 kilobytes.');
+                    errorElement.textContent = 'The main image may not be greater than 5120 kilobytes.';
+                    errorElement.classList.remove('hidden');
+                    input.reportValidity();
                     return;
                 }
 
@@ -189,9 +353,10 @@
                 };
 
                 reader.readAsDataURL(file);
+                return;
             } else {
                 previewContainer.classList.add('hidden');
-                preview.src = '';
+                preview.src = '#';
                 fileName.textContent = 'No file chosen';
             }
         }
@@ -199,18 +364,28 @@
         function previewWorkImages(input) {
             const previewContainer = document.getElementById('workImagesPreviewContainer');
             const countSpan = document.getElementById('workImagesCount');
+            const errorElement = document.getElementById('workImages_error');
+            const allowedImageTypes = ['image/jpeg', 'image/png', 'image/gif'];
+            const maxImageSize = 5 * 1024 * 1024;
 
-            const MAX_SIZE = 5 * 1024 * 1024; // 5MB
-
-            // Clear existing previews
+            input.setCustomValidity('');
+            errorElement.classList.add('hidden');
+            errorElement.textContent = '';
             previewContainer.innerHTML = '';
 
             if (input.files && input.files.length > 0) {
                 let validFilesCount = 0;
+                let hasInvalidType = false;
+                let hasOversizedFile = false;
 
                 Array.from(input.files).forEach((file, index) => {
-                    // Skip files over 5MB
-                    if (file.size > MAX_SIZE) {
+                    if (!allowedImageTypes.includes(file.type)) {
+                        hasInvalidType = true;
+                        return;
+                    }
+
+                    if (file.size > maxImageSize) {
+                        hasOversizedFile = true;
                         return;
                     }
 
@@ -223,7 +398,7 @@
                         previewDiv.className = 'relative group';
                         previewDiv.innerHTML = `
                     <img src="${e.target.result}" alt="Work Image ${index + 1}" class="w-full h-32 object-cover rounded-lg border border-gray-200">
-                    <button type="button" onclick="removeWorkImagePreview(this)" class="absolute top-2 right-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                    <button type="button" class="absolute top-2 right-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity remove-work-image-preview" data-index="${index}">
                         <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                         </svg>
@@ -239,14 +414,20 @@
                     validFilesCount > 0 ?
                     `${validFilesCount} file(s) chosen` :
                     'No valid files (max 5MB each)';
+
+                if (hasInvalidType) {
+                    input.setCustomValidity('Each work image must be a file of type: jpeg, png, jpg, gif.');
+                    errorElement.textContent = 'Each work image must be a file of type: jpeg, png, jpg, gif.';
+                    errorElement.classList.remove('hidden');
+                } else if (hasOversizedFile) {
+                    input.setCustomValidity('Each work image may not be greater than 5120 kilobytes.');
+                    errorElement.textContent = 'Each work image may not be greater than 5120 kilobytes.';
+                    errorElement.classList.remove('hidden');
+                }
             } else {
+                input.setCustomValidity('Please upload at least one work image.');
                 countSpan.textContent = 'No files chosen';
             }
-        }
-
-        function removeWorkImagePreview(button) {
-            const previewDiv = button.parentElement;
-            previewDiv.remove();
         }
     </script>
 </x-app-layout>

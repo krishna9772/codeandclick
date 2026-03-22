@@ -74,7 +74,7 @@ class OurWOrkController extends Controller
     {
         $this->ourWorkService->store($request);
 
-        return redirect()->route('our-work.index')->with('success', 'Service created successfully');
+        return redirect()->route('our-work.index')->with('success', 'Our Work created successfully');
     }
 
     /**
@@ -105,7 +105,7 @@ class OurWOrkController extends Controller
     {
           $this->ourWorkService->update($request, $id);
 
-        return redirect()->route('our-work.index')->with('success', 'Service updated successfully');
+        return redirect()->route('our-work.index')->with('success', 'Our Work updated successfully');
 
     }
 

@@ -22,19 +22,23 @@ class TestimornialRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'image' => $this->isMethod('post') ? 'required|image|mimes:jpeg,png,jpg,gif|max:5048' : 'image|mimes:jpeg,png,jpg,gif|max:5048',
-            'name' => 'required',
-            'description' => 'required',
+            'image' => $this->isMethod('post')
+                ? 'required|image|mimes:jpeg,png,jpg,gif|max:5120'
+                : 'nullable|image|mimes:jpeg,png,jpg,gif|max:5120',
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
         ];
     }
 
     public function messages(): array
     {
         return [
+            'image.required' => 'The image field is required.',
             'image.image' => 'The file must be an image.',
-            'image.mimes' => 'The image must be a file of type: jpeg, png, jpg, gif, svg.',
-            'image.max' => 'The image may not be greater than 5 MB.',
+            'image.mimes' => 'The image must be a file of type: jpeg, png, jpg, gif.',
+            'image.max' => 'The image may not be greater than 5120 kilobytes.',
             'name.required' => 'The name field is required.',
+            'name.max' => 'The name may not be greater than 255 characters.',
             'description.required' => 'The description field is required.',
         ];
     }

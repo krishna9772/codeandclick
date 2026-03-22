@@ -57,7 +57,7 @@
                                 </label>
                                 <span id="fileName" class="ml-4 text-sm text-gray-600">No file chosen</span>
                             </div>
-                            <p class="mt-1 text-sm text-gray-500">JPG, PNG, or WebP (Max: 5MB)</p>
+                            <p class="mt-1 text-sm text-gray-500">JPG, JPEG, PNG, or GIF (Max: 5MB)</p>
                         </div>
                     <div class="mb-4">
                         <label for="title" class="block text-gray-700 font-bold mb-2">Title</label>

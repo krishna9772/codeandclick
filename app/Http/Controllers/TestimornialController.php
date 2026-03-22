@@ -65,7 +65,7 @@ class TestimornialController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(TestimornialRequest $request, string $id)
     {
         $this->testimornialService->update($request, $id);
         return redirect()->route('testimornials.index')->with('success', 'Testimornial updated successfully');

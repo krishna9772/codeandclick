@@ -3,9 +3,31 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class OurWorkRequest extends FormRequest
 {
+    private const WORK_TYPES = [
+        'branding-solution',
+        'brand-strategy',
+        'consultancy-integration-and-culture',
+        'brand-identity',
+        'marketing-services',
+        'marketing-strategy',
+        'social-media',
+        'search-engine-optimization',
+        'digital-optimization',
+        'media-and-press',
+        'events-coverage-and-live-streaming',
+        'creative-design',
+        'website-and-social-media-content',
+        'video-production',
+        'motions',
+        'photo-shooting',
+        'mobile-app-development',
+        'web-design',
+    ];
+
     /**
      * Determine if the user is authorized to make this request.
      */
@@ -25,16 +47,17 @@ class OurWorkRequest extends FormRequest
             'title' => 'required|string|max:255',
 
             'image' => $this->routeIs('our-work.store')
-                ? 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
-                : 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+                ? 'required|image|mimes:jpeg,png,jpg,gif|max:5120'
+                : 'nullable|image|mimes:jpeg,png,jpg,gif|max:5120',
 
             'content' => 'required|string',
             'serviceID' => 'required|exists:services,id',
-            'type' => 'required|string',
+            'type' => ['required', 'string', Rule::in(self::WORK_TYPES)],
 
-            // multiple images
-            'workImages' => $this->routeIs('our-work.store') ? 'required|array' : 'nullable|array',
-            'workImages.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'workImages' => $this->routeIs('our-work.store') ? 'required|array|min:1' : 'nullable|array',
+            'workImages.*' => 'image|mimes:jpeg,png,jpg,gif|max:5120',
+            'remove_work_images' => 'nullable|array',
+            'remove_work_images.*' => 'integer|exists:media,id',
         ];
     }
 
@@ -49,7 +72,7 @@ class OurWorkRequest extends FormRequest
             'image.required' => 'The main image is required.',
             'image.image' => 'The main image must be an image file.',
             'image.mimes' => 'The main image must be a file of type: jpeg, png, jpg, gif.',
-            'image.max' => 'The main image may not be greater than 2MB.',
+            'image.max' => 'The main image may not be greater than 5120 kilobytes.',
 
             'serviceID.required' => 'The service is required.',
             'serviceID.exists' => 'The selected service does not exist.',
@@ -57,11 +80,18 @@ class OurWorkRequest extends FormRequest
             'content.required' => 'The content field is required.',
             'content.string' => 'The content must be a valid string.',
 
+            'type.required' => 'The type field is required.',
+            'type.in' => 'The selected type is invalid.',
+
             'workImages.required' => 'Please upload at least one work image.',
             'workImages.array' => 'Work images must be an array of files.',
+            'workImages.min' => 'Please upload at least one work image.',
             'workImages.*.image' => 'Each work image must be an image.',
             'workImages.*.mimes' => 'Work images must be jpeg, png, jpg, or gif.',
-            'workImages.*.max' => 'Each work image may not be greater than 2MB.',
+            'workImages.*.max' => 'Each work image may not be greater than 5120 kilobytes.',
+            'remove_work_images.array' => 'The removed work images format is invalid.',
+            'remove_work_images.*.integer' => 'Each removed work image must be a valid id.',
+            'remove_work_images.*.exists' => 'One or more selected work images do not exist.',
         ];
     }
 

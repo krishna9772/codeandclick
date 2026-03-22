@@ -27,14 +27,11 @@ class OurWorkServices
 
     public function update($data, $id)
     {
-
         $ourwork = OurWork::find($id);
 
-
-        $ourwork->update($data->except(['image', 'workImages']));
+        $ourwork->update($data->except(['image', 'workImages', 'remove_work_images']));
 
         if ($data->hasFile('image')) {
-
             if ($ourwork->hasMedia('ourwork-header')) {
                 $ourwork->getFirstMedia('ourwork-header')->delete();
             }
@@ -42,10 +39,19 @@ class OurWorkServices
             $ourwork->addMediaFromRequest('image')->toMediaCollection('ourwork-header');
         }
 
+        if ($data->filled('remove_work_images')) {
+            $mediaIdsToRemove = collect($data->input('remove_work_images'))
+                ->map(fn ($id) => (int) $id)
+                ->all();
+
+            $ourwork->getMedia('ourwork-images')
+                ->whereIn('id', $mediaIdsToRemove)
+                ->each(function ($media) {
+                    $media->delete();
+                });
+        }
+
         if ($data->hasFile('workImages')) {
-
-            $ourwork->clearMediaCollection('ourwork-images');
-
             foreach ($data->file('workImages') as $image) {
                 $ourwork
                     ->addMedia($image)

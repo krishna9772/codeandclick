@@ -36,7 +36,7 @@
                     </div>
                 @endif
 
-              <form action="{{ route('testimornials.store') }}" method="POST" enctype="multipart/form-data">
+              <form action="{{ route('testimornials.store') }}" method="POST" enctype="multipart/form-data" id="testimornialForm" novalidate>
                         @csrf
                         <!-- Image Upload with Preview -->
                         <div class="mb-6">
@@ -53,18 +53,19 @@
                             <div class="mt-1 flex items-center">
                                 <label for="image" class="cursor-pointer bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                                     <span>Choose an image</span>
-                                    <input id="image" name="image" type="file" class="sr-only" accept="image/*" onchange="previewImage(this)" required>
+                                    <input id="image" name="image" type="file" class="sr-only" accept=".jpeg,.jpg,.png,.gif,image/jpeg,image/png,image/gif" onchange="previewImage(this)" required>
                                 </label>
                                 <span id="fileName" class="ml-4 text-sm text-gray-600">No file chosen</span>
                             </div>
-                            <p class="mt-1 text-sm text-gray-500">JPG, PNG, or WebP (Max: 5MB)</p>
+                            <p class="mt-1 text-sm text-gray-500">JPG, JPEG, PNG, or GIF (Max: 5MB)</p>
+                            <p id="image_error" class="hidden text-red-500 text-sm mt-1"></p>
                         </div>
                     <div class="mb-4">
                         <label for="name" class="block text-gray-700 font-bold mb-2">Name</label>
                         @error('name')
                             <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                         @enderror
-                        <input type="text" name="name" id="name" class="border rounded w-full p-2 {{ $errors->has('name') ? 'border-red-500' : 'border-gray-300' }}" value="{{ old('name') }}" required>
+                        <input type="text" name="name" id="name" maxlength="255" class="border rounded w-full p-2 {{ $errors->has('name') ? 'border-red-500' : 'border-gray-300' }}" value="{{ old('name') }}" required>
                     </div>
                     
                      
@@ -90,21 +91,89 @@
     </div>
 
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('testimornialForm');
+            const imageInput = document.getElementById('image');
+            const allowedImageTypes = ['image/jpeg', 'image/png', 'image/gif'];
+            const maxImageSize = 5 * 1024 * 1024;
+
+            function setImageError(message) {
+                const errorElement = document.getElementById('image_error');
+                imageInput.setCustomValidity(message || '');
+                errorElement.textContent = message || '';
+                errorElement.classList.toggle('hidden', !message);
+            }
+
+            function validateImage() {
+                if (!imageInput.files.length) {
+                    setImageError('Please choose an image.');
+                    return false;
+                }
+
+                const file = imageInput.files[0];
+
+                if (!allowedImageTypes.includes(file.type)) {
+                    setImageError('The image must be a file of type: jpeg, png, jpg, gif.');
+                    return false;
+                }
+
+                if (file.size > maxImageSize) {
+                    setImageError('The image may not be greater than 5120 kilobytes.');
+                    return false;
+                }
+
+                setImageError('');
+                return true;
+            }
+
+            imageInput.addEventListener('change', validateImage);
+
+            form.addEventListener('submit', function(event) {
+                const isImageValid = validateImage();
+
+                if (!isImageValid || !form.checkValidity()) {
+                    event.preventDefault();
+                    form.reportValidity();
+                }
+            });
+        });
+
         function previewImage(input) {
             const previewContainer = document.getElementById('imagePreviewContainer');
             const preview = document.getElementById('imagePreview');
             const fileName = document.getElementById('fileName');
+            const errorElement = document.getElementById('image_error');
+            const allowedImageTypes = ['image/jpeg', 'image/png', 'image/gif'];
+            const maxImageSize = 5 * 1024 * 1024;
 
-            const MAX_SIZE = 5 * 1024 * 1024; // 5MB
+            input.setCustomValidity('');
+            errorElement.classList.add('hidden');
+            errorElement.textContent = '';
 
             if (input.files && input.files[0]) {
                 const file = input.files[0];
 
-                // Check file size
-                if (file.size > MAX_SIZE) {
+                if (!allowedImageTypes.includes(file.type)) {
                     previewContainer.classList.add('hidden');
-                    preview.src = '';
+                    preview.src = '#';
+                    fileName.textContent = 'Only JPG, JPEG, PNG, and GIF files are allowed';
+                    input.value = '';
+                    input.setCustomValidity('The image must be a file of type: jpeg, png, jpg, gif.');
+                    errorElement.textContent = 'The image must be a file of type: jpeg, png, jpg, gif.';
+                    errorElement.classList.remove('hidden');
+                    input.reportValidity();
+                    return;
+                }
+
+                if (file.size > maxImageSize) {
+                    previewContainer.classList.add('hidden');
+                    preview.src = '#';
                     fileName.textContent = 'File is larger than 5MB';
+                    input.value = '';
+                    input.setCustomValidity('The image may not be greater than 5120 kilobytes.');
+                    errorElement.textContent = 'The image may not be greater than 5120 kilobytes.';
+                    errorElement.classList.remove('hidden');
+                    input.reportValidity();
                     return;
                 }
 
@@ -117,9 +186,10 @@
                 };
 
                 reader.readAsDataURL(file);
+                return;
             } else {
                 previewContainer.classList.add('hidden');
-                preview.src = '';
+                preview.src = '#';
                 fileName.textContent = 'No file chosen';
             }
         }

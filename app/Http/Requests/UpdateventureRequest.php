@@ -23,7 +23,7 @@ class UpdateventureRequest extends FormRequest
     {
         return [
             'title' => 'required|string|max:255',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5120',
             'link' => 'nullable|string|max:255',
             'content' => 'required|string',
         ];
@@ -40,8 +40,8 @@ class UpdateventureRequest extends FormRequest
             'title.required' => 'The title field is required.',
             'title.max' => 'The title may not be greater than 255 characters.',
             'image.image' => 'The file must be an image.',
-            'image.mimes' => 'The image must be a file of type: jpeg, png, jpg, gif, svg.',
-            'image.max' => 'The image may not be greater than 2048 kilobytes.',
+            'image.mimes' => 'The image must be a file of type: jpeg, png, jpg, gif.',
+            'image.max' => 'The image may not be greater than 5120 kilobytes.',
             'link.max' => 'The link may not be greater than 255 characters.',
             'content.required' => 'The content field is required.',
         ];

@@ -36,7 +36,7 @@
                     </div>
                 @endif
 
-                <form action="{{ route('careers.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('careers.store') }}" method="POST" enctype="multipart/form-data" id="careerForm" novalidate>
                     @csrf
 
                     <div class="mb-4">
@@ -44,7 +44,7 @@
                         @error('title')
                             <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                         @enderror
-                        <input type="text" name="title" id="title" class="border rounded w-full p-2 {{ $errors->has('title') ? 'border-red-500' : 'border-gray-300' }}" value="{{ old('title') }}" required>
+                        <input type="text" name="title" id="title" maxlength="255" class="border rounded w-full p-2 {{ $errors->has('title') ? 'border-red-500' : 'border-gray-300' }}" value="{{ old('title') }}" required>
                     </div>
                     <div class="mb-4">
                         <label for="location" class="block text-gray-700 font-bold mb-2">Location</label>
@@ -52,6 +52,7 @@
                             <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                         @enderror
                         <select name="location" id="location" class="border rounded w-full p-2 {{ $errors->has('location') ? 'border-red-500' : 'border-gray-300' }}" required>
+                            <option value="" disabled {{ old('location') ? '' : 'selected' }}>Select a location</option>
                             @foreach (config('base.location') as $location)
                             <option value="{{ $location }}" {{ old('location') == $location ? 'selected' : '' }}>{{ $location }}</option>
                             @endforeach
@@ -62,21 +63,23 @@
                         @error('salary')
                             <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                         @enderror
-                        <input type="number" name="salary" id="salary" class="border rounded w-full p-2 {{ $errors->has('salary') ? 'border-red-500' : 'border-gray-300' }}" value="{{ old('salary') }}" required>
+                        <input type="number" name="salary" id="salary" min="0" step="1" class="border rounded w-full p-2 {{ $errors->has('salary') ? 'border-red-500' : 'border-gray-300' }}" value="{{ old('salary') }}" required>
                     </div>
                     <div class="mb-4">
                         <label for="ignite" class="block text-gray-700 font-bold mb-2">Description</label>
                         @error('ignite')
                             <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                         @enderror
-                        <textarea rows="10" name="ignite" id="ignite" class="border rounded w-full p-2 {{ $errors->has('ignite') ? 'border-red-500' : 'border-gray-300' }}" required>{{ old('ignite') }}</textarea>
+                        <textarea rows="10" name="ignite" id="ignite" class="border rounded w-full p-2 {{ $errors->has('ignite') ? 'border-red-500' : 'border-gray-300' }}" required data-required-message="The ignite field is required.">{{ old('ignite') }}</textarea>
+                        <p id="ignite_error" class="hidden text-red-500 text-sm mt-1"></p>
                     </div>
                     <div class="mb-4">
                         <label for="role" class="block text-gray-700 font-bold mb-2">Role</label>
                         @error('role')
                             <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                         @enderror
-                        <textarea rows="10" name="role" id="role" class="border rounded w-full p-2 {{ $errors->has('role') ? 'border-red-500' : 'border-gray-300' }}" required>{{ old('role') }}</textarea>
+                        <textarea rows="10" name="role" id="role" class="border rounded w-full p-2 {{ $errors->has('role') ? 'border-red-500' : 'border-gray-300' }}" required data-required-message="The role field is required.">{{ old('role') }}</textarea>
+                        <p id="role_error" class="hidden text-red-500 text-sm mt-1"></p>
                     </div>
                     <div class="mb-4">
                         <label for="responsibilitiesInput" class="block text-gray-700 font-bold mb-2">Responsibilities</label>
@@ -84,14 +87,12 @@
                             <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                         @enderror
                         <div class="flex gap-2">
-                            <input type="text" id="responsibilitiesInput" class="border border-gray-300 rounded w-full p-2">
+                            <input type="text" id="responsibilitiesInput" class="border border-gray-300 rounded w-full p-2" maxlength="255" placeholder="Type a responsibility and click Add">
                             <button type="button" id="addResponsibility" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">Add</button>
                         </div>
-                        <input type="hidden" name="responsibilities" id="responsibilities" required>
-                        <div id="responsibilitiesList" class="py-2 space-y-1">
-
-
-                        </div>
+                        <input type="hidden" name="responsibilities" id="responsibilities" value="{{ old('responsibilities') }}" required data-required-message="The responsibilities field is required.">
+                        <p class="mt-1 text-sm text-gray-500">Add at least one responsibility.</p>
+                        <div id="responsibilitiesList" class="py-2 flex flex-wrap gap-2"></div>
                     </div>
                     <div class="mb-4">
                         <label for="requirementsInput" class="block text-gray-700 font-bold mb-2">Requirements</label>
@@ -99,13 +100,12 @@
                             <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                         @enderror
                         <div class="flex gap-2">
-                            <input type="text" id="requirementsInput" class="border border-gray-300 rounded w-full p-2">
+                            <input type="text" id="requirementsInput" class="border border-gray-300 rounded w-full p-2" maxlength="255" placeholder="Type a requirement and click Add">
                             <button id="addRequirement" type="button" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">Add</button>
                         </div>
-                        <input type="hidden" name="requirements" id="requirements" required>
-                        <div id="requirementsList" class="py-2 space-y-1">
-
-                        </div>
+                        <input type="hidden" name="requirements" id="requirements" value="{{ old('requirements') }}" required data-required-message="The requirements field is required.">
+                        <p class="mt-1 text-sm text-gray-500">Add at least one requirement.</p>
+                        <div id="requirementsList" class="py-2 flex flex-wrap gap-2"></div>
                     </div>
                     <div class="mb-4">
                         <label for="benefitsInput" class="block text-gray-700 font-bold mb-2">Benefits</label>
@@ -113,13 +113,12 @@
                             <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                         @enderror
                         <div class="flex gap-2">
-                            <input type="text" id="benefitsInput" class="border border-gray-300 rounded w-full p-2">
+                            <input type="text" id="benefitsInput" class="border border-gray-300 rounded w-full p-2" maxlength="255" placeholder="Type a benefit and click Add">
                             <button id="addBenefit" type="button" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">Add</button>
                         </div>
-                        <input type="hidden" name="benefits" id="benefits" required>
-                        <div id="benefitsList" class="py-2 space-y-1">
-
-                        </div>
+                        <input type="hidden" name="benefits" id="benefits" value="{{ old('benefits') }}" required data-required-message="The benefits field is required.">
+                        <p class="mt-1 text-sm text-gray-500">Add at least one benefit.</p>
+                        <div id="benefitsList" class="py-2 flex flex-wrap gap-2"></div>
                     </div>
 
                     <div class="flex justify-end gap-3 pt-6 border-t border-gray-100">
@@ -134,55 +133,86 @@
             </div>
         </div>
     </div>
-    </div>
-
     <script src="https://cdn.jsdelivr.net/npm/jodit@latest/es2021/jodit.fat.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const editor = Jodit.make('#ignite', {
+            const igniteEditor = Jodit.make('#ignite', {
                 height: 400,
-               buttons: ["bold","italic","underline","fontsize","link"]
+                buttons: ['bold', 'italic', 'underline', 'fontsize', 'link']
             });
-        });
 
-        document.addEventListener('DOMContentLoaded', function() {
-            const editor = Jodit.make('#role', {
+            const roleEditor = Jodit.make('#role', {
                 height: 400,
-               buttons: ["bold","italic","underline","fontsize","link"]
+                buttons: ['bold', 'italic', 'underline', 'fontsize', 'link']
             });
-        });
 
-        document.addEventListener('DOMContentLoaded', function() {
-            // Function to handle adding items to a list
+            const form = document.getElementById('careerForm');
+            const igniteField = document.getElementById('ignite');
+            const roleField = document.getElementById('role');
+
+            function getPlainTextFromHtml(value) {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(value, 'text/html');
+                return (doc.body.textContent || '').replace(/\u00A0/g, ' ').trim();
+            }
+
+            function getEditorContainer(field) {
+                return field.closest('.mb-4')?.querySelector('.jodit-container');
+            }
+
+            function setEditorError(field, message) {
+                const errorElement = document.getElementById(`${field.id}_error`);
+                const editorContainer = getEditorContainer(field);
+
+                if (errorElement) {
+                    errorElement.textContent = message || '';
+                    errorElement.classList.toggle('hidden', !message);
+                }
+
+                if (editorContainer) {
+                    editorContainer.classList.toggle('border-red-500', Boolean(message));
+                }
+            }
+
+            function validateRichTextField(editor, field) {
+                field.value = editor.value;
+
+                if (!getPlainTextFromHtml(field.value)) {
+                    const message = field.dataset.requiredMessage || 'This field is required.';
+                    field.value = '';
+                    field.setCustomValidity(message);
+                    setEditorError(field, message);
+                    return false;
+                }
+
+                field.setCustomValidity('');
+                setEditorError(field, '');
+                return true;
+            }
+
             function setupList(containerId, inputId, addButtonId, hiddenInputId) {
                 const container = document.getElementById(containerId);
                 const input = document.getElementById(inputId);
                 const addButton = document.getElementById(addButtonId);
                 const hiddenInput = document.getElementById(hiddenInputId);
-
-                // Initialize empty array if hidden input is empty
                 let items = hiddenInput.value ? hiddenInput.value.split('/').filter(Boolean) : [];
 
-                // Function to update the hidden input value
                 function updateHiddenInput() {
                     hiddenInput.value = items.join('/');
-                    hiddenInput.dispatchEvent(new Event('input')); // Trigger validation
+                    const message = items.length ? '' : (hiddenInput.dataset.requiredMessage || 'This field is required.');
+                    hiddenInput.setCustomValidity(message);
+                    input.setCustomValidity(message);
                 }
 
-                // Function to render the list
                 function renderList() {
                     container.innerHTML = '';
+
                     items.forEach((item, index) => {
-                        if (item.trim() === '') return;
-
-
                         const itemElement = document.createElement('div');
-                        itemElement.className = 'px-3 py-1 gap-3 flex items-center text-white text-sm border w-fit bg-blue-800 border-gray-300 rounded">Hello World Kaung Pyae Aung <button type="button" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded';
+                        itemElement.className = 'px-3 py-1 flex items-center gap-2 text-white text-sm border w-fit bg-blue-800 border-gray-300 rounded';
                         itemElement.innerHTML = `
-                            ${item}
-                           <button type="button" 
-                                    class="bg-blue-500 hover:bg-red-600 text-white py-1 px-2 rounded-full ml-2 remove-item" 
-                                    data-index="${index}">
+                            <span>${item}</span>
+                            <button type="button" class="bg-blue-500 hover:bg-red-600 text-white py-1 px-2 rounded-full remove-item" data-index="${index}">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" viewBox="0 0 20 20" fill="currentColor">
                                     <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
                                 </svg>
@@ -194,24 +224,27 @@
                     updateHiddenInput();
                 }
 
-                // Add item to the list
                 function addItem() {
                     const value = input.value.trim();
 
-                    console.log(value);
-                    console.log(container)
-
-                    if (value) {
-                        items.push(value);
-                        input.value = '';
-                        renderList();
+                    if (!value) {
+                        return;
                     }
+
+                    if (value.length > 255) {
+                        input.setCustomValidity('Each item may not be greater than 255 characters.');
+                        input.reportValidity();
+                        return;
+                    }
+
+                    input.setCustomValidity('');
+                    items.push(value);
+                    input.value = '';
+                    renderList();
                 }
 
-                // Add button click handler
                 addButton.addEventListener('click', addItem);
 
-                // Allow pressing Enter to add item
                 input.addEventListener('keypress', function(e) {
                     if (e.key === 'Enter') {
                         e.preventDefault();
@@ -219,24 +252,45 @@
                     }
                 });
 
-                // Remove item from the list
-                container.addEventListener('click', function(e) {
-                    const removeButton = e.target.closest('.remove-item');
-                    if (removeButton) {
-                        const index = removeButton.dataset.index;
-                        items.splice(index, 1);
-                        renderList();
-                    }
+                input.addEventListener('input', function() {
+                    input.setCustomValidity('');
                 });
 
-                // Initial render
+                container.addEventListener('click', function(e) {
+                    const removeButton = e.target.closest('.remove-item');
+
+                    if (!removeButton) {
+                        return;
+                    }
+
+                    items.splice(Number(removeButton.dataset.index), 1);
+                    renderList();
+                });
+
                 renderList();
             }
 
-            // Set up each list
             setupList('responsibilitiesList', 'responsibilitiesInput', 'addResponsibility', 'responsibilities');
             setupList('requirementsList', 'requirementsInput', 'addRequirement', 'requirements');
             setupList('benefitsList', 'benefitsInput', 'addBenefit', 'benefits');
+
+            igniteEditor.events.on('change', function() {
+                validateRichTextField(igniteEditor, igniteField);
+            });
+
+            roleEditor.events.on('change', function() {
+                validateRichTextField(roleEditor, roleField);
+            });
+
+            form.addEventListener('submit', function(event) {
+                const isIgniteValid = validateRichTextField(igniteEditor, igniteField);
+                const isRoleValid = validateRichTextField(roleEditor, roleField);
+
+                if (!isIgniteValid || !isRoleValid || !form.checkValidity()) {
+                    event.preventDefault();
+                    form.reportValidity();
+                }
+            });
         });
     </script>
 

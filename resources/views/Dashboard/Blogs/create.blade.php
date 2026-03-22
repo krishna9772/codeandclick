@@ -11,7 +11,6 @@
     <div class="py-12">
         <div class="max-w-7xl space-y-6 mx-auto sm:px-6 lg:px-8">
             <div style="width: 800px;" class="bg-white mx-auto p-4 overflow-hidden shadow-sm sm:rounded-lg">
-                <!-- Display validation errors -->
                 @if ($errors->any())
                 <div class="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
                     <div class="flex">
@@ -36,35 +35,34 @@
                 </div>
                 @endif
 
-                <form action="{{ route('bloglist.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('bloglist.store') }}" method="POST" enctype="multipart/form-data" id="blogForm" novalidate>
                     @csrf
-                    <!-- Image Upload with Preview -->
                     <div class="mb-6">
                         <label for="image" class="block text-gray-700 font-bold mb-2">Image</label>
                         @error('image')
                         <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                         @enderror
 
-                        <!-- Image Preview Container -->
                         <div id="imagePreviewContainer" class="hidden mb-4">
-                            <img id="imagePreview" src="#" alt="Image Preview" class=" w-full object-cover rounded-lg border border-gray-200">
+                            <img id="imagePreview" src="#" alt="Image Preview" class="w-full object-cover rounded-lg border border-gray-200">
                         </div>
 
                         <div class="mt-1 flex items-center">
                             <label for="image" class="cursor-pointer bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                                 <span>Choose an image</span>
-                                <input id="image" name="image" type="file" class="sr-only" accept="image/*" onchange="previewImage(this)" required>
+                                <input id="image" name="image" type="file" class="sr-only" accept=".jpeg,.jpg,.png,.gif,image/jpeg,image/png,image/gif" onchange="previewImage(this)" required>
                             </label>
                             <span id="fileName" class="ml-4 text-sm text-gray-600">No file chosen</span>
                         </div>
-                        <p class="mt-1 text-sm text-gray-500">JPG, PNG, or WebP (Max: 5MB)</p>
+                        <p class="mt-1 text-sm text-gray-500">JPG, JPEG, PNG, or GIF (Max: 5MB)</p>
                     </div>
                     <div class="mb-4">
                         <label for="title" class="block text-gray-700 font-bold mb-2">Title</label>
                         @error('title')
                         <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                         @enderror
-                        <input type="text" name="title" id="title" class="border rounded w-full p-2 {{ $errors->has('title') ? 'border-red-500' : 'border-gray-300' }}" value="{{ old('title') }}" required>
+                        <input type="text" name="title" id="title" maxlength="255" class="border rounded w-full p-2 {{ $errors->has('title') ? 'border-red-500' : 'border-gray-300' }}" value="{{ old('title') }}" required>
+                        <p class="mt-1 text-sm text-gray-500">Maximum 255 characters.</p>
                     </div>
                     <div class="mb-4">
                         <label for="type" class="block text-gray-700 font-bold mb-2">Type</label>
@@ -72,6 +70,7 @@
                         <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                         @enderror
                         <select name="type" id="type" class="border rounded w-full p-2 {{ $errors->has('type') ? 'border-red-500' : 'border-gray-300' }}" required>
+                            <option value="" disabled {{ old('type') ? '' : 'selected' }}>Select a blog type</option>
                             @foreach (config('base.blog_types') as $type)
                             <option value="{{ $type }}" {{ old('type') == $type ? 'selected' : '' }}>{{ $type }}</option>
                             @endforeach
@@ -82,7 +81,8 @@
                         @error('preview')
                         <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                         @enderror
-                        <textarea name="preview" id="preview" class="border h-[200px] rounded w-full p-2 {{ $errors->has('preview') ? 'border-red-500' : 'border-gray-300' }}" required>{{ old('preview') }}</textarea>
+                        <textarea name="preview" id="preview" maxlength="255" class="border h-[200px] rounded w-full p-2 {{ $errors->has('preview') ? 'border-red-500' : 'border-gray-300' }}" required>{{ old('preview') }}</textarea>
+                        <p class="mt-1 text-sm text-gray-500">Maximum 255 characters.</p>
                     </div>
                     <div class="mb-4">
                         <label for="content" class="block text-gray-700 font-bold mb-2">Content</label>
@@ -103,14 +103,42 @@
             </div>
         </div>
     </div>
-    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/jodit@latest/es2021/jodit.fat.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const editor = Jodit.make('#content', {
+            Jodit.make('#content', {
                 height: 400,
-               buttons: ["bold","italic","underline","fontsize","link"]
+                buttons: ['bold', 'italic', 'underline', 'fontsize', 'link']
+            });
+
+            const form = document.getElementById('blogForm');
+            const imageInput = document.getElementById('image');
+            const allowedImageTypes = ['image/jpeg', 'image/png', 'image/gif'];
+            const maxImageSize = 5 * 1024 * 1024;
+
+            form.addEventListener('submit', function(event) {
+                const contentField = document.getElementById('content');
+                contentField.value = contentField.value.trim();
+
+                if (imageInput.files.length > 0) {
+                    const file = imageInput.files[0];
+
+                    if (!allowedImageTypes.includes(file.type)) {
+                        imageInput.setCustomValidity('The image must be a file of type: jpeg, png, jpg, gif.');
+                    } else if (file.size > maxImageSize) {
+                        imageInput.setCustomValidity('The image may not be greater than 5120 kilobytes.');
+                    } else {
+                        imageInput.setCustomValidity('');
+                    }
+                } else {
+                    imageInput.setCustomValidity('Please choose an image.');
+                }
+
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    form.reportValidity();
+                }
             });
         });
 
@@ -118,17 +146,31 @@
             const previewContainer = document.getElementById('imagePreviewContainer');
             const preview = document.getElementById('imagePreview');
             const fileName = document.getElementById('fileName');
+            const allowedImageTypes = ['image/jpeg', 'image/png', 'image/gif'];
+            const maxImageSize = 5 * 1024 * 1024;
 
-            const MAX_SIZE = 5 * 1024 * 1024; // 5MB
+            input.setCustomValidity('');
 
             if (input.files && input.files[0]) {
                 const file = input.files[0];
 
-                // Check file size
-                if (file.size > MAX_SIZE) {
+                if (!allowedImageTypes.includes(file.type)) {
                     previewContainer.classList.add('hidden');
-                    preview.src = '';
+                    preview.src = '#';
+                    fileName.textContent = 'Only JPG, JPEG, PNG, and GIF files are allowed';
+                    input.value = '';
+                    input.setCustomValidity('The image must be a file of type: jpeg, png, jpg, gif.');
+                    input.reportValidity();
+                    return;
+                }
+
+                if (file.size > maxImageSize) {
+                    previewContainer.classList.add('hidden');
+                    preview.src = '#';
                     fileName.textContent = 'File is larger than 5MB';
+                    input.value = '';
+                    input.setCustomValidity('The image may not be greater than 5120 kilobytes.');
+                    input.reportValidity();
                     return;
                 }
 
@@ -141,11 +183,13 @@
                 };
 
                 reader.readAsDataURL(file);
-            } else {
-                previewContainer.classList.add('hidden');
-                preview.src = '';
-                fileName.textContent = 'No file chosen';
+                return;
             }
+
+            previewContainer.classList.add('hidden');
+            preview.src = '#';
+            fileName.textContent = 'No file chosen';
         }
     </script>
 </x-app-layout>
+

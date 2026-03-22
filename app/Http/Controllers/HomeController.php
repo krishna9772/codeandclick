@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SubscribeRequest;
 use App\Models\Blogs;
 use App\Models\Career;
 use App\Models\Client;
@@ -161,22 +162,23 @@ class HomeController extends Controller
         return view('blog', compact('Headerblogs', 'blogs', 'tab'));
     }
 
-    public function Subscribe(Request $request)
+    public function Subscribe(SubscribeRequest $request)
     {
-        $validated = $request->validate([
-            'first_name' => 'required|string|max:255',
-            'last_name'  => 'required|string|max:255',
-            'email'      => 'required|email',
-        ]);
+        $validated = $request->validated();
 
-        $receive_newsletter = $request->has('receive_newsletter') ? 1 : 0;
-
-        Subscribe::create([
+        $subscriber = Subscribe::create([
             'first_name' => $validated['first_name'],
             'last_name' => $validated['last_name'],
             'email' => $validated['email'],
-            'receive_newsletter' => $receive_newsletter,
+            'receive_newsletter' => 1,
         ]);
+
+        if ($request->expectsJson()) {
+            return response()->json([
+                'message' => 'Thank you for subscribing to our newsletter!',
+                'subscriber' => $subscriber,
+            ]);
+        }
 
         return redirect()->back()->with('success', 'Thank you for subscribing to our newsletter!');
     }

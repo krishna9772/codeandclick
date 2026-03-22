@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreCareerRequest extends FormRequest
 {
@@ -28,8 +29,8 @@ class StoreCareerRequest extends FormRequest
             'benefits' => 'required|string',
             'requirements' => 'required|string',
             'responsibilities' => 'required|string',
-            'salary' => 'required|string',
-            'location' => 'required|string',
+            'salary' => 'required|numeric|min:0',
+            'location' => ['required', 'string', Rule::in(config('base.location'))],
         ];
     }
 
@@ -49,7 +50,10 @@ class StoreCareerRequest extends FormRequest
             'requirements.required' => 'The requirements field is required.',
             'responsibilities.required' => 'The responsibilities field is required.',
             'salary.required' => 'The salary field is required.',
+            'salary.numeric' => 'The salary must be a valid number.',
+            'salary.min' => 'The salary must be at least 0.',
             'location.required' => 'The location field is required.',
+            'location.in' => 'The selected location is invalid.',
         ];
     }
 
