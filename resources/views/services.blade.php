@@ -64,7 +64,7 @@
                   <a
                     href="{{ route('service-details', $service->slug) }}""
                     target=""
-                    class="c__button-circle light text-sm">
+                    class="c__button-circle light">
                     <span> {{ $service->name }} </span>
                     <div class="c__button-circle--arrow">
                       <img
