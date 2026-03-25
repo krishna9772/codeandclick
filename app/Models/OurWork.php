@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Concerns\HasLocalizedAttributes;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
@@ -13,10 +14,13 @@ class OurWork extends Model implements HasMedia
 
     use InteractsWithMedia;
     use SoftDeletes;
+    use HasLocalizedAttributes;
 
     protected $fillable = [
         'title',
+        'title_mm',
         'content',
+        'content_mm',
         'serviceID',
         'status',
         'slug',
@@ -36,6 +40,9 @@ class OurWork extends Model implements HasMedia
                 'title' => $model->title,
                 'description' =>  Str::limit(strip_tags($model->content), 150),
                 'keyword' => $model->title,
+                'title_mm' => $model->title_mm,
+                'description_mm' => $model->content_mm ? Str::limit(strip_tags($model->content_mm), 150) : null,
+                'keyword_mm' => $model->title_mm,
             ]);
         });
 
@@ -48,6 +55,9 @@ class OurWork extends Model implements HasMedia
                 'title' => $model->title,
                 'description' => Str::limit(strip_tags($model->content), 150),
                 'keyword' => $model->title,
+                'title_mm' => $model->title_mm,
+                'description_mm' => $model->content_mm ? Str::limit(strip_tags($model->content_mm), 150) : null,
+                'keyword_mm' => $model->title_mm,
             ]);
         });
 

@@ -45,12 +45,14 @@ class OurWorkRequest extends FormRequest
     {
         return [
             'title' => 'required|string|max:255',
+            'title_mm' => 'nullable|string|max:255',
 
             'image' => $this->routeIs('our-work.store')
                 ? 'required|image|mimes:jpeg,png,jpg,gif|max:5120'
                 : 'nullable|image|mimes:jpeg,png,jpg,gif|max:5120',
 
             'content' => 'required|string',
+            'content_mm' => 'nullable|string',
             'serviceID' => 'required|exists:services,id',
             'type' => ['required', 'string', Rule::in(self::WORK_TYPES)],
 

@@ -54,6 +54,30 @@
                         @enderror
                         <textarea rows="10" name="description" id="description" class="border rounded w-full p-2 {{ $errors->has('description') ? 'border-red-500' : 'border-gray-300' }}" required>{{ old('description',$seo->description) }}</textarea>
                     </div>
+                    <div class="mt-8 pt-6 border-t border-gray-200">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Myanmar Content</h3>
+                        <div class="mb-4">
+                            <label for="title_mm" class="block text-gray-700 font-bold mb-2">Title (Myanmar)</label>
+                            @error('title_mm')
+                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                            @enderror
+                            <input type="text" name="title_mm" id="title_mm" class="border border-gray-300 rounded w-full p-2" value="{{ old('title_mm',$seo->title_mm) }}">
+                        </div>
+                        <div class="mb-4">
+                            <label for="description_mm" class="block text-gray-700 font-bold mb-2">Description (Myanmar)</label>
+                            @error('description_mm')
+                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                            @enderror
+                            <textarea rows="10" name="description_mm" id="description_mm" class="border rounded w-full p-2 {{ $errors->has('description_mm') ? 'border-red-500' : 'border-gray-300' }}">{{ old('description_mm',$seo->description_mm) }}</textarea>
+                        </div>
+                        <div class="mb-4">
+                            <label for="keyword_mm" class="block text-gray-700 font-bold mb-2">Keywords (Myanmar)</label>
+                            @error('keyword_mm')
+                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                            @enderror
+                            <input type="text" name="keyword_mm" id="keyword_mm" class="border border-gray-300 rounded w-full p-2" value="{{ old('keyword_mm',$seo->keyword_mm) }}" placeholder="Use / between each keyword">
+                        </div>
+                    </div>
 
                      <div class="mb-4">
                         <label for="tagInput" class="block text-gray-700 font-bold mb-2">Tags</label>

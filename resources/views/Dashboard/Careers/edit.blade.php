@@ -121,6 +121,51 @@
                         <p class="mt-1 text-sm text-gray-500">Add at least one benefit.</p>
                         <div id="benefitsList" class="py-2 flex flex-wrap gap-2"></div>
                     </div>
+                    <div class="mt-8 pt-6 border-t border-gray-200">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Myanmar Content</h3>
+                        <div class="mb-4">
+                            <label for="title_mm" class="block text-gray-700 font-bold mb-2">Title (Myanmar)</label>
+                            @error('title_mm')
+                                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                            @enderror
+                            <input type="text" value="{{ old('title_mm', $career->title_mm) }}" name="title_mm" id="title_mm" maxlength="255" class="border rounded w-full p-2 {{ $errors->has('title_mm') ? 'border-red-500' : 'border-gray-300' }}">
+                        </div>
+                        <div class="mb-4">
+                            <label for="ignite_mm" class="block text-gray-700 font-bold mb-2">Description (Myanmar)</label>
+                            @error('ignite_mm')
+                                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                            @enderror
+                            <textarea rows="10" name="ignite_mm" id="ignite_mm" class="border rounded w-full p-2 {{ $errors->has('ignite_mm') ? 'border-red-500' : 'border-gray-300' }}">{{ old('ignite_mm', $career->ignite_mm) }}</textarea>
+                        </div>
+                        <div class="mb-4">
+                            <label for="role_mm" class="block text-gray-700 font-bold mb-2">Role (Myanmar)</label>
+                            @error('role_mm')
+                                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                            @enderror
+                            <textarea rows="10" name="role_mm" id="role_mm" class="border rounded w-full p-2 {{ $errors->has('role_mm') ? 'border-red-500' : 'border-gray-300' }}">{{ old('role_mm', $career->role_mm) }}</textarea>
+                        </div>
+                        <div class="mb-4">
+                            <label for="responsibilities_mm" class="block text-gray-700 font-bold mb-2">Responsibilities (Myanmar)</label>
+                            @error('responsibilities_mm')
+                                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                            @enderror
+                            <textarea name="responsibilities_mm" id="responsibilities_mm" class="border rounded w-full p-2 {{ $errors->has('responsibilities_mm') ? 'border-red-500' : 'border-gray-300' }}" placeholder="Use / between each item">{{ old('responsibilities_mm', $career->responsibilities_mm) }}</textarea>
+                        </div>
+                        <div class="mb-4">
+                            <label for="requirements_mm" class="block text-gray-700 font-bold mb-2">Requirements (Myanmar)</label>
+                            @error('requirements_mm')
+                                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                            @enderror
+                            <textarea name="requirements_mm" id="requirements_mm" class="border rounded w-full p-2 {{ $errors->has('requirements_mm') ? 'border-red-500' : 'border-gray-300' }}" placeholder="Use / between each item">{{ old('requirements_mm', $career->requirements_mm) }}</textarea>
+                        </div>
+                        <div class="mb-4">
+                            <label for="benefits_mm" class="block text-gray-700 font-bold mb-2">Benefits (Myanmar)</label>
+                            @error('benefits_mm')
+                                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                            @enderror
+                            <textarea name="benefits_mm" id="benefits_mm" class="border rounded w-full p-2 {{ $errors->has('benefits_mm') ? 'border-red-500' : 'border-gray-300' }}" placeholder="Use / between each item">{{ old('benefits_mm', $career->benefits_mm) }}</textarea>
+                        </div>
+                    </div>
 
                     <div class="flex justify-end gap-3 pt-6 border-t border-gray-100">
                         <a href="{{ url()->previous() }}" class="px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
@@ -142,15 +187,25 @@
                 height: 400,
                 buttons: ['bold', 'italic', 'underline', 'fontsize', 'link']
             });
+            const igniteMmEditor = Jodit.make('#ignite_mm', {
+                height: 400,
+                buttons: ['bold', 'italic', 'underline', 'fontsize', 'link']
+            });
 
             const roleEditor = Jodit.make('#role', {
+                height: 400,
+                buttons: ['bold', 'italic', 'underline', 'fontsize', 'link']
+            });
+            const roleMmEditor = Jodit.make('#role_mm', {
                 height: 400,
                 buttons: ['bold', 'italic', 'underline', 'fontsize', 'link']
             });
 
             const form = document.getElementById('careerForm');
             const igniteField = document.getElementById('ignite');
+            const igniteMmField = document.getElementById('ignite_mm');
             const roleField = document.getElementById('role');
+            const roleMmField = document.getElementById('role_mm');
 
             function getPlainTextFromHtml(value) {
                 const parser = new DOMParser();
@@ -287,6 +342,8 @@
             form.addEventListener('submit', function(event) {
                 const isIgniteValid = validateRichTextField(igniteEditor, igniteField);
                 const isRoleValid = validateRichTextField(roleEditor, roleField);
+                igniteMmField.value = igniteMmEditor.value;
+                roleMmField.value = roleMmEditor.value;
 
                 if (!isIgniteValid || !isRoleValid || !form.checkValidity()) {
                     event.preventDefault();

@@ -35195,20 +35195,44 @@ function blog_post_filtering_size() {
 }
 function blog_post_load_more() {
     $(".l__blog-list--more-articles .c__button-circle").click(function () {
-        var t = $(".l__blog-list .row");
-        (offset = parseInt($(this).attr("data-offset"))),
-            (total = parseInt($(this).attr("data-total"))),
-            (new_offset = parseInt(offset) + 6),
-            $(this).attr("data-offset", new_offset),
-            new_offset > total && $(this).hide(),
-            jQuery.ajax({
-                type: "post",
-                url: "/wp-admin/admin-ajax.php",
-                data: { action: "blog_load_more", query_offset: offset },
-                success: function (e) {
-                    t.append(e), match_height();
-                },
-            });
+        var t = $(this),
+            e = $(".l__blog-list .row"),
+            i = parseInt(t.attr("data-next-page"), 10) || 2,
+            o = t.attr("data-tab") || "",
+            a = t.attr("data-url");
+        if (!a || "true" === t.attr("data-loading")) return;
+        t.attr("data-loading", "true");
+        var n = t.find("span").first(),
+            r = n.text();
+        n.text("Loading...");
+        jQuery
+            .ajax({
+                type: "get",
+                url: a,
+                data: { page: i, tab: o },
+            })
+            .done(function (t) {
+                t.html &&
+                    (e.append(t.html),
+                    "function" == typeof match_height && match_height()),
+                    t.has_more
+                        ? $(this).attr("data-next-page", t.next_page)
+                        : $(this).closest(".l__blog-list--more-articles").hide();
+            }.bind(this))
+            .fail(function () {
+                n.text(r);
+            })
+            .always(function () {
+                $(this).attr("data-loading", "false"),
+                    $(this)
+                        .find("span")
+                        .first()
+                        .text(
+                            $(this).closest(".l__blog-list--more-articles").is(":hidden")
+                                ? r
+                                : "Show more articles"
+                        );
+            }.bind(this));
     });
 }
 function calculate_rotated_text() {
@@ -35310,7 +35334,6 @@ function headline_loop() {
 function header_colours() {
     $("body").hasClass("page-template-page-our-work") ||
     $("body").hasClass("page-template-page-contact") ||
-    $("body").hasClass("page-template-page-blog") ||
     $("body").hasClass("page-template-page-working-with-us") ||
     $("body").hasClass("page-template-page-technology") ||
     $("body").hasClass("page-template-page-generic")
@@ -35323,7 +35346,6 @@ function menu_toggle() {
             $(".c__navigation").toggleClass("active"),
             $("body").hasClass("page-template-page-our-work") ||
                 $("body").hasClass("page-template-page-contact") ||
-                $("body").hasClass("page-template-page-blog") ||
                 $("body").hasClass("page-template-page-working-with-us") ||
                 $("body").hasClass("page-template-page-technology") ||
                 ($(".c__navigation").hasClass("active")
@@ -35607,15 +35629,18 @@ function offices_carousel() {
 }
 function open_full_screen() {
     var t = document.getElementById("showreel-video");
+    if (!t) return;
     $(".open-fullscreen").click(function () {
+        $("body").addClass("showreel-open"),
         $(".showreel-video-overlay").addClass("active"),
             $(".showreel-video-container").addClass("active"),
-            setTimeout(function () {
-                $("#showreel-video").addClass("active");
-            }, 1e3),
-            t.play();
+            $("#showreel-video").addClass("active"),
+            (t.currentTime = 0);
+        var e = t.play();
+        e && "function" == typeof e.catch && e.catch(function () {});
     }),
-        $(".close-video").click(function () {
+        $(".close-video, .showreel-video-overlay").click(function () {
+            $("body").removeClass("showreel-open"),
             $(".showreel-video-container").removeClass("active"),
                 $(".showreel-video-overlay").removeClass("active"),
                 $("#showreel-video").removeClass("active"),

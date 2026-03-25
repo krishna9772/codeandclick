@@ -12,7 +12,7 @@
                   Strategy – Creativity – Technology
                 </p>
                 <div class="open-fullscreen c__button">
-                  <p>See Our Work</p>
+                  <p>{{ site_text('site.home.see_our_work') }}</p>
                 </div>
               </div>
         </section>
@@ -47,24 +47,22 @@
                 <div class="container">
                   <div class="m__home-intro--award experienceContainer">
                     <p style="line-height: 1.2" class="year_of_experience">
-                      8+ Years Experience
+                      {{ site_text('site.home.experience') }}
                     </p>
                     {{-- <p class="highlyRecommended">Highly Recommended</p> --}}
                   </div>
                   <div class="m__home-intro--content">
-                    <h1>Driven by</h1>
+                    <h1>{{ site_text('site.home.driven_by') }}</h1>
                     <div class="owl-carousel title-carousel" id="home-owl" >
-                      <h1>Technology</h1>
-                      <h1>Strategy</h1>
-                      <h1>Creativity</h1>
+                      <h1>{{ site_text('site.home.technology') }}</h1>
+                      <h1>{{ site_text('site.home.strategy') }}</h1>
+                      <h1>{{ site_text('site.home.creativity') }}</h1>
                     </div>
                     <p style="text-align: justify !important;">
-                      We fuse data-driven strategy with creative execution to
-                      build digital solutions that deliver real business
-                      results.
+                      {{ site_text('site.home.intro_body') }}
                     </p>
                     <a href="{{route('our-work')}}" target="" class="c__button-circle light">
-                      <span>Our Work</span>
+                      <span>{{ site_text('site.home.our_work') }}</span>
                       <div class="c__button-circle--arrow">
                         <img
                           alt="right arrow"
@@ -212,7 +210,7 @@
 
              <section class="m__work-with">
                 <div class="container">
-                  <h3 class="text-6xl">Client</h3>
+                  <h3 class="text-6xl">{{ site_text('site.home.clients') }}</h3>
                   <div class="owl-carousel clients">
                     <div class="row">
                       @foreach ($clients as $client)
@@ -257,9 +255,9 @@
                       @foreach ($testimornials as $testimornial)
                       <div>
                         <h4 class="text-2xl">
-                          {{$testimornial->description}}
+                          {{ $testimornial->localized('description') }}
                         </h4>
-                        <p>{{$testimornial->name}}</p>
+                        <p>{{ $testimornial->localized('name') }}</p>
                       </div>
                       @endforeach
                       
@@ -279,7 +277,7 @@
 
               <section class="m__services">
                 <div class="container">
-                  <h3 class="text-6xl">Services</h3>
+                  <h3 class="text-6xl">{{ site_text('site.home.services') }}</h3>
                   <p class="medium">
                     Combining strategy, creativity and technology, our work has purpose and is always results driven.
                   </p>
@@ -298,7 +296,7 @@
                     <ul>
                       @foreach ($services as $service)
                       <li data-bg="{{ $service->getFirstMediaUrl('services') }}">
-                        <a class="text-sm" href="{{route('service-details',$service->slug)}}" class="xlarge">{{ $service->name }}</a>
+                        <a class="text-sm" href="{{route('service-details',$service->slug)}}" class="xlarge">{{ $service->localized('name') }}</a>
                       </li>
                       @endforeach
                     </ul>
@@ -314,4 +312,3 @@
     </div>
     <input type="hidden" id="data_location" value="" />
 @endsection
-

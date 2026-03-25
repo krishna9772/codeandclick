@@ -8,6 +8,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OurWOrkController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\SiteTranslationController;
 use App\Http\Controllers\TestimornialController;
 use App\Http\Controllers\SeoController;
 use App\Http\Controllers\VentureController;
@@ -19,14 +20,18 @@ Route::controller(HomeController::class)->group(function () {
 
     // Home
     Route::get('/', 'home')->name('home');
+    Route::get('/language/{locale}', 'switchLanguage')
+        ->whereIn('locale', config('base.supported_locales', ['en', 'mm']))
+        ->name('language.switch');
 
     // Blog
     Route::get('/blog', 'showBlog')->name('blog');
+    Route::get('/blog/load-more', 'loadMoreBlogs')->name('blog.load-more');
     Route::get('/blog/{uuid}/{slug}', 'BlogDetails')->name('blog-details');
 
     // Careers
     Route::get('/careers', 'showCareers')->name('show-careers');
-    Route::get('/careers/{id}', 'showCareerDetails')->name('show-career-details');
+    Route::get('/careers/{slug}', 'showCareerDetails')->name('show-career-details');
 
     // Our Works
     Route::get('/our-works', 'showOurWork')->name('our-work');
@@ -94,6 +99,9 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
 
     Route::get('seo', [SeoController::class, 'index'])->name('seo.index');
     Route::put('seo', [SeoController::class, 'update'])->name('seo.update');
+
+    Route::get('site-translations', [SiteTranslationController::class, 'index'])->name('site-translations.index');
+    Route::put('site-translations', [SiteTranslationController::class, 'update'])->name('site-translations.update');
 
     Route::get('sitemap', function () {
         SiteMapGenerate::dispatch();

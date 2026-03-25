@@ -76,6 +76,23 @@
                         @enderror
                         <textarea rows="10" name="description" id="description" class="border rounded w-full p-2 {{ $errors->has('description') ? 'border-red-500' : 'border-gray-300' }}" required>{{ old('description') }}</textarea>
                     </div>
+                    <div class="mt-8 pt-6 border-t border-gray-200">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Myanmar Content</h3>
+                        <div class="mb-4">
+                            <label for="name_mm" class="block text-gray-700 font-bold mb-2">Name (Myanmar)</label>
+                            @error('name_mm')
+                                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                            @enderror
+                            <input type="text" name="name_mm" id="name_mm" maxlength="255" class="border rounded w-full p-2 {{ $errors->has('name_mm') ? 'border-red-500' : 'border-gray-300' }}" value="{{ old('name_mm') }}">
+                        </div>
+                        <div class="mb-4">
+                            <label for="description_mm" class="block text-gray-700 font-bold mb-2">Description (Myanmar)</label>
+                            @error('description_mm')
+                                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                            @enderror
+                            <textarea rows="10" name="description_mm" id="description_mm" class="border rounded w-full p-2 {{ $errors->has('description_mm') ? 'border-red-500' : 'border-gray-300' }}">{{ old('description_mm') }}</textarea>
+                        </div>
+                    </div>
                         <div class="flex justify-end gap-3 pt-6 border-t border-gray-100">
                             <a href="{{ url()->previous() }}" class="px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                                 Cancel

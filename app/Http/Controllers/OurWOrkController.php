@@ -34,7 +34,10 @@ class OurWOrkController extends Controller
         }
 
         if ($search) {
-            $works = $works->where('title', 'like', '%' . $search . '%');
+            $works = $works->where('title', 'like', '%' . $search . '%')
+                ->orWhere('title_mm', 'like', '%' . $search . '%')
+                ->orWhere('content', 'like', '%' . $search . '%')
+                ->orWhere('content_mm', 'like', '%' . $search . '%');
         }
 
         $works = $works->orderBy('created_at', 'desc')->paginate(10);

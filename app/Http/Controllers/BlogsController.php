@@ -35,7 +35,10 @@ class BlogsController extends Controller
         }
 
         if ($search) {
-            $blogs = $blogs->where('title', 'like', '%' . $search . '%')->orWhere('content', 'like', '%' . $search . '%');
+            $blogs = $blogs->where('title', 'like', '%' . $search . '%')
+                ->orWhere('title_mm', 'like', '%' . $search . '%')
+                ->orWhere('content', 'like', '%' . $search . '%')
+                ->orWhere('content_mm', 'like', '%' . $search . '%');
         }
 
         $blogs = $blogs->orderBy('created_at', 'desc')->paginate(10);

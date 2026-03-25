@@ -18,29 +18,56 @@ use Artesaos\SEOTools\Facades\SEOTools;
 
 class HomeController extends Controller
 {
+    private const SUPPORTED_LOCALES = ['en', 'mm'];
 
-    public function generateSeo($seo,$title,$link){
+    public function generateSeo($seo, $title, $link)
+    {
+        $fallbackTitle = $title ?: config('app.name', 'Code and Click');
+        $fallbackDescription = site_text('site.seo.default_description');
+        $seoTitle = $seo?->localized('title') ?: $fallbackTitle;
+        $seoDescription = $seo?->localized('description') ?: $fallbackDescription;
+        $canonicalUrl = rtrim(config('app.url'), '/').$link;
 
+        SEOTools::setTitle($seoTitle);
+        SEOTools::setDescription($seoDescription);
+        SEOTools::setCanonical($canonicalUrl);
 
-        if ($title){
-            SEOTools::setTitle($title);
-        }
-        
-        SEOTools::setDescription($seo->description);
-        SEOTools::setCanonical(config('app.url'));
+        SEOTools::opengraph()->setUrl($canonicalUrl);
+        SEOTools::opengraph()->setTitle($seoTitle);
+        SEOTools::opengraph()->setDescription($seoDescription);
+        SEOTools::opengraph()->addImage(asset('images/favicon.png'));
 
-        SEOTools::opengraph()->setUrl(config('app.url').$link);
-        SEOTools::opengraph()->setTitle($seo->title);
-        SEOTools::opengraph()->setDescription($seo->description);
-        SEOTools::opengraph()->addImage(asset(asset('images/favicon.png')));
-        SEOTools::twitter()->setSite(config('app.url').$link);
-        SEOTools::twitter()->setTitle($seo->title);
-        SEOTools::twitter()->setDescription($seo->description);
+        SEOTools::twitter()->setSite($canonicalUrl);
+        SEOTools::twitter()->setTitle($seoTitle);
+        SEOTools::twitter()->setDescription($seoDescription);
         SEOTools::twitter()->setImage(asset('images/favicon.png'));
+
         SEOTools::jsonLd()->addImage(asset('images/favicon.png'));
-        SEOTools::metatags()->setKeywords(explode("/", $seo->keyword));
 
+        $keywords = $seo?->localized('keyword');
 
+        if (! empty($keywords)) {
+            SEOTools::metatags()->setKeywords(explode('/', $keywords));
+        }
+    }
+
+    public function switchLanguage(Request $request, string $locale)
+    {
+        abort_unless(in_array($locale, self::SUPPORTED_LOCALES, true), 404);
+
+        session(['locale' => $locale]);
+
+        $referer = $request->headers->get('referer');
+
+        if ($referer) {
+            $refererHost = parse_url($referer, PHP_URL_HOST);
+
+            if ($refererHost === null || $refererHost === $request->getHost()) {
+                return redirect()->to($referer);
+            }
+        }
+
+        return redirect()->route('home');
     }
 
     public function showOurWork()
@@ -55,7 +82,7 @@ class HomeController extends Controller
 
         $seo = Seo::where('seoable_type', 'App\Models\OurWork')->first();
 
-        $this->generateSeo($seo,"Our Works","/our-works");        
+        $this->generateSeo($seo, site_text('site.our_work.title'), "/our-works");        
 
 
         return view('our-works', compact('ourWorks', 'type'));
@@ -67,7 +94,7 @@ class HomeController extends Controller
 
         $seo = $ourWork->seos;
 
-        $this->generateSeo($seo,$ourWork->title,"/our-work-details/".$ourWork->id);
+        $this->generateSeo($seo, $ourWork->localized('title'), "/our-work-details/".$ourWork->id);
 
         return view('our-work-details', compact('ourWork'));
     }
@@ -91,7 +118,7 @@ class HomeController extends Controller
 
         $seo = Seo::where('seoable_type', 'App\Models\Blogs')->first();
 
-        $this->generateSeo($seo,"Work With Us","/work-with-us");        
+        $this->generateSeo($seo, site_text('site.navigation.working_with_us'), "/work-with-us");        
 
 
         return view('work-with-us', compact('clients'));
@@ -122,7 +149,7 @@ class HomeController extends Controller
 
         $seo = Seo::where('seoable_type', 'App\Models\Service')->first();
 
-        $this->generateSeo($seo,"Services","/services");        
+        $this->generateSeo($seo, site_text('site.navigation.what_we_do'), "/services");        
 
         return view('services', compact('clients', 'services', 'testimornials'));
     }
@@ -134,51 +161,72 @@ class HomeController extends Controller
 
         $seo = $service->seos;
         
-        $this->generateSeo($seo,$service->title,"/service-details/".$service->slug);
+        $this->generateSeo($seo, $service->localized('title'), "/service-details/".$service->slug);
         
         return view('service-details', compact('service'));
     }
 
-    public function showBlog()
+    public function showBlog(Request $request)
     {
+        $tab = $request->query('tab', "");
 
-        $tab = request('tab', "");
+        $Headerblogs = Blogs::with('user')
+            ->where('status', 'published')
+            ->inRandomOrder()
+            ->limit(6)
+            ->get();
 
-        $Headerblogs = Blogs::with('user')->where('status', 'published')->inRandomOrder()->paginate(6);
-
-        $blogs = Blogs::with('user');
-
-        if ($tab) {
-            $blogs = $blogs->where('type', $tab);
-        }
-
-        $blogs = $blogs->where('status', 'published')->orderBy('created_at', 'desc')->paginate(6);
+        $blogs = $this->publishedBlogsQuery($tab)->paginate(6);
 
         $seo = Seo::where('seoable_type', 'App\Models\Blogs')->first();
 
-        $this->generateSeo($seo,"Blog","/blog");        
+        $this->generateSeo($seo, site_text('site.blog.title'), "/blog");        
 
 
         return view('blog', compact('Headerblogs', 'blogs', 'tab'));
     }
 
-    public function Subscribe(SubscribeRequest $request)
+    public function loadMoreBlogs(Request $request)
     {
-        $validated = $request->validated();
+        $tab = $request->query('tab', "");
+        $page = max((int) $request->query('page', 1), 1);
 
-        $subscriber = Subscribe::create([
+        $blogs = $this->publishedBlogsQuery($tab)->paginate(6, ['*'], 'page', $page);
+
+        return response()->json([
+            'html' => view('partials.blog-list-items', compact('blogs'))->render(),
+            'has_more' => $blogs->hasMorePages(),
+            'next_page' => $blogs->currentPage() + 1,
+        ]);
+    }
+
+    private function publishedBlogsQuery(string $tab = "")
+    {
+        $blogs = Blogs::with('user')->where('status', 'published');
+
+        if ($tab !== "") {
+            $blogs->where('type', $tab);
+        }
+
+        return $blogs->orderBy('created_at', 'desc');
+    }
+
+    public function Subscribe(Request $request)
+    {
+        $validated = $request->validate([
+            'first_name' => 'required|string|max:255',
+            'last_name'  => 'required|string|max:255',
+            'email'      => 'required|email',
+        ]);
+
+        $receive_newsletter = $request->has('receive_newsletter') ? 1 : 0;
+
+        Subscribe::create([
             'first_name' => $validated['first_name'],
             'last_name' => $validated['last_name'],
             'email' => $validated['email'],
-            'receive_newsletter' => 1,
+            'receive_newsletter' => $receive_newsletter,
         ]);
-
-        if ($request->expectsJson()) {
-            return response()->json([
-                'message' => 'Thank you for subscribing to our newsletter!',
-                'subscriber' => $subscriber,
-            ]);
-        }
 
         return redirect()->back()->with('success', 'Thank you for subscribing to our newsletter!');
     }
@@ -221,7 +269,7 @@ class HomeController extends Controller
 
         $seo = $blog->seos;
 
-        $this->generateSeo($seo,$blog->title,"/blog/".$blog->uuid."/".$blog->slug);
+        $this->generateSeo($seo, $blog->localized('title'), "/blog/".$blog->uuid."/".$blog->slug);
 
         return view('blog-details', compact('blog'));
     }
@@ -231,7 +279,7 @@ class HomeController extends Controller
 
         $location = request('location', "");
 
-        $careers = Career::query()->where('status', 'published')->select('title', 'id');
+        $careers = Career::query()->where('status', 'published')->select('title', 'title_mm', 'id');
 
         if ($location) {
             $careers->where('location', $location);
@@ -241,14 +289,20 @@ class HomeController extends Controller
 
         $seo = Seo::where('seoable_type', 'App\Models\Career')->first();
 
-        $this->generateSeo($seo,"Careers","/careers");        
+        $this->generateSeo($seo, site_text('site.careers.title'), "/careers");        
 
         return view('carrer', compact('location', 'careers'));
     }
 
-    public function showCareerDetails($id)
+    public function showCareerDetails($slug)
     {
-        $career = Career::findOrFail($id);
+        $career = Career::query()
+            ->get()
+            ->first(function (Career $career) use ($slug) {
+                return $career->slug === $slug;
+            });
+
+        abort_if(! $career, 404);
 
         return view('CareerDetails', compact('career'));
     }
@@ -258,7 +312,7 @@ class HomeController extends Controller
 
         $seo = Seo::where('seoable_type', 'App\Models\Blogs')->first();
 
-        $this->generateSeo($seo,"Contact","/contact");        
+        $this->generateSeo($seo, site_text('site.navigation.contact'), "/contact");        
 
         return view('contact');
     }
@@ -268,7 +322,7 @@ class HomeController extends Controller
 
         $seo = Seo::where('seoable_type', 'App\Models\Blogs')->first();
 
-        $this->generateSeo($seo,"Technology","/technology");        
+        $this->generateSeo($seo, site_text('site.navigation.technology'), "/technology");        
 
         return view('technology');
     }

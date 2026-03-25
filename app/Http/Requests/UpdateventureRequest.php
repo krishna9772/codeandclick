@@ -23,9 +23,11 @@ class UpdateventureRequest extends FormRequest
     {
         return [
             'title' => 'required|string|max:255',
+            'title_mm' => 'nullable|string|max:255',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5120',
             'link' => 'nullable|string|max:255',
             'content' => 'required|string',
+            'content_mm' => 'nullable|string',
         ];
     }
 

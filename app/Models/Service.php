@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Concerns\HasLocalizedAttributes;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
@@ -12,14 +13,21 @@ class Service extends Model implements HasMedia
 {
     use InteractsWithMedia;
     use SoftDeletes;
+    use HasLocalizedAttributes;
+
     protected $fillable = [
         'title',
+        'title_mm',
         'name',
+        'name_mm',
         'slug',
         'status',
         'main_content',
+        'main_content_mm',
         'tags',
-        'sub_content'
+        'tags_mm',
+        'sub_content',
+        'sub_content_mm',
     ];
 
     public static function boot()
@@ -36,6 +44,9 @@ class Service extends Model implements HasMedia
                 'title' => $model->title,
                 'description' => Str::limit(strip_tags($model->main_content), 150),
                 'keyword' => $model->tags,
+                'title_mm' => $model->title_mm,
+                'description_mm' => $model->main_content_mm ? Str::limit(strip_tags($model->main_content_mm), 150) : null,
+                'keyword_mm' => $model->tags_mm,
             ]);
         }); 
         
@@ -48,6 +59,9 @@ class Service extends Model implements HasMedia
                 'title' => $model->title,
                 'description' => Str::limit(strip_tags($model->main_content), 150),
                 'keyword' => $model->tags,
+                'title_mm' => $model->title_mm,
+                'description_mm' => $model->main_content_mm ? Str::limit(strip_tags($model->main_content_mm), 150) : null,
+                'keyword_mm' => $model->tags_mm,
             ]);
         });
 

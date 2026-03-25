@@ -33,7 +33,18 @@ class CareerController extends Controller
         }
 
         if ($search) {
-            $careers = $careers->where('title', 'like', '%' . $search . '%')->orWhere('ignite', 'like', '%' . $search . '%')->orWhere('role', 'like', '%' . $search . '%')->orWhere('responsibilities', 'like', '%' . $search . '%')->orWhere('requirements', 'like', '%' . $search . '%')->orWhere('benefits', 'like', '%' . $search . '%');
+            $careers = $careers->where('title', 'like', '%' . $search . '%')
+                ->orWhere('title_mm', 'like', '%' . $search . '%')
+                ->orWhere('ignite', 'like', '%' . $search . '%')
+                ->orWhere('ignite_mm', 'like', '%' . $search . '%')
+                ->orWhere('role', 'like', '%' . $search . '%')
+                ->orWhere('role_mm', 'like', '%' . $search . '%')
+                ->orWhere('responsibilities', 'like', '%' . $search . '%')
+                ->orWhere('responsibilities_mm', 'like', '%' . $search . '%')
+                ->orWhere('requirements', 'like', '%' . $search . '%')
+                ->orWhere('requirements_mm', 'like', '%' . $search . '%')
+                ->orWhere('benefits', 'like', '%' . $search . '%')
+                ->orWhere('benefits_mm', 'like', '%' . $search . '%');
         }
 
         $careers = $careers->orderBy('created_at', 'desc')

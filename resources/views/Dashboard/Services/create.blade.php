@@ -106,6 +106,44 @@
                         <textarea name="sub_content" id="sub_content" class="border h-[200px] rounded w-full p-2 {{ $errors->has('sub_content') ? 'border-red-500' : 'border-gray-300' }}" required data-required-message="The sub content field is required.">{{ old('sub_content') }}</textarea>
                         <p id="sub_content_error" class="hidden text-red-500 text-sm mt-1"></p>
                     </div>
+                    <div class="mt-8 pt-6 border-t border-gray-200">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Myanmar Content</h3>
+                        <div class="mb-4">
+                            <label for="name_mm" class="block text-gray-700 font-bold mb-2">Name (Myanmar)</label>
+                            @error('name_mm')
+                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                            @enderror
+                            <input type="text" name="name_mm" id="name_mm" maxlength="255" class="border rounded w-full p-2 {{ $errors->has('name_mm') ? 'border-red-500' : 'border-gray-300' }}" value="{{ old('name_mm') }}">
+                        </div>
+                        <div class="mb-4">
+                            <label for="title_mm" class="block text-gray-700 font-bold mb-2">Title (Myanmar)</label>
+                            @error('title_mm')
+                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                            @enderror
+                            <input type="text" name="title_mm" id="title_mm" maxlength="255" class="border rounded w-full p-2 {{ $errors->has('title_mm') ? 'border-red-500' : 'border-gray-300' }}" value="{{ old('title_mm') }}">
+                        </div>
+                        <div class="mb-4">
+                            <label for="main_content_mm" class="block text-gray-700 font-bold mb-2">Main Content (Myanmar)</label>
+                            @error('main_content_mm')
+                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                            @enderror
+                            <textarea rows="10" name="main_content_mm" id="main_content_mm" class="border rounded w-full p-2 {{ $errors->has('main_content_mm') ? 'border-red-500' : 'border-gray-300' }}">{{ old('main_content_mm') }}</textarea>
+                        </div>
+                        <div class="mb-4">
+                            <label for="tags_mm" class="block text-gray-700 font-bold mb-2">Tags (Myanmar)</label>
+                            @error('tags_mm')
+                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                            @enderror
+                            <textarea name="tags_mm" id="tags_mm" class="border rounded w-full p-2 {{ $errors->has('tags_mm') ? 'border-red-500' : 'border-gray-300' }}" placeholder="Use / between each tag">{{ old('tags_mm') }}</textarea>
+                        </div>
+                        <div class="mb-4">
+                            <label for="sub_content_mm" class="block text-gray-700 font-bold mb-2">Sub Content (Myanmar)</label>
+                            @error('sub_content_mm')
+                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                            @enderror
+                            <textarea name="sub_content_mm" id="sub_content_mm" class="border h-[200px] rounded w-full p-2 {{ $errors->has('sub_content_mm') ? 'border-red-500' : 'border-gray-300' }}">{{ old('sub_content_mm') }}</textarea>
+                        </div>
+                    </div>
 
                     <div class="flex justify-end gap-3 pt-6 border-t border-gray-100">
                         <a href="{{ url()->previous() }}" class="px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
@@ -127,8 +165,16 @@
                 height: 400,
                 buttons: ['bold', 'italic', 'underline', 'fontsize', 'link']
             });
+            const subContentMmEditor = Jodit.make('#sub_content_mm', {
+                height: 400,
+                buttons: ['bold', 'italic', 'underline', 'fontsize', 'link']
+            });
 
             const mainContentEditor = Jodit.make('#main_content', {
+                height: 400,
+                buttons: ['bold', 'italic', 'underline', 'fontsize', 'link']
+            });
+            const mainContentMmEditor = Jodit.make('#main_content_mm', {
                 height: 400,
                 buttons: ['bold', 'italic', 'underline', 'fontsize', 'link']
             });
@@ -136,7 +182,9 @@
             const form = document.getElementById('serviceForm');
             const imageInput = document.getElementById('image');
             const mainContentField = document.getElementById('main_content');
+            const mainContentMmField = document.getElementById('main_content_mm');
             const subContentField = document.getElementById('sub_content');
+            const subContentMmField = document.getElementById('sub_content_mm');
             const tagsInput = document.getElementById('tags');
             const tagList = document.getElementById('tagList');
             const tagInput = document.getElementById('tagInput');
@@ -272,6 +320,8 @@
             form.addEventListener('submit', function(event) {
                 const isMainContentValid = validateRichTextField(mainContentEditor, mainContentField);
                 const isSubContentValid = validateRichTextField(subContentEditor, subContentField);
+                mainContentMmField.value = mainContentMmEditor.value;
+                subContentMmField.value = subContentMmEditor.value;
 
                 if (imageInput.files.length > 0) {
                     const file = imageInput.files[0];

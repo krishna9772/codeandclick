@@ -19,16 +19,16 @@
                   src="https://ignitecreates.com/wp-content/themes/ignite/library/images/graphics/grey-flame-background.png"
                 /> -->
           <div class="container max-w-[1024px] mx-auto ">
-            <h1>Our Services</h1>
+            <h1>{{ site_text('site.our_work.title') }}</h1>
             <div class="m__our-work--filters">
               <div class="m__our-work--filters--selector">
-                <h4 id="one" class="selector active">Project Type</h4>
+                <h4 id="one" class="selector active">{{ site_text('site.our_work.project_type') }}</h4>
                 <!-- <h4 id="two" class="selector">Client</h4> -->
               </div>
               <div class="m__our-work--filters--tabs">
                 <ul class="grid grid-cols-3 gap-x-6">
                   <li>
-                    <a href="{{ route('our-work') }}" class="{{ $type == ""  ? "text-white" : "text-gray-600" }} hover:text-white no-barba">All</a>
+                    <a href="{{ route('our-work') }}" class="{{ $type == ""  ? "text-white" : "text-gray-600" }} hover:text-white no-barba">{{ site_text('site.our_work.all') }}</a>
                   </li>
                   <li>
                     <a href="{{ route('our-work', ['type' => 'branding-solution']) }}" class="{{ $type == "branding-solution"  ? "text-white" : "text-gray-600" }} hover:text-white no-barba">Branding Solution</a>
@@ -102,8 +102,8 @@
                   <a
                     href="{{ route('our-work-details', $work->id) }}" class="no-barba">
                     <div class="m-6 cursor-pointer group max-w-md border border-white/30 w-full bg-black/20 backdrop-blur-xl p-8 shadow-lg transition hover:bg-black/30">
-                      <h3 class="text-2xl font-semibold text-white"> {{ $work->title }} </h3>
-                      <div class="mt-4 text-white inline-flex items-center gap-2  py-2 text-sm font-medium transition "> View Case Study <img
+                      <h3 class="text-2xl font-semibold text-white"> {{ $work->localized('title') }} </h3>
+                      <div class="mt-4 text-white inline-flex items-center gap-2  py-2 text-sm font-medium transition "> {{ site_text('site.our_work.view_case_study') }} <img
                           class=" w-5 size-3"
                           src="{{ asset('images/icons/right-arrow.svg') }}"
                           alt="" /> </div>

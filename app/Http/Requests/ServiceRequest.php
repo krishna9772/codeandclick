@@ -15,11 +15,16 @@ class ServiceRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
+            'name_mm' => 'nullable|string|max:255',
             'image' => $this->routeIs('services.store') ? 'required|image|mimes:jpeg,png,jpg,gif|max:5120' : 'nullable|image|mimes:jpeg,png,jpg,gif|max:5120',
             'title' => 'required|string|max:255',
+            'title_mm' => 'nullable|string|max:255',
             'main_content' => 'required|string',
+            'main_content_mm' => 'nullable|string',
             'tags' => 'required|string',
+            'tags_mm' => 'nullable|string',
             'sub_content' => 'required|string',
+            'sub_content_mm' => 'nullable|string',
         ];
     }
 

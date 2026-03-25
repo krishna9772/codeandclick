@@ -32,7 +32,10 @@ class VentureController extends Controller
         }
 
         if ($search) {
-            $ventures = $ventures->where('title', 'like', '%' . $search . '%')->orWhere('content', 'like', '%' . $search . '%');
+            $ventures = $ventures->where('title', 'like', '%' . $search . '%')
+                ->orWhere('title_mm', 'like', '%' . $search . '%')
+                ->orWhere('content', 'like', '%' . $search . '%')
+                ->orWhere('content_mm', 'like', '%' . $search . '%');
         }
 
         $ventures = $ventures->orderBy('created_at', 'desc')->paginate(10);
