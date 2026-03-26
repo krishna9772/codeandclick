@@ -25,6 +25,8 @@ class HomeController extends Controller
         if ($title){
             SEOTools::setTitle($title);
         }
+
+        return $seo;
         
         SEOTools::setDescription($seo->description);
         SEOTools::setCanonical(config('app.url'));

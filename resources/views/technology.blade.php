@@ -16,7 +16,9 @@
                         <div class="medium-container">
                             <h1 class="text-6xl">Technology at CODE & CLICK</h1>
                             <div class="l__technology--titles--content">
-                                <h4 class="medium">Technology should make work easier, not more complicated. At CODE & CLICK, we combine smart digital marketing, intuitive website design, robust website development, and data-driven SEO to help brands stand out online.</h4>
+                                <h4 class="medium">Technology should make work easier, not more complicated. <br/><br/>
+
+                                    At CODE & CLICK, we combine smart digital marketing, intuitive website design, robust website development, and data-driven SEO to help brands stand out online.</h4>
                                 <a href="contact.html" class="c__button dark">Get in touch</a>
                             </div>
                         </div>
@@ -40,9 +42,9 @@
                         <div class="m__product">
                             <div class="container">
                                 <div class="logo-container">
-                                    <h3>Code & Click </h3>
+                                    <h4 class="large">Code & Click </h3>
                                 </div>
-                                <h3>All-In-One Digital Service Provider. </h3>
+                                <h3 class="large" style="font-size:2em;">All-In-One Digital Service Provider. </h3>
                             </div>
                             <div class="row">
                                 <div class="m__product--content col-xs-12 col-md-6">
@@ -109,13 +111,13 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="m__product">
+                        {{-- <div class="m__product">
                             <div class="container">
                                 <div class="logo-container">
 
-                                    <h3 class="text-3xl">Websites</h3>
+                                    <h4 class="large">Websites</h4>
                                 </div>
-                                <h3 class="text-lg">A pre-built website platform for restaurants, pubs &amp; bars optimised for booking conversions.</h3>
+                                <h3 class="text-lg" style="font-size:2em;">A pre-built website platform for restaurants, pubs &amp; bars optimised for booking conversions.</h3>
                             </div>
                             <div class="row">
                                 <div class="m__product--content col-xs-12 col-md-6">
@@ -125,8 +127,8 @@
                                     <img class="m__product--image" src="{{ asset('images/default.png') }}" />
                                 </div>
                             </div>
-                        </div>
-                        <div class="m__product--additional-info">
+                        </div> --}}
+                        {{-- <div class="m__product--additional-info">
                             <div class="container">
                                 <div class="row">
                                     <div class="col-xs-12 col-md-6 m__product--additional-info--content">
@@ -178,27 +180,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="m__product">
-                            <div class="container">
-                                <div class="logo-container">
-                                    <h3>Lorem Ipsum</h3>
-                                </div>
-                                <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum culpa doloribus inventore saepe voluptates ipsum labore quam architecto dolorem. Totam, laudantium praesentium. Rerum quidem ab illum optio veritatis. Et, sit..</h3>
-                            </div>
-                            <div class="row">
-                                <div class="m__product--content col-xs-12 col-md-6">
-                                    <p>We have developed a selection of online games to help achieve marketing objectives. <br />
-                                        <br />
-                                        These plug-and-play games are perfect for distributing promotional content and to inject some fun into your digital campaigns.
-                                    </p>
-                                </div>
-                                <div class="col-xs-12 col-md-6 image-holder">
-                                    <img class="m__product--image" src="{{ asset('images/default.png') }}" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="m__product--additional-info">
+                        </div> --}}
+                        {{-- <div class="m__product--additional-info">
                             <div class="container">
                                 <div class="row">
                                     <div class="col-xs-12 col-md-6 m__product--additional-info--content">
@@ -230,7 +213,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </section>
                 </div>
             </div>

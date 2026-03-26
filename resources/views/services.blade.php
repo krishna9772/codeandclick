@@ -62,7 +62,7 @@
                       src="{{ asset($service->getFirstMediaUrl('services')) }}" />
                   </div>
                   <a
-                    href="{{ route('service-details', $service->slug) }}""
+                    href="{{ route('service-details', $service->slug) }}"
                     target=""
                     class="c__button-circle light">
                     <span> {{ $service->name }} </span>
