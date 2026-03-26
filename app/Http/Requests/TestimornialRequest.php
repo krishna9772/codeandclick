@@ -26,7 +26,9 @@ class TestimornialRequest extends FormRequest
                 ? 'required|image|mimes:jpeg,png,jpg,gif|max:5120'
                 : 'nullable|image|mimes:jpeg,png,jpg,gif|max:5120',
             'name' => 'required|string|max:255',
+            'name_mm' => 'nullable|string|max:255',
             'description' => 'required|string',
+            'description_mm' => 'nullable|string',
         ];
     }
 

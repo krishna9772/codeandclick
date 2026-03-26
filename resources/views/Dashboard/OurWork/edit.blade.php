@@ -165,6 +165,23 @@
                         <p class="mt-1 text-sm text-gray-500">JPG, JPEG, PNG, or GIF (Max: 5MB per image, multiple files allowed)</p>
                         <p id="workImages_error" class="hidden text-red-500 text-sm mt-1"></p>
                     </div>
+                    <div class="mt-8 pt-6 border-t border-gray-200">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Myanmar Content</h3>
+                        <div class="mb-4">
+                            <label for="title_mm" class="block text-gray-700 font-bold mb-2">Title (Myanmar)</label>
+                            @error('title_mm')
+                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                            @enderror
+                            <input type="text" name="title_mm" id="title_mm" maxlength="255" class="border rounded w-full p-2 {{ $errors->has('title_mm') ? 'border-red-500' : 'border-gray-300' }}" value="{{ old('title_mm',$ourwork->title_mm) }}">
+                        </div>
+                        <div class="mb-4">
+                            <label for="content_mm" class="block text-gray-700 font-bold mb-2">Content (Myanmar)</label>
+                            @error('content_mm')
+                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                            @enderror
+                            <textarea name="content_mm" id="content_mm" class="border h-[200px] rounded w-full p-2 {{ $errors->has('content_mm') ? 'border-red-500' : 'border-gray-300' }}">{{ old('content_mm',$ourwork->content_mm) }}</textarea>
+                        </div>
+                    </div>
 
 
                     <div class="flex justify-end gap-3 pt-6 border-t border-gray-100">
@@ -186,10 +203,15 @@
                 height: 400,
                 buttons: ['bold', 'italic', 'underline', 'fontsize', 'link']
             });
+            const mmEditor = Jodit.make('#content_mm', {
+                height: 400,
+                buttons: ['bold', 'italic', 'underline', 'fontsize', 'link']
+            });
 
             const form = document.getElementById('ourWorkForm');
             const imageInput = document.getElementById('image');
             const contentField = document.getElementById('content');
+            const contentMmField = document.getElementById('content_mm');
             const workImagesInput = document.getElementById('workImages');
             const workImagesPreviewContainer = document.getElementById('workImagesPreviewContainer');
             const removedWorkImagesContainer = document.getElementById('removedWorkImages');
@@ -339,6 +361,7 @@
                 const isContentValid = validateContentField();
                 const isImageValid = validateSingleImage();
                 const areWorkImagesValid = validateWorkImages();
+                contentMmField.value = mmEditor.value;
 
                 if (!isContentValid || !isImageValid || !areWorkImagesValid || !form.checkValidity()) {
                     event.preventDefault();

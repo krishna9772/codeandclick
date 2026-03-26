@@ -1,6 +1,10 @@
 <?php
 
 return [
+    'supported_locales' => [
+        'en',
+        'mm',
+    ],
     'blog_types' => [
         'Strategy',
         'Digital',
@@ -17,5 +21,4 @@ return [
         'Mandalay',
     ],
 ];
-
 

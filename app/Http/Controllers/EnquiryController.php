@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreEnquiryRequest;
 use App\Models\Enquiry;
-use Illuminate\Support\Facades\Log;
-
 class EnquiryController extends Controller
 {
 
@@ -43,15 +41,13 @@ class EnquiryController extends Controller
 
     public function store(StoreEnquiryRequest $request)
     {
-
-       
         $validated = $request->validated();
 
         $validated['service_looking_for'] = implode('/', $validated['service_looking_for']);
+        $validated['hear_about_us'] = $validated['hear_about_us'] ?? '';
         $validated['receive_insight'] = $request->has('receive_insight');
 
-        
-        $enquiry = Enquiry::create($validated);
+        Enquiry::create($validated);
 
         return redirect()->back()->with('success', 'Enquiry submitted successfully');
     }

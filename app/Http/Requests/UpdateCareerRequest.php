@@ -24,11 +24,17 @@ class UpdateCareerRequest extends FormRequest
     {
         return [
             'title' => 'required|string|max:255',
+            'title_mm' => 'nullable|string|max:255',
             'ignite' => 'required|string',
+            'ignite_mm' => 'nullable|string',
             'role' => 'required|string',
+            'role_mm' => 'nullable|string',
             'benefits' => 'required|string',
+            'benefits_mm' => 'nullable|string',
             'requirements' => 'required|string',
+            'requirements_mm' => 'nullable|string',
             'responsibilities' => 'required|string',
+            'responsibilities_mm' => 'nullable|string',
             'salary' => 'required|numeric|min:0',
             'location' => ['required', 'string', Rule::in(config('base.location'))],
         ];

@@ -48,9 +48,9 @@
                         />
                       </div>
                       <div class="m__current-holding-tile--content">
-                        <h4>{{ $venture->title }}</h4>
+                        <h4>{{ $venture->localized('title') }}</h4>
                         <p class="xsmall">
-                          {{ $venture->content }}
+                          {{ $venture->localized('content') }}
                         </p>
                         @if ($venture->link)
                         <a

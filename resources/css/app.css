@@ -133,3 +133,29 @@ p {
 .transition-curtain.slide-in {
   transform: translateY(0);
 }
+
+.home .l__slider-panels #two .m__slider-panel--bg-image {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    inset: 0;
+    transform: none;
+    width: 100%;
+}
+
+@media screen and (max-width: 799px) {
+    .home .m__services--bg-image {
+        display: block;
+        height: 240px;
+        margin-bottom: 24px;
+        width: 100%;
+    }
+
+    .home .m__services--bg-image img {
+        display: block;
+        height: 100%;
+        object-fit: cover;
+        width: 100%;
+    }
+}

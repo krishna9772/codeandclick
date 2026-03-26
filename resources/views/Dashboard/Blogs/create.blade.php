@@ -91,6 +91,30 @@
                         @enderror
                         <textarea name="content" id="content" class="border rounded w-full p-2 {{ $errors->has('content') ? 'border-red-500' : 'border-gray-300' }}" required>{{ old('content') }}</textarea>
                     </div>
+                    <div class="mt-8 pt-6 border-t border-gray-200">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Myanmar Content</h3>
+                        <div class="mb-4">
+                            <label for="title_mm" class="block text-gray-700 font-bold mb-2">Title (Myanmar)</label>
+                            @error('title_mm')
+                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                            @enderror
+                            <input type="text" name="title_mm" id="title_mm" maxlength="255" class="border rounded w-full p-2 {{ $errors->has('title_mm') ? 'border-red-500' : 'border-gray-300' }}" value="{{ old('title_mm') }}">
+                        </div>
+                        <div class="mb-4">
+                            <label for="preview_mm" class="block text-gray-700 font-bold mb-2">Preview (Myanmar)</label>
+                            @error('preview_mm')
+                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                            @enderror
+                            <textarea name="preview_mm" id="preview_mm" maxlength="255" class="border h-[200px] rounded w-full p-2 {{ $errors->has('preview_mm') ? 'border-red-500' : 'border-gray-300' }}">{{ old('preview_mm') }}</textarea>
+                        </div>
+                        <div class="mb-4">
+                            <label for="content_mm" class="block text-gray-700 font-bold mb-2">Content (Myanmar)</label>
+                            @error('content_mm')
+                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                            @enderror
+                            <textarea name="content_mm" id="content_mm" class="border rounded w-full p-2 {{ $errors->has('content_mm') ? 'border-red-500' : 'border-gray-300' }}">{{ old('content_mm') }}</textarea>
+                        </div>
+                    </div>
                     <div class="flex justify-end gap-3 pt-6 border-t border-gray-100">
                         <a href="{{ url()->previous() }}" class="px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                             Cancel
@@ -108,6 +132,10 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             Jodit.make('#content', {
+                height: 400,
+                buttons: ['bold', 'italic', 'underline', 'fontsize', 'link']
+            });
+            Jodit.make('#content_mm', {
                 height: 400,
                 buttons: ['bold', 'italic', 'underline', 'fontsize', 'link']
             });
@@ -192,4 +220,3 @@
         }
     </script>
 </x-app-layout>
-

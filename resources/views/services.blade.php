@@ -16,7 +16,7 @@
                 src="https://ignitecreates.com/wp-content/themes/ignite/library/images/graphics/black-flame-background.png"
               /> -->
           <div class="container">
-            <h4 class="small"> Our Services </h4>
+            <h4 class="small">{{ site_text('site.services.our_services') }}</h4>
             <div class="owl-carousel title-carousel">
               <h1>Branding & Marketing </h1>
               <h1>Strategy</h1>
@@ -64,8 +64,8 @@
                   <a
                     href="{{ route('service-details', $service->slug) }}"
                     target=""
-                    class="c__button-circle light">
-                    <span> {{ $service->name }} </span>
+                    class="c__button-circle light text-sm">
+                    <span> {{ $service->localized('name') }} </span>
                     <div class="c__button-circle--arrow">
                       <img
                         alt="right arrow"
@@ -99,9 +99,9 @@
                      @foreach ($testimornials as $testimornial)
                       <div>
                         <h4>
-                          {{$testimornial->description}}
+                          {{ $testimornial->localized('description') }}
                         </h4>
-                        <p>{{$testimornial->name}}</p>
+                        <p>{{ $testimornial->localized('name') }}</p>
                       </div>
                       @endforeach
                

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Concerns\HasLocalizedAttributes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -12,7 +13,7 @@ use Spatie\MediaLibrary\HasMedia;
 class Blogs extends Model implements HasMedia
 {
     /** @use HasFactory<\Database\Factories\BlogsFactory> */
-    use HasFactory,SoftDeletes,InteractsWithMedia;
+    use HasFactory, SoftDeletes, InteractsWithMedia, HasLocalizedAttributes;
 
     protected $table = 'blogs';
 
@@ -30,6 +31,9 @@ class Blogs extends Model implements HasMedia
                 'title' => $model->title,
                 'description' => Str::limit($model->preview, 300),
                 'keyword' => $model->title,
+                'title_mm' => $model->title_mm,
+                'description_mm' => $model->preview_mm ? Str::limit($model->preview_mm, 300) : null,
+                'keyword_mm' => $model->title_mm,
             ]);
         });
 
@@ -42,6 +46,9 @@ class Blogs extends Model implements HasMedia
                 'title' => $model->title,
                 'description' => Str::limit($model->preview, 300),
                 'keyword' => $model->title,
+                'title_mm' => $model->title_mm,
+                'description_mm' => $model->preview_mm ? Str::limit($model->preview_mm, 300) : null,
+                'keyword_mm' => $model->title_mm,
             ]);
         });
 
@@ -57,10 +64,13 @@ class Blogs extends Model implements HasMedia
         'slug',
         'user_id',
         'title',
+        'title_mm',
         'type',
         'status',
         'content',
+        'content_mm',
         'preview',
+        'preview_mm',
     ];
 
     public function user()

@@ -23,8 +23,11 @@ class SeoRequest extends FormRequest
     {
         return [
             'title' => 'required',
+            'title_mm' => 'nullable',
             'description' => 'required',
+            'description_mm' => 'nullable',
             'keyword' => 'required',
+            'keyword_mm' => 'nullable',
         ];
     }
 }

@@ -23,9 +23,12 @@ class UpdateBlogsRequest extends FormRequest
     {
         return [
             'title' => 'required|string|max:255',
+            'title_mm' => 'nullable|string|max:255',
             'content' => 'required|string',
+            'content_mm' => 'nullable|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:5120',
             'preview' => 'required|string|max:255',
+            'preview_mm' => 'nullable|string|max:255',
             'type' => 'required|in:' . implode(',', config('base.blog_types')),
         ];
     }

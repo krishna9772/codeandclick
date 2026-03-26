@@ -24,13 +24,13 @@ class DatabaseSeeder extends Seeder
             "image" => "https://images.unsplash.com/photo-1759873911636-ea9539d4a277?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ]);
 
-        Seo::create([
-            "title" => "Home",
-            "description" => "Home",
-            "keyword" => "Home",
-            "seoable_type" => "App\Models\Home",
-            "seoable_id" => 1,
-        ]);
+        // Seo::create([
+        //     "title" => "Home",
+        //     "description" => "Home",
+        //     "keyword" => "Home",
+        //     "seoable_type" => "App\Models\Home",
+        //     "seoable_id" => 1,
+        // ]);
             
     }
 }

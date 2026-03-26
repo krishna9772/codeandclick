@@ -64,6 +64,10 @@
                     </x-slot>
 
                     <x-slot name="content">
+                        <x-dropdown-link :href="route('site-translations.index')">
+                            {{ __('Languages') }}
+                        </x-dropdown-link>
+
                         <x-dropdown-link :href="route('profile.edit')">
                             {{ __('Profile') }}
                         </x-dropdown-link>
@@ -100,6 +104,36 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('bloglist.index')" :active="request()->routeIs('bloglist.*')">
+                {{ __('Blogs') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('services.index')" :active="request()->routeIs('services.*')">
+                {{ __('Services') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('clients.index')" :active="request()->routeIs('clients.*')">
+                {{ __('Clients') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('our-work.index')" :active="request()->routeIs('our-work.*')">
+                {{ __('Our Work') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('ventures.index')" :active="request()->routeIs('ventures.*')">
+                {{ __('Ventures') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('careers.index')" :active="request()->routeIs('careers.*')">
+                {{ __('Careers') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('enquiry.index')" :active="request()->routeIs('enquiry.*')">
+                {{ __('Enquiry') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('testimornials.index')" :active="request()->routeIs('testimornials.*')">
+                {{ __('Testimornial') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('subscribers.index')" :active="request()->routeIs('subscribers.*')">
+                {{ __('Subscribers') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('seo.index')" :active="request()->routeIs('seo.*')">
+                {{ __('SEO') }}
+            </x-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->
@@ -110,6 +144,10 @@
             </div>
 
             <div class="mt-3 space-y-1">
+                <x-responsive-nav-link :href="route('site-translations.index')">
+                    {{ __('Languages') }}
+                </x-responsive-nav-link>
+
                 <x-responsive-nav-link :href="route('profile.edit')">
                     {{ __('Profile') }}
                 </x-responsive-nav-link>

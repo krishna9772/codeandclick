@@ -24,7 +24,11 @@ class TestimornialController extends Controller
 
         $search = request('search', '');
 
-        $testimornials = Testimornial::where('name', 'like', '%' . $search . '%')->get();
+        $testimornials = Testimornial::where('name', 'like', '%' . $search . '%')
+            ->orWhere('name_mm', 'like', '%' . $search . '%')
+            ->orWhere('description', 'like', '%' . $search . '%')
+            ->orWhere('description_mm', 'like', '%' . $search . '%')
+            ->get();
         return view('Dashboard.Testimornial.index', compact( 'testimornials', 'search'));
     }
 

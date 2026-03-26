@@ -33,7 +33,10 @@ class ServiceController extends Controller
         }
 
         if ($search) {
-            $services = $services->where('name', 'like', '%' . $search . '%')->orWhere('link', 'like', '%' . $search . '%');
+            $services = $services->where('name', 'like', '%' . $search . '%')
+                ->orWhere('name_mm', 'like', '%' . $search . '%')
+                ->orWhere('title', 'like', '%' . $search . '%')
+                ->orWhere('title_mm', 'like', '%' . $search . '%');
         }
 
         $services = $services->orderBy('created_at', 'desc')->paginate(10);
