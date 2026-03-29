@@ -27,7 +27,8 @@ Route::controller(HomeController::class)->group(function () {
     // Blog
     Route::get('/blog', 'showBlog')->name('blog');
     Route::get('/blog/load-more', 'loadMoreBlogs')->name('blog.load-more');
-    Route::get('/blog/{uuid}/{slug}', 'BlogDetails')->name('blog-details');
+    Route::get('/blog/{uuid}/{slug}', 'legacyBlogDetails')->name('blog-details.legacy');
+    Route::get('/blog/{slug}', 'BlogDetails')->name('blog-details');
 
     // Careers
     Route::get('/careers', 'showCareers')->name('show-careers');
@@ -35,7 +36,8 @@ Route::controller(HomeController::class)->group(function () {
 
     // Our Works
     Route::get('/our-works', 'showOurWork')->name('our-work');
-    Route::get('/our-works/{id}', 'showOurWorkDetails')->name('our-work-details');
+    Route::get('/our-works/legacy/{id}', 'legacyOurWorkDetails')->name('our-work-details.legacy');
+    Route::get('/our-works/{slug}', 'showOurWorkDetails')->name('our-work-details');
 
     // Services
     Route::get('/services', 'showServices')->name('services');
@@ -46,6 +48,8 @@ Route::controller(HomeController::class)->group(function () {
 
     // Work With Us
     Route::get('/work-with-us', 'showWorkWithUs')->name('work-with-us');
+    Route::get('/privacy-policy', 'showPrivacyPolicy')->name('privacy-policy');
+    Route::get('/terms-and-conditions', 'showTermsAndConditions')->name('terms-and-conditions');
 
 
     Route::get('/contact', 'contact')->name('contact');

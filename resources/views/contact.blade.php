@@ -1,5 +1,30 @@
 @extends('layouts.main')
+@section('body_class', 'wp-singular page-template page-template-page-contact page page-id-5433 wp-theme-ignite no-smooth-scroll')
 @section('content')
+    <style>
+      .l__contact {
+        background-color: #f5f5f5;
+      }
+
+      .l__contact .left h2,
+      .l__contact .right h4,
+      .l__contact .right p,
+      .l__contact .right p a,
+      .l__contact--switcher h4,
+      .l__contact--switcher--info--links a,
+      .l__contact--office-heading h4 {
+        color: #121212;
+      }
+
+      .l__contact .right .horizontal-line,
+      .l__contact .left .horizontal-line {
+        background-color: rgba(18, 18, 18, 0.12);
+      }
+
+      .l__contact--office-heading img {
+        filter: invert(1);
+      }
+    </style>
 
     <!-- Elements moved here for fixed positions, had to remove smooth scroll so was no longer working inside there containers -->
     {{-- <div class="home-video-container">
@@ -23,29 +48,30 @@
         <div id="barba-wrapper">
           <div class="barba-container">
             <section class="l__contact">
+              <img class="l__contact--flame-background" src="{{ asset('images/grey-flame-background.png') }}" style="transform: matrix(1, 0, 0, 1, 0, 0);">
               <div class="container">
                 <div class="row">
                   <div class="col-xs-12 col-md-8 left">
-                    <h2 class="medium"> Lorem Ipsum has </h2>
+                    <h2 class="medium">{{ site_text('site.contact.work_with_us') }}</h2>
                     <div class="horizontal-line"></div>
                     <div class="l__contact--switcher">
-                    <h4 id="one" class="switch small active">Myanmar</h4>
-                    <h4 id="two" class="switch small">Thailand</h4>
+                      <h4 id="one" class="switch small active">{{ site_text('site.contact.myanmar') }}</h4>
+                      <h4 id="two" class="switch small">{{ site_text('site.contact.thailand') }}</h4>
 
                       <div
                         class="l__contact--switcher--info switcher active"
                         id="contact-one"
                       >
                         <div class="l__contact--switcher--info--links">
-                          <a href="tel:+66 4072128616" class="small"
-                            >+66 4072128616</a
+                          <a href="tel:+9594072128616" class="small"
+                            >+95 94072128616</a
                           >
-                          <a href="mailto:hello@codenclickmm.com" class="small"
+                          <a href="mailto:myanmar@codenclickmm.com" class="small"
                             >myanmar@codenclickmm.com</a
                           >
                         </div>
                         <div class="c__button dark open-get-in-touch">
-                          Enquire now
+                          {{ site_text('site.contact.enquire_now') }}
                         </div>
                       </div>
 
@@ -54,50 +80,25 @@
                         id="contact-two"
                       >
                         <div class="l__contact--switcher--info--links">
-                          <a href="tel:490394938" class="small">+95 4072128616</a>
-                          <a href="mailto:hello@codenclickmm.com" class="small"
-                            >hello@codenclickmm.com</a
+                          <a href="tel:+669072128616" class="small">+66 9072128616</a>
+                          <a href="mailto:thailand@codenclickmm.com" class="small"
+                            >thailand@codenclickmm.com</a
                           >
                         </div>
                         <div class="c__button dark open-get-in-touch">
-                          Enquire now
-                        </div>
-                      </div>
-
-                      <div
-                        class="l__contact--switcher--info switcher"
-                        id="contact-four"
-                      >
-                        <div class="l__contact--switcher--info--links">
-                          <a href="tel:66 4072128616" class="small"
-                            >66 4072128616</a
-                          >
-                          <a href="mailto:hello@code&click.com" class="small"
-                            >hello@code&click.com</a
-                          >
-                        </div>
-                        <div class="c__button dark open-get-in-touch">
-                          Enquire now
+                          {{ site_text('site.contact.enquire_now') }}
                         </div>
                       </div>
                     </div>
                   </div>
                   <div class="col-xs-12 col-md-4 right">
-                    <!-- <div class="c__button-circle dark">
-          <h4 class="small">Careers</h4>
-          <div class="c__button-circle--arrow">
-            <img src="https://ignitecreates.com/wp-content/themes/ignite/library/images/icons/right-arrow-dark.svg" />
-          </div>
-        </div> -->
                     <div class="horizontal-line"></div>
-                    <a href="/careers" title="Careers" class="careers-link"
-                      ><h4 class="small">Careers</h4></a
-                    >
+                    <a href="{{ route('show-careers') }}" title="{{ site_text('site.contact.careers_title') }}" class="careers-link">
+                      <h4 class="small">{{ site_text('site.contact.careers_title') }}</h4>
+                    </a>
                     <p>
-                      Lorem Ipsum has been the industry's standard
-                      <a href="mailto:info@codeandclickmm.com"
-                        > info@codeandclickmm.com </a
-                      >
+                      {{ site_text('site.contact.careers_body_before') }}
+                      <a href="mailto:info@codenclickmm.com" style="text-decoration: underline;">{{ site_text('site.contact.careers_body_link') }}</a>{{ site_text('site.contact.careers_body_after') }}
                     </p>
                   </div>
                   <div class="col-xs-12 l__contact--office-heading">
@@ -106,7 +107,7 @@
                       alt="scroll down"
                       src="{{ asset('images/icons/down-arrow.svg') }}"
                     />
-                    <h4 class="small">Our Offices</h4>
+                    <h4 class="small">{{ site_text('site.contact.our_offices') }}</h4>
                   </div>
                 </div>
               </div>
@@ -119,29 +120,29 @@
                     background-image: url(/images/yangon.png);
                   "
                 >
-                  <h1 class="text-6xl">Yangon</h1>
+                  <h1>{{ site_text('site.contact.yangon') }}</h1>
                   <div class="m__office-tile--card">
                     <div class="row">
-                      <h4>Code & click Yangon</h4>
+                      <h4>{{ site_text('site.contact.yangon_office') }}</h4>
                       <div
                         class="col-xs-12 col-sm-6 m__office-tile--card--address"
                       >
                         <p>
-                          The Office Group, <br />
-                          York Way, <br />
-                          Yangon,<br />
-                          N1C 4AX
+                          {{ site_text('site.contact.yangon_address_line_1') }} <br />
+                          {{ site_text('site.contact.yangon_address_line_2') }} <br />
+                          {{ site_text('site.contact.yangon_address_line_3') }} <br />
+                          {{ site_text('site.contact.yangon_address_line_4') }}
                         </p>
                       </div>
                       <div class="col-xs-12 col-sm-6">
-                        <a href="tel:+44 (0)20 7697 0151" class="small"
-                          >+95 (0)20 7697 0151</a
+                        <a href="tel:+9594072128616" class="small"
+                          >+95 94072128616</a
                         >
-                        <a href="mailto:hello@code&click.com" class="small"
-                          >hello@code&click.com</a
+                        <a href="mailto:myanmar@codenclickmm.com" class="small"
+                          >myanmar@codenclickmm.com</a
                         >
                         <div class="c__button light open-get-in-touch">
-                          Enquire now
+                          {{ site_text('site.contact.enquire_now') }}
                         </div>
                       </div>
                     </div>
@@ -155,28 +156,28 @@
                     background-image: url(/images/bangkok.jpg);
                   "
                 >
-                  <h1 class="text-6xl">Bangkok</h1>
+                  <h1>{{ site_text('site.contact.bangkok') }}</h1>
                   <div class="m__office-tile--card">
                     <div class="row">
-                      <h4>Code & Click Bangkok</h4>
+                      <h4>{{ site_text('site.contact.bangkok_office') }}</h4>
                       <div
                         class="col-xs-12 col-sm-6 m__office-tile--card--address"
                       >
                         <p>
-                          21 East Bayshore Drive, <br />
-                          Port Orange, <br />
-                          FL 32127
+                          {{ site_text('site.contact.bangkok_address_line_1') }} <br />
+                          {{ site_text('site.contact.bangkok_address_line_2') }} <br />
+                          {{ site_text('site.contact.bangkok_address_line_3') }}
                         </p>
                       </div>
                       <div class="col-xs-12 col-sm-6">
-                        <a href="tel:66 4072128616" class="small"
+                        <a href="tel:+669072128616" class="small"
                           >+66 9072128616</a
                         >
-                        <a href="mailto:hello@code&click.com" class="small"
-                          >hello@code&click.com</a
+                        <a href="mailto:thailand@codenclickmm.com" class="small"
+                          >thailand@codenclickmm.com</a
                         >
                         <div class="c__button light open-get-in-touch">
-                          Enquire now
+                          {{ site_text('site.contact.enquire_now') }}
                         </div>
                       </div>
                     </div>

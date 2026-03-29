@@ -1,130 +1,127 @@
 <x-app-layout>
     <x-slot name="header">
-        <a href="{{ route('bloglist.index') }}" class="border border-blue-800 text-blue-800 font-bold py-2 px-4 rounded">
-            Back to Blog List
-        </a>
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Edit Blog
-        </h2>
+        <div class="flex w-full items-center">
+            <a href="{{ route('bloglist.index') }}" class="border border-blue-800 text-blue-800 font-bold py-2 px-4 rounded">
+                Back to Blog List
+            </a>
+            <h2 class="ml-auto text-right font-semibold text-xl text-gray-800 leading-tight">
+                Edit Blog
+            </h2>
+        </div>
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl space-y-6 mx-auto sm:px-6 lg:px-8">
-            <div style="width: 800px;" class="bg-white mx-auto p-4 overflow-hidden shadow-sm sm:rounded-lg">
-                @if ($errors->any())
-                <div class="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
-                    <div class="flex">
-                        <div class="flex-shrink-0">
-                            <svg class="h-5 w-5 text-red-400" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
-                            </svg>
-                        </div>
-                        <div class="ml-3">
-                            <h3 class="text-sm font-medium text-red-800">
-                                There were {{ count($errors) }} error(s) with your submission:
-                            </h3>
-                            <div class="mt-2 text-sm text-red-700">
-                                <ul class="list-disc list-inside space-y-1">
-                                    @foreach ($errors->all() as $error)
+        <div class="max-w-5xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-8">
+                    @if ($errors->any())
+                        <div class="mb-6 rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-700">
+                            <ul class="list-disc pl-5 space-y-1">
+                                @foreach ($errors->all() as $error)
                                     <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
+                    <form action="{{ route('bloglist.update', $blog->id) }}" method="POST" enctype="multipart/form-data" id="blogEditForm" class="space-y-8">
+                        @csrf
+                        @method('PUT')
+
+                        <div>
+                            <label for="image" class="mb-2 block text-sm font-semibold text-gray-800">Featured Image</label>
+                            <div id="imageFieldWrapper" class="rounded-2xl border border-dashed border-gray-300 p-4">
+                                <div id="imagePreviewWrapper" class="mb-4 overflow-hidden rounded-xl border border-gray-200">
+                                    <img id="imagePreview" src="{{ $blog->getFirstMediaUrl('blog_images') ?: '#' }}" alt="Image preview" class="h-56 w-full object-cover">
+                                </div>
+                                <label for="image" class="inline-flex cursor-pointer items-center rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700">
+                                    Choose image
+                                </label>
+                                <input id="image" name="image" type="file" class="hidden" accept=".jpeg,.jpg,.png,.gif,image/jpeg,image/png,image/gif">
+                                <p id="imageFileName" class="mt-3 text-sm text-gray-500">Leave empty to keep the current image.</p>
+                                <p id="imageError" class="mt-2 hidden text-sm text-red-500"></p>
+                                @error('image')
+                                    <p class="mt-2 text-sm text-red-500">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
-                    </div>
+
+                        <div>
+                            <label for="title" class="mb-2 block text-sm font-semibold text-gray-800">Title</label>
+                            <input type="text" name="title" id="title" value="{{ old('title', $blog->title) }}" maxlength="255" class="w-full rounded-lg border border-gray-300 p-3" required>
+                            @error('title')
+                                <p class="mt-2 text-sm text-red-500">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div class="space-y-4 border-t border-gray-200 pt-8">
+                            <div>
+                                <label class="mb-2 block text-sm font-semibold text-gray-800">Type</label>
+                                <p class="mb-3 text-sm text-gray-500">Select one or more blog categories.</p>
+                                <div class="grid gap-3">
+                                    @foreach ($blogTypes as $type)
+                                        <label class="flex items-center gap-3 rounded-lg border border-gray-200 p-3">
+                                            <input
+                                                type="checkbox"
+                                                name="type[]"
+                                                value="{{ $type }}"
+                                                class="h-4 w-4 rounded border-gray-300 text-blue-600"
+                                                {{ in_array($type, old('type', $selectedTypes), true) ? 'checked' : '' }}>
+                                            <span class="text-sm text-gray-800">{{ $type }}</span>
+                                        </label>
+                                    @endforeach
+                                </div>
+                                @error('type')
+                                    <p class="mt-2 text-sm text-red-500">{{ $message }}</p>
+                                @enderror
+                                @error('type.*')
+                                    <p class="mt-2 text-sm text-red-500">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="space-y-6 border-t border-gray-200 pt-8">
+                            <div>
+                                <label for="content" class="mb-2 block text-sm font-semibold text-gray-800">Content</label>
+                                <textarea name="content" id="content" class="w-full rounded-lg border border-gray-300 p-3" required>{{ old('content', $blog->content) }}</textarea>
+                                <p class="mt-2 text-sm text-gray-500">Preview text will be generated automatically from this content.</p>
+                                @error('content')
+                                    <p class="mt-2 text-sm text-red-500">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="space-y-6 border-t border-gray-200 pt-8">
+                            <h3 class="text-lg font-semibold text-gray-900">Myanmar Content</h3>
+
+                            <div>
+                                <label for="title_mm" class="mb-2 block text-sm font-semibold text-gray-800">Title (Myanmar)</label>
+                                <input type="text" name="title_mm" id="title_mm" value="{{ old('title_mm', $blog->title_mm) }}" maxlength="255" class="w-full rounded-lg border border-gray-300 p-3">
+                                @error('title_mm')
+                                    <p class="mt-2 text-sm text-red-500">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <div>
+                                <label for="content_mm" class="mb-2 block text-sm font-semibold text-gray-800">Content (Myanmar)</label>
+                                <textarea name="content_mm" id="content_mm" class="w-full rounded-lg border border-gray-300 p-3">{{ old('content_mm', $blog->content_mm) }}</textarea>
+                                <p class="mt-2 text-sm text-gray-500">Myanmar preview text will also be generated automatically.</p>
+                                @error('content_mm')
+                                    <p class="mt-2 text-sm text-red-500">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="flex justify-end gap-3 border-t border-gray-200 pt-6">
+                            <a href="{{ route('bloglist.index') }}" class="rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">
+                                Cancel
+                            </a>
+                            <button type="submit" class="rounded-md bg-blue-600 px-5 py-2 text-sm font-medium text-white hover:bg-blue-700">
+                                Update Blog
+                            </button>
+                        </div>
+                    </form>
                 </div>
-                @endif
-
-                <form action="{{ route('bloglist.update', $blog->id) }}" method="POST" enctype="multipart/form-data" id="blogForm" novalidate>
-                    @csrf
-                    @method('PUT')
-                    <div class="mb-6">
-                        <label for="image" class="block text-gray-700 font-bold mb-2">Image</label>
-                        @error('image')
-                        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                        @enderror
-
-                        <div id="imagePreviewContainer" class="mb-4">
-                            <img id="imagePreview" src="{{ $blog->getFirstMediaUrl('blog_images') ?: asset('images/favicon.png') }}" alt="Image Preview" class="w-full object-cover rounded-lg border border-gray-200">
-                        </div>
-
-                        <div class="mt-1 flex items-center">
-                            <label for="image" class="cursor-pointer bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                                <span>Choose an image</span>
-                                <input id="image" name="image" type="file" class="sr-only" accept=".jpeg,.jpg,.png,.gif,image/jpeg,image/png,image/gif" onchange="previewImage(this)">
-                            </label>
-                            <span id="fileName" class="ml-4 text-sm text-gray-600">No file chosen</span>
-                        </div>
-                        <p class="mt-1 text-sm text-gray-500">JPG, JPEG, PNG, or GIF (Max: 5MB)</p>
-                    </div>
-                    <div class="mb-4">
-                        <label for="title" class="block text-gray-700 font-bold mb-2">Title</label>
-                        @error('title')
-                        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                        @enderror
-                        <input type="text" value="{{ old('title', $blog->title) }}" name="title" id="title" maxlength="255" class="border rounded w-full p-2 {{ $errors->has('title') ? 'border-red-500' : 'border-gray-300' }}" required>
-                        <p class="mt-1 text-sm text-gray-500">Maximum 255 characters.</p>
-                    </div>
-                    <div class="mb-4">
-                        <label for="type" class="block text-gray-700 font-bold mb-2">Type</label>
-                        @error('type')
-                        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                        @enderror
-                        <select name="type" id="type" class="border rounded w-full p-2 {{ $errors->has('type') ? 'border-red-500' : 'border-gray-300' }}" required>
-                            <option value="" disabled {{ old('type', $blog->type) ? '' : 'selected' }}>Select a blog type</option>
-                            @foreach (config('base.blog_types') as $type)
-                            <option {{ old('type', $blog->type) === $type ? 'selected' : '' }} value="{{ $type }}">{{ $type }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="mb-4">
-                        <label for="preview" class="block text-gray-700 font-bold mb-2">Preview</label>
-                        @error('preview')
-                        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                        @enderror
-                        <textarea name="preview" id="preview" maxlength="255" class="border h-[200px] rounded w-full p-2 {{ $errors->has('preview') ? 'border-red-500' : 'border-gray-300' }}" required>{{ old('preview', $blog->preview) }}</textarea>
-                        <p class="mt-1 text-sm text-gray-500">Maximum 255 characters.</p>
-                    </div>
-                    <div class="mb-4">
-                        <label for="content" class="block text-gray-700 font-bold mb-2">Content</label>
-                        @error('content')
-                        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                        @enderror
-                        <textarea rows="10" name="content" id="content" class="border rounded w-full p-2 {{ $errors->has('content') ? 'border-red-500' : 'border-gray-300' }}" required>{{ old('content', $blog->content) }}</textarea>
-                    </div>
-                    <div class="mt-8 pt-6 border-t border-gray-200">
-                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Myanmar Content</h3>
-                        <div class="mb-4">
-                            <label for="title_mm" class="block text-gray-700 font-bold mb-2">Title (Myanmar)</label>
-                            @error('title_mm')
-                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                            @enderror
-                            <input type="text" value="{{ old('title_mm', $blog->title_mm) }}" name="title_mm" id="title_mm" maxlength="255" class="border rounded w-full p-2 {{ $errors->has('title_mm') ? 'border-red-500' : 'border-gray-300' }}">
-                        </div>
-                        <div class="mb-4">
-                            <label for="preview_mm" class="block text-gray-700 font-bold mb-2">Preview (Myanmar)</label>
-                            @error('preview_mm')
-                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                            @enderror
-                            <textarea name="preview_mm" id="preview_mm" maxlength="255" class="border h-[200px] rounded w-full p-2 {{ $errors->has('preview_mm') ? 'border-red-500' : 'border-gray-300' }}">{{ old('preview_mm', $blog->preview_mm) }}</textarea>
-                        </div>
-                        <div class="mb-4">
-                            <label for="content_mm" class="block text-gray-700 font-bold mb-2">Content (Myanmar)</label>
-                            @error('content_mm')
-                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                            @enderror
-                            <textarea rows="10" name="content_mm" id="content_mm" class="border rounded w-full p-2 {{ $errors->has('content_mm') ? 'border-red-500' : 'border-gray-300' }}">{{ old('content_mm', $blog->content_mm) }}</textarea>
-                        </div>
-                    </div>
-                    <div class="flex justify-end gap-3 pt-6 border-t border-gray-100">
-                        <a href="{{ url()->previous() }}" class="px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                            Cancel
-                        </a>
-                        <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                            Edit Blog
-                        </button>
-                    </div>
-                </form>
             </div>
         </div>
     </div>
@@ -132,86 +129,91 @@
     <script src="https://cdn.jsdelivr.net/npm/jodit@latest/es2021/jodit.fat.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            Jodit.make('#content', {
-                height: 400,
-                buttons: ['bold', 'italic', 'underline', 'fontsize', 'link']
-            });
-            Jodit.make('#content_mm', {
-                height: 400,
-                buttons: ['bold', 'italic', 'underline', 'fontsize', 'link']
-            });
+            const editorConfig = {
+                height: 420,
+                buttons: ['bold', 'italic', 'underline', 'ul', 'ol', 'fontsize', 'link', 'image'],
+                uploader: {
+                    insertImageAsBase64URI: true,
+                },
+                filebrowser: {
+                    ajax: {
+                        url: '',
+                    },
+                },
+            };
 
-            const form = document.getElementById('blogForm');
+            Jodit.make('#content', editorConfig);
+            Jodit.make('#content_mm', editorConfig);
+
             const imageInput = document.getElementById('image');
+            const imageFieldWrapper = document.getElementById('imageFieldWrapper');
+            const imagePreviewWrapper = document.getElementById('imagePreviewWrapper');
+            const imagePreview = document.getElementById('imagePreview');
+            const imageFileName = document.getElementById('imageFileName');
+            const imageError = document.getElementById('imageError');
             const allowedImageTypes = ['image/jpeg', 'image/png', 'image/gif'];
             const maxImageSize = 5 * 1024 * 1024;
 
-            form.addEventListener('submit', function(event) {
-                const contentField = document.getElementById('content');
-                contentField.value = contentField.value.trim();
+            function setImageError(message) {
+                imageError.textContent = message || '';
+                imageError.classList.toggle('hidden', !message);
+                imageFieldWrapper.classList.toggle('border-red-300', Boolean(message));
+            }
 
-                if (imageInput.files.length > 0) {
-                    const file = imageInput.files[0];
+            function validateImage() {
+                imageInput.setCustomValidity('');
+                setImageError('');
 
-                    if (!allowedImageTypes.includes(file.type)) {
-                        imageInput.setCustomValidity('The image must be a file of type: jpeg, png, jpg, gif.');
-                    } else if (file.size > maxImageSize) {
-                        imageInput.setCustomValidity('The image may not be greater than 5120 kilobytes.');
-                    } else {
-                        imageInput.setCustomValidity('');
-                    }
-                } else {
-                    imageInput.setCustomValidity('');
+                if (!imageInput.files || !imageInput.files[0]) {
+                    imageFileName.textContent = 'Leave empty to keep the current image.';
+                    return true;
                 }
 
-                if (!form.checkValidity()) {
-                    event.preventDefault();
-                    form.reportValidity();
-                }
-            });
-        });
-
-        function previewImage(input) {
-            const previewContainer = document.getElementById('imagePreviewContainer');
-            const preview = document.getElementById('imagePreview');
-            const fileName = document.getElementById('fileName');
-            const allowedImageTypes = ['image/jpeg', 'image/png', 'image/gif'];
-            const maxImageSize = 5 * 1024 * 1024;
-
-            input.setCustomValidity('');
-
-            if (input.files && input.files[0]) {
-                const file = input.files[0];
+                const file = imageInput.files[0];
 
                 if (!allowedImageTypes.includes(file.type)) {
-                    fileName.textContent = 'Only JPG, JPEG, PNG, and GIF files are allowed';
-                    input.value = '';
-                    input.setCustomValidity('The image must be a file of type: jpeg, png, jpg, gif.');
-                    input.reportValidity();
-                    return;
+                    imageInput.value = '';
+                    imageFileName.textContent = 'Only JPG, JPEG, PNG, and GIF files are allowed.';
+                    const message = 'The image must be a file of type: jpeg, png, jpg, gif.';
+                    imageInput.setCustomValidity(message);
+                    setImageError(message);
+                    return false;
                 }
 
                 if (file.size > maxImageSize) {
-                    fileName.textContent = 'File is larger than 5MB';
-                    input.value = '';
-                    input.setCustomValidity('The image may not be greater than 5120 kilobytes.');
-                    input.reportValidity();
+                    imageInput.value = '';
+                    imageFileName.textContent = 'File is larger than 5MB.';
+                    const message = 'The image may not be greater than 5120 kilobytes.';
+                    imageInput.setCustomValidity(message);
+                    setImageError(message);
+                    return false;
+                }
+
+                return true;
+            }
+
+            imageInput.addEventListener('change', function() {
+                if (!validateImage()) {
+                    imageInput.reportValidity();
                     return;
                 }
 
+                const file = this.files[0];
                 const reader = new FileReader();
-
                 reader.onload = function(e) {
-                    preview.src = e.target.result;
-                    previewContainer.classList.remove('hidden');
-                    fileName.textContent = file.name;
+                    imagePreview.src = e.target.result;
+                    imagePreviewWrapper.classList.remove('hidden');
+                    imageFileName.textContent = file.name;
                 };
-
                 reader.readAsDataURL(file);
-                return;
-            }
+            });
 
-            fileName.textContent = 'No file chosen';
-        }
+            document.getElementById('blogEditForm').addEventListener('submit', function(event) {
+                if (!validateImage()) {
+                    event.preventDefault();
+                    imageInput.reportValidity();
+                }
+            });
+        });
     </script>
 </x-app-layout>

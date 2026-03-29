@@ -1,4 +1,5 @@
 @extends('layouts.main')
+@section('body_class', 'wp-singular page-template-default page wp-theme-ignite no-smooth-scroll')
 @section('content')
   <div class="case-study-video-container"></div>
   <div class="working-with-us-scroll-image"></div>
@@ -52,4 +53,66 @@
     </div>
   </div>
   <input type="hidden" id="data_location" value="" />
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const header = document.querySelector('header');
+      const primaryButtons = document.querySelector('header .c__header-buttons');
+      const compactButtons = document.querySelector('header .c__header-buttons--v2');
+      const navigation = document.querySelector('.c__navigation');
+      const menuToggles = document.querySelectorAll('header .c__menu-toggle');
+      const contactSwitcher = document.querySelector('.c__navigation--contact-switcher');
+      const locationSwitches = contactSwitcher ? contactSwitcher.querySelectorAll('.switch') : [];
+
+      if (!primaryButtons || !compactButtons) {
+        return;
+      }
+
+      function syncOurWorkDetailHeader() {
+        const isCompact = window.pageYOffset > 100;
+
+        primaryButtons.classList.toggle('show', !isCompact);
+        compactButtons.classList.toggle('show', isCompact);
+      }
+
+      syncOurWorkDetailHeader();
+      window.addEventListener('scroll', syncOurWorkDetailHeader, { passive: true });
+
+      if (navigation && menuToggles.length) {
+        menuToggles.forEach(function(toggle) {
+          toggle.addEventListener('click', function() {
+            const shouldOpen = !navigation.classList.contains('active');
+
+            setTimeout(function() {
+              navigation.classList.toggle('active', shouldOpen);
+
+              menuToggles.forEach(function(item) {
+                item.classList.toggle('open', shouldOpen);
+              });
+
+              if (header) {
+                header.classList.toggle('color-difference', shouldOpen);
+              }
+            }, 0);
+          });
+        });
+      }
+
+      if (contactSwitcher && locationSwitches.length) {
+        locationSwitches.forEach(function(toggle) {
+          toggle.addEventListener('click', function() {
+            const targetId = toggle.id;
+            const panels = contactSwitcher.querySelectorAll('.switcher');
+
+            locationSwitches.forEach(function(item) {
+              item.classList.toggle('active', item === toggle);
+            });
+
+            panels.forEach(function(panel) {
+              panel.classList.toggle('active', panel.id === 'contact-' + targetId);
+            });
+          });
+        });
+      }
+    });
+  </script>
 @endsection

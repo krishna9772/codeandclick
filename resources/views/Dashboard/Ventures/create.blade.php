@@ -1,108 +1,101 @@
 <x-app-layout>
     <x-slot name="header">
-        <a href="{{ route('ventures.index') }}" class="border border-blue-800 text-blue-800 font-bold py-2 px-4 rounded">
-            Back to Ventures List
-        </a>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Create New Venture
+        <div class="flex w-full items-center">
+            <a href="{{ route('ventures.index') }}" class="rounded border border-blue-800 px-4 py-2 font-bold text-blue-800">
+                Back to Ventures List
+            </a>
+            <h2 class="ml-auto text-right text-xl font-semibold leading-tight text-gray-800">
+                {{ $pageTitle ?? 'Create New Venture' }}
             </h2>
+        </div>
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl space-y-6 mx-auto sm:px-6 lg:px-8">
-            <div style="width: 800px;" class="bg-white mx-auto p-4 overflow-hidden shadow-sm sm:rounded-lg">
-                <!-- Display validation errors -->
-                @if ($errors->any())
-                    <div class="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
-                        <div class="flex">
-                            <div class="flex-shrink-0">
-                                <svg class="h-5 w-5 text-red-400" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
-                                </svg>
-                            </div>
-                            <div class="ml-3">
-                                <h3 class="text-sm font-medium text-red-800">
-                                    There were {{ count($errors) }} error(s) with your submission:
-                                </h3>
-                                <div class="mt-2 text-sm text-red-700">
-                                    <ul class="list-disc list-inside space-y-1">
-                                        @foreach ($errors->all() as $error)
-                                            <li>{{ $error }}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            </div>
+        <div class="mx-auto max-w-5xl sm:px-6 lg:px-8">
+            <div class="overflow-hidden rounded-lg bg-white shadow-sm">
+                <div class="p-8">
+                    @if ($errors->any())
+                        <div class="mb-6 rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-700">
+                            <ul class="list-disc space-y-1 pl-5">
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
                         </div>
-                    </div>
-                @endif
+                    @endif
 
-              <form action="{{ route('ventures.store') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('ventures.store') }}" method="POST" enctype="multipart/form-data" id="ventureCreateForm" class="space-y-8" novalidate>
                         @csrf
-                        <!-- Image Upload with Preview -->
-                        <div class="mb-6">
-                             <label for="image" class="block text-gray-700 font-bold mb-2">Image</label>
-                            @error('image')
-                                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                            @enderror
-                      
-                            <!-- Image Preview Container -->
-                            <div id="imagePreviewContainer" class="hidden mb-4">
-                                <img id="imagePreview" src="#" alt="Image Preview" class=" w-full object-cover rounded-lg border border-gray-200">
-                            </div>
-                            
-                            <div class="mt-1 flex items-center">
-                                <label for="image" class="cursor-pointer bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                                    <span>Choose an image</span>
-                                    <input id="image" name="image" type="file" class="sr-only" accept="image/*" onchange="previewImage(this)" required>
+
+                        <div>
+                            <label for="image" class="mb-2 block text-sm font-semibold text-gray-800">Featured Image</label>
+                            <div id="imageFieldWrapper" class="rounded-2xl border border-dashed border-gray-300 p-4">
+                                <div id="imagePreviewWrapper" class="hidden mb-4 overflow-hidden rounded-xl border border-gray-200">
+                                    <img id="imagePreview" src="#" alt="Image preview" class="h-56 w-full object-cover">
+                                </div>
+                                <label for="image" class="inline-flex cursor-pointer items-center rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700">
+                                    Choose image
                                 </label>
-                                <span id="fileName" class="ml-4 text-sm text-gray-600">No file chosen</span>
+                                <input id="image" name="image" type="file" class="hidden" accept=".jpeg,.jpg,.png,.gif,image/jpeg,image/png,image/gif" required>
+                                <p id="imageFileName" class="mt-3 text-sm text-gray-500">JPG, JPEG, PNG, or GIF up to 5MB.</p>
+                                <p id="imageError" class="mt-2 hidden text-sm text-red-500"></p>
+                                @error('image')
+                                    <p class="mt-2 text-sm text-red-500">{{ $message }}</p>
+                                @enderror
                             </div>
-                            <p class="mt-1 text-sm text-gray-500">JPG, JPEG, PNG, or GIF (Max: 5MB)</p>
                         </div>
-                    <div class="mb-4">
-                        <label for="title" class="block text-gray-700 font-bold mb-2">Title</label>
-                        @error('title')
-                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                        @enderror
-                        <input type="text" name="title" id="title" class="border rounded w-full p-2 {{ $errors->has('title') ? 'border-red-500' : 'border-gray-300' }}" value="{{ old('title') }}" required>
-                    </div>
-                     <div class="mb-4">
-                        <label for="link" class="block text-gray-700 font-bold mb-2">Link</label>
-                        @error('link')
-                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                        @enderror
-                        <input type="text" name="link" id="link" class="border rounded w-full p-2 {{ $errors->has('link') ? 'border-red-500' : 'border-gray-300' }}" value="{{ old('link') }}">
-                    </div>
-                     
-                    <div class="mb-4">
-                        <label for="content" class="block text-gray-700 font-bold mb-2">Content</label>
-                        @error('content')
-                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                        @enderror
-                        <textarea rows="10" name="content" id="content" class="border rounded w-full p-2 {{ $errors->has('content') ? 'border-red-500' : 'border-gray-300' }}" required>{{ old('content') }}</textarea>
-                    </div>
-                    <div class="mt-8 pt-6 border-t border-gray-200">
-                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Myanmar Content</h3>
-                        <div class="mb-4">
-                            <label for="title_mm" class="block text-gray-700 font-bold mb-2">Title (Myanmar)</label>
-                            @error('title_mm')
-                                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+
+                        <div>
+                            <label for="title" class="mb-2 block text-sm font-semibold text-gray-800">Title</label>
+                            <input type="text" name="title" id="title" value="{{ old('title') }}" maxlength="255" class="w-full rounded-lg border border-gray-300 p-3" required>
+                            @error('title')
+                                <p class="mt-2 text-sm text-red-500">{{ $message }}</p>
                             @enderror
-                            <input type="text" name="title_mm" id="title_mm" class="border rounded w-full p-2 {{ $errors->has('title_mm') ? 'border-red-500' : 'border-gray-300' }}" value="{{ old('title_mm') }}">
                         </div>
-                        <div class="mb-4">
-                            <label for="content_mm" class="block text-gray-700 font-bold mb-2">Content (Myanmar)</label>
-                            @error('content_mm')
-                                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+
+                        <div>
+                            <label for="link" class="mb-2 block text-sm font-semibold text-gray-800">Link</label>
+                            <input type="text" name="link" id="link" value="{{ old('link') }}" class="w-full rounded-lg border border-gray-300 p-3">
+                            @error('link')
+                                <p class="mt-2 text-sm text-red-500">{{ $message }}</p>
                             @enderror
-                            <textarea rows="10" name="content_mm" id="content_mm" class="border rounded w-full p-2 {{ $errors->has('content_mm') ? 'border-red-500' : 'border-gray-300' }}">{{ old('content_mm') }}</textarea>
                         </div>
-                    </div>
-                        <div class="flex justify-end gap-3 pt-6 border-t border-gray-100">
-                            <a href="{{ url()->previous() }}" class="px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+
+                        <div class="space-y-6 border-t border-gray-200 pt-8">
+                            <div>
+                                <label for="content" class="mb-2 block text-sm font-semibold text-gray-800">Content</label>
+                                <textarea name="content" id="content" class="w-full rounded-lg border border-gray-300 p-3" required>{{ old('content') }}</textarea>
+                                @error('content')
+                                    <p class="mt-2 text-sm text-red-500">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="space-y-6 border-t border-gray-200 pt-8">
+                            <h3 class="text-lg font-semibold text-gray-900">Myanmar Content</h3>
+
+                            <div>
+                                <label for="title_mm" class="mb-2 block text-sm font-semibold text-gray-800">Title (Myanmar)</label>
+                                <input type="text" name="title_mm" id="title_mm" value="{{ old('title_mm') }}" maxlength="255" class="w-full rounded-lg border border-gray-300 p-3">
+                                @error('title_mm')
+                                    <p class="mt-2 text-sm text-red-500">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <div>
+                                <label for="content_mm" class="mb-2 block text-sm font-semibold text-gray-800">Content (Myanmar)</label>
+                                <textarea name="content_mm" id="content_mm" class="w-full rounded-lg border border-gray-300 p-3">{{ old('content_mm') }}</textarea>
+                                @error('content_mm')
+                                    <p class="mt-2 text-sm text-red-500">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="flex justify-end gap-3 border-t border-gray-200 pt-6">
+                            <a href="{{ route('ventures.index') }}" class="rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">
                                 Cancel
                             </a>
-                            <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                            <button type="submit" class="rounded-md bg-blue-600 px-5 py-2 text-sm font-medium text-white hover:bg-blue-700">
                                 Create Venture
                             </button>
                         </div>
@@ -112,39 +105,100 @@
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/jodit@latest/es2021/jodit.fat.min.js"></script>
     <script>
-        function previewImage(input) {
-            const previewContainer = document.getElementById('imagePreviewContainer');
-            const preview = document.getElementById('imagePreview');
-            const fileName = document.getElementById('fileName');
+        document.addEventListener('DOMContentLoaded', function() {
+            const editorConfig = {
+                height: 420,
+                buttons: ['bold', 'italic', 'underline', 'ul', 'ol', 'fontsize', 'link', 'image'],
+                uploader: {
+                    insertImageAsBase64URI: true,
+                },
+                filebrowser: {
+                    ajax: {
+                        url: '',
+                    },
+                },
+            };
 
-            const MAX_SIZE = 5 * 1024 * 1024; // 5MB
+            Jodit.make('#content', editorConfig);
+            Jodit.make('#content_mm', editorConfig);
 
-            if (input.files && input.files[0]) {
-                const file = input.files[0];
+            const imageInput = document.getElementById('image');
+            const imageFieldWrapper = document.getElementById('imageFieldWrapper');
+            const imagePreviewWrapper = document.getElementById('imagePreviewWrapper');
+            const imagePreview = document.getElementById('imagePreview');
+            const imageFileName = document.getElementById('imageFileName');
+            const imageError = document.getElementById('imageError');
+            const allowedImageTypes = ['image/jpeg', 'image/png', 'image/gif'];
+            const maxImageSize = 5 * 1024 * 1024;
 
-                // Check file size
-                if (file.size > MAX_SIZE) {
-                    previewContainer.classList.add('hidden');
-                    preview.src = '';
-                    fileName.textContent = 'File is larger than 5MB';
+            function resetImagePreview() {
+                imagePreviewWrapper.classList.add('hidden');
+                imagePreview.src = '#';
+                imageFileName.textContent = 'JPG, JPEG, PNG, or GIF up to 5MB.';
+            }
+
+            function setImageError(message) {
+                imageError.textContent = message || '';
+                imageError.classList.toggle('hidden', !message);
+                imageFieldWrapper.classList.toggle('border-red-300', Boolean(message));
+            }
+
+            function validateImage() {
+                setImageError('');
+
+                if (!imageInput.files || !imageInput.files[0]) {
+                    resetImagePreview();
+                    setImageError('The image field is required.');
+                    return false;
+                }
+
+                const file = imageInput.files[0];
+
+                if (!allowedImageTypes.includes(file.type)) {
+                    imageInput.value = '';
+                    resetImagePreview();
+                    imageFileName.textContent = 'Only JPG, JPEG, PNG, and GIF files are allowed.';
+                    setImageError('The image must be a file of type: jpeg, png, jpg, gif.');
+                    return false;
+                }
+
+                if (file.size > maxImageSize) {
+                    imageInput.value = '';
+                    resetImagePreview();
+                    imageFileName.textContent = 'File is larger than 5MB.';
+                    setImageError('The image may not be greater than 5120 kilobytes.');
+                    return false;
+                }
+
+                return true;
+            }
+
+            imageInput.addEventListener('change', function() {
+                if (!validateImage()) {
                     return;
                 }
 
+                const file = this.files[0];
                 const reader = new FileReader();
-
                 reader.onload = function(e) {
-                    preview.src = e.target.result;
-                    previewContainer.classList.remove('hidden');
-                    fileName.textContent = file.name;
+                    imagePreview.src = e.target.result;
+                    imagePreviewWrapper.classList.remove('hidden');
+                    imageFileName.textContent = file.name;
                 };
-
                 reader.readAsDataURL(file);
-            } else {
-                previewContainer.classList.add('hidden');
-                preview.src = '';
-                fileName.textContent = 'No file chosen';
-            }
-        }
+            });
+
+            document.getElementById('ventureCreateForm').addEventListener('submit', function(event) {
+                if (!validateImage()) {
+                    event.preventDefault();
+                    imageFieldWrapper.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'center'
+                    });
+                }
+            });
+        });
     </script>
 </x-app-layout>

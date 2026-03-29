@@ -63,7 +63,9 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        return view('Dashboard.Services.create');
+        return view('Dashboard.Services.create', [
+            'pageTitle' => 'Create New Service',
+        ]);
     }
 
     /**
@@ -109,6 +111,12 @@ class ServiceController extends Controller
      */
     public function destroy(string $id)
     {
+        $service = Service::withTrashed()->find($id);
+
+        if ($service && $service->works()->withTrashed()->exists()) {
+            return redirect()->back()->with('error', 'This service cannot be deleted because it is linked to one or more Our Work entries.');
+        }
+
         $this->serviceService->delete($id);
 
         return redirect()->back()->with('success', 'Service deleted successfully');

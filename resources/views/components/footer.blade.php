@@ -131,7 +131,6 @@
                     <input type="checkbox" name="receive_newsletter" value="1" id="gdpr" />
                     <p>
                         Tick here if you'd like to receive updates from Code & Click.
-                        <span class="gdpr-error">Please tick to receive newsletters</span>
                     </p>
                 </div>
                 <button type="submit" id="newsletter-submit" class="submit-form c__button dark">
@@ -174,6 +173,12 @@
                 font-size: 14px;
                 line-height: 1.4;
             }
+            #signup-form .newsletter-form-error {
+                color: #ff3b30;
+                font-size: 14px;
+                line-height: 1.4;
+                margin-top: 12px;
+            }
             @media (max-width: 767px) {
                 #signup-form .newsletter-field-error {
                     width: 100%;
@@ -203,6 +208,7 @@
 
             function setFieldError(field, message) {
                 const element = getFieldError(field);
+                const input = newsletterForm.querySelector(`input[name="${field}"]`);
 
                 if (!element) {
                     return;
@@ -210,6 +216,10 @@
 
                 element.textContent = message || '';
                 element.style.display = message ? 'block' : 'none';
+
+                if (input) {
+                    input.classList.toggle('input-error', Boolean(message));
+                }
             }
 
             function setNewsletterError(message) {
@@ -233,19 +243,16 @@
 
                 if (!firstNameInput.value.trim()) {
                     setFieldError('first_name', 'The first name field is required.');
-                    setNewsletterError('The first name field is required.');
                     return false;
                 }
 
                 if (!lastNameInput.value.trim()) {
                     setFieldError('last_name', 'The last name field is required.');
-                    setNewsletterError('The last name field is required.');
                     return false;
                 }
 
                 if (!emailInput.value.trim()) {
                     setFieldError('email', 'The email field is required.');
-                    setNewsletterError('The email field is required.');
                     return false;
                 }
 
@@ -253,7 +260,6 @@
 
                 if (!emailPattern.test(emailInput.value.trim())) {
                     setFieldError('email', 'The email must be a valid email address.');
-                    setNewsletterError('The email must be a valid email address.');
                     return false;
                 }
 
@@ -323,13 +329,9 @@
                                 setFieldError('email', data.errors.email[0]);
                             }
 
-                            const firstError = data.errors.receive_newsletter?.[0]
-                                || data.errors.first_name?.[0]
-                                || data.errors.last_name?.[0]
-                                || data.errors.email?.[0]
-                                || 'Unable to submit the newsletter form.';
+                            const generalError = data.errors.receive_newsletter?.[0] || '';
 
-                            setNewsletterError(firstError);
+                            setNewsletterError(generalError);
                         } else {
                             setNewsletterError(data.message || 'Unable to submit the newsletter form.');
                         }

@@ -18,10 +18,10 @@
           <div class="container">
             <h4 class="small">{{ site_text('site.services.our_services') }}</h4>
             <div class="owl-carousel title-carousel">
-              <h1>Branding & Marketing </h1>
-              <h1>Strategy</h1>
-              <h1>Creativity</h1>
-              <h1>Technology</h1>
+              <h1>{{ site_text('site.services.hero_branding_marketing') }}</h1>
+              <h1>{{ site_text('site.services.hero_strategy') }}</h1>
+              <h1>{{ site_text('site.services.hero_creativity') }}</h1>
+              <h1>{{ site_text('site.services.hero_technology') }}</h1>
             </div>
           </div>
 
@@ -35,22 +35,18 @@
               <!-- <img class="img-object-fit" src="https://ignitecreates.com/wp-content/uploads/2020/03/marriott-background.jpg"  /> -->
             </div>
             <div class="m__what-we-do--intro--content">
-              <h4 class="text-3xl">CODE & CLICK is a full-service digital marketing agency in Myanmar </h4>
-              <p>
-                We help businesses grow their online presence, generate qualified leads, and increase sales.
-                We combine marketing strategy, creative content, and technology for data-driven digital growth to deliver measurable results for brands across industries.
-
-              </p>
+              <h4 class="text-3xl">{{ site_text('site.services.intro_title') }}</h4>
+              <p>{{ site_text('site.services.intro_body') }}</p>
             </div>
           </div>
 
           <div class="l__what-we-do--services">
             <div class="container">
               <h2 class="small">
-                Digital Marketing Solutions That Drive Growth
+                {{ site_text('site.services.solutions_title') }}
               </h2>
               <p class="large" style="text-align: justify;">
-                At CODE & CLICK, we deliver result-driven digital marketing solutions designed to help businesses grow online. From website design and website development to SEO, social media marketing, and branding, our services are built to strengthen your digital presence and convert visitors into customers.
+                {{ site_text('site.services.solutions_body') }}
               </p>
               <div class="row">
                 @foreach ($services as $service)
@@ -62,10 +58,9 @@
                       src="{{ asset($service->getFirstMediaUrl('services')) }}" />
                   </div>
                   <a
-                    href="{{ route('service-details', $service->slug) }}""
-                    target=""
+                    href="{{ route('service-details', $service->slug) }}"
                     class="c__button-circle light text-sm">
-                    <span> {{ $service->localized('name') }} </span>
+                    <span class="service-tile-label">{{ $service->localized('name') }}</span>
                     <div class="c__button-circle--arrow">
                       <img
                         alt="right arrow"
@@ -122,7 +117,7 @@
 
           <section class="m__awards">
             <div class="container">
-              <h3> Our Valuable Clients</h3>
+              <h3>{{ site_text('site.services.valuable_clients') }}</h3>
               <div class="owl-carousel clients">
                 <div class="row">
 

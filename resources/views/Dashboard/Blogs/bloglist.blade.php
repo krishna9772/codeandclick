@@ -53,7 +53,7 @@
                             @foreach ($blogs as $blog)
                             <tr class="hover:bg-gray-50 transition-colors">
                                 <td class="px-6 py-4">
-                                    <img class="h-12" src="{{ asset($blog->getFirstMediaUrl('blog_images')) }}" alt="{{ $blog->title }}">
+                                    <img class="h-12 w-20 object-cover rounded" src="{{ $blog->getFirstMediaUrl('blog_images') ?: asset('images/new-favicon.png') }}" alt="{{ $blog->title }}">
 
                                 </td>
                                 <td class="px-6 py-4 text-gray-800 font-medium">{{ $blog->title }}</td>
@@ -84,9 +84,11 @@
                                             </button>
                                         </form>
                                         @endif
-                                        <a href="{{ route('blog-details', [$blog->uuid, $blog->slug]) }}" class="text-gray-800 rounded-md p-2 bg-gray-300 hover:text-gray-700">
+                                        @if ($tag !== 'trashed')
+                                        <a href="{{ route('blog-details', ['slug' => $blog->slug]) }}" class="text-gray-800 rounded-md p-2 bg-gray-300 hover:text-gray-700">
                                             <x-bi-eye class="w-5 h-5" />
                                         </a>
+                                        @endif
                                         <x-confirm-delete :action="route('bloglist.destroy', $blog->id)" />
 
                                     </div>

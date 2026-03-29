@@ -8,12 +8,27 @@ use Artesaos\SEOTools\Facades\SEOTools;
 
 class SeoController extends Controller
 {
+    private function defaultSeo(): Seo
+    {
+        return Seo::firstOrCreate(
+            [
+                'seoable_type' => 'App\Models\Page',
+                'seoable_id' => 1,
+            ],
+            [
+                'title' => 'Code and Click',
+                'description' => 'Code and Click is a professional software development company providing web development, mobile apps, UI/UX design, and digital solutions.',
+                'keyword' => 'codeandclick/web development/mobile app development/UI UX/software company',
+                'title_mm' => null,
+                'description_mm' => null,
+                'keyword_mm' => null,
+            ]
+        );
+    }
+
     public function index()
     {
-        $seo = Seo::where('seoable_type', 'App\Models\Home')->first()
-            ?? Seo::where('seoable_type', 'App\Models\Page')
-                ->where('seoable_id', 1)
-                ->first();
+        $seo = $this->defaultSeo();
 
         $link = '/dashboard/seo';
 
@@ -31,10 +46,7 @@ class SeoController extends Controller
 
     public function update(SeoRequest $request)
     {
-         $seo = Seo::where('seoable_type', 'App\Models\Home')->first()
-             ?? Seo::where('seoable_type', 'App\Models\Page')
-                 ->where('seoable_id', 1)
-                 ->firstOrFail();
+         $seo = $this->defaultSeo();
 
          $seo->update($request->validated());
 

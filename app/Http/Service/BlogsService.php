@@ -69,9 +69,10 @@ class BlogsService
     {
         $blog = Blogs::withTrashed()->find($id);
 
-        $blog->getFirstMedia('blog_images')->delete();
-
         if ($blog->trashed()) {
+            if ($blog->hasMedia('blog_images')) {
+                $blog->clearMediaCollection('blog_images');
+            }
             $blog->forceDelete();
         } else {
             $blog->delete();

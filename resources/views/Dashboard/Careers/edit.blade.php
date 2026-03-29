@@ -1,211 +1,233 @@
 <x-app-layout>
     <x-slot name="header">
-        <a href="{{ route('careers.index') }}" class="border border-blue-800 text-blue-800 font-bold py-2 px-4 rounded">
-            Back to Career List
-        </a>
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Edit Career
-        </h2>
+        <div class="flex w-full items-center">
+            <a href="{{ route('careers.index') }}" class="rounded border border-blue-800 px-4 py-2 font-bold text-blue-800">
+                Back to Career List
+            </a>
+            <h2 class="ml-auto text-right text-xl font-semibold leading-tight text-gray-800">
+                {{ $pageTitle ?? 'Edit Career' }}
+            </h2>
+        </div>
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl space-y-6 mx-auto sm:px-6 lg:px-8">
-            <div style="width: 800px;" class="bg-white mx-auto p-4 overflow-hidden shadow-sm sm:rounded-lg">
-                <!-- Display validation errors -->
-                @if ($errors->any())
-                    <div class="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
-                        <div class="flex">
-                            <div class="flex-shrink-0">
-                                <svg class="h-5 w-5 text-red-400" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
-                                </svg>
+        <div class="mx-auto max-w-5xl sm:px-6 lg:px-8">
+            <div class="overflow-hidden rounded-lg bg-white shadow-sm">
+                <div class="p-8">
+                    <form action="{{ route('careers.update', $career->id) }}" method="POST" enctype="multipart/form-data" id="careerForm" class="space-y-8" novalidate>
+                        @csrf
+                        @method('PUT')
+
+                        <div>
+                            <label for="title" class="mb-2 block text-sm font-semibold text-gray-800">Title</label>
+                            <input type="text" name="title" id="title" maxlength="255" class="w-full rounded-lg border border-gray-300 p-3" value="{{ old('title', $career->title) }}" required>
+                            @error('title')
+                                <p class="mt-2 text-sm text-red-500">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div>
+                            <label for="location" class="mb-2 block text-sm font-semibold text-gray-800">Location</label>
+                            <select name="location" id="location" class="w-full rounded-lg border border-gray-300 p-3" required>
+                                <option value="" disabled {{ old('location', $career->location) ? '' : 'selected' }}>Select a location</option>
+                                @foreach (config('base.location') as $location)
+                                    <option value="{{ $location }}" {{ old('location', $career->location) === $location ? 'selected' : '' }}>{{ $location }}</option>
+                                @endforeach
+                            </select>
+                            @error('location')
+                                <p class="mt-2 text-sm text-red-500">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div>
+                            <label for="salary" class="mb-2 block text-sm font-semibold text-gray-800">Salary</label>
+                            <input type="number" name="salary" id="salary" min="0" step="1" class="w-full rounded-lg border border-gray-300 p-3" value="{{ old('salary', $career->salary) }}" required>
+                            @error('salary')
+                                <p class="mt-2 text-sm text-red-500">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div class="space-y-6 border-t border-gray-200 pt-8">
+                            <div>
+                                <label for="ignite" class="mb-2 block text-sm font-semibold text-gray-800">Description</label>
+                                <textarea rows="10" name="ignite" id="ignite" class="w-full rounded-lg border border-gray-300 p-3" required data-required-message="The ignite field is required.">{{ old('ignite', $career->ignite) }}</textarea>
+                                <p id="ignite_error" class="mt-2 hidden text-sm text-red-500"></p>
+                                @error('ignite')
+                                    <p class="mt-2 text-sm text-red-500">{{ $message }}</p>
+                                @enderror
                             </div>
-                            <div class="ml-3">
-                                <h3 class="text-sm font-medium text-red-800">
-                                    There were {{ count($errors) }} error(s) with your submission:
-                                </h3>
-                                <div class="mt-2 text-sm text-red-700">
-                                    <ul class="list-disc list-inside space-y-1">
-                                        @foreach ($errors->all() as $error)
-                                            <li>{{ $error }}</li>
-                                        @endforeach
-                                    </ul>
+
+                            <div>
+                                <label for="role" class="mb-2 block text-sm font-semibold text-gray-800">Role</label>
+                                <textarea rows="10" name="role" id="role" class="w-full rounded-lg border border-gray-300 p-3" required data-required-message="The role field is required.">{{ old('role', $career->role) }}</textarea>
+                                <p id="role_error" class="mt-2 hidden text-sm text-red-500"></p>
+                                @error('role')
+                                    <p class="mt-2 text-sm text-red-500">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="space-y-6 border-t border-gray-200 pt-8">
+                            <div>
+                                <label for="responsibilitiesInput" class="mb-2 block text-sm font-semibold text-gray-800">Responsibilities</label>
+                                <div class="flex gap-3">
+                                    <input type="text" id="responsibilitiesInput" class="w-full rounded-lg border border-gray-300 p-3" maxlength="255" placeholder="Type a responsibility and click Add">
+                                    <button type="button" id="addResponsibility" class="rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700">Add</button>
                                 </div>
+                                <input type="hidden" name="responsibilities" id="responsibilities" value="{{ old('responsibilities', $career->responsibilities) }}" required data-required-message="The responsibilities field is required.">
+                                <p class="mt-2 text-sm text-gray-500">Add at least one responsibility.</p>
+                                <p id="responsibilities_error" class="mt-2 hidden text-sm text-red-500"></p>
+                                <div id="responsibilitiesList" class="mt-3 flex flex-wrap gap-2"></div>
+                                @error('responsibilities')
+                                    <p class="mt-2 text-sm text-red-500">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <div>
+                                <label for="requirementsInput" class="mb-2 block text-sm font-semibold text-gray-800">Requirements</label>
+                                <div class="flex gap-3">
+                                    <input type="text" id="requirementsInput" class="w-full rounded-lg border border-gray-300 p-3" maxlength="255" placeholder="Type a requirement and click Add">
+                                    <button type="button" id="addRequirement" class="rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700">Add</button>
+                                </div>
+                                <input type="hidden" name="requirements" id="requirements" value="{{ old('requirements', $career->requirements) }}" required data-required-message="The requirements field is required.">
+                                <p class="mt-2 text-sm text-gray-500">Add at least one requirement.</p>
+                                <p id="requirements_error" class="mt-2 hidden text-sm text-red-500"></p>
+                                <div id="requirementsList" class="mt-3 flex flex-wrap gap-2"></div>
+                                @error('requirements')
+                                    <p class="mt-2 text-sm text-red-500">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <div>
+                                <label for="benefitsInput" class="mb-2 block text-sm font-semibold text-gray-800">Benefits</label>
+                                <div class="flex gap-3">
+                                    <input type="text" id="benefitsInput" class="w-full rounded-lg border border-gray-300 p-3" maxlength="255" placeholder="Type a benefit and click Add">
+                                    <button type="button" id="addBenefit" class="rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700">Add</button>
+                                </div>
+                                <input type="hidden" name="benefits" id="benefits" value="{{ old('benefits', $career->benefits) }}" required data-required-message="The benefits field is required.">
+                                <p class="mt-2 text-sm text-gray-500">Add at least one benefit.</p>
+                                <p id="benefits_error" class="mt-2 hidden text-sm text-red-500"></p>
+                                <div id="benefitsList" class="mt-3 flex flex-wrap gap-2"></div>
+                                @error('benefits')
+                                    <p class="mt-2 text-sm text-red-500">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
-                    </div>
-                @endif
 
-                <form action="{{ route('careers.update', $career->id) }}" method="POST" enctype="multipart/form-data" id="careerForm" novalidate>
-                    @csrf
-                    @method('PUT')
+                        <div class="space-y-6 border-t border-gray-200 pt-8">
+                            <h3 class="text-lg font-semibold text-gray-900">Myanmar Content</h3>
 
-                    <div class="mb-4">
-                        <label for="title" class="block text-gray-700 font-bold mb-2">Title</label>
-                        @error('title')
-                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                        @enderror
-                        <input type="text" value="{{ old('title', $career->title) }}" name="title" id="title" maxlength="255" class="border rounded w-full p-2 {{ $errors->has('title') ? 'border-red-500' : 'border-gray-300' }}" required>
-                    </div>
-                    <div class="mb-4">
-                        <label for="location" class="block text-gray-700 font-bold mb-2">Location</label>
-                        @error('location')
-                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                        @enderror
-                        <select name="location" id="location" class="border rounded w-full p-2 {{ $errors->has('location') ? 'border-red-500' : 'border-gray-300' }}" required>
-                            <option value="" disabled {{ old('location', $career->location) ? '' : 'selected' }}>Select a location</option>
-                            @foreach (config('base.location') as $location)
-                            <option value="{{ $location }}" {{ old('location', $career->location) === $location ? 'selected' : '' }}>{{ $location }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="mb-4">
-                        <label for="salary" class="block text-gray-700 font-bold mb-2">Salary</label>
-                        @error('salary')
-                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                        @enderror
-                        <input type="number" value="{{ old('salary', $career->salary) }}" name="salary" id="salary" min="0" step="1" class="border rounded w-full p-2 {{ $errors->has('salary') ? 'border-red-500' : 'border-gray-300' }}" required>
-                    </div>
-                    <div class="mb-4">
-                        <label for="ignite" class="block text-gray-700 font-bold mb-2">Description</label>
-                        @error('ignite')
-                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                        @enderror
-                        <textarea rows="10" name="ignite" id="ignite" class="border rounded w-full p-2 {{ $errors->has('ignite') ? 'border-red-500' : 'border-gray-300' }}" required data-required-message="The ignite field is required.">{{ old('ignite', $career->ignite) }}</textarea>
-                        <p id="ignite_error" class="hidden text-red-500 text-sm mt-1"></p>
-                    </div>
-                    <div class="mb-4">
-                        <label for="role" class="block text-gray-700 font-bold mb-2">Role</label>
-                        @error('role')
-                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                        @enderror
-                        <textarea rows="10" name="role" id="role" class="border rounded w-full p-2 {{ $errors->has('role') ? 'border-red-500' : 'border-gray-300' }}" required data-required-message="The role field is required.">{{ old('role', $career->role) }}</textarea>
-                        <p id="role_error" class="hidden text-red-500 text-sm mt-1"></p>
-                    </div>
-                    <div class="mb-4">
-                        <label for="responsibilitiesInput" class="block text-gray-700 font-bold mb-2">Responsibilities</label>
-                        @error('responsibilities')
-                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                        @enderror
-                        <div class="flex gap-2">
-                            <input type="text" id="responsibilitiesInput" class="border border-gray-300 rounded w-full p-2" maxlength="255" placeholder="Type a responsibility and click Add">
-                            <button type="button" id="addResponsibility" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">Add</button>
-                        </div>
-                        <input type="hidden" value="{{ old('responsibilities', $career->responsibilities) }}" name="responsibilities" id="responsibilities" required data-required-message="The responsibilities field is required.">
-                        <p class="mt-1 text-sm text-gray-500">Add at least one responsibility.</p>
-                        <div id="responsibilitiesList" class="py-2 flex flex-wrap gap-2"></div>
-                    </div>
-                    <div class="mb-4">
-                        <label for="requirementsInput" class="block text-gray-700 font-bold mb-2">Requirements</label>
-                        @error('requirements')
-                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                        @enderror
-                        <div class="flex gap-2">
-                            <input type="text" id="requirementsInput" class="border border-gray-300 rounded w-full p-2" maxlength="255" placeholder="Type a requirement and click Add">
-                            <button id="addRequirement" type="button" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">Add</button>
-                        </div>
-                        <input type="hidden" value="{{ old('requirements', $career->requirements) }}" name="requirements" id="requirements" required data-required-message="The requirements field is required.">
-                        <p class="mt-1 text-sm text-gray-500">Add at least one requirement.</p>
-                        <div id="requirementsList" class="py-2 flex flex-wrap gap-2"></div>
-                    </div>
-                    <div class="mb-4">
-                        <label for="benefitsInput" class="block text-gray-700 font-bold mb-2">Benefits</label>
-                        @error('benefits')
-                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                        @enderror
-                        <div class="flex gap-2">
-                            <input type="text" id="benefitsInput" class="border border-gray-300 rounded w-full p-2" maxlength="255" placeholder="Type a benefit and click Add">
-                            <button id="addBenefit" type="button" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">Add</button>
-                        </div>
-                        <input type="hidden" value="{{ old('benefits', $career->benefits) }}" name="benefits" id="benefits" required data-required-message="The benefits field is required.">
-                        <p class="mt-1 text-sm text-gray-500">Add at least one benefit.</p>
-                        <div id="benefitsList" class="py-2 flex flex-wrap gap-2"></div>
-                    </div>
-                    <div class="mt-8 pt-6 border-t border-gray-200">
-                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Myanmar Content</h3>
-                        <div class="mb-4">
-                            <label for="title_mm" class="block text-gray-700 font-bold mb-2">Title (Myanmar)</label>
-                            @error('title_mm')
-                                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                            @enderror
-                            <input type="text" value="{{ old('title_mm', $career->title_mm) }}" name="title_mm" id="title_mm" maxlength="255" class="border rounded w-full p-2 {{ $errors->has('title_mm') ? 'border-red-500' : 'border-gray-300' }}">
-                        </div>
-                        <div class="mb-4">
-                            <label for="ignite_mm" class="block text-gray-700 font-bold mb-2">Description (Myanmar)</label>
-                            @error('ignite_mm')
-                                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                            @enderror
-                            <textarea rows="10" name="ignite_mm" id="ignite_mm" class="border rounded w-full p-2 {{ $errors->has('ignite_mm') ? 'border-red-500' : 'border-gray-300' }}">{{ old('ignite_mm', $career->ignite_mm) }}</textarea>
-                        </div>
-                        <div class="mb-4">
-                            <label for="role_mm" class="block text-gray-700 font-bold mb-2">Role (Myanmar)</label>
-                            @error('role_mm')
-                                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                            @enderror
-                            <textarea rows="10" name="role_mm" id="role_mm" class="border rounded w-full p-2 {{ $errors->has('role_mm') ? 'border-red-500' : 'border-gray-300' }}">{{ old('role_mm', $career->role_mm) }}</textarea>
-                        </div>
-                        <div class="mb-4">
-                            <label for="responsibilities_mm" class="block text-gray-700 font-bold mb-2">Responsibilities (Myanmar)</label>
-                            @error('responsibilities_mm')
-                                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                            @enderror
-                            <textarea name="responsibilities_mm" id="responsibilities_mm" class="border rounded w-full p-2 {{ $errors->has('responsibilities_mm') ? 'border-red-500' : 'border-gray-300' }}" placeholder="Use / between each item">{{ old('responsibilities_mm', $career->responsibilities_mm) }}</textarea>
-                        </div>
-                        <div class="mb-4">
-                            <label for="requirements_mm" class="block text-gray-700 font-bold mb-2">Requirements (Myanmar)</label>
-                            @error('requirements_mm')
-                                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                            @enderror
-                            <textarea name="requirements_mm" id="requirements_mm" class="border rounded w-full p-2 {{ $errors->has('requirements_mm') ? 'border-red-500' : 'border-gray-300' }}" placeholder="Use / between each item">{{ old('requirements_mm', $career->requirements_mm) }}</textarea>
-                        </div>
-                        <div class="mb-4">
-                            <label for="benefits_mm" class="block text-gray-700 font-bold mb-2">Benefits (Myanmar)</label>
-                            @error('benefits_mm')
-                                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                            @enderror
-                            <textarea name="benefits_mm" id="benefits_mm" class="border rounded w-full p-2 {{ $errors->has('benefits_mm') ? 'border-red-500' : 'border-gray-300' }}" placeholder="Use / between each item">{{ old('benefits_mm', $career->benefits_mm) }}</textarea>
-                        </div>
-                    </div>
+                            <div>
+                                <label for="title_mm" class="mb-2 block text-sm font-semibold text-gray-800">Title (Myanmar)</label>
+                                <input type="text" name="title_mm" id="title_mm" maxlength="255" class="w-full rounded-lg border border-gray-300 p-3" value="{{ old('title_mm', $career->title_mm) }}">
+                                @error('title_mm')
+                                    <p class="mt-2 text-sm text-red-500">{{ $message }}</p>
+                                @enderror
+                            </div>
 
-                    <div class="flex justify-end gap-3 pt-6 border-t border-gray-100">
-                        <a href="{{ url()->previous() }}" class="px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                            Cancel
-                        </a>
-                        <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                            Edit Career
-                        </button>
-                    </div>
-                </form>
+                            <div>
+                                <label for="ignite_mm" class="mb-2 block text-sm font-semibold text-gray-800">Description (Myanmar)</label>
+                                <textarea rows="10" name="ignite_mm" id="ignite_mm" class="w-full rounded-lg border border-gray-300 p-3">{{ old('ignite_mm', $career->ignite_mm) }}</textarea>
+                                @error('ignite_mm')
+                                    <p class="mt-2 text-sm text-red-500">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <div>
+                                <label for="role_mm" class="mb-2 block text-sm font-semibold text-gray-800">Role (Myanmar)</label>
+                                <textarea rows="10" name="role_mm" id="role_mm" class="w-full rounded-lg border border-gray-300 p-3">{{ old('role_mm', $career->role_mm) }}</textarea>
+                                @error('role_mm')
+                                    <p class="mt-2 text-sm text-red-500">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <div>
+                                <label for="responsibilities_mm" class="mb-2 block text-sm font-semibold text-gray-800">Responsibilities (Myanmar)</label>
+                                <div class="flex gap-3">
+                                    <input type="text" id="responsibilitiesMmInput" class="w-full rounded-lg border border-gray-300 p-3" maxlength="255" placeholder="Type a responsibility and click Add">
+                                    <button type="button" id="addResponsibilityMm" class="rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700">Add</button>
+                                </div>
+                                <input type="hidden" name="responsibilities_mm" id="responsibilities_mm" value="{{ old('responsibilities_mm', $career->responsibilities_mm) }}">
+                                <p class="mt-2 text-sm text-gray-500">Add Myanmar responsibilities one by one.</p>
+                                <div id="responsibilitiesMmList" class="mt-3 flex flex-wrap gap-2"></div>
+                                @error('responsibilities_mm')
+                                    <p class="mt-2 text-sm text-red-500">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <div>
+                                <label for="requirements_mm" class="mb-2 block text-sm font-semibold text-gray-800">Requirements (Myanmar)</label>
+                                <div class="flex gap-3">
+                                    <input type="text" id="requirementsMmInput" class="w-full rounded-lg border border-gray-300 p-3" maxlength="255" placeholder="Type a requirement and click Add">
+                                    <button type="button" id="addRequirementMm" class="rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700">Add</button>
+                                </div>
+                                <input type="hidden" name="requirements_mm" id="requirements_mm" value="{{ old('requirements_mm', $career->requirements_mm) }}">
+                                <p class="mt-2 text-sm text-gray-500">Add Myanmar requirements one by one.</p>
+                                <div id="requirementsMmList" class="mt-3 flex flex-wrap gap-2"></div>
+                                @error('requirements_mm')
+                                    <p class="mt-2 text-sm text-red-500">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <div>
+                                <label for="benefits_mm" class="mb-2 block text-sm font-semibold text-gray-800">Benefits (Myanmar)</label>
+                                <div class="flex gap-3">
+                                    <input type="text" id="benefitsMmInput" class="w-full rounded-lg border border-gray-300 p-3" maxlength="255" placeholder="Type a benefit and click Add">
+                                    <button type="button" id="addBenefitMm" class="rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700">Add</button>
+                                </div>
+                                <input type="hidden" name="benefits_mm" id="benefits_mm" value="{{ old('benefits_mm', $career->benefits_mm) }}">
+                                <p class="mt-2 text-sm text-gray-500">Add Myanmar benefits one by one.</p>
+                                <div id="benefitsMmList" class="mt-3 flex flex-wrap gap-2"></div>
+                                @error('benefits_mm')
+                                    <p class="mt-2 text-sm text-red-500">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="flex justify-end gap-3 border-t border-gray-200 pt-6">
+                            <a href="{{ route('careers.index') }}" class="rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">
+                                Cancel
+                            </a>
+                            <button type="submit" class="rounded-md bg-blue-600 px-5 py-2 text-sm font-medium text-white hover:bg-blue-700">
+                                Update Career
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/jodit@latest/es2021/jodit.fat.min.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/jodit@latest/es2021/jodit.fat.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const igniteEditor = Jodit.make('#ignite', {
-                height: 400,
-                buttons: ['bold', 'italic', 'underline', 'fontsize', 'link']
-            });
-            const igniteMmEditor = Jodit.make('#ignite_mm', {
-                height: 400,
-                buttons: ['bold', 'italic', 'underline', 'fontsize', 'link']
-            });
+            const editorConfig = {
+                height: 420,
+                buttons: ['bold', 'italic', 'underline', 'ul', 'ol', 'fontsize', 'link', 'image'],
+                uploader: {
+                    insertImageAsBase64URI: true,
+                },
+                filebrowser: {
+                    ajax: {
+                        url: '',
+                    },
+                },
+            };
 
-            const roleEditor = Jodit.make('#role', {
-                height: 400,
-                buttons: ['bold', 'italic', 'underline', 'fontsize', 'link']
-            });
-            const roleMmEditor = Jodit.make('#role_mm', {
-                height: 400,
-                buttons: ['bold', 'italic', 'underline', 'fontsize', 'link']
-            });
+            const igniteEditor = Jodit.make('#ignite', editorConfig);
+            const igniteMmEditor = Jodit.make('#ignite_mm', editorConfig);
+            const roleEditor = Jodit.make('#role', editorConfig);
+            const roleMmEditor = Jodit.make('#role_mm', editorConfig);
 
             const form = document.getElementById('careerForm');
+            const titleField = document.getElementById('title');
+            const locationField = document.getElementById('location');
+            const salaryField = document.getElementById('salary');
             const igniteField = document.getElementById('ignite');
             const igniteMmField = document.getElementById('ignite_mm');
             const roleField = document.getElementById('role');
             const roleMmField = document.getElementById('role_mm');
+            let hasSubmitted = false;
 
             function getPlainTextFromHtml(value) {
                 const parser = new DOMParser();
@@ -214,11 +236,11 @@
             }
 
             function getEditorContainer(field) {
-                return field.closest('.mb-4')?.querySelector('.jodit-container');
+                return field.parentElement.querySelector('.jodit-container');
             }
 
             function setEditorError(field, message) {
-                const errorElement = document.getElementById(`${field.id}_error`);
+                const errorElement = document.getElementById(field.id + '_error');
                 const editorContainer = getEditorContainer(field);
 
                 if (errorElement) {
@@ -247,6 +269,43 @@
                 return true;
             }
 
+            function setFieldError(field, message) {
+                if (!field) {
+                    return;
+                }
+
+                field.setCustomValidity(message || '');
+                field.classList.toggle('border-red-500', Boolean(message));
+            }
+
+            function validateBasicField(field) {
+                if (!field) {
+                    return true;
+                }
+
+                let message = '';
+                const value = field.value.trim();
+
+                if (field.id === 'title' && !value) {
+                    message = 'The title field is required.';
+                }
+
+                if (field.id === 'location' && !value) {
+                    message = 'The location field is required.';
+                }
+
+                if (field.id === 'salary') {
+                    if (!value) {
+                        message = 'The salary field is required.';
+                    } else if (Number(value) < 0) {
+                        message = 'The salary must be at least 0.';
+                    }
+                }
+
+                setFieldError(field, message);
+                return !message;
+            }
+
             function setupList(containerId, inputId, addButtonId, hiddenInputId) {
                 const container = document.getElementById(containerId);
                 const input = document.getElementById(inputId);
@@ -254,11 +313,21 @@
                 const hiddenInput = document.getElementById(hiddenInputId);
                 let items = hiddenInput.value ? hiddenInput.value.split('/').filter(Boolean) : [];
 
+                function setListError(message) {
+                    const errorElement = document.getElementById(hiddenInputId + '_error');
+
+                    if (errorElement) {
+                        errorElement.textContent = message || '';
+                        errorElement.classList.toggle('hidden', !message);
+                    }
+                }
+
                 function updateHiddenInput() {
                     hiddenInput.value = items.join('/');
-                    const message = items.length ? '' : (hiddenInput.dataset.requiredMessage || 'This field is required.');
+                    const message = items.length || !hasSubmitted ? '' : (hiddenInput.dataset.requiredMessage || 'This field is required.');
                     hiddenInput.setCustomValidity(message);
                     input.setCustomValidity(message);
+                    setListError(message);
                 }
 
                 function renderList() {
@@ -266,10 +335,10 @@
 
                     items.forEach((item, index) => {
                         const itemElement = document.createElement('div');
-                        itemElement.className = 'px-3 py-1 flex items-center gap-2 text-white text-sm border w-fit bg-blue-800 border-gray-300 rounded';
+                        itemElement.className = 'flex items-center gap-2 rounded-full bg-blue-50 px-3 py-2 text-sm text-blue-800';
                         itemElement.innerHTML = `
                             <span>${item}</span>
-                            <button type="button" class="bg-blue-500 hover:bg-red-600 text-white py-1 px-2 rounded-full remove-item" data-index="${index}">
+                            <button type="button" class="remove-item inline-flex h-5 w-5 items-center justify-center rounded-full bg-blue-600 text-white hover:bg-red-600" data-index="${index}">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" viewBox="0 0 20 20" fill="currentColor">
                                     <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
                                 </svg>
@@ -330,6 +399,9 @@
             setupList('responsibilitiesList', 'responsibilitiesInput', 'addResponsibility', 'responsibilities');
             setupList('requirementsList', 'requirementsInput', 'addRequirement', 'requirements');
             setupList('benefitsList', 'benefitsInput', 'addBenefit', 'benefits');
+            setupList('responsibilitiesMmList', 'responsibilitiesMmInput', 'addResponsibilityMm', 'responsibilities_mm');
+            setupList('requirementsMmList', 'requirementsMmInput', 'addRequirementMm', 'requirements_mm');
+            setupList('benefitsMmList', 'benefitsMmInput', 'addBenefitMm', 'benefits_mm');
 
             igniteEditor.events.on('change', function() {
                 validateRichTextField(igniteEditor, igniteField);
@@ -339,18 +411,63 @@
                 validateRichTextField(roleEditor, roleField);
             });
 
+            [titleField, locationField, salaryField].forEach(function(field) {
+                if (!field) {
+                    return;
+                }
+
+                field.addEventListener('input', function() {
+                    validateBasicField(field);
+                });
+
+                field.addEventListener('change', function() {
+                    validateBasicField(field);
+                });
+
+                field.addEventListener('blur', function() {
+                    validateBasicField(field);
+                });
+            });
+
             form.addEventListener('submit', function(event) {
+                hasSubmitted = true;
+                const isTitleValid = validateBasicField(titleField);
+                const isLocationValid = validateBasicField(locationField);
+                const isSalaryValid = validateBasicField(salaryField);
                 const isIgniteValid = validateRichTextField(igniteEditor, igniteField);
                 const isRoleValid = validateRichTextField(roleEditor, roleField);
                 igniteMmField.value = igniteMmEditor.value;
                 roleMmField.value = roleMmEditor.value;
 
-                if (!isIgniteValid || !isRoleValid || !form.checkValidity()) {
+                [
+                    ['responsibilities', 'responsibilitiesInput'],
+                    ['requirements', 'requirementsInput'],
+                    ['benefits', 'benefitsInput']
+                ].forEach(function(fieldIds) {
+                    const hiddenInput = document.getElementById(fieldIds[0]);
+                    const visibleInput = document.getElementById(fieldIds[1]);
+
+                    if (!hiddenInput || !visibleInput) {
+                        return;
+                    }
+
+                    const values = hiddenInput.value ? hiddenInput.value.split('/').filter(Boolean) : [];
+                    const message = values.length ? '' : (hiddenInput.dataset.requiredMessage || 'This field is required.');
+                    hiddenInput.setCustomValidity(message);
+                    visibleInput.setCustomValidity(message);
+
+                    const errorElement = document.getElementById(fieldIds[0] + '_error');
+                    if (errorElement) {
+                        errorElement.textContent = message || '';
+                        errorElement.classList.toggle('hidden', !message);
+                    }
+                });
+
+                if (!isTitleValid || !isLocationValid || !isSalaryValid || !isIgniteValid || !isRoleValid || !form.checkValidity()) {
                     event.preventDefault();
                     form.reportValidity();
                 }
             });
         });
     </script>
-
 </x-app-layout>

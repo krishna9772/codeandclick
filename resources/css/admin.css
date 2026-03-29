@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.jodit-wysiwyg ul,
+.jodit-container .jodit-wysiwyg ul,
+.jodit-workplace ul {
+    list-style: disc !important;
+    margin: 1em 0 !important;
+    padding-left: 2rem !important;
+}
+
+.jodit-wysiwyg ol,
+.jodit-container .jodit-wysiwyg ol,
+.jodit-workplace ol {
+    list-style: decimal !important;
+    margin: 1em 0 !important;
+    padding-left: 2rem !important;
+}
+
+.jodit-wysiwyg li,
+.jodit-container .jodit-wysiwyg li,
+.jodit-workplace li {
+    display: list-item !important;
+}

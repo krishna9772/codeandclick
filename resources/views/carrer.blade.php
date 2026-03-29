@@ -1,6 +1,28 @@
 @extends('layouts.main')
 @section('body_class', 'wp-singular page-template page-template-page-careers page page-id-5433 wp-theme-ignite no-smooth-scroll')
 @section('content')
+  <style>
+    .l__ventures--titles #scroll-to {
+      margin-left: 30px;
+      position: relative;
+      border: 0;
+      cursor: pointer;
+    }
+
+    @media screen and (min-width: 800px) {
+      .l__ventures--titles #scroll-to {
+        bottom: 0;
+        position: absolute;
+        right: 30px;
+      }
+    }
+
+    @media screen and (min-width: 1150px) {
+      .l__ventures--titles #scroll-to {
+        right: calc(50vw - 545px);
+      }
+    }
+  </style>
   <div class="case-study-video-container"></div>
   <div class="working-with-us-scroll-image"></div>
   <div class="individual-service-scroll-image"></div>
@@ -17,10 +39,10 @@
                   {{ site_text('site.careers.intro') }}
                 </h4>
               </div>
-              <a href="#" class="c__button light px-4" id="scroll-to">{{ site_text('site.careers.current_opportunities') }}</a>
+              <button type="button" class="c__button light px-4" id="scroll-to">{{ site_text('site.careers.current_opportunities') }}</button>
             </section>
 
-            <section class="l__current-holdings">
+            <section class="l__current-holdings" id="current-opportunities">
               <div class="container">
                 <h3 class="text-4xl">{{ site_text('site.careers.current_opportunities') }}</h3>
                 <div style="display: flex; gap: 10px;">
@@ -57,6 +79,21 @@
           </div>
 
           <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
+          <script>
+            document.addEventListener('DOMContentLoaded', function () {
+              const careersScrollButton = document.getElementById('scroll-to');
+              const opportunitiesSection = document.getElementById('current-opportunities');
+
+              if (!careersScrollButton || !opportunitiesSection) {
+                return;
+              }
+
+              careersScrollButton.addEventListener('click', function (event) {
+                event.preventDefault();
+                opportunitiesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              });
+            });
+          </script>
         </div>
       </div>
     </div>

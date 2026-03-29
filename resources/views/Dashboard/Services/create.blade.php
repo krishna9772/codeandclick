@@ -1,159 +1,164 @@
 <x-app-layout>
     <x-slot name="header">
-        <a href="{{ route('services.index') }}" class="border border-blue-800 text-blue-800 font-bold py-2 px-4 rounded">
-            Back to Services List
-        </a>
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Create New Service
-        </h2>
+        <div class="flex w-full items-center">
+            <a href="{{ route('services.index') }}" class="border border-blue-800 px-4 py-2 font-bold text-blue-800 rounded">
+                Back to Services List
+            </a>
+            <h2 class="ml-auto text-right text-xl font-semibold leading-tight text-gray-800">
+                {{ $pageTitle ?? 'Create New Service' }}
+            </h2>
+        </div>
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl space-y-6 mx-auto sm:px-6 lg:px-8">
-            <div style="width: 800px;" class="bg-white mx-auto p-4 overflow-hidden shadow-sm sm:rounded-lg">
-                @if ($errors->any())
-                <div class="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
-                    <div class="flex">
-                        <div class="flex-shrink-0">
-                            <svg class="h-5 w-5 text-red-400" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
-                            </svg>
-                        </div>
-                        <div class="ml-3">
-                            <h3 class="text-sm font-medium text-red-800">
-                                There were {{ count($errors) }} error(s) with your submission:
-                            </h3>
-                            <div class="mt-2 text-sm text-red-700">
-                                <ul class="list-disc list-inside space-y-1">
-                                    @foreach ($errors->all() as $error)
+        <div class="mx-auto max-w-5xl sm:px-6 lg:px-8">
+            <div class="overflow-hidden rounded-lg bg-white shadow-sm">
+                <div class="p-8">
+                    @if ($errors->any())
+                        <div class="mb-6 rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-700">
+                            <ul class="list-disc pl-5 space-y-1">
+                                @foreach ($errors->all() as $error)
                                     <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
+                    <form action="{{ route('services.store') }}" method="POST" enctype="multipart/form-data" id="serviceCreateForm" class="space-y-8" novalidate>
+                        @csrf
+
+                        <div>
+                            <label for="image" class="mb-2 block text-sm font-semibold text-gray-800">Featured Image</label>
+                            <div id="imageFieldWrapper" class="rounded-2xl border border-dashed border-gray-300 p-4">
+                                <div id="imagePreviewWrapper" class="hidden mb-4 overflow-hidden rounded-xl border border-gray-200">
+                                    <img id="imagePreview" src="#" alt="Image preview" class="h-56 w-full object-cover">
+                                </div>
+                                <label for="image" class="inline-flex cursor-pointer items-center rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700">
+                                    Choose image
+                                </label>
+                                <input id="image" name="image" type="file" class="hidden" accept=".jpeg,.jpg,.png,.gif,image/jpeg,image/png,image/gif" required>
+                                <p id="imageFileName" class="mt-3 text-sm text-gray-500">JPG, JPEG, PNG, or GIF up to 5MB.</p>
+                                <p id="imageError" class="mt-2 hidden text-sm text-red-500"></p>
+                                @error('image')
+                                    <p class="mt-2 text-sm text-red-500">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
-                    </div>
+
+                        <div>
+                            <label for="name" class="mb-2 block text-sm font-semibold text-gray-800">Name</label>
+                            <input type="text" name="name" id="name" value="{{ old('name') }}" maxlength="255" class="w-full rounded-lg border border-gray-300 p-3" required>
+                            @error('name')
+                                <p class="mt-2 text-sm text-red-500">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div>
+                            <label for="title" class="mb-2 block text-sm font-semibold text-gray-800">Title</label>
+                            <input type="text" name="title" id="title" value="{{ old('title') }}" maxlength="255" class="w-full rounded-lg border border-gray-300 p-3" required>
+                            @error('title')
+                                <p class="mt-2 text-sm text-red-500">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div class="space-y-6 border-t border-gray-200 pt-8">
+                            <div>
+                                <label for="main_content" class="mb-2 block text-sm font-semibold text-gray-800">Main Content</label>
+                                <textarea name="main_content" id="main_content" class="w-full rounded-lg border border-gray-300 p-3" required data-required-message="The main content field is required.">{{ old('main_content') }}</textarea>
+                                <p id="main_content_error" class="hidden mt-2 text-sm text-red-500"></p>
+                                @error('main_content')
+                                    <p class="mt-2 text-sm text-red-500">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <div>
+                                <label for="tagInput" class="mb-2 block text-sm font-semibold text-gray-800">Tags</label>
+                                <div class="flex gap-3">
+                                    <input type="text" id="tagInput" maxlength="255" class="w-full rounded-lg border border-gray-300 p-3" placeholder="Type a tag and click Add">
+                                    <button id="addTag" type="button" class="rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700">
+                                        Add
+                                    </button>
+                                </div>
+                                <input type="hidden" name="tags" id="tags" value="{{ old('tags') }}" required data-required-message="The tags field is required.">
+                                <p class="mt-2 text-sm text-gray-500">Add at least one tag.</p>
+                                <div id="tagList" class="mt-3 flex flex-wrap gap-2"></div>
+                                @error('tags')
+                                    <p class="mt-2 text-sm text-red-500">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <div>
+                                <label for="sub_content" class="mb-2 block text-sm font-semibold text-gray-800">Sub Content</label>
+                                <textarea name="sub_content" id="sub_content" class="w-full rounded-lg border border-gray-300 p-3" required data-required-message="The sub content field is required.">{{ old('sub_content') }}</textarea>
+                                <p id="sub_content_error" class="hidden mt-2 text-sm text-red-500"></p>
+                                @error('sub_content')
+                                    <p class="mt-2 text-sm text-red-500">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="space-y-6 border-t border-gray-200 pt-8">
+                            <h3 class="text-lg font-semibold text-gray-900">Myanmar Content</h3>
+
+                            <div>
+                                <label for="name_mm" class="mb-2 block text-sm font-semibold text-gray-800">Name (Myanmar)</label>
+                                <input type="text" name="name_mm" id="name_mm" value="{{ old('name_mm') }}" maxlength="255" class="w-full rounded-lg border border-gray-300 p-3">
+                                @error('name_mm')
+                                    <p class="mt-2 text-sm text-red-500">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <div>
+                                <label for="title_mm" class="mb-2 block text-sm font-semibold text-gray-800">Title (Myanmar)</label>
+                                <input type="text" name="title_mm" id="title_mm" value="{{ old('title_mm') }}" maxlength="255" class="w-full rounded-lg border border-gray-300 p-3">
+                                @error('title_mm')
+                                    <p class="mt-2 text-sm text-red-500">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <div>
+                                <label for="main_content_mm" class="mb-2 block text-sm font-semibold text-gray-800">Main Content (Myanmar)</label>
+                                <textarea name="main_content_mm" id="main_content_mm" class="w-full rounded-lg border border-gray-300 p-3">{{ old('main_content_mm') }}</textarea>
+                                @error('main_content_mm')
+                                    <p class="mt-2 text-sm text-red-500">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <div>
+                                <label for="tagInputMm" class="mb-2 block text-sm font-semibold text-gray-800">Tags (Myanmar)</label>
+                                <div class="flex gap-3">
+                                    <input type="text" id="tagInputMm" maxlength="255" class="w-full rounded-lg border border-gray-300 p-3" placeholder="Type a tag and click Add">
+                                    <button id="addTagMm" type="button" class="rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700">
+                                        Add
+                                    </button>
+                                </div>
+                                <input type="hidden" name="tags_mm" id="tags_mm" value="{{ old('tags_mm') }}">
+                                <p class="mt-2 text-sm text-gray-500">Add Myanmar tags one by one.</p>
+                                <div id="tagListMm" class="mt-3 flex flex-wrap gap-2"></div>
+                                @error('tags_mm')
+                                    <p class="mt-2 text-sm text-red-500">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <div>
+                                <label for="sub_content_mm" class="mb-2 block text-sm font-semibold text-gray-800">Sub Content (Myanmar)</label>
+                                <textarea name="sub_content_mm" id="sub_content_mm" class="w-full rounded-lg border border-gray-300 p-3">{{ old('sub_content_mm') }}</textarea>
+                                @error('sub_content_mm')
+                                    <p class="mt-2 text-sm text-red-500">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="flex justify-end gap-3 border-t border-gray-200 pt-6">
+                            <a href="{{ route('services.index') }}" class="rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">
+                                Cancel
+                            </a>
+                            <button type="submit" class="rounded-md bg-blue-600 px-5 py-2 text-sm font-medium text-white hover:bg-blue-700">
+                                Create Service
+                            </button>
+                        </div>
+                    </form>
                 </div>
-                @endif
-
-                <form action="{{ route('services.store') }}" method="POST" enctype="multipart/form-data" id="serviceForm" novalidate>
-                    @csrf
-                    <div class="mb-6">
-                        <label for="image" class="block text-gray-700 font-bold mb-2">Image</label>
-                        @error('image')
-                        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                        @enderror
-
-                        <div id="imagePreviewContainer" class="hidden mb-4">
-                            <img id="imagePreview" src="#" alt="Image Preview" class="w-full object-cover rounded-lg border border-gray-200">
-                        </div>
-
-                        <div class="mt-1 flex items-center">
-                            <label for="image" class="cursor-pointer bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                                <span>Choose an image</span>
-                                <input id="image" name="image" type="file" class="sr-only" accept=".jpeg,.jpg,.png,.gif,image/jpeg,image/png,image/gif" onchange="previewImage(this)" required>
-                            </label>
-                            <span id="fileName" class="ml-4 text-sm text-gray-600">No file chosen</span>
-                        </div>
-                        <p class="mt-1 text-sm text-gray-500">JPG, JPEG, PNG, or GIF (Max: 5MB)</p>
-                    </div>
-
-                    <div class="mb-4">
-                        <label for="name" class="block text-gray-700 font-bold mb-2">Name</label>
-                        @error('name')
-                        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                        @enderror
-                        <input type="text" name="name" id="name" maxlength="255" class="border rounded w-full p-2 {{ $errors->has('name') ? 'border-red-500' : 'border-gray-300' }}" value="{{ old('name') }}" required>
-                        <p class="mt-1 text-sm text-gray-500">Maximum 255 characters.</p>
-                    </div>
-
-                    <div class="mb-4">
-                        <label for="title" class="block text-gray-700 font-bold mb-2">Title</label>
-                        @error('title')
-                        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                        @enderror
-                        <input type="text" name="title" id="title" maxlength="255" class="border rounded w-full p-2 {{ $errors->has('title') ? 'border-red-500' : 'border-gray-300' }}" value="{{ old('title') }}" required>
-                        <p class="mt-1 text-sm text-gray-500">Maximum 255 characters.</p>
-                    </div>
-
-                    <div class="mb-4">
-                        <label for="main_content" class="block text-gray-700 font-bold mb-2">Main Content</label>
-                        @error('main_content')
-                        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                        @enderror
-                        <textarea rows="10" name="main_content" id="main_content" class="border rounded w-full p-2 {{ $errors->has('main_content') ? 'border-red-500' : 'border-gray-300' }}" required data-required-message="The main content field is required.">{{ old('main_content') }}</textarea>
-                        <p id="main_content_error" class="hidden text-red-500 text-sm mt-1"></p>
-                    </div>
-
-                    <div class="mb-4">
-                        <label for="tagInput" class="block text-gray-700 font-bold mb-2">Tags</label>
-                        @error('tags')
-                        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                        @enderror
-                        <div class="flex gap-2">
-                            <input type="text" id="tagInput" class="border border-gray-300 rounded w-full p-2" maxlength="255" placeholder="Type a tag and click Add">
-                            <button id="addTag" type="button" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">Add</button>
-                        </div>
-                        <input type="hidden" name="tags" id="tags" value="{{ old('tags') }}" required data-required-message="The tags field is required.">
-                        <p class="mt-1 text-sm text-gray-500">Add at least one tag.</p>
-                        <div id="tagList" class="py-2 flex flex-wrap gap-2"></div>
-                    </div>
-
-                    <div class="mb-4">
-                        <label for="sub_content" class="block text-gray-700 font-bold mb-2">Sub Content</label>
-                        @error('sub_content')
-                        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                        @enderror
-                        <textarea name="sub_content" id="sub_content" class="border h-[200px] rounded w-full p-2 {{ $errors->has('sub_content') ? 'border-red-500' : 'border-gray-300' }}" required data-required-message="The sub content field is required.">{{ old('sub_content') }}</textarea>
-                        <p id="sub_content_error" class="hidden text-red-500 text-sm mt-1"></p>
-                    </div>
-                    <div class="mt-8 pt-6 border-t border-gray-200">
-                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Myanmar Content</h3>
-                        <div class="mb-4">
-                            <label for="name_mm" class="block text-gray-700 font-bold mb-2">Name (Myanmar)</label>
-                            @error('name_mm')
-                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                            @enderror
-                            <input type="text" name="name_mm" id="name_mm" maxlength="255" class="border rounded w-full p-2 {{ $errors->has('name_mm') ? 'border-red-500' : 'border-gray-300' }}" value="{{ old('name_mm') }}">
-                        </div>
-                        <div class="mb-4">
-                            <label for="title_mm" class="block text-gray-700 font-bold mb-2">Title (Myanmar)</label>
-                            @error('title_mm')
-                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                            @enderror
-                            <input type="text" name="title_mm" id="title_mm" maxlength="255" class="border rounded w-full p-2 {{ $errors->has('title_mm') ? 'border-red-500' : 'border-gray-300' }}" value="{{ old('title_mm') }}">
-                        </div>
-                        <div class="mb-4">
-                            <label for="main_content_mm" class="block text-gray-700 font-bold mb-2">Main Content (Myanmar)</label>
-                            @error('main_content_mm')
-                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                            @enderror
-                            <textarea rows="10" name="main_content_mm" id="main_content_mm" class="border rounded w-full p-2 {{ $errors->has('main_content_mm') ? 'border-red-500' : 'border-gray-300' }}">{{ old('main_content_mm') }}</textarea>
-                        </div>
-                        <div class="mb-4">
-                            <label for="tags_mm" class="block text-gray-700 font-bold mb-2">Tags (Myanmar)</label>
-                            @error('tags_mm')
-                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                            @enderror
-                            <textarea name="tags_mm" id="tags_mm" class="border rounded w-full p-2 {{ $errors->has('tags_mm') ? 'border-red-500' : 'border-gray-300' }}" placeholder="Use / between each tag">{{ old('tags_mm') }}</textarea>
-                        </div>
-                        <div class="mb-4">
-                            <label for="sub_content_mm" class="block text-gray-700 font-bold mb-2">Sub Content (Myanmar)</label>
-                            @error('sub_content_mm')
-                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                            @enderror
-                            <textarea name="sub_content_mm" id="sub_content_mm" class="border h-[200px] rounded w-full p-2 {{ $errors->has('sub_content_mm') ? 'border-red-500' : 'border-gray-300' }}">{{ old('sub_content_mm') }}</textarea>
-                        </div>
-                    </div>
-
-                    <div class="flex justify-end gap-3 pt-6 border-t border-gray-100">
-                        <a href="{{ url()->previous() }}" class="px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                            Cancel
-                        </a>
-                        <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                            Create Service
-                        </button>
-                    </div>
-                </form>
             </div>
         </div>
     </div>
@@ -161,37 +166,96 @@
     <script src="https://cdn.jsdelivr.net/npm/jodit@latest/es2021/jodit.fat.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const subContentEditor = Jodit.make('#sub_content', {
-                height: 400,
-                buttons: ['bold', 'italic', 'underline', 'fontsize', 'link']
-            });
-            const subContentMmEditor = Jodit.make('#sub_content_mm', {
-                height: 400,
-                buttons: ['bold', 'italic', 'underline', 'fontsize', 'link']
-            });
+            const editorConfig = {
+                height: 420,
+                buttons: ['bold', 'italic', 'underline', 'ul', 'ol', 'fontsize', 'link', 'image'],
+                uploader: {
+                    insertImageAsBase64URI: true,
+                },
+                filebrowser: {
+                    ajax: {
+                        url: '',
+                    },
+                },
+            };
 
-            const mainContentEditor = Jodit.make('#main_content', {
-                height: 400,
-                buttons: ['bold', 'italic', 'underline', 'fontsize', 'link']
-            });
-            const mainContentMmEditor = Jodit.make('#main_content_mm', {
-                height: 400,
-                buttons: ['bold', 'italic', 'underline', 'fontsize', 'link']
-            });
+            const mainContentEditor = Jodit.make('#main_content', editorConfig);
+            const subContentEditor = Jodit.make('#sub_content', editorConfig);
+            const mainContentMmEditor = Jodit.make('#main_content_mm', editorConfig);
+            const subContentMmEditor = Jodit.make('#sub_content_mm', editorConfig);
 
-            const form = document.getElementById('serviceForm');
+            const form = document.getElementById('serviceCreateForm');
             const imageInput = document.getElementById('image');
-            const mainContentField = document.getElementById('main_content');
-            const mainContentMmField = document.getElementById('main_content_mm');
-            const subContentField = document.getElementById('sub_content');
-            const subContentMmField = document.getElementById('sub_content_mm');
-            const tagsInput = document.getElementById('tags');
-            const tagList = document.getElementById('tagList');
+            const imageFieldWrapper = document.getElementById('imageFieldWrapper');
+            const imagePreviewWrapper = document.getElementById('imagePreviewWrapper');
+            const imagePreview = document.getElementById('imagePreview');
+            const imageFileName = document.getElementById('imageFileName');
+            const imageError = document.getElementById('imageError');
             const tagInput = document.getElementById('tagInput');
             const addTagButton = document.getElementById('addTag');
+            const tagList = document.getElementById('tagList');
+            const tagsInput = document.getElementById('tags');
+            const tagInputMm = document.getElementById('tagInputMm');
+            const addTagButtonMm = document.getElementById('addTagMm');
+            const tagListMm = document.getElementById('tagListMm');
+            const tagsInputMm = document.getElementById('tags_mm');
+            const mainContentField = document.getElementById('main_content');
+            const subContentField = document.getElementById('sub_content');
+            const mainContentMmField = document.getElementById('main_content_mm');
+            const subContentMmField = document.getElementById('sub_content_mm');
             const allowedImageTypes = ['image/jpeg', 'image/png', 'image/gif'];
             const maxImageSize = 5 * 1024 * 1024;
             let items = tagsInput.value ? tagsInput.value.split('/').filter(Boolean) : [];
+            let itemsMm = tagsInputMm.value ? tagsInputMm.value.split('/').filter(Boolean) : [];
+
+            function resetImagePreview() {
+                imagePreviewWrapper.classList.add('hidden');
+                imagePreview.src = '#';
+                imageFileName.textContent = 'JPG, JPEG, PNG, or GIF up to 5MB.';
+            }
+
+            function setImageError(message) {
+                imageError.textContent = message || '';
+                imageError.classList.toggle('hidden', !message);
+                imageFieldWrapper.classList.toggle('border-red-300', Boolean(message));
+            }
+
+            function validateImage() {
+                imageInput.setCustomValidity('');
+                setImageError('');
+
+                if (!imageInput.files || !imageInput.files[0]) {
+                    resetImagePreview();
+                    const message = 'The image field is required.';
+                    imageInput.setCustomValidity(message);
+                    setImageError(message);
+                    return false;
+                }
+
+                const file = imageInput.files[0];
+
+                if (!allowedImageTypes.includes(file.type)) {
+                    imageInput.value = '';
+                    resetImagePreview();
+                    imageFileName.textContent = 'Only JPG, JPEG, PNG, and GIF files are allowed.';
+                    const message = 'The image must be a file of type: jpeg, png, jpg, gif.';
+                    imageInput.setCustomValidity(message);
+                    setImageError(message);
+                    return false;
+                }
+
+                if (file.size > maxImageSize) {
+                    imageInput.value = '';
+                    resetImagePreview();
+                    imageFileName.textContent = 'File is larger than 5MB.';
+                    const message = 'The image may not be greater than 5120 kilobytes.';
+                    imageInput.setCustomValidity(message);
+                    setImageError(message);
+                    return false;
+                }
+
+                return true;
+            }
 
             function getPlainTextFromHtml(value) {
                 const parser = new DOMParser();
@@ -199,16 +263,12 @@
                 return (doc.body.textContent || '').replace(/\u00A0/g, ' ').trim();
             }
 
-            function syncEditorContent(editor, field) {
-                field.value = editor.value;
-            }
-
             function getEditorContainer(field) {
-                return field.closest('.mb-4')?.querySelector('.jodit-container');
+                return field.parentElement.querySelector('.jodit-container');
             }
 
             function setEditorError(field, message) {
-                const errorElement = document.getElementById(`${field.id}_error`);
+                const errorElement = document.getElementById(field.id + '_error');
                 const editorContainer = getEditorContainer(field);
 
                 if (errorElement) {
@@ -222,7 +282,7 @@
             }
 
             function validateRichTextField(editor, field) {
-                syncEditorContent(editor, field);
+                field.value = editor.value;
 
                 if (!getPlainTextFromHtml(field.value)) {
                     const message = field.dataset.requiredMessage || 'This field is required.';
@@ -237,58 +297,69 @@
                 return true;
             }
 
-            function updateTagsValue() {
-                tagsInput.value = items.join('/');
-                const tagErrorMessage = items.length ? '' : (tagsInput.dataset.requiredMessage || 'Please add at least one tag.');
-                tagsInput.setCustomValidity(tagErrorMessage);
-                tagInput.setCustomValidity(tagErrorMessage);
+            function updateTagsValue(input, sourceInput, values, required) {
+                input.value = values.join('/');
+
+                if (!required) {
+                    sourceInput.setCustomValidity('');
+                    input.setCustomValidity('');
+                    return;
+                }
+
+                const tagErrorMessage = values.length ? '' : (input.dataset.requiredMessage || 'Please add at least one tag.');
+                input.setCustomValidity(tagErrorMessage);
+                sourceInput.setCustomValidity(tagErrorMessage);
             }
 
-            function renderTags() {
-                tagList.innerHTML = '';
+            function renderTags(list, input, sourceInput, values, required) {
+                list.innerHTML = '';
 
-                items.forEach((item, index) => {
+                values.forEach(function(item, index) {
                     const itemElement = document.createElement('div');
-                    itemElement.className = 'px-3 py-1 flex items-center gap-2 text-white text-sm border w-fit bg-blue-800 border-gray-300 rounded';
+                    itemElement.className = 'flex items-center gap-2 rounded-full bg-blue-50 px-3 py-2 text-sm text-blue-800';
                     itemElement.innerHTML = `
                         <span>${item}</span>
-                        <button type="button" class="bg-blue-500 hover:bg-red-600 text-white py-1 px-2 rounded-full remove-item" data-index="${index}">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
-                            </svg>
+                        <button type="button" class="remove-item inline-flex h-5 w-5 items-center justify-center rounded-full bg-blue-600 text-white hover:bg-red-600" data-index="${index}">
+                            <span aria-hidden="true">&times;</span>
                         </button>
                     `;
-                    tagList.appendChild(itemElement);
+                    list.appendChild(itemElement);
                 });
 
-                updateTagsValue();
+                updateTagsValue(input, sourceInput, values, required);
             }
 
-            function addTag() {
-                const value = tagInput.value.trim();
+            function addTag(sourceInput, values, list, input, required) {
+                const value = sourceInput.value.trim();
 
                 if (!value) {
                     return;
                 }
 
                 if (value.length > 255) {
-                    tagInput.setCustomValidity('Each tag may not be greater than 255 characters.');
-                    tagInput.reportValidity();
+                    sourceInput.setCustomValidity('Each tag may not be greater than 255 characters.');
+                    sourceInput.reportValidity();
                     return;
                 }
 
-                tagInput.setCustomValidity('');
-                items.push(value);
-                tagInput.value = '';
-                renderTags();
+                sourceInput.setCustomValidity('');
+                values.push(value);
+                sourceInput.value = '';
+                renderTags(list, input, sourceInput, values, required);
             }
 
-            addTagButton.addEventListener('click', addTag);
+            addTagButton.addEventListener('click', function() {
+                addTag(tagInput, items, tagList, tagsInput, true);
+            });
 
-            tagInput.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    e.preventDefault();
-                    addTag();
+            addTagButtonMm.addEventListener('click', function() {
+                addTag(tagInputMm, itemsMm, tagListMm, tagsInputMm, false);
+            });
+
+            tagInput.addEventListener('keypress', function(event) {
+                if (event.key === 'Enter') {
+                    event.preventDefault();
+                    addTag(tagInput, items, tagList, tagsInput, true);
                 }
             });
 
@@ -296,18 +367,38 @@
                 tagInput.setCustomValidity('');
             });
 
-            tagList.addEventListener('click', function(e) {
-                const removeButton = e.target.closest('.remove-item');
+            tagInputMm.addEventListener('keypress', function(event) {
+                if (event.key === 'Enter') {
+                    event.preventDefault();
+                    addTag(tagInputMm, itemsMm, tagListMm, tagsInputMm, false);
+                }
+            });
+
+            tagInputMm.addEventListener('input', function() {
+                tagInputMm.setCustomValidity('');
+            });
+
+            tagList.addEventListener('click', function(event) {
+                const removeButton = event.target.closest('.remove-item');
 
                 if (!removeButton) {
                     return;
                 }
 
                 items.splice(Number(removeButton.dataset.index), 1);
-                renderTags();
+                renderTags(tagList, tagsInput, tagInput, items, true);
             });
 
-            renderTags();
+            tagListMm.addEventListener('click', function(event) {
+                const removeButton = event.target.closest('.remove-item');
+
+                if (!removeButton) {
+                    return;
+                }
+
+                itemsMm.splice(Number(removeButton.dataset.index), 1);
+                renderTags(tagListMm, tagsInputMm, tagInputMm, itemsMm, false);
+            });
 
             mainContentEditor.events.on('change', function() {
                 validateRichTextField(mainContentEditor, mainContentField);
@@ -317,82 +408,49 @@
                 validateRichTextField(subContentEditor, subContentField);
             });
 
+            imageInput.addEventListener('change', function() {
+                if (!validateImage()) {
+                    imageInput.reportValidity();
+                    return;
+                }
+
+                const file = this.files[0];
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    imagePreview.src = e.target.result;
+                    imagePreviewWrapper.classList.remove('hidden');
+                    imageFileName.textContent = file.name;
+                };
+                reader.readAsDataURL(file);
+            });
+
             form.addEventListener('submit', function(event) {
                 const isMainContentValid = validateRichTextField(mainContentEditor, mainContentField);
                 const isSubContentValid = validateRichTextField(subContentEditor, subContentField);
                 mainContentMmField.value = mainContentMmEditor.value;
                 subContentMmField.value = subContentMmEditor.value;
 
-                if (imageInput.files.length > 0) {
-                    const file = imageInput.files[0];
+                updateTagsValue(tagsInput, tagInput, items, true);
+                updateTagsValue(tagsInputMm, tagInputMm, itemsMm, false);
 
-                    if (!allowedImageTypes.includes(file.type)) {
-                        imageInput.setCustomValidity('The image must be a file of type: jpeg, png, jpg, gif.');
-                    } else if (file.size > maxImageSize) {
-                        imageInput.setCustomValidity('The image may not be greater than 5120 kilobytes.');
-                    } else {
-                        imageInput.setCustomValidity('');
-                    }
-                } else {
-                    imageInput.setCustomValidity('Please choose an image.');
-                }
+                const isImageValid = validateImage();
 
-                updateTagsValue();
-
-                if (!isMainContentValid || !isSubContentValid || !form.checkValidity()) {
+                if (!isMainContentValid || !isSubContentValid || !isImageValid || !form.checkValidity()) {
                     event.preventDefault();
+
+                    if (!isImageValid) {
+                        imageFieldWrapper.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'center'
+                        });
+                    }
+
                     form.reportValidity();
                 }
             });
+
+            renderTags(tagList, tagsInput, tagInput, items, true);
+            renderTags(tagListMm, tagsInputMm, tagInputMm, itemsMm, false);
         });
-
-        function previewImage(input) {
-            const previewContainer = document.getElementById('imagePreviewContainer');
-            const preview = document.getElementById('imagePreview');
-            const fileName = document.getElementById('fileName');
-            const allowedImageTypes = ['image/jpeg', 'image/png', 'image/gif'];
-            const maxImageSize = 5 * 1024 * 1024;
-
-            input.setCustomValidity('');
-
-            if (input.files && input.files[0]) {
-                const file = input.files[0];
-
-                if (!allowedImageTypes.includes(file.type)) {
-                    previewContainer.classList.add('hidden');
-                    preview.src = '#';
-                    fileName.textContent = 'Only JPG, JPEG, PNG, and GIF files are allowed';
-                    input.value = '';
-                    input.setCustomValidity('The image must be a file of type: jpeg, png, jpg, gif.');
-                    input.reportValidity();
-                    return;
-                }
-
-                if (file.size > maxImageSize) {
-                    previewContainer.classList.add('hidden');
-                    preview.src = '#';
-                    fileName.textContent = 'File is larger than 5MB';
-                    input.value = '';
-                    input.setCustomValidity('The image may not be greater than 5120 kilobytes.');
-                    input.reportValidity();
-                    return;
-                }
-
-                const reader = new FileReader();
-
-                reader.onload = function(e) {
-                    preview.src = e.target.result;
-                    previewContainer.classList.remove('hidden');
-                    fileName.textContent = file.name;
-                };
-
-                reader.readAsDataURL(file);
-                return;
-            }
-
-            previewContainer.classList.add('hidden');
-            preview.src = '#';
-            fileName.textContent = 'No file chosen';
-        }
     </script>
 </x-app-layout>

@@ -4,14 +4,14 @@
     <div id="home-video-container">
       <video id="home-video" loop autoplay muted playsinline webkit-playsinline>
         <source src="{{ asset('videos/home.mp4') }}" type="video/mp4" />
-        Your browser does not support the video tag.
+        {{ site_text('site.home.video_fallback') }}
       </video>
       <section  class="m__home-hero">
               <div class="layout">
                 <p class="m__home-hero--tag ">
-                  Strategy – Creativity – Technology
+                  {{ site_text('site.home.tagline') }}
                 </p>
-                <div class="open-fullscreen c__button">
+                <div class="open-fullscreen c__button {{ app()->getLocale() === 'mm' ? 'is-mm' : '' }}">
                   <p>{{ site_text('site.home.see_our_work') }}</p>
                 </div>
               </div>
@@ -94,10 +94,9 @@
                         src="{{ asset('images/4.png') }}"
                         />
 
-                      <h2>Trusted by Myanmar's Leading Brands</h2>
+                      <h2>{{ site_text('site.home.slider_1_title') }}</h2>
                       <p>
-                        Digital partners for iconic brands like <span class="highlight-client">Si Taw Gyi</span>
-                        pickled tea and other market innovators.
+                        {{ site_text('site.home.slider_1_body_before') }}<span class="highlight-client">Si Taw Gyi</span>{{ site_text('site.home.slider_1_body_after') }}
                       </p>
                     </div>
                     <a href="" target="" class="c__button-circle light">
@@ -122,12 +121,10 @@
                     <div class="m__slider-panel--content">
                       
                       <h2>
-                        Digital transformation for Myanmar's favorite brands
+                        {{ site_text('site.home.slider_2_title') }}
                       </h2>
                       <p>
-                        Complete brand revamps, high-converting websites, and
-                        results-driven digital campaigns that deliver measurable
-                        growth.
+                        {{ site_text('site.home.slider_2_body') }}
                       </p>
                     </div>
                     <a href="" target="" class="c__button-circle light">
@@ -155,13 +152,11 @@
                         src="{{asset('images/mekong-black-and-white.png')}}"
                       />
                       <h2>
-                        Digital transformation for APAC leading job portal
+                        {{ site_text('site.home.slider_3_title') }}
                       </h2>
                       <p>
-                        A complete platform overhaul & results-driven digital
-                        strategy for
-                        <span class="highlight-client">Mekong Job</span>,
-                        creating most dynamic job-seeking experience.
+                        {{ site_text('site.home.slider_3_body_before') }}
+                        <span class="highlight-client">Mekong Job</span>{{ site_text('site.home.slider_3_body_after') }}
                       </p>
                     </div>
                     <a href="" target="" class="c__button-circle light">
@@ -189,10 +184,10 @@
                         src="{{asset('images/au-black-and-white.png')}}"
                       />
                       <h2>
-                        Digital empowerment for Myanmar's education leaders
+                        {{ site_text('site.home.slider_4_title') }}
                       </h2>
                       <p>
-                        A comprehensive digital ecosystem for <span class="highlight-client">American University of Yangon</span> - from brand identity to digital platforms, shaping the future of education in Myanmar.</p>
+                        {{ site_text('site.home.slider_4_body_before') }}<span class="highlight-client">American University of Yangon</span>{{ site_text('site.home.slider_4_body_after') }}</p>
                       </p>
                     </div>
                     <a href="" target="" class="c__button-circle light">
@@ -279,7 +274,7 @@
                 <div class="container">
                   <h3 class="text-6xl">{{ site_text('site.home.services') }}</h3>
                   <p class="medium">
-                    Combining strategy, creativity and technology, our work has purpose and is always results driven.
+                    {{ site_text('site.home.services_intro') }}
                   </p>
                 </div>
                 <div class="row">
@@ -312,3 +307,5 @@
     </div>
     <input type="hidden" id="data_location" value="" />
 @endsection
+
+

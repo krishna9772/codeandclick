@@ -3,6 +3,7 @@
 namespace App\Jobs;
 
 use App\Models\Blogs;
+use App\Models\Career;
 use App\Models\OurWork;
 use App\Models\Seo;
 use App\Models\Service;
@@ -30,25 +31,28 @@ class SiteMapGenerate implements ShouldQueue
     {
         $siteMap = Sitemap::create();
 
-        $seo = Seo::where('seoable_type', 'App\Models\Home')->first();
+        $seo = Seo::where('seoable_type', 'App\Models\Page')
+            ->where('seoable_id', 1)
+            ->first();
+        $lastModified = $seo?->updated_at ?? now();
 
 
         // Static pages
-        $siteMap->add(Url::create('/')->setLastModificationDate($seo->updated_at)->setPriority(1));
-        $siteMap->add(Url::create('/blog')->setLastModificationDate($seo->updated_at)->setPriority(1));
-        $siteMap->add(Url::create('/careers')->setLastModificationDate($seo->updated_at)->setPriority(1));
-        $siteMap->add(Url::create('/our-works')->setLastModificationDate($seo->updated_at)->setPriority(1));
-        $siteMap->add(Url::create('/services')->setLastModificationDate($seo->updated_at)->setPriority(1));
-        $siteMap->add(Url::create('/ventures')->setLastModificationDate($seo->updated_at)->setPriority(1));
-        $siteMap->add(Url::create('/work-with-us')->setLastModificationDate($seo->updated_at)->setPriority(1));
-        $siteMap->add(Url::create('/contact')->setLastModificationDate($seo->updated_at)->setPriority(1));
-        $siteMap->add(Url::create('/technology')->setLastModificationDate($seo->updated_at)->setPriority(1));
+        $siteMap->add(Url::create('/')->setLastModificationDate($lastModified)->setPriority(1));
+        $siteMap->add(Url::create('/blog')->setLastModificationDate($lastModified)->setPriority(1));
+        $siteMap->add(Url::create('/careers')->setLastModificationDate($lastModified)->setPriority(1));
+        $siteMap->add(Url::create('/our-works')->setLastModificationDate($lastModified)->setPriority(1));
+        $siteMap->add(Url::create('/services')->setLastModificationDate($lastModified)->setPriority(1));
+        $siteMap->add(Url::create('/ventures')->setLastModificationDate($lastModified)->setPriority(1));
+        $siteMap->add(Url::create('/work-with-us')->setLastModificationDate($lastModified)->setPriority(1));
+        $siteMap->add(Url::create('/contact')->setLastModificationDate($lastModified)->setPriority(1));
+        $siteMap->add(Url::create('/technology')->setLastModificationDate($lastModified)->setPriority(1));
 
         $blogs = Blogs::query()->where('status', 'published')->get();
 
         foreach ($blogs as $blog) {
             $siteMap->add(
-                Url::create("/blog/{$blog->uuid}/{$blog->slug}")
+                Url::create("/blog/{$blog->slug}")
                     ->setLastModificationDate($blog->updated_at)
             );
         }
@@ -57,8 +61,17 @@ class SiteMapGenerate implements ShouldQueue
 
         foreach ($services as $service) {
             $siteMap->add(
-                Url::create("/services/{$service->id}")
+                Url::create("/services/{$service->slug}")
                     ->setLastModificationDate($service->updated_at)
+            );
+        }
+
+        $careers = Career::query()->where('status', 'published')->get();
+
+        foreach ($careers as $career) {
+            $siteMap->add(
+                Url::create("/careers/{$career->slug}")
+                    ->setLastModificationDate($career->updated_at)
             );
         }
 
@@ -66,7 +79,7 @@ class SiteMapGenerate implements ShouldQueue
 
         foreach ($ourWorks as $ourWork) {
             $siteMap->add(
-                Url::create("/our-works/{$ourWork->id}")
+                Url::create("/our-works/{$ourWork->slug}")
                     ->setLastModificationDate($ourWork->updated_at)
             );
         }

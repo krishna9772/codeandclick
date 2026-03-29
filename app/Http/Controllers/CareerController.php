@@ -6,7 +6,6 @@ use App\Http\Requests\StoreCareerRequest;
 use App\Http\Requests\UpdateCareerRequest;
 use App\Http\Service\CareerService;
 use App\Models\Career;
-use Illuminate\Support\Facades\Log;
 
 class CareerController extends Controller
 {
@@ -72,7 +71,9 @@ class CareerController extends Controller
      */
     public function create()
     {
-        return view('Dashboard.Careers.create');
+        return view('Dashboard.Careers.create', [
+            'pageTitle' => 'Create New Career',
+        ]);
     }
 
     /**
@@ -101,7 +102,10 @@ class CareerController extends Controller
     public function edit($id)
     {
         $career = Career::findOrFail($id);
-        return view('Dashboard.Careers.edit', compact('career'));
+        return view('Dashboard.Careers.edit', [
+            'career' => $career,
+            'pageTitle' => 'Edit Career',
+        ]);
     }
 
     /**

@@ -39,7 +39,9 @@ class ClientController extends Controller
      */
     public function create()
     {
-        return view('Dashboard.Clients.create');
+        return view('Dashboard.Clients.create', [
+            'pageTitle' => 'Create New Client',
+        ]);
     }
 
     /**

@@ -37,6 +37,9 @@ class ServiceService
     {
         $service = Service::withTrashed()->find($id);
 
+        if ($service->works()->withTrashed()->exists()) {
+            return false;
+        }
 
         if ($service->trashed()) {
             $service->forceDelete();

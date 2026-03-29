@@ -7,7 +7,6 @@ use App\Http\Service\OurWorkServices;
 use App\Models\OurWork;
 use App\Models\Service;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 
 class OurWOrkController extends Controller
 {
@@ -67,7 +66,10 @@ class OurWOrkController extends Controller
 
         $services = Service::query()->where('status', 'published')->get();
 
-        return view('Dashboard.OurWork.create', compact('services'));
+        return view('Dashboard.OurWork.create', [
+            'services' => $services,
+            'pageTitle' => 'Create New Work',
+        ]);
     }
 
     /**
@@ -94,11 +96,13 @@ class OurWOrkController extends Controller
     public function edit(string $id)
     {
         $ourwork = OurWork::find($id);
-        Log::info($ourwork);
         $services = Service::query()->where('status', 'published')->get();
 
-   return view('Dashboard.OurWork.edit', compact('services','ourwork'));
-    
+        return view('Dashboard.OurWork.edit', [
+            'services' => $services,
+            'ourwork' => $ourwork,
+            'pageTitle' => 'Edit Work',
+        ]);
     }
 
     /**

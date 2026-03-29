@@ -15,9 +15,6 @@
   <link rel="icon" type="image/png" href="{{ asset('images/new-favicon.png') }}" />
 
   @vite(['resources/css/app.css', 'resources/js/app.js'])
-
-  <!-- Canonical URL -->
-  <link rel="canonical" href="https://codeandclick.com/" />
   {{-- <script
     src="https://code.jquery.com/jquery-3.7.1.min.js"
     integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
@@ -213,53 +210,56 @@
     <div class="container">
       <div class="row top">
         <div class="col-xs-12 col-md-6 footer_text_one">
-          <h5>All the Lorem Ipsum</h5>
-          <h4>All the Lorem Ip as necessary?</h4>
-          <!-- <a href="/contact/" class="c__button dark">Get in touch</a> -->
+          <h5>{{ site_text('site.footer.start_project') }}</h5>
+          <h4 class="footer-cta-title" style="font-size: 40px; line-height: 48px;">{{ site_text('site.footer.cta_title') }}</h4>
+          <a href="/contact/" class="c__button dark">{{ site_text('site.footer.get_in_touch') }}</a>
         </div>
         <div class="offices col-xs-5 col-md-3">
-          <h5>Sub Menus</h5>
+          <h5>{{ site_text('site.footer.sub_menus') }}</h5>
           <ul class="footer-office-links">
             <li>
-              <a class="data-location" data-location="london" href="#">predefined</a>
+              <a href="{{ route('our-work') }}" class="no-barba">{{ site_text('site.footer.our_work') }}</a>
             </li>
             <li>
-              <a class="data-location" data-location="fl" href="#">predefined</a>
+              <a href="{{ route('services') }}" class="no-barba">{{ site_text('site.footer.services') }}</a>
+            </li>
+            <li>
+              <a href="{{ route('contact') }}" class="no-barba">{{ site_text('site.footer.contact') }}</a>
             </li>
           </ul>
         </div>
         <div class="stay-in-touch col-xs-7 col-md-3">
-          <h5>Social Icons</h5>
+          <h5>{{ site_text('site.footer.social_icons') }}</h5>
           <div class="social-links">
-            <a target="_blank" href="https://web.facebook.com/codenclick">
+            <a target="_blank" href="https://www.facebook.com/codenclickmm">
               <img
                 alt="facebook url"
                 src="{{ asset('images/icons/facebook-logo-black.svg') }}" />
             </a>
-            <a target="_blank" href="#">
+            <a target="_blank" href="https://www.instagram.com/codenclickmm/">
               <img
                 alt="instagram url"
                 src="{{ asset('images/icons/instagram-logo-black.svg') }}" />
             </a>
-            <a target="_blank" href="#">
+            <a target="_blank" href="https://www.youtube.com/results?search_query=Code+and+Click+Myanmar">
               <img
                 alt="youtube url"
                 style="max-width: 37px"
                 src="{{ asset('images/icons/youtube-logo-black.svg') }}" />
             </a>
-            <a target="_blank" href="#">
+            <a target="_blank" href="https://twitter.com/codenclickmm">
               <img
                 alt="twitter url"
                 src="{{ asset('images/icons/twitter-logo-black.svg') }}" />
             </a>
-            <a target="_blank" href="#">
+            <a target="_blank" href="https://www.linkedin.com/company/codenclickmm">
               <img
                 alt="linkedin url"
                 src="{{ asset('images/icons/linkedin-black.svg') }}" />
             </a>
           </div>
           <div class="c__button-circle dark open-newsletter">
-            <span>Newsletter</span>
+            <span>{{ site_text('site.footer.newsletter') }}</span>
             <div class="c__button-circle--arrow">
               <img
                 alt="newsletter signup"
@@ -281,12 +281,12 @@
               <li
                 id="menu-item-4615"
                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4615">
-                <a href="#">Privacy Policy</a>
+                <a href="{{ route('privacy-policy') }}" class="no-barba">{{ site_text('site.footer.privacy_policy') }}</a>
               </li>
               <li
                 id="menu-item-3538"
                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3538">
-                <a href="#">T&#038;C</a>
+                <a href="{{ route('terms-and-conditions') }}" class="no-barba">{{ site_text('site.footer.terms') }}</a>
               </li>
             </ul>
           </div>
@@ -382,7 +382,7 @@
             name="about_project"
             placeholder="Enter your message"
             class="{{ $enquiryErrors->has('about_project') ? 'input-error' : '' }}">{{ old('about_project') }}</textarea>
-          <p>What’s your budget?</p>
+          <p>What's your budget?</p>
           <p class="budget error {{ $enquiryErrors->has('budget') ? 'active' : '' }}">Please select a budget</p>
           <div class="radio-container">
             <div class="radio-holder">
@@ -561,7 +561,7 @@
 
 
     <div class="popup" id="signup-form">
-      <form action="{{ route('user.subscribe') }}" method="post">
+      <form action="{{ route('user.subscribe') }}" method="post" class="newsletter-signup-form" novalidate>
         @csrf
         <img
           alt="close popup"
@@ -582,17 +582,24 @@
             placeholder="Last Name" />
           <input
             class="full-width"
-            type="text"
+            type="email"
             id="signup-form-email_address"
             name="email"
+            maxlength="255"
             placeholder="Email Address" />
         </div>
+        <div class="newsletter-errors">
+          <p class="newsletter-field-error" data-field="first_name"></p>
+          <p class="newsletter-field-error" data-field="last_name"></p>
+          <p class="newsletter-field-error newsletter-field-error-full" data-field="email"></p>
+        </div>
+        <p class="newsletter-form-error gdpr-error" style="display: none;"></p>
+        <p class="newsletter-success-message" style="display: none; color: #0c5c5f; margin-top: 12px;"></p>
         <div class="submit">
           <div class="checkbox-holder">
             <input type="checkbox" name="receive_newsletter" value="1" id="gdpr" />
             <p>
               Tick here if you'd like to receive updates from Code & Click.
-              <span class="gdpr-error">Please tick to receive newsletters</span>
             </p>
           </div>
           <button type="submit" id="newsletter-submit" class="submit-form c__button dark">
@@ -623,6 +630,208 @@
             $("#get-in-touch-form").removeClass("active");
         });
     })
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const newsletterFieldStyles = `
+        #signup-form .newsletter-errors {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 32px;
+          margin-top: 8px;
+        }
+        #signup-form .newsletter-field-error {
+          display: none;
+          width: calc(50% - 16px);
+          color: #ff3b30;
+          font-size: 14px;
+          line-height: 1.4;
+        }
+        #signup-form .newsletter-field-error-full {
+          width: 100%;
+        }
+        #signup-form .newsletter-success-message {
+          font-size: 14px;
+          line-height: 1.4;
+        }
+        #signup-form .newsletter-form-error {
+          color: #ff3b30;
+          font-size: 14px;
+          line-height: 1.4;
+          margin-top: 12px;
+        }
+        @media (max-width: 767px) {
+          #signup-form .newsletter-field-error {
+            width: 100%;
+          }
+        }
+      `;
+
+      if (!document.getElementById('newsletter-field-styles')) {
+        const styleTag = document.createElement('style');
+        styleTag.id = 'newsletter-field-styles';
+        styleTag.textContent = newsletterFieldStyles;
+        document.head.appendChild(styleTag);
+      }
+
+      document.querySelectorAll('.newsletter-signup-form').forEach((newsletterForm) => {
+        const firstNameInput = newsletterForm.querySelector('input[name="first_name"]');
+        const lastNameInput = newsletterForm.querySelector('input[name="last_name"]');
+        const emailInput = newsletterForm.querySelector('input[name="email"]');
+        const receiveNewsletterInput = newsletterForm.querySelector('input[name="receive_newsletter"]');
+        const errorElement = newsletterForm.querySelector('.newsletter-form-error');
+        const successElement = newsletterForm.querySelector('.newsletter-success-message');
+        const submitButton = newsletterForm.querySelector('button[type="submit"]');
+
+        function getFieldError(field) {
+          return newsletterForm.querySelector(`.newsletter-field-error[data-field="${field}"]`);
+        }
+
+        function setFieldError(field, message) {
+          const element = getFieldError(field);
+          const input = newsletterForm.querySelector(`input[name="${field}"]`);
+
+          if (!element) {
+            return;
+          }
+
+          element.textContent = message || '';
+          element.style.display = message ? 'block' : 'none';
+
+          if (input) {
+            input.classList.toggle('input-error', Boolean(message));
+          }
+        }
+
+        function setNewsletterError(message) {
+          errorElement.textContent = message || '';
+          errorElement.style.display = message ? 'block' : 'none';
+        }
+
+        function setNewsletterSuccess(message) {
+          successElement.textContent = message || '';
+          successElement.style.display = message ? 'block' : 'none';
+        }
+
+        function clearFieldErrors() {
+          ['first_name', 'last_name', 'email'].forEach((field) => setFieldError(field, ''));
+        }
+
+        function validateNewsletterForm() {
+          setNewsletterError('');
+          setNewsletterSuccess('');
+          clearFieldErrors();
+
+          if (!firstNameInput.value.trim()) {
+            setFieldError('first_name', 'The first name field is required.');
+            return false;
+          }
+
+          if (!lastNameInput.value.trim()) {
+            setFieldError('last_name', 'The last name field is required.');
+            return false;
+          }
+
+          if (!emailInput.value.trim()) {
+            setFieldError('email', 'The email field is required.');
+            return false;
+          }
+
+          const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+          if (!emailPattern.test(emailInput.value.trim())) {
+            setFieldError('email', 'The email must be a valid email address.');
+            return false;
+          }
+
+          if (!receiveNewsletterInput.checked) {
+            setNewsletterError('Please tick to receive newsletters.');
+            return false;
+          }
+
+          return true;
+        }
+
+        [firstNameInput, lastNameInput, emailInput].forEach((input) => {
+          input.addEventListener('input', function() {
+            setNewsletterError('');
+            setNewsletterSuccess('');
+            if (input === firstNameInput) {
+              setFieldError('first_name', '');
+            }
+            if (input === lastNameInput) {
+              setFieldError('last_name', '');
+            }
+            if (input === emailInput) {
+              setFieldError('email', '');
+            }
+          });
+        });
+
+        receiveNewsletterInput.addEventListener('change', function() {
+          setNewsletterError('');
+          setNewsletterSuccess('');
+        });
+
+        newsletterForm.addEventListener('submit', async function(event) {
+          event.preventDefault();
+
+          if (!validateNewsletterForm()) {
+            return;
+          }
+
+          setNewsletterError('');
+          setNewsletterSuccess('');
+          submitButton.disabled = true;
+
+          try {
+            const response = await fetch(newsletterForm.action, {
+              method: 'POST',
+              headers: {
+                'Accept': 'application/json',
+                'X-Requested-With': 'XMLHttpRequest',
+              },
+              body: new FormData(newsletterForm),
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+              clearFieldErrors();
+
+              if (data.errors) {
+                if (data.errors.first_name?.[0]) {
+                  setFieldError('first_name', data.errors.first_name[0]);
+                }
+                if (data.errors.last_name?.[0]) {
+                  setFieldError('last_name', data.errors.last_name[0]);
+                }
+                if (data.errors.email?.[0]) {
+                  setFieldError('email', data.errors.email[0]);
+                }
+
+                const generalError = data.errors.receive_newsletter?.[0] || '';
+
+                setNewsletterError(generalError);
+              } else {
+                setNewsletterError(data.message || 'Unable to submit the newsletter form.');
+              }
+
+              return;
+            }
+
+            newsletterForm.reset();
+            clearFieldErrors();
+            setNewsletterError('');
+            setNewsletterSuccess(data.message || 'Thank you for subscribing to our newsletter!');
+          } catch (error) {
+            setNewsletterError('Something went wrong. Please try again.');
+          } finally {
+            submitButton.disabled = false;
+          }
+        });
+      });
+    });
   </script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {

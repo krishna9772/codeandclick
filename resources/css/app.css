@@ -159,3 +159,34 @@ p {
         width: 100%;
     }
 }
+
+/* Blog overrides after Tailwind resets */
+@media screen and (min-width: 1080px) {
+    .l__blog h3 {
+        font-size: 52px;
+        line-height: 60px;
+    }
+}
+
+/* Restore list markers inside Jodit editors */
+.jodit-wysiwyg ul,
+.jodit-container .jodit-wysiwyg ul,
+.jodit-workplace ul {
+    list-style-type: disc;
+    margin: 1em 0;
+    padding-left: 2rem;
+}
+
+.jodit-wysiwyg ol,
+.jodit-container .jodit-wysiwyg ol,
+.jodit-workplace ol {
+    list-style-type: decimal;
+    margin: 1em 0;
+    padding-left: 2rem;
+}
+
+.jodit-wysiwyg li,
+.jodit-container .jodit-wysiwyg li,
+.jodit-workplace li {
+    display: list-item;
+}

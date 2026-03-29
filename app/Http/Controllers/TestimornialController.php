@@ -37,7 +37,9 @@ class TestimornialController extends Controller
      */
     public function create()
     {
-        return view('Dashboard.Testimornial.create');
+        return view('Dashboard.Testimornial.create', [
+            'pageTitle' => 'Create New Testimornial',
+        ]);
     }
 
     /**
@@ -63,7 +65,10 @@ class TestimornialController extends Controller
     public function edit(string $id)
     {
         $testimornial = Testimornial::findOrFail($id);
-        return view('Dashboard.Testimornial.edit', compact('testimornial'));
+        return view('Dashboard.Testimornial.edit', [
+            'testimornial' => $testimornial,
+            'pageTitle' => 'Edit Testimornial',
+        ]);
     }
 
     /**
