@@ -1,11 +1,11 @@
 @extends('layouts.main')
 @section('content')
 <div class="home-video-container">
-  {{-- <video id="home-video" loop autoplay muted playsinline webkit-playsinline>
+  <video id="home-video" loop autoplay muted playsinline webkit-playsinline>
     <source
       src="{{ asset('videos/home.mp4') }}"
       type="video/mp4" />
-  </video> --}}
+  </video>
 </div>
 
 <div class="showreel-video-overlay"></div>
@@ -247,10 +247,10 @@
             </div>
             <div class="m__beliefs--content">
               <div class="m__beliefs--content--tile">
-                <h4 class="large">Think long</br> term</h4>
-                <p class="small">Lorem Ipsum is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less </p>
+                <h4 class="large">We don’t just execute tasks — we become an extension of your team.</h4>
+                <p class="small">Whether you’re launching a new brand, improving your website, or scaling your digital marketing efforts, CODE & CLICK is committed to helping you move forward with confidence.</p>
               </div>
-              <div class="m__beliefs--content--tile">
+              {{-- <div class="m__beliefs--content--tile">
                 <h4 class="large">Never stop</br> learning</h4>
                 <p class="small">Lorem Ipsum is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less </p>
               </div>
@@ -293,7 +293,7 @@
               <div class="m__beliefs--content--tile">
                 <h4 class="large">Love what</br> you do</h4>
                 <p class="small">Lorem Ipsum is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less </p>
-              </div>
+              </div> --}}
             </div>
           </div>
         </section>
