@@ -23,8 +23,13 @@
 
 </head>
 
+@php
+  $bodyClass = trim($__env->yieldContent('body_class', 'home wp-singular page-template page-template-page-home page-template-page-home-php page page-id-5433 wp-theme-ignite no-smooth-scroll'));
+  $disableTransitionCurtain = str_contains($bodyClass, 'page-template-page-careers');
+@endphp
+
 <body
-  class="@yield('body_class', 'home wp-singular page-template page-template-page-home page-template-page-home-php page page-id-5433 wp-theme-ignite no-smooth-scroll')">
+  class="{{ $bodyClass }}">
   <div class="c__logo">
     <a href="{{ route('home') }}" class="no-barba">
       <img
@@ -68,39 +73,48 @@
       </div>
     </div>
   </header>
-  <div class="transition-curtain flex flex-col justify-center items-center">
-    <img class="w-24" src="{{ asset('images/logo.png') }}" alt="">
-    <p class="text-white text-2xl mt-10">Code and Click</p>
-  </div>
-  <script>
-    window.onload = () => {
-      const curtain = document.querySelector('.transition-curtain');
-      const anchors = document.querySelectorAll('a'); // Select all links
+  @unless ($disableTransitionCurtain)
+    <div class="transition-curtain flex flex-col justify-center items-center">
+      <img class="w-24" src="{{ asset('images/logo.png') }}" alt="">
+      <p class="text-white text-2xl mt-10">Code and Click</p>
+    </div>
+    <script>
+      window.onload = () => {
+        const curtain = document.querySelector('.transition-curtain');
+        const anchors = document.querySelectorAll('a');
 
-       setTimeout(() => {
-        curtain.classList.add('slide-out');
-      }, 300); 
-      anchors.forEach(anchor => {
-        anchor.addEventListener('click', e => {
-          e.preventDefault(); 
-          let target = anchor.href; 
+        if (!curtain) {
+          return;
+        }
 
-          if (anchor.hostname === window.location.hostname) {
+        setTimeout(() => {
+          curtain.classList.add('slide-out');
+        }, 300);
 
+        anchors.forEach(anchor => {
+          anchor.addEventListener('click', e => {
+            let target = anchor.href;
+
+            if (!target || anchor.classList.contains('no-barba') || anchor.target === '_blank' || anchor.hasAttribute('download')) {
+              return;
+            }
+
+            if (anchor.hostname !== window.location.hostname) {
+              return;
+            }
+
+            e.preventDefault();
             curtain.classList.remove('slide-out');
             curtain.classList.add('slide-in');
 
             setTimeout(() => {
               window.location.href = target;
             }, 1000);
-
-          } else {
-            window.location.href = target;
-          }
+          });
         });
-      });
-    };
-  </script>
+      };
+    </script>
+  @endunless
   <section class="c__navigation">
     <div class="container">
       <div class="row">

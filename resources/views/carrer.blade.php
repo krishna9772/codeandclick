@@ -46,33 +46,14 @@
               <div class="container">
                 <h3 class="text-4xl">{{ site_text('site.careers.current_opportunities') }}</h3>
                 <div style="display: flex; gap: 10px;">
-                  <a href="{{ route('show-careers') }}" class="c__button carbutt {{ $location == '' ? 'light' : '' }}" id="uk-butt">{{ site_text('site.blog.all') }}</a>
+                  <a href="{{ route('show-careers') }}" data-location="" class="c__button carbutt no-barba career-filter-link {{ $location == '' ? 'light' : '' }}">{{ site_text('site.blog.all') }}</a>
                   @foreach (config('base.location') as $available_location)
-                  <a href="{{ route('show-careers', ['location' => $available_location]) }}" class="c__button carbutt {{ $location == $available_location ? 'light' : '' }}" id="uk-butt">{{ $available_location }}</a>
+                  <a href="{{ route('show-careers', ['location' => $available_location]) }}" data-location="{{ $available_location }}" class="c__button carbutt no-barba career-filter-link {{ $location == $available_location ? 'light' : '' }}">{{ $available_location }}</a>
                   @endforeach
                 </div>
 
-                <div style="margin-top: 50px;" class="vacancies">
-                  @foreach ($careers as $career)
-                  <div class="row uk-job">
-                    <div class="col-xs-12 col-sm-7 col-md-8">
-                      <h3 style="font-size: 44px;">{{ $career->localized('title') }}</h3>
-                    </div>
-                    <div class="col-xs-12 col-sm-5 col-md-4 | button-col">
-                      <a
-                        href="{{ route('show-career-details', [$career->slug]) }}"
-                        target=""
-                        class="c__button-circle light">
-                        <span>{{ site_text('site.careers.read_more') }}</span>
-                        <div class="c__button-circle--arrow">
-                          <img
-                            alt="right arrow"
-                            src="{{ asset('images/icons/right-arrow.svg') }}" />
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-                  @endforeach
+                <div style="margin-top: 50px;" class="vacancies" id="career-vacancies">
+                  @include('partials.career-list-items', ['careers' => $careers])
                 </div>
               </div>
             </section>
@@ -91,6 +72,49 @@
               careersScrollButton.addEventListener('click', function (event) {
                 event.preventDefault();
                 opportunitiesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              });
+
+              const vacancies = document.getElementById('career-vacancies');
+              const filterLinks = Array.from(document.querySelectorAll('.career-filter-link'));
+
+              if (!vacancies || !filterLinks.length) {
+                return;
+              }
+
+              const setActiveFilter = function (activeLocation) {
+                filterLinks.forEach(function (link) {
+                  link.classList.toggle('light', link.dataset.location === activeLocation);
+                });
+              };
+
+              filterLinks.forEach(function (link) {
+                link.addEventListener('click', async function (event) {
+                  event.preventDefault();
+
+                  const url = new URL(link.href, window.location.origin);
+
+                  try {
+                    const response = await fetch(url, {
+                      headers: {
+                        'X-Requested-With': 'XMLHttpRequest',
+                        'Accept': 'application/json',
+                      },
+                    });
+
+                    if (!response.ok) {
+                      window.location.href = link.href;
+                      return;
+                    }
+
+                    const data = await response.json();
+                    vacancies.innerHTML = data.html;
+                    setActiveFilter(data.location || '');
+                    window.history.replaceState({}, '', link.href + '#current-opportunities');
+                    opportunitiesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  } catch (error) {
+                    window.location.href = link.href;
+                  }
+                });
               });
             });
           </script>

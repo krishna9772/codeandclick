@@ -1,132 +1,136 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
     <url>
-    <loc>http://127.0.0.1:8000</loc>
+    <loc>https://cnc.netra.asia/</loc>
     <lastmod>2026-03-28T21:12:40+00:00</lastmod>
     <priority>1.0</priority>
             </url>
     <url>
-    <loc>http://127.0.0.1:8000/blog</loc>
+    <loc>https://cnc.netra.asia/blog</loc>
     <lastmod>2026-03-28T21:12:40+00:00</lastmod>
     <priority>1.0</priority>
             </url>
     <url>
-    <loc>http://127.0.0.1:8000/careers</loc>
+    <loc>https://cnc.netra.asia/careers</loc>
     <lastmod>2026-03-28T21:12:40+00:00</lastmod>
     <priority>1.0</priority>
             </url>
     <url>
-    <loc>http://127.0.0.1:8000/our-works</loc>
+    <loc>https://cnc.netra.asia/our-works</loc>
     <lastmod>2026-03-28T21:12:40+00:00</lastmod>
     <priority>1.0</priority>
             </url>
     <url>
-    <loc>http://127.0.0.1:8000/services</loc>
+    <loc>https://cnc.netra.asia/services</loc>
     <lastmod>2026-03-28T21:12:40+00:00</lastmod>
     <priority>1.0</priority>
             </url>
     <url>
-    <loc>http://127.0.0.1:8000/ventures</loc>
+    <loc>https://cnc.netra.asia/ventures</loc>
     <lastmod>2026-03-28T21:12:40+00:00</lastmod>
     <priority>1.0</priority>
             </url>
     <url>
-    <loc>http://127.0.0.1:8000/work-with-us</loc>
+    <loc>https://cnc.netra.asia/work-with-us</loc>
     <lastmod>2026-03-28T21:12:40+00:00</lastmod>
     <priority>1.0</priority>
             </url>
     <url>
-    <loc>http://127.0.0.1:8000/contact</loc>
+    <loc>https://cnc.netra.asia/contact</loc>
     <lastmod>2026-03-28T21:12:40+00:00</lastmod>
     <priority>1.0</priority>
             </url>
     <url>
-    <loc>http://127.0.0.1:8000/technology</loc>
+    <loc>https://cnc.netra.asia/technology</loc>
     <lastmod>2026-03-28T21:12:40+00:00</lastmod>
     <priority>1.0</priority>
             </url>
     <url>
-    <loc>http://127.0.0.1:8000/blog/hospitality-rising-tackles-the-recruitment-crisis</loc>
+    <loc>https://cnc.netra.asia/blog/hospitality-rising-tackles-the-recruitment-crisis</loc>
     <lastmod>2026-03-23T11:15:36+00:00</lastmod>
             </url>
     <url>
-    <loc>http://127.0.0.1:8000/blog/ssdfsdfsdf</loc>
+    <loc>https://cnc.netra.asia/blog/ssdfsdfsdf</loc>
     <lastmod>2026-03-25T21:07:06+00:00</lastmod>
             </url>
     <url>
-    <loc>http://127.0.0.1:8000/blog/dsfsdfdsfsdf</loc>
+    <loc>https://cnc.netra.asia/blog/dsfsdfdsfsdf</loc>
     <lastmod>2026-03-25T21:07:28+00:00</lastmod>
             </url>
     <url>
-    <loc>http://127.0.0.1:8000/blog/jktsdfdsfscxv</loc>
+    <loc>https://cnc.netra.asia/blog/jktsdfdsfscxv</loc>
     <lastmod>2026-03-25T21:07:52+00:00</lastmod>
             </url>
     <url>
-    <loc>http://127.0.0.1:8000/blog/ggggggggggggggg</loc>
+    <loc>https://cnc.netra.asia/blog/ggggggggggggggg</loc>
     <lastmod>2026-03-25T21:08:15+00:00</lastmod>
             </url>
     <url>
-    <loc>http://127.0.0.1:8000/blog/sdfsdfsdfsdf</loc>
+    <loc>https://cnc.netra.asia/blog/sdfsdfsdfsdf</loc>
     <lastmod>2026-03-25T21:08:35+00:00</lastmod>
             </url>
     <url>
-    <loc>http://127.0.0.1:8000/blog/hhhhhhhhhhhhhhhhh</loc>
+    <loc>https://cnc.netra.asia/blog/hhhhhhhhhhhhhhhhh</loc>
     <lastmod>2026-03-28T17:18:49+00:00</lastmod>
             </url>
     <url>
-    <loc>http://127.0.0.1:8000/blog/jjjjjjjjjjjjjjjj</loc>
+    <loc>https://cnc.netra.asia/blog/jjjjjjjjjjjjjjjj</loc>
     <lastmod>2026-03-25T21:09:35+00:00</lastmod>
             </url>
     <url>
-    <loc>http://127.0.0.1:8000/blog/gggggggg</loc>
+    <loc>https://cnc.netra.asia/blog/gggggggg</loc>
     <lastmod>2026-03-25T21:09:58+00:00</lastmod>
             </url>
     <url>
-    <loc>http://127.0.0.1:8000/blog/jjjjjjjjjjjjjjj</loc>
+    <loc>https://cnc.netra.asia/blog/jjjjjjjjjjjjjjj</loc>
     <lastmod>2026-03-25T21:10:22+00:00</lastmod>
             </url>
     <url>
-    <loc>http://127.0.0.1:8000/blog/ggggggggggggggggg</loc>
+    <loc>https://cnc.netra.asia/blog/ggggggggggggggggg</loc>
     <lastmod>2026-03-25T21:10:42+00:00</lastmod>
             </url>
     <url>
-    <loc>http://127.0.0.1:8000/blog/kkkkkkkkkkkk</loc>
+    <loc>https://cnc.netra.asia/blog/kkkkkkkkkkkk</loc>
     <lastmod>2026-03-25T21:11:04+00:00</lastmod>
             </url>
     <url>
-    <loc>http://127.0.0.1:8000/blog/hhhhhhhhhhhhhh</loc>
+    <loc>https://cnc.netra.asia/blog/hhhhhhhhhhhhhh</loc>
     <lastmod>2026-03-25T21:11:27+00:00</lastmod>
             </url>
     <url>
-    <loc>http://127.0.0.1:8000/blog/ignite-and-kam-collaborate-to-uncover-customer-preferences-for-loyalty-programmes</loc>
+    <loc>https://cnc.netra.asia/blog/ignite-and-kam-collaborate-to-uncover-customer-preferences-for-loyalty-programmes</loc>
     <lastmod>2026-03-28T16:25:36+00:00</lastmod>
             </url>
     <url>
-    <loc>http://127.0.0.1:8000/blog/top-10-tips-how-to-get-the-most-out-of-your-crm-platform</loc>
+    <loc>https://cnc.netra.asia/blog/top-10-tips-how-to-get-the-most-out-of-your-crm-platform</loc>
     <lastmod>2026-03-28T17:23:49+00:00</lastmod>
             </url>
     <url>
-    <loc>http://127.0.0.1:8000/blog/sdfdsfsdf</loc>
+    <loc>https://cnc.netra.asia/blog/sdfdsfsdf</loc>
     <lastmod>2026-03-28T17:29:48+00:00</lastmod>
             </url>
     <url>
-    <loc>http://127.0.0.1:8000/services/website-development</loc>
+    <loc>https://cnc.netra.asia/services/website-development</loc>
     <lastmod>2026-03-28T18:31:14+00:00</lastmod>
             </url>
     <url>
-    <loc>http://127.0.0.1:8000/careers/web-devloper</loc>
+    <loc>https://cnc.netra.asia/careers/web-devloper</loc>
     <lastmod>2026-03-28T20:46:53+00:00</lastmod>
             </url>
     <url>
-    <loc>http://127.0.0.1:8000/careers/it-testee</loc>
+    <loc>https://cnc.netra.asia/careers/it-testee</loc>
     <lastmod>2026-03-28T20:46:38+00:00</lastmod>
             </url>
     <url>
-    <loc>http://127.0.0.1:8000/careers/zczxc</loc>
+    <loc>https://cnc.netra.asia/careers/zczxc</loc>
     <lastmod>2026-03-28T20:42:40+00:00</lastmod>
             </url>
     <url>
-    <loc>http://127.0.0.1:8000/our-works/this-is-test</loc>
+    <loc>https://cnc.netra.asia/our-works/this-is-test</loc>
     <lastmod>2026-03-28T18:58:29+00:00</lastmod>
+            </url>
+    <url>
+    <loc>https://cnc.netra.asia/our-works/dsfsdf</loc>
+    <lastmod>2026-03-29T10:44:32+00:00</lastmod>
             </url>
 </urlset>

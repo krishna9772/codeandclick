@@ -215,7 +215,7 @@ class HomeController extends Controller
             ->limit(6)
             ->get();
 
-        $blogs = $this->publishedBlogsQuery($tab, $Headerblogs->pluck('id')->all())->paginate(6);
+        $blogs = $this->publishedBlogsQuery($tab)->paginate(6);
 
         $seo = Seo::where('seoable_type', 'App\Models\Blogs')->first();
 
@@ -230,12 +230,7 @@ class HomeController extends Controller
         $tab = $request->query('tab', "");
         $page = max((int) $request->query('page', 1), 1);
 
-        $headerBlogIds = $this->publishedBlogsQuery()
-            ->limit(6)
-            ->pluck('id')
-            ->all();
-
-        $blogs = $this->publishedBlogsQuery($tab, $headerBlogIds)->paginate(6, ['*'], 'page', $page);
+        $blogs = $this->publishedBlogsQuery($tab)->paginate(6, ['*'], 'page', $page);
 
         return response()->json([
             'html' => view('partials.blog-list-items', compact('blogs'))->render(),
@@ -349,6 +344,13 @@ class HomeController extends Controller
         $seo = Seo::where('seoable_type', 'App\Models\Career')->first();
 
         $this->generateSeo($seo, site_text('site.careers.title'), "/careers");        
+
+        if (request()->ajax()) {
+            return response()->json([
+                'html' => view('partials.career-list-items', compact('careers'))->render(),
+                'location' => $location,
+            ]);
+        }
 
         return view('carrer', compact('location', 'careers'));
     }
