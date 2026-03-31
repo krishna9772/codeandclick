@@ -8,7 +8,12 @@
   <meta name="MobileOptimized" content="320" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  @php
+    $metaTitle = \Artesaos\SEOTools\Facades\SEOTools::getTitle(false) ?: config('app.name', 'Code and Click');
+  @endphp
+
   {!! SEO::generate() !!}
+  <meta name="title" content="{{ $metaTitle }}" />
 
 
   <!-- Favicon -->
