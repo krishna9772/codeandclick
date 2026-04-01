@@ -61,7 +61,9 @@
               <div>
                 {!! $service->localized('sub_content') !!}
               </div>
-              <p class="text-4xl font-medium">{{ site_text('site.services.our_case_studies') }}</p>
+              @if(count($service->works) > 0)
+                <p class="text-4xl font-medium">{{ site_text('site.services.our_case_studies') }}</p>
+              @endif
               <div class="grid grid-cols-2 gap-6">
                 @foreach($service->works as $work)
                 <div

@@ -178,10 +178,18 @@ class HomeController extends Controller
 
         $clients = Client::all();
         $services = Service::with(['works' => function ($q) {
-            $q->where('status', 'published');
-        }])->whereHas('works', function ($q) {
-            return $q->where('status', 'published');
-        })->where('status', 'published')->get();
+        $q->where('status', 'published');
+        }])
+        ->where('status', 'published')
+        ->where(function ($query) {
+            $query->whereHas('works', function ($q) {
+                $q->where('status', 'published');
+            })
+            ->orWhereDoesntHave('works');
+        })
+        ->get();
+
+        // return $services;
 
         $testimornials = Testimornial::all();
 
