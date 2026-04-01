@@ -8157,13 +8157,13 @@ body.showreel-open .transition-curtain {
 @media screen and (min-width: 650px) {
     .m__beliefs--content--tile {
         margin-bottom: 70px;
-        width: 50%;
+        /* width: 50%; */
     }
 }
 @media screen and (min-width: 800px) {
     .m__beliefs--content--tile {
         padding: 0;
-        width: 30%;
+        /* width: 30%; */
     }
 }
 .m__beliefs--content--tile br {
