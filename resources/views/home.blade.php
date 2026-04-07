@@ -227,21 +227,15 @@
               <section class="m__testimonials">
                 <div class="m__testimonials--mobile">
                   <div class="owl-carousel testimonial">
-                    <img
-                      alt=""
-                      class="mobile-logo"
-                      src="/images/mobile-slide.webp"
-                    />
-                    <img
-                      alt=""
-                      class="mobile-logo"
-                      src="/images/mobile-slide.webp"
-                    />
-                    <img
-                      alt=""
-                      class="mobile-logo"
-                      src="/images/mobile-slide.webp"
-                    />
+                    @foreach ($clients as $client)
+
+                      <img
+                        alt=""
+                        class="mobile-logo"
+                        src="{{$client->getFirstMediaUrl('clients')}}"
+                      />
+                    @endforeach
+                   
                   </div>
                 </div>
                 <div class="container">

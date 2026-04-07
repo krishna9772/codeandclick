@@ -77,15 +77,14 @@
           <section class="m__testimonials">
             <div class="m__testimonials--mobile">
               <div class="owl-carousel testimonial">
-                <img
-                  class="mobile-logo"
-                  src="{{ asset('images/default.png') }}" />
-                <img
-                  class="mobile-logo"
-                  src="{{ asset('images/default.png') }}" />
-                <img
-                  class="mobile-logo"
-                  src="{{ asset('images/default.png') }}" />
+                @foreach ($testimornials as $testimornial)
+
+                  <img
+                    class="mobile-logo"
+                    src="{{$testimornial->getFirstMediaUrl('testimornials')}}" />
+
+                @endforeach
+                
               </div>
             </div>
             <div class="container">
