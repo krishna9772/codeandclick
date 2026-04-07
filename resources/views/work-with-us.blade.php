@@ -135,7 +135,7 @@
                 <h4 class="medium">{{ site_text('site.work_with_us.section_3_intro_title') }}</h4>
               </div>
               <div class="col-xs-12 col-md-6 m__solution--content-right">
-                <p style="text-align: justify;">{{ site_text('site.work_with_us.section_3_intro_body') }}</p>
+                <p>{{ site_text('site.work_with_us.section_3_intro_body') }}</p>
                 <p>{{ site_text('site.work_with_us.section_3_expertise_label') }}</p>
                 <p style="margin-bottom: 15px; border-left: 2px solid #ccc; padding-left: 10px;">{{ site_text('site.work_with_us.expertise_1') }}</p>
                 <p style="margin-bottom: 15px; border-left: 2px solid #ccc; padding-left: 10px;">{{ site_text('site.work_with_us.expertise_2') }}</p>
@@ -153,7 +153,7 @@
               <div class="image" style="background-image: url(/images/default.png)"></div>
             </div>
             <div class="col-xs-11 col-md-6 m__further-solution--content right">
-              <p style="text-align: justify;">{{ site_text('site.work_with_us.section_3_follow_body') }}</p>
+              <p>{{ site_text('site.work_with_us.section_3_follow_body') }}</p>
             </div>
           </div>
           <div class="title-container">
@@ -183,7 +183,7 @@
               <h2 class="small">{{ site_text('site.work_with_us.section_4_title') }}</h2>
             </div>
             <div class="m__global-reach--content">
-              <p style="text-align: justify;">{{ site_text('site.work_with_us.section_4_body') }}</p>
+              <p>{{ site_text('site.work_with_us.section_4_body') }}</p>
               <a href="{{ route('contact') }}" class="c__button-circle dark">
                 <span style="color: #fff;">{{ site_text('site.work_with_us.section_4_cta') }}</span>
                 <div class="c__button-circle--arrow">

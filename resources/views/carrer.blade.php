@@ -35,7 +35,7 @@
             <section class="l__ventures--titles">
               <div class="medium-container">
                 <h1 class="text-6xl">{{ site_text('site.careers.title') }}</h1>
-                <h4 class="small" style="text-align: justify;">
+                <h4 class="small">
                   {{ site_text('site.careers.intro') }}
                 </h4>
               </div>

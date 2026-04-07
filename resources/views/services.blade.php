@@ -45,7 +45,7 @@
               <h2 class="small">
                 {{ site_text('site.services.solutions_title') }}
               </h2>
-              <p class="large" style="text-align: justify;">
+              <p class="large">
                 {{ site_text('site.services.solutions_body') }}
               </p>
               <div class="row">

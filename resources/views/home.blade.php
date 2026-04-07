@@ -58,7 +58,7 @@
                       <h1>{{ site_text('site.home.strategy') }}</h1>
                       <h1>{{ site_text('site.home.creativity') }}</h1>
                     </div>
-                    <p style="text-align: justify !important;">
+                    <p>
                       {{ site_text('site.home.intro_body') }}
                     </p>
                     <a href="{{route('our-work')}}" target="" class="c__button-circle light">
