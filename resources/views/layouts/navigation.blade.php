@@ -27,9 +27,9 @@
                      <x-nav-link :href="route('our-work.index')" :active="request()->routeIs('our-work.*')">
                         {{ __('Our Work') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('ventures.index')" :active="request()->routeIs('ventures.*')">
+                    {{-- <x-nav-link :href="route('ventures.index')" :active="request()->routeIs('ventures.*')">
                         {{ __('Ventures') }}
-                    </x-nav-link>
+                    </x-nav-link> --}}
                     <x-nav-link :href="route('careers.index')" :active="request()->routeIs('careers.*')">
                         {{ __('Careers') }}
                     </x-nav-link>
@@ -116,9 +116,9 @@
             <x-responsive-nav-link :href="route('our-work.index')" :active="request()->routeIs('our-work.*')">
                 {{ __('Our Work') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('ventures.index')" :active="request()->routeIs('ventures.*')">
+            {{-- <x-responsive-nav-link :href="route('ventures.index')" :active="request()->routeIs('ventures.*')">
                 {{ __('Ventures') }}
-            </x-responsive-nav-link>
+            </x-responsive-nav-link> --}}
             <x-responsive-nav-link :href="route('careers.index')" :active="request()->routeIs('careers.*')">
                 {{ __('Careers') }}
             </x-responsive-nav-link>

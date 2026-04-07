@@ -54,7 +54,7 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/services/{id}', 'showServiceDetails')->name('service-details');
 
     // Ventures
-    Route::get('/ventures', 'showVentures')->name('ventures');
+    // Route::get('/ventures', 'showVentures')->name('ventures');
 
     // Work With Us
     Route::get('/work-with-us', 'showWorkWithUs')->name('work-with-us');
