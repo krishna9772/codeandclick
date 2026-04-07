@@ -185,7 +185,7 @@
               <li
                 id="menu-item-17"
                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-17">
-                <a href="{{ route('ventures') }}" class="no-barba">{{ site_text('site.navigation.ventures') }}</a>
+                <a href="{{ route('work-with-us') }}" class="no-barba">{{ site_text('site.navigation.working_with_us') }}</a>
               </li>
               <li
                 id="menu-item-5156"
